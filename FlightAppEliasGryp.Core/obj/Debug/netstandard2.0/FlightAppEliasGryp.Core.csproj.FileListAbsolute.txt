@@ -1,0 +1,9 @@
+C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp.Core\bin\Debug\netstandard2.0\FlightAppEliasGryp.Core.deps.json
+C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp.Core\bin\Debug\netstandard2.0\FlightAppEliasGryp.Core.dll
+C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp.Core\bin\Debug\netstandard2.0\FlightAppEliasGryp.Core.pdb
+C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp.Core\obj\Debug\netstandard2.0\FlightAppEliasGryp.Core.csprojAssemblyReference.cache
+C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp.Core\obj\Debug\netstandard2.0\FlightAppEliasGryp.Core.csproj.CoreCompileInputs.cache
+C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp.Core\obj\Debug\netstandard2.0\FlightAppEliasGryp.Core.AssemblyInfoInputs.cache
+C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp.Core\obj\Debug\netstandard2.0\FlightAppEliasGryp.Core.AssemblyInfo.cs
+C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp.Core\obj\Debug\netstandard2.0\FlightAppEliasGryp.Core.dll
+C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp.Core\obj\Debug\netstandard2.0\FlightAppEliasGryp.Core.pdb
