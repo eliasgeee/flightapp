@@ -1,5 +1,6 @@
 ﻿using FlightAppEliasGryp.Models;
 using FlightAppEliasGryp.Services;
+using FlightAppEliasGryp.Views;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using Microsoft.Toolkit.Uwp.UI.Animations;
@@ -21,6 +22,8 @@ namespace FlightAppEliasGryp.ViewModels
 
         internal ICollection<Product> Products { get => products; set => products = value; }
 
+        public int ItemsInShoppingCart { get; set; }
+
         private ICollection<Product> products;
 
         private ICollection<Product> Bestellingen { get; set; }
@@ -37,6 +40,11 @@ namespace FlightAppEliasGryp.ViewModels
             LoadDataAsync();
         }
 
+        internal void OnShoppingCartIconTapped()
+        {
+            NavigationService.Navigate("FlightAppEliasGryp.ViewModels.ShoppingCartViewModel");
+        }
+
         public async void LoadDataAsync()
         {
                   Products.Clear();
@@ -44,7 +52,13 @@ namespace FlightAppEliasGryp.ViewModels
                     foreach (var item in data)
                     {
                         Products.Add(item);
-                    }     
+                    }
+            GetAmountOfItemsInShoppingCart();
+        }
+
+        public async void GetAmountOfItemsInShoppingCart()
+        {
+            ItemsInShoppingCart = await _catalogDataService.GetAmountOfItemsInShoppingCartAsync();
         }
 
         public async void AddProductToShoppingCart(Product clickedItem)
@@ -55,6 +69,7 @@ namespace FlightAppEliasGryp.ViewModels
                 var data = await _catalogDataService.AddProductToShoppingCart(clickedItem);
                 Bestellingen = data;
             }
+            GetAmountOfItemsInShoppingCart();
         }
     }
 }

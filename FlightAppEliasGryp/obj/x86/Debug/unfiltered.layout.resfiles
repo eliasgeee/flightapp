@@ -17,4 +17,7 @@ Styles\TextBlock.xbf
 Views\CatalogPage.xbf
 Views\DetailsPage.xbf
 Views\ShellPage.xbf
+Views\ShoppingCartIcon.xbf
+Views\ShoppingCartPage.xbf
 Properties\Default.rd.xml
+shopping-cart--v2.png

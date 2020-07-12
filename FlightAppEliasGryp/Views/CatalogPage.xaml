@@ -8,43 +8,62 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:models="using:FlightAppEliasGryp.Core.Models"
     xmlns:models1="using:FlightAppEliasGryp.Models"
+    xmlns:local1="using:FlightAppEliasGryp.Views"
     Style="{StaticResource PageStyle}"
     mc:Ignorable="d">
 
-    <Grid x:Name="ContentArea">
-        <controls:AdaptiveGridView
+    <Grid Margin="0,24,0,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid Margin="24,0" Grid.Row="0" Padding="10">
+            <local1:ShoppingCartIcon
+                VerticalAlignment="Center"
+                HorizontalAlignment="Right"
+                />
+        </Grid>
+        <Grid x:Name="ContentArea" Margin="24,0" Grid.Row="1">
+            <!--<Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>-->
+            <controls:AdaptiveGridView
+            HorizontalContentAlignment="Stretch"
+            VerticalContentAlignment="Stretch"
             Padding="{StaticResource MediumLeftRightMargin}"
             animations:Connected.ListItemElementName="itemThumbnail"
             animations:Connected.ListItemKey="animationKeyCatalog"
-            DesiredWidth="180"
+            DesiredWidth="200"
             ItemHeight="160"
             IsItemClickEnabled="False"
             ItemsSource="{x:Bind ViewModel.Products,Mode=OneWay}"
             SelectionMode="None"
-            StretchContentForSingleRow="False">
-            <controls:AdaptiveGridView.ItemTemplate>
-                <DataTemplate x:DataType="models1:Product">
-                    <Grid
+            StretchContentForSingleRow="False" SelectionChanged="AdaptiveGridView_SelectionChanged" Grid.ColumnSpan="2" Margin="0,0,0,0">
+                <controls:AdaptiveGridView.ItemTemplate>
+                    <DataTemplate x:DataType="models1:Product">
+                        <Grid
                         x:Name="itemThumbnail"
                         Padding="{StaticResource XSmallLeftTopRightBottomMargin}"
                         Background="{ThemeResource SystemControlPageBackgroundChromeLowBrush}">
-                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-                            <Image Source="{x:Bind Image}" MaxHeight="60" MaxWidth="60" />
-                            <TextBlock
+                            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <Image Source="{x:Bind Image}" MaxHeight="60" MaxWidth="60" VerticalAlignment="Top"/>
+                                <TextBlock
                                 Margin="{StaticResource XXSmallTopMargin}"
                                 HorizontalAlignment="Center"
                                 Style="{ThemeResource BodyTextStyle}"
                                 Text="{x:Bind Name}" />
-                            <TextBlock
+                                <TextBlock
                                 Margin="{StaticResource XXSmallTopMargin}"
                                 HorizontalAlignment="Center"
                                 Style="{ThemeResource BodyTextStyle}"
                                 Text="{x:Bind GetFormattedPrice()}" />
-                            <Button Margin="0,5,0,0" Click="AddToShoppingCart">Add to shopping cart</Button>
-                        </StackPanel>
-                    </Grid>
-                </DataTemplate>
-            </controls:AdaptiveGridView.ItemTemplate>
-        </controls:AdaptiveGridView>
+                                <Button Margin="0,5,0,0" Click="AddToShoppingCart" VerticalAlignment="Bottom">Add to shopping cart</Button>
+                            </StackPanel>
+                        </Grid>
+                    </DataTemplate>
+                </controls:AdaptiveGridView.ItemTemplate>
+            </controls:AdaptiveGridView>
+        </Grid>
     </Grid>
 </Page>

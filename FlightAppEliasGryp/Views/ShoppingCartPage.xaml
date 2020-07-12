@@ -1,0 +1,205 @@
+﻿<Page
+    x:Class="FlightAppEliasGryp.Views.ShoppingCartPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:FlightAppEliasGryp.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:local1="using:FlightAppEliasGryp.Models"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid>
+        <Grid
+            Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+            Padding="8"
+            >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid
+                BorderBrush="LightGray"
+                BorderThickness="0,0,0,1"
+                Margin="48,0,48,0"
+                Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <TextBlock
+                    Text="Shopping Cart"
+                    FontSize="25"
+                    FontWeight="SemiBold"
+                    Margin="0,48,0,24"
+                    Grid.Column="0"/>
+                <TextBlock
+                    Text="{x:Bind Path=ViewModel.ShoppingCart.GetFormattedAmountOfItems()}"
+                    FontSize="25"
+                    FontWeight="SemiBold"
+                    Margin="0,48,0,24"
+                    Grid.Column="1"
+                    HorizontalAlignment="Right"/>
+            </Grid>
+            <ScrollViewer
+                Grid.Row="1"
+                VerticalScrollBarVisibility="Visible"
+                VerticalScrollMode="Enabled"
+                Padding="0,0,24,0"
+                >
+                <StackPanel>
+                    <Grid
+                        Grid.Row="0" Margin="0,24,0,0"
+                        >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="180" />
+                            <ColumnDefinition Width="70" />
+                            <ColumnDefinition Width="70" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock
+                            Grid.Column="0"
+                            Text="PRODUCT" Margin="48,0,0,0"
+                            Foreground="#FFADABAB"
+                            />
+                        <TextBlock
+                            Grid.Column="2"
+                            Text="QUANTITY"
+                            Margin="16,0,0,0"
+                            Foreground="#FFADABAB"
+                            />
+                        <TextBlock
+                            Grid.Column="3"
+                            Text="PRICE"
+                            Foreground="#FFADABAB"
+                            />
+                        <TextBlock
+                            Grid.Column="4"
+                            Text="TOTAL"
+                            Foreground="#FFADABAB"
+                            />
+                    </Grid>
+                    <StackPanel
+                        Grid.Row="2"
+                        >
+                        <ListView
+                            Grid.Row="2"
+                            ItemsSource="{x:Bind Path=ViewModel.ShoppingCart.ShoppingCartEntries, Mode=OneWay}"
+                            SelectionMode="None"
+                            IsItemClickEnabled="False"
+                            >
+                            <ListView.ItemContainerStyle>
+                                <Style TargetType="ListViewItem">
+                                    <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                                    <Setter Property="Padding" Value="0,8" />
+                                    <Setter Property="Margin" Value="48,24,0,0"/>
+                                </Style>
+                            </ListView.ItemContainerStyle>
+                            <ListView.ItemTemplate>
+                                <DataTemplate
+                                    x:DataType="local1:ShoppingCartEntry"
+                                    >
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="180" />
+                                            <ColumnDefinition Width="70" />
+                                            <ColumnDefinition Width="70" />
+                                        </Grid.ColumnDefinitions>
+                                        <Image
+                                            Grid.Column="0"
+                                            Source="{x:Bind Path=Product.Image}"
+                                            Height="80" Width="80"
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Center"/>
+                                        <StackPanel
+                                            Grid.Column="1"
+                                            HorizontalAlignment="Left"
+                                            VerticalAlignment="Top"
+                                            Margin="24, 0, 0, 8"
+                                            >
+                                            <TextBlock
+                                                Grid.Column="1"
+                                                Text="{x:Bind Path=Product.Name}"
+                                                FontSize="20"
+                                                TextAlignment="Left"
+                                                FontWeight="SemiBold"
+                                                VerticalAlignment="Center"
+                                                TextWrapping="WrapWholeWords"
+                                                TextTrimming="CharacterEllipsis"
+                                                MaxLines="2"/>
+                                            <HyperlinkButton
+                                                Content="Remove"
+                                                Click="OnRemoveEntryClicked"
+                                                Tag="{x:Bind}"
+                                                Padding="0"
+                                                />
+                                        </StackPanel>
+                                        <StackPanel
+                                            Grid.Column="2"
+                                            Orientation="Horizontal"
+                                            >
+                                            <HyperlinkButton
+                                                FontSize="24"
+                                                Grid.Column="2"
+                                                Content="-"
+                                                VerticalAlignment="Top"
+                                                Margin="0,0,8,0"
+                                                />
+                                            <TextBox
+                                            Grid.Column="2"
+                                            InputScope="Number"
+                                            Text="{x:Bind Path=Quantity}"
+                                            FontSize="16"
+                                            FontWeight="SemiBold"
+                                            VerticalAlignment="Top"/>
+                                            <HyperlinkButton
+                                                FontSize="24"
+                                                Grid.Column="2"
+                                                Content="+"
+                                                VerticalAlignment="Top"
+                                                Margin="8,0,0,0"
+                                                />
+                                        </StackPanel>
+                                        <StackPanel
+                                            Grid.Column="3"
+                                            VerticalAlignment="Top"
+                                            >
+                                            <TextBlock
+                                            Grid.Column="3"
+                                            TextWrapping="NoWrap"
+                                            VerticalAlignment="Center"
+                                            HorizontalAlignment="Stretch"
+                                            MinWidth="0"
+                                            Text="{x:Bind Path=Product.GetFormattedPrice()}"
+                                            FontSize="16"
+                                            FontWeight="SemiBold"/>
+                                        </StackPanel>
+                                        <StackPanel
+                                            Grid.Column="4"
+                                            VerticalAlignment="Top"
+                                            >
+                                            <TextBlock
+                                            Grid.Column="4"
+                                            Text="{x:Bind Path=PriceBeforePromotions}"
+                                            FontSize="16"
+                                            VerticalAlignment="Top"
+                                            FontWeight="SemiBold"/>
+                                            <TextBlock
+                                            Grid.Column="4"
+                                            Text="{x:Bind Path=TotalCost}"
+                                            FontSize="16"
+                                            VerticalAlignment="Top"
+                                            FontWeight="SemiBold"/>
+                                        </StackPanel>
+                                    </Grid>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </StackPanel>
+                </StackPanel>
+            </ScrollViewer>
+        </Grid>
+    </Grid>
+</Page>

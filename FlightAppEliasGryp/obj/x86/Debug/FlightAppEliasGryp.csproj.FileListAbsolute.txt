@@ -8,6 +8,8 @@ C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\bin\x86\Debug\
 C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\bin\x86\Debug\Views\CatalogPage.xbf
 C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\bin\x86\Debug\Views\DetailsPage.xbf
 C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\bin\x86\Debug\Views\ShellPage.xbf
+C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\bin\x86\Debug\Views\ShoppingCartIcon.xbf
+C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\bin\x86\Debug\Views\ShoppingCartPage.xbf
 C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\bin\x86\Debug\FlightAppEliasGryp.xr.xml
 C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\bin\x86\Debug\FlightAppEliasGryp.exe
 C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\bin\x86\Debug\FlightAppEliasGryp.pdb
@@ -60,6 +62,10 @@ C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\obj\x86\Debug\
 C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\obj\x86\Debug\Views\DetailsPage.g.cs
 C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\obj\x86\Debug\Views\ShellPage.g.i.cs
 C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\obj\x86\Debug\Views\ShellPage.g.cs
+C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\obj\x86\Debug\Views\ShoppingCartIcon.g.i.cs
+C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\obj\x86\Debug\Views\ShoppingCartIcon.g.cs
+C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\obj\x86\Debug\Views\ShoppingCartPage.g.i.cs
+C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\obj\x86\Debug\Views\ShoppingCartPage.g.cs
 C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\obj\x86\Debug\XamlTypeInfo.g.cs
 C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\obj\x86\Debug\App.xaml
 C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\obj\x86\Debug\Microsoft.UI.Xaml\DensityStyles\Compact.xaml
@@ -71,6 +77,8 @@ C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\obj\x86\Debug\
 C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\obj\x86\Debug\Views\CatalogPage.xaml
 C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\obj\x86\Debug\Views\DetailsPage.xaml
 C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\obj\x86\Debug\Views\ShellPage.xaml
+C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\obj\x86\Debug\Views\ShoppingCartIcon.xaml
+C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\obj\x86\Debug\Views\ShoppingCartPage.xaml
 C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\obj\x86\Debug\App.xbf
 C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\obj\x86\Debug\Microsoft.UI.Xaml\DensityStyles\Compact.xbf
 C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\obj\x86\Debug\Styles\Page.xbf
@@ -81,6 +89,8 @@ C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\obj\x86\Debug\
 C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\obj\x86\Debug\Views\CatalogPage.xbf
 C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\obj\x86\Debug\Views\DetailsPage.xbf
 C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\obj\x86\Debug\Views\ShellPage.xbf
+C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\obj\x86\Debug\Views\ShoppingCartIcon.xbf
+C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\obj\x86\Debug\Views\ShoppingCartPage.xbf
 C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\obj\x86\Debug\XamlSaveStateFile.xml
 C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\obj\x86\Debug\FlightAppEliasGryp.csproj.CoreCompileInputs.cache
 C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\obj\x86\Debug\FlightAppEliasGryp.csproj.CopyComplete

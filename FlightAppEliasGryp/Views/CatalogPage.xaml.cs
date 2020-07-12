@@ -42,5 +42,15 @@ namespace FlightAppEliasGryp.Views
             };
             await dialog.ShowAsync();
         }
+
+        private void AdaptiveGridView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void ViewShoppingCart(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+
+        }
     }
 }

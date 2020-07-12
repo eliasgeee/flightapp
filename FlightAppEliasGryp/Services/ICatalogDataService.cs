@@ -11,5 +11,8 @@ namespace FlightAppEliasGryp.Models
         Task<IList<Product>> GetProductsAsync();
         Task<Product> GetProductAsync(int id);
         Task<IList<Product>> AddProductToShoppingCart(Product product);
+        Task<int> GetAmountOfItemsInShoppingCartAsync();
+        Task<ShoppingCart> GetShoppingCart();
+        Task<ShoppingCart> RemoveEntryFromShoppingCart(ShoppingCartEntry entry);
     }
 }

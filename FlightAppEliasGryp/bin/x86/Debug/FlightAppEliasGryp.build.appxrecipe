@@ -88,8 +88,8 @@
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\bin\10.0.18362.0\XamlCompiler\Microsoft.UI.Xaml.Markup.winmd">
       <PackagePath>Microsoft.UI.Xaml.Markup.winmd</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\Properties\Default.rd.xml">
-      <PackagePath>Properties\Default.rd.xml</PackagePath>
+    <AppxPackagedFile Include="C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\shopping-cart--v2.png">
+      <PackagePath>shopping-cart--v2.png</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
@@ -117,6 +117,9 @@
     <AppxPackagedFile Include="C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\Properties\Default.rd.xml">
+      <PackagePath>Properties\Default.rd.xml</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\bin\x86\Debug\FlightAppEliasGryp.xr.xml">
       <PackagePath>FlightAppEliasGryp.xr.xml</PackagePath>
@@ -150,6 +153,12 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\bin\x86\Debug\Views\ShellPage.xbf">
       <PackagePath>Views\ShellPage.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\bin\x86\Debug\Views\ShoppingCartIcon.xbf">
+      <PackagePath>Views\ShoppingCartIcon.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\bin\x86\Debug\Views\ShoppingCartPage.xbf">
+      <PackagePath>Views\ShoppingCartPage.xbf</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.UniversalCRT.Debug\10.0.18362.0\\redist\Debug\x86\ucrtbased.dll">
       <PackagePath>ucrtbased.dll</PackagePath>

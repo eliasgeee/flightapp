@@ -144,6 +144,7 @@
     <Compile Include="Behaviors\NavigationViewHeaderMode.cs" />
     <Compile Include="Helpers\NavHelper.cs" />
     <Compile Include="Models\ShoppingCart.cs" />
+    <Compile Include="Models\ShoppingCartEntry.cs" />
     <Compile Include="Services\CatalogDataService.cs" />
     <Compile Include="Models\Flight.cs" />
     <Compile Include="Services\ICatalogDataService.cs" />
@@ -155,6 +156,7 @@
     <Compile Include="ViewModels\CatalogViewModel.cs" />
     <Compile Include="ViewModels\DetailsViewModel.cs" />
     <Compile Include="ViewModels\ShellViewModel.cs" />
+    <Compile Include="ViewModels\ShoppingCartViewModel.cs" />
     <Compile Include="ViewModels\ViewModelLocator.cs" />
     <Compile Include="Views\CatalogPage.xaml.cs">
       <DependentUpon>CatalogPage.xaml</DependentUpon>
@@ -164,6 +166,12 @@
     </Compile>
     <Compile Include="Views\ShellPage.xaml.cs">
       <DependentUpon>ShellPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ShoppingCartIcon.xaml.cs">
+      <DependentUpon>ShoppingCartIcon.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ShoppingCartPage.xaml.cs">
+      <DependentUpon>ShoppingCartPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -205,6 +213,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Views\ShoppingCartIcon.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ShoppingCartPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -215,6 +231,7 @@
     <Compile Include="Helpers\ResourceExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="shopping-cart--v2.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
@@ -239,6 +256,9 @@
       <Project>{502340C7-04C7-4BFA-B528-899843BB650D}</Project>
       <Name>FlightAppEliasGryp.Core</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Assets\Images\" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

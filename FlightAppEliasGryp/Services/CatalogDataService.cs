@@ -19,10 +19,23 @@ namespace FlightAppEliasGryp.Models
                 httpClientHandler.ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => { return true; };
                 using (var client = new HttpClient(httpClientHandler))
                 {
-                    var reqUri = baseUri + "ShoppingCart/";
-                    var productJson = JsonConvert.SerializeObject(product);
-                    var json = await client.PostAsync(new Uri(reqUri), new StringContent(productJson, System.Text.Encoding.UTF8, "application/json"));
+                    var reqUri = baseUri + "ShoppingCart/" + product.Id;
+                    var json = await client.PostAsync(new Uri(reqUri), new StringContent(product.Id.ToString(), System.Text.Encoding.UTF8, "application/json"));
                     return null;
+                }
+            }
+        }
+
+        public async Task<int> GetAmountOfItemsInShoppingCartAsync()
+        {
+            using (var httpClientHandler = new HttpClientHandler())
+            {
+                httpClientHandler.ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => { return true; };
+                using (var client = new HttpClient(httpClientHandler))
+                {
+                    var reqUri = baseUri + "ShoppingCartItems";
+                    var json = await client.GetStringAsync(new Uri(reqUri));
+                    return JsonConvert.DeserializeObject<int>(json);
                 }
             }
         }
@@ -51,6 +64,34 @@ namespace FlightAppEliasGryp.Models
                     var reqUri = baseUri + "Products/";
                     var json = await client.GetStringAsync(new Uri(reqUri));
                     return JsonConvert.DeserializeObject<IList<Product>>(json);
+                }
+            }
+        }
+
+        public async Task<ShoppingCart> GetShoppingCart()
+        {
+            using(var httpClientHandler = new HttpClientHandler())
+            {
+                httpClientHandler.ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => { return true; };
+                using(var client = new HttpClient(httpClientHandler))
+                {
+                    var reqUri = baseUri + "ShoppingCart/";
+                    var json = await client.GetStringAsync(new Uri(reqUri));
+                    return JsonConvert.DeserializeObject<ShoppingCart>(json);
+                }
+            }
+        }
+
+        public async Task<ShoppingCart> RemoveEntryFromShoppingCart(ShoppingCartEntry entry)
+        {
+            using(var httpClientHandler = new HttpClientHandler())
+            {
+                httpClientHandler.ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => { return true; };
+                using (var client = new HttpClient(httpClientHandler))
+                {
+                    var reqUri = baseUri + "ShoppingCart/Remove/" + entry.Product.Id;
+                    var json = await client.PutAsync(new Uri(reqUri), new StringContent(entry.Product.Id.ToString(), System.Text.Encoding.UTF8, "application/json"));
+                    return null;
                 }
             }
         }

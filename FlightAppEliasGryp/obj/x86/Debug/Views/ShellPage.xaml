@@ -22,7 +22,7 @@
         IsBackButtonVisible="Visible"
                                                                      
                                                                
-        IsSettingsVisible="False"
+        IsSettingsVisible="True"
         Background="{ThemeResource SystemControlBackgroundAltHighBrush}">
         <winui:NavigationView.MenuItems>
             <!--
@@ -32,7 +32,7 @@
             Edit String/en-US/Resources.resw: Add a menu item title for each page
             -->
             <winui:NavigationViewItem x:Uid="Shell_Details" Icon="Document" helpers:NavHelper.NavigateTo="FlightAppEliasGryp.ViewModels.DetailsViewModel" />
-            <winui:NavigationViewItem x:Uid="Shell_Catalog" Icon="Document" helpers:NavHelper.NavigateTo="FlightAppEliasGryp.ViewModels.CatalogViewModel" />
+            <winui:NavigationViewItem x:Uid="Shell_Catalog" Icon="Shop" helpers:NavHelper.NavigateTo="FlightAppEliasGryp.ViewModels.CatalogViewModel" />
         </winui:NavigationView.MenuItems>
         <i:Interaction.Behaviors>
             <behaviors:NavigationViewHeaderBehavior x:ConnectionId='4'

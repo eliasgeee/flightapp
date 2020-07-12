@@ -11,18 +11,21 @@ namespace FlightAppEliasGryp.Models
         public int Id { get; set; }
         public string Name { get; set; }
         public string Image { get; set; }
-        public double Price { get; set; }
-   //     public ProductType Type { get; set; }
-   //     public Promotion Promotion { get; set; }
+        public decimal Price { get; set; }
+        public ProductType Type { get; set; }
+        public List<Promotion> Promotions { get; set; }
+        public bool IsSoldOut { get; set; }
 
-        public Product() { }
+        public Product() {
+            Promotions = new List<Promotion>();
+        }
 
-        public Product(string name, string img, double price, ProductType productType)
+        public Product(string name, string img, decimal price, ProductType productType) : base()
         {
             Name = name;
             Image = img;
             Price = price;
-     //       Type = productType;
+            Type = productType;
         }
 
         public String GetFormattedPrice()
