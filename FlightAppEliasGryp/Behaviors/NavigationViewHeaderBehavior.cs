@@ -111,9 +111,10 @@ namespace FlightAppEliasGryp.Behaviors
                         AssociatedObject.Header = DefaultHeader;
                     }
 
+                    //TODO change to true
                     if (headerMode == NavigationViewHeaderMode.Always)
                     {
-                        AssociatedObject.AlwaysShowHeader = true;
+                        AssociatedObject.AlwaysShowHeader = false;
                     }
                     else
                     {

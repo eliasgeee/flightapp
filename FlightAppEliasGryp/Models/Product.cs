@@ -1,8 +1,10 @@
-﻿using System;
+﻿using GalaSoft.MvvmLight.Command;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace FlightAppEliasGryp.Models
 {
@@ -15,6 +17,7 @@ namespace FlightAppEliasGryp.Models
         public ProductType Type { get; set; }
         public List<Promotion> Promotions { get; set; }
         public bool IsSoldOut { get; set; }
+        public int Stock { get; set; }
 
         public Product() {
             Promotions = new List<Promotion>();
@@ -28,9 +31,27 @@ namespace FlightAppEliasGryp.Models
             Type = productType;
         }
 
-        public String GetFormattedPrice()
+        public string GetReducedPrice()
+        {
+            decimal total = 0;
+
+            for(int i=0; i < Promotions.Count; i++)
+            {
+                var prom = Promotions.ElementAt(i);
+                total += prom.ReducedAmount;
+            }
+
+            return total.ToString();
+        }
+
+        public string GetFormattedPrice()
         {
             return Price.ToString() + " $";
+        }
+
+        public string GetAmountOfPromotions()
+        {
+            return Promotions.Count + " active";
         }
     }
 

@@ -22,15 +22,16 @@ namespace FlightAppEliasGryp.ViewModels
             Register<DetailsViewModel, DetailsPage>();
             Register<CatalogViewModel, CatalogPage>();
             Register<ShoppingCartViewModel, ShoppingCartPage>();
+            Register<AdminCatalogViewModel, AdminCatalogPage>();
+            Register<ProductDetailsViewModel, ProductDetailsPage>();
         }
 
         public CatalogViewModel CatalogViewModel => SimpleIoc.Default.GetInstance<CatalogViewModel>();
-
         public DetailsViewModel DetailsViewModel => SimpleIoc.Default.GetInstance<DetailsViewModel>();
-
         public ShellViewModel ShellViewModel => SimpleIoc.Default.GetInstance<ShellViewModel>();
-
         public ShoppingCartViewModel ShoppingCartViewModel => SimpleIoc.Default.GetInstance<ShoppingCartViewModel>();
+        public AdminCatalogViewModel AdminCatalogViewModel => SimpleIoc.Default.GetInstance<AdminCatalogViewModel>();
+        public ProductDetailsViewModel ProductDetailsViewModel => SimpleIoc.Default.GetInstance<ProductDetailsViewModel>();
 
         public NavigationServiceEx NavigationService => SimpleIoc.Default.GetInstance<NavigationServiceEx>();
 

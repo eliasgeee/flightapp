@@ -14,8 +14,10 @@ Styles\_FontSizes.xbf
 Styles\_Thickness.xbf
 Styles\Page.xbf
 Styles\TextBlock.xbf
+Views\AdminCatalogPage.xbf
 Views\CatalogPage.xbf
 Views\DetailsPage.xbf
+Views\ProductDetailsPage.xbf
 Views\ShellPage.xbf
 Views\ShoppingCartIcon.xbf
 Views\ShoppingCartPage.xbf

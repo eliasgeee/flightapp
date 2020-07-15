@@ -9,9 +9,75 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2.5*"/>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid
+            Grid.Column="1"
+            Background="Black"
+            Padding="8"
+            >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Grid
+                BorderBrush="White"
+                BorderThickness="0,0,0,1"
+                Margin="48,0,48,0"
+                Grid.Row="0">
+                <TextBlock
+                    Text="Order Summary"
+                    FontSize="25"
+                    Foreground="White"
+                    FontWeight="SemiBold"
+                    Margin="0,48,0,24"
+                    HorizontalAlignment="Left"/>
+            </Grid>
+            <Grid
+                Grid.Row="1"
+                Margin="48,24,48,0"
+                >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        Text="Total Cost"
+                        HorizontalAlignment="Left"
+                        FontSize="16"
+                        Foreground="White"/>
+                <TextBlock
+                    Grid.Row="0"
+                        Grid.Column="1"
+                        Text="{x:Bind Path=ViewModel.ShoppingCart.TotalCost}"
+                        Foreground="White"
+                        FontSize="16"
+                        HorizontalAlignment="Right"
+                        />
+                <Button
+                    Content="Pay Cash"
+                    Grid.Row="1"
+                    Click="Checkout"
+                    Margin="0, 24"
+                    HorizontalAlignment="Stretch"
+                    Grid.ColumnSpan="2"
+                    Foreground="White"
+                    BorderBrush="White"
+                    />
+            </Grid>
+        </Grid>
         <Grid
             Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
             Padding="8"
+            Grid.Column="0"
             >
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
@@ -143,23 +209,29 @@
                                             <HyperlinkButton
                                                 FontSize="24"
                                                 Grid.Column="2"
+                                                Tag="{x:Bind}"
                                                 Content="-"
+                                                Click="LowerProductAmountByOne"
                                                 VerticalAlignment="Top"
-                                                Margin="0,0,8,0"
+                                                Padding="0,0,8,0"
                                                 />
                                             <TextBox
                                             Grid.Column="2"
                                             InputScope="Number"
                                             Text="{x:Bind Path=Quantity}"
                                             FontSize="16"
+                                            Tag="{x:Bind}"
+                                            TextChanged="ChangeProductQuantity"
                                             FontWeight="SemiBold"
                                             VerticalAlignment="Top"/>
                                             <HyperlinkButton
                                                 FontSize="24"
                                                 Grid.Column="2"
                                                 Content="+"
+                                                Click="RaiseProductAmountByOne"
+                                                Tag="{x:Bind}"
                                                 VerticalAlignment="Top"
-                                                Margin="8,0,0,0"
+                                                Padding="8,0,0,0"
                                                 />
                                         </StackPanel>
                                         <StackPanel
@@ -182,16 +254,19 @@
                                             >
                                             <TextBlock
                                             Grid.Column="4"
-                                            Text="{x:Bind Path=PriceBeforePromotions}"
+                                            Text="{x:Bind Path=GetTotalCost()}"
                                             FontSize="16"
                                             VerticalAlignment="Top"
+                                            
                                             FontWeight="SemiBold"/>
+                                            <!--TextDecorations="Underline"-->
                                             <TextBlock
                                             Grid.Column="4"
-                                            Text="{x:Bind Path=TotalCost}"
+                                            Text="{x:Bind Path=GetPriceAfterPromotions()}"
                                             FontSize="16"
                                             VerticalAlignment="Top"
-                                            FontWeight="SemiBold"/>
+                                            FontWeight="SemiBold"
+                                            />
                                         </StackPanel>
                                     </Grid>
                                 </DataTemplate>

@@ -26,6 +26,48 @@ namespace FlightAppEliasGryp.Models
             }
         }
 
+        public async Task<int> ChangeEntryAmount(ShoppingCartEntry entry, int amount)
+        {
+            using (var httpClientHandler = new HttpClientHandler())
+            {
+                httpClientHandler.ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => { return true; };
+                using (var client = new HttpClient(httpClientHandler))
+                {
+                    var reqUri = baseUri + "ShoppingCart/Entry/" + entry.Id + "/Amount/" + amount;
+                    var json = await client.PutAsync(new Uri(reqUri), new StringContent(amount.ToString(), System.Text.Encoding.UTF8, "application/json"));
+                    return 0;
+                }
+            }
+        }
+
+        public async Task<Order> Checkout()
+        {
+            using (var httpClientHandler = new HttpClientHandler())
+            {
+                httpClientHandler.ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => { return true; };
+                using (var client = new HttpClient(httpClientHandler))
+                {
+                    var reqUri = baseUri + "Checkout/";
+                    var json = await client.PostAsync(new Uri(reqUri), new StringContent("", System.Text.Encoding.UTF8, "application/json"));
+                    return null;
+                }
+            }
+        }
+
+        public async Task<Product> DeleteProductAsync(Product product)
+        {
+            using (var httpClientHandler = new HttpClientHandler())
+            {
+                httpClientHandler.ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => { return true; };
+                using (var client = new HttpClient(httpClientHandler))
+                {
+                    var reqUri = baseUri + "Product/Remove/" + product.Id;
+                    var json = await client.DeleteAsync(new Uri(reqUri));
+                    return null;
+                }
+            }
+        }
+
         public async Task<int> GetAmountOfItemsInShoppingCartAsync()
         {
             using (var httpClientHandler = new HttpClientHandler())
@@ -91,6 +133,20 @@ namespace FlightAppEliasGryp.Models
                 {
                     var reqUri = baseUri + "ShoppingCart/Remove/" + entry.Product.Id;
                     var json = await client.PutAsync(new Uri(reqUri), new StringContent(entry.Product.Id.ToString(), System.Text.Encoding.UTF8, "application/json"));
+                    return null;
+                }
+            }
+        }
+
+        public async Task<Product> UpdateProductAsync(Product product)
+        {
+            using (var httpClientHandler = new HttpClientHandler())
+            {
+                httpClientHandler.ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => { return true; };
+                using (var client = new HttpClient(httpClientHandler))
+                {
+                    var reqUri = baseUri + "Product/Update/" + product.Id;
+                    var json = await client.PutAsync(new Uri(reqUri), new StringContent(JsonConvert.SerializeObject(product), System.Text.Encoding.UTF8, "application/json"));
                     return null;
                 }
             }

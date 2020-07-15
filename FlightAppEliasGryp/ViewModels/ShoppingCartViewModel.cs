@@ -33,5 +33,15 @@ namespace FlightAppEliasGryp.ViewModels
         {
             var data = await _catalogDataService.RemoveEntryFromShoppingCart(entry);
         }
+
+        public async void Checkout()
+        {
+            var data = await _catalogDataService.Checkout();
+        }
+
+        public async void ChangeEntryAmount(ShoppingCartEntry entry, int amount)
+        {
+            var data = await _catalogDataService.ChangeEntryAmount(entry, amount);
+        }
     }
 }

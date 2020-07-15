@@ -42,5 +42,39 @@ namespace FlightAppEliasGryp.Views
             ViewModel.RemoveEntryFromShoppingCart(entry);
 
         }
+
+        private void Checkout(object sender, RoutedEventArgs e)
+        {
+            ViewModel.Checkout();
+        }
+
+        //TODO CHANGE THESE METHODS
+        private void RaiseProductAmountByOne(object sender, RoutedEventArgs e)
+        {
+            var button = (HyperlinkButton)sender;
+            var entry = (ShoppingCartEntry)button.Tag;
+
+            ViewModel.ChangeEntryAmount(entry, 1);
+        }
+
+        private void LowerProductAmountByOne(object sender, RoutedEventArgs e)
+        {
+            var button = (HyperlinkButton)sender;
+            var entry = (ShoppingCartEntry)button.Tag;
+
+            ViewModel.ChangeEntryAmount(entry, -1);
+        }
+
+        private void ChangeProductQuantity(object sender, TextChangedEventArgs e)
+        {
+            var textBox = sender as TextBox;
+            int newAmount = -1;
+            var entry = (ShoppingCartEntry)textBox.Tag;
+            if(textBox.Text != "")
+            newAmount = int.Parse(textBox.Text);
+
+            if (newAmount != entry.Quantity && newAmount != -1)
+                ViewModel.ChangeEntryAmount(entry, newAmount);
+        }
     }
 }

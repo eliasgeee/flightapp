@@ -33,6 +33,7 @@
             -->
             <winui:NavigationViewItem x:Uid="Shell_Details" Icon="Document" helpers:NavHelper.NavigateTo="FlightAppEliasGryp.ViewModels.DetailsViewModel" />
             <winui:NavigationViewItem x:Uid="Shell_Catalog" Icon="Shop" helpers:NavHelper.NavigateTo="FlightAppEliasGryp.ViewModels.CatalogViewModel" />
+            <winui:NavigationViewItem x:Uid="Shell_AdminCatalog" Icon="Shop" helpers:NavHelper.NavigateTo="FlightAppEliasGryp.ViewModels.AdminCatalogViewModel" />
         </winui:NavigationView.MenuItems>
         <i:Interaction.Behaviors>
             <behaviors:NavigationViewHeaderBehavior

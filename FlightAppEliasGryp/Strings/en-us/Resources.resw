@@ -149,4 +149,7 @@
     <value>Catalog</value>
     <comment>Navigation view item name for Catalog</comment>
   </data>
+  <data name="Shell_AdminCatalog.Content" xml:space="preserve">
+    <value>Catalog Management</value>
+  </data>
 </root>
