@@ -7,8 +7,9 @@ using System.Threading.Tasks;
 
 namespace FlightAppEliasGryp.Models
 {
-    public class Promotion
+    public class Promotion : ICloneable
     {
+        public int Id { get; set; }
         public int RequiredAmount { get; set; }
         public decimal DiscountAmount { get; set; }
         public DateTime Start { get; set; }
@@ -16,23 +17,13 @@ namespace FlightAppEliasGryp.Models
         public PromotionType Type { get; set; }
         public decimal ReducedAmount { get; set; }
         public bool IsActive { get; set; }
+        public bool IsDeleted { get; set; }
 
         public Promotion() { }
 
-        //TODO NAAR MODEL BRENGEN
-        public IEnumerable<PromotionType> PromotionTypes
+        public string GetPeriod()
         {
-            get { return EnumHelper.GetValues<PromotionType>(); }
-        }
-
-        public IEnumerable<string> Hours
-        {
-            get { return TimeHelper.GetHours();  }
-        }
-
-        public IEnumerable<string> Minutes
-        {
-            get { return TimeHelper.GetMinutes();  }
+            return Start + " - " + End;
         }
 
         public override string ToString()
@@ -46,9 +37,9 @@ namespace FlightAppEliasGryp.Models
             return "";
         }
 
-        public string GetPeriod()
+        public object Clone()
         {
-            return Start + " - " + End;
+            return this.MemberwiseClone();
         }
     }
 

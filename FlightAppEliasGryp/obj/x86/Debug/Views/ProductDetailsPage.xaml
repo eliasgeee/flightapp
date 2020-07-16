@@ -18,9 +18,9 @@
         </Grid.RowDefinitions>
 
         <CommandBar x:ConnectionId='2' x:Name="commandBar" Height="36" DefaultLabelPosition="Right" Background="Transparent" Grid.Row="0" Margin="0, 0, 48, 0">
-            <AppBarButton x:ConnectionId='27' x:Name="buttonDelete" Icon="Delete" Label="Delete" LabelPosition="Default" HorizontalAlignment="Left" Tag="delete"                           />
-            <AppBarButton x:ConnectionId='28' x:Name="buttonCancel" Icon="Cancel" Label="Cancel" LabelPosition="Default" HorizontalAlignment="Left" Tag="cancel"                           />
-            <AppBarButton x:ConnectionId='29' x:Name="buttonSave" Icon="Save" Label="Save" LabelPosition="Default" HorizontalAlignment="Left" Tag="save"                         />
+            <AppBarButton x:ConnectionId='28' x:Name="buttonDelete" Icon="Delete" Label="Delete" LabelPosition="Default" HorizontalAlignment="Left" Tag="delete"                           />
+            <AppBarButton x:ConnectionId='29' x:Name="buttonCancel" Icon="Cancel" Label="Cancel" LabelPosition="Default" HorizontalAlignment="Left" Tag="cancel"                           />
+            <AppBarButton x:ConnectionId='30' x:Name="buttonSave" Icon="Save" Label="Save" LabelPosition="Default" HorizontalAlignment="Left" Tag="save"                         />
         </CommandBar>
 
         <ScrollViewer
@@ -48,27 +48,27 @@
                     <StackPanel Margin="0,12">
                         <Grid  Margin="6" Height="180">
                             <Grid Background="LightGray">
-                                <Image x:ConnectionId='26'                                                
+                                <Image x:ConnectionId='27'                                                
                            Stretch="UniformToFill" 
                            HorizontalAlignment="Center" 
                            VerticalAlignment="Center" />
                             </Grid>
                         </Grid>
                     </StackPanel>
-                    <TextBlock x:ConnectionId='21' FontSize="16" FontWeight="Bold"                                       
+                    <TextBlock x:ConnectionId='22' FontSize="16" FontWeight="Bold"                                       
                            TextAlignment="Center"/>
 
                     <TextBlock Text="Category" FontSize="12" Margin="0, 12, 0, 0"/>
-                    <TextBlock x:ConnectionId='22'                                        FontWeight="SemiBold"/>
+                    <TextBlock x:ConnectionId='23'                                        FontWeight="SemiBold"/>
 
                     <TextBlock Text="Price" FontSize="12" Margin="0, 12, 0, 0"/>
-                    <TextBlock x:ConnectionId='23'                                         FontWeight="SemiBold"/>
+                    <TextBlock x:ConnectionId='24'                                         FontWeight="SemiBold"/>
 
                     <TextBlock Text="Reduced price" FontSize="12" Margin="0, 12, 0, 0"/>
-                    <TextBlock x:ConnectionId='24'                                                     FontWeight="SemiBold"/>
+                    <TextBlock x:ConnectionId='25'                                                     FontWeight="SemiBold"/>
 
                     <TextBlock Text="Stock" FontSize="12" Margin="0, 12, 0, 0"/>
-                    <TextBlock x:ConnectionId='25'                                         FontWeight="SemiBold"/>
+                    <TextBlock x:ConnectionId='26'                                         FontWeight="SemiBold"/>
                 </StackPanel>
 
             </Grid>
@@ -85,15 +85,15 @@
                         </Grid.RowDefinitions>
 
                         <StackPanel Grid.Column="0" Margin="30" Grid.Row="0">
-                            <TextBox x:ConnectionId='17' Header="Name"                                        Margin="0, 12, 0, 0" Name="ProductName"/>
-                            <ComboBox x:ConnectionId='18' Header="Category"                                     Margin="0, 12, 0, 0"
+                            <TextBox x:ConnectionId='18' Header="Name"                                        Margin="0, 12, 0, 0" Name="ProductName"/>
+                            <ComboBox x:ConnectionId='19' Header="Category"                                     Margin="0, 12, 0, 0"
                                                                                                                                  
                                       Name="ProductCat"/>
-                            <TextBox x:ConnectionId='19' Header="Stock"                                        
+                            <TextBox x:ConnectionId='20' Header="Stock"                                        
                                      InputScope="CurrencyAmount"
                                      Margin="0, 12, 0, 0"
                                      Name="ProductPrice"/>
-                            <TextBox x:ConnectionId='20' Header="Price"                                         Margin="0, 12, 0, 0"
+                            <TextBox x:ConnectionId='21' Header="Price"                                         Margin="0, 12, 0, 0"
                                      InputScope="CurrencyAmount"
                                      Name="ProductStock"/>
                         </StackPanel>
@@ -126,7 +126,7 @@
                     FontWeight="SemiBold"
                     Margin="0,48,0,24"
                     Grid.Column="0"/>
-                    <TextBlock x:ConnectionId='16'
+                    <TextBlock x:ConnectionId='17'
                                                                                   
                     FontSize="25"
                     FontWeight="SemiBold"
@@ -186,8 +186,9 @@
                         >
                         <ListView x:ConnectionId='3'
                             Grid.Row="2"
-                                                                                                 
+                                                                                         
                             SelectionMode="None"
+                            Name="PromotionItems"
                             IsItemClickEnabled="False"
                             >
                             <ListView.ItemContainerStyle>
@@ -199,7 +200,7 @@
                             </ListView.ItemContainerStyle>
                             <ListView.ItemTemplate>
                                 <DataTemplate
-                                                                 
+                                                                      
                                     >
                                     <Grid x:ConnectionId='5'>
                                         <Grid.ColumnDefinitions>
@@ -216,82 +217,100 @@
                                             VerticalAlignment="Center"
                                             MinWidth="0"
                                             Margin="48,0,0,0"
-                                                                           
+                                                                                     
                                             FontSize="16"
                                         />
                                         <TextBox x:ConnectionId='7'
                                             Grid.Column="1"
                                             VerticalAlignment="Center"
                                             HorizontalAlignment="Left"
-                                                                               
+                                                                                         
+                                                                                    
+                                                                    
                                             Width="70"/>
                                         <TextBox x:ConnectionId='8'
                                             Grid.Column="2"
                                             VerticalAlignment="Center"
                                             HorizontalAlignment="Left"
                                             MinWidth="0"
-                                                                               
+                                                                                    
+                                                                                         
+                                                                    
                                             Width="70"/>
-                                        <ComboBox x:ConnectionId='9'
+                                        <TextBlock x:ConnectionId='9'
                                             Grid.Column="3"
                                             VerticalAlignment="Center"
                                             MinWidth="0"
-                                                                                 
-                                                                                                                           
+                                                                          
+                                                                    
                                             Width="130"/>
                                             <StackPanel
                                         Orientation="Horizontal"
                                         Grid.Column="4">
-                                                <CalendarDatePicker x:ConnectionId='13'
+                                                <CalendarDatePicker x:ConnectionId='14'
                                             VerticalAlignment="Center"
                                             MinWidth="0"
-                                                                      
+                                                                    
+                                                                               
+                                                                                
                                             />
-                                                <ComboBox x:ConnectionId='14'
+                                                <ComboBox x:ConnectionId='15'
                                                     VerticalAlignment="Center"
                                                     Margin="4, 0, 0, 0"
-                                                                                    
-                                                                                                                                    
+                                                                                                  
+                                                                                
+                                                                            
+                                                                                                                                          
                                                         />
                                                 <TextBlock
                                                     VerticalAlignment="Center"
                                                     Margin="4, 0, 0, 0"
                                                     Text=":"
                                                     />
-                                                <ComboBox x:ConnectionId='15'
+                                                <ComboBox x:ConnectionId='16'
                                                     VerticalAlignment="Center"
+                                                                                                    
+                                                                            
                                                                                   
                                                           Margin="4, 0, 0, 0"
-                                                                                                                                        />
+                                                                                                                                                  />
                                             </StackPanel>
                                             <StackPanel
                                         Orientation="Horizontal"
                                         Grid.Column="5">
-                                                <CalendarDatePicker x:ConnectionId='10'
+                                                <CalendarDatePicker x:ConnectionId='11'
                                             VerticalAlignment="Center"
                                             MinWidth="0"
+                                                                              
                                                                     
+                                                                             
                                             />
-                                                <ComboBox x:ConnectionId='11'
+                                                <ComboBox x:ConnectionId='12'
                                                     VerticalAlignment="Center"
                                                     Margin="4, 0, 0, 0"
-                                                                                    
-                                                                                                                                  
+                                                                                
+                                                                            
+                                                                                                                                        
+                                                                                                
                                                         />
                                                 <TextBlock
                                                     VerticalAlignment="Center"
                                                     Margin="4, 0, 0, 0"
                                                     Text=":"
                                                     />
-                                                <ComboBox x:ConnectionId='12'
+                                                <ComboBox x:ConnectionId='13'
                                                     VerticalAlignment="Center"
                                                                                   
-                                                          Margin="4, 0, 0, 0"
-                                                                                                                                      />
+                                                                            
+                                                    Margin="4, 0, 0, 0"
+                                                                                                  
+                                                                                                                                          />
                                             </StackPanel>
-                                            <HyperlinkButton
+                                            <HyperlinkButton x:ConnectionId='10'
                                         Grid.Column="6"
                                         Content="X"
+                                                                        
+                                                                     
                                         HorizontalAlignment="Center"
                                         Foreground="Red"
                                                />

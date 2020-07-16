@@ -14,12 +14,14 @@ namespace FlightAppEliasGryp.ViewModels
         public Product Product { get; set; }
         public NavigationServiceEx NavigationService => ViewModelLocator.Current.NavigationService;
         private ICatalogDataService _catalogDataService { get; set; }
+        public List<PromotionModel> Promotions { get; set; }
 
         public ProductDetailsViewModel(
         ICatalogDataService catalogDataService
            )
         {
             _catalogDataService = catalogDataService;
+            Promotions = new List<PromotionModel>();
         }
 
         public async void DeleteProduct()
@@ -27,13 +29,21 @@ namespace FlightAppEliasGryp.ViewModels
             await _catalogDataService.DeleteProductAsync(Product);
         }
 
-        public async void UpdateProduct(string name, ProductType type, decimal price, int stock)
+        public async void UpdateProduct(string name, decimal price, int stock)
         {
             Product.Name = name;
-            Product.Type = type;
             Product.Price = price;
             Product.Stock = stock;
+            Product.Promotions.Clear();
+            Promotions.ForEach(promotion =>
+            Product.Promotions.Add(promotion.Promotion)
+                );
             Product = await _catalogDataService.UpdateProductAsync(Product);
+        }
+
+        public void AddPromotionToPromotionModel(Promotion promotion)
+        {
+            Promotions.Add(new PromotionModel(promotion));
         }
     }
 }

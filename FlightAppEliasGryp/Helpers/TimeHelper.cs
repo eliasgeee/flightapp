@@ -23,7 +23,7 @@ namespace FlightAppEliasGryp.Helpers
         {
             List<String> hours = new List<string>();
 
-            for (int i = 1; i < 60; i++)
+            for (int i = 1; i <= 24; i++)
             {
                hours.Add(i.ToString());
             }

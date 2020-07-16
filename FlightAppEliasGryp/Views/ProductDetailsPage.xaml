@@ -186,8 +186,9 @@
                         >
                         <ListView
                             Grid.Row="2"
-                            ItemsSource="{x:Bind Path=ViewModel.Product.Promotions, Mode=OneWay}"
+                            ItemsSource="{x:Bind Path=ViewModel.Promotions, Mode=OneWay}"
                             SelectionMode="None"
+                            Name="PromotionItems"
                             IsItemClickEnabled="False"
                             >
                             <ListView.ItemContainerStyle>
@@ -199,7 +200,7 @@
                             </ListView.ItemContainerStyle>
                             <ListView.ItemTemplate>
                                 <DataTemplate
-                                    x:DataType="models:Promotion"
+                                    x:DataType="models:PromotionModel"
                                     >
                                     <Grid>
                                         <Grid.ColumnDefinitions>
@@ -216,28 +217,32 @@
                                             VerticalAlignment="Center"
                                             MinWidth="0"
                                             Margin="48,0,0,0"
-                                            Text="{x:Bind Path=ToString()}"
+                                            Text="{x:Bind Path=Promotion.ToString()}"
                                             FontSize="16"
                                         />
                                         <TextBox
                                             Grid.Column="1"
                                             VerticalAlignment="Center"
                                             HorizontalAlignment="Left"
-                                            Text="{x:Bind Path=RequiredAmount}"
+                                            Text="{x:Bind Path=Promotion.RequiredAmount}"
+                                            TextChanged="RequiredAmount_TextChanged"
+                                            Tag="{x:Bind Promotion}"
                                             Width="70"/>
                                         <TextBox
                                             Grid.Column="2"
                                             VerticalAlignment="Center"
                                             HorizontalAlignment="Left"
                                             MinWidth="0"
-                                            Text="{x:Bind Path=DiscountAmount}"
+                                            TextChanged="DiscountAmount_TextChanged"
+                                            Text="{x:Bind Path=Promotion.DiscountAmount}"
+                                            Tag="{x:Bind Promotion}"
                                             Width="70"/>
-                                        <ComboBox
+                                        <TextBlock
                                             Grid.Column="3"
                                             VerticalAlignment="Center"
                                             MinWidth="0"
-                                            ItemsSource="{x:Bind PromotionTypes}"
-                                            SelectedItem="{x:Bind Type, Converter={StaticResource PromotionTypeConverter}}"
+                                            Text="{x:Bind Promotion.Type}"
+                                            Tag="{x:Bind Promotion}"
                                             Width="130"/>
                                             <StackPanel
                                         Orientation="Horizontal"
@@ -245,13 +250,17 @@
                                                 <CalendarDatePicker
                                             VerticalAlignment="Center"
                                             MinWidth="0"
-                                            Date="{x:Bind Path=Start}"
+                                            Tag="{x:Bind Promotion}"
+                                            DateChanged="StartDate_DateChanged"
+                                            Date="{x:Bind Path=Promotion.Start}"
                                             />
                                                 <ComboBox
                                                     VerticalAlignment="Center"
                                                     Margin="4, 0, 0, 0"
-                                                        ItemsSource="{x:Bind Hours}"
-                                                        SelectedItem="{x:Bind Start.Hour, Converter={StaticResource TimeConverter}}"
+                                                    SelectionChanged="StartHours_SelectionChanged"
+                                                    ItemsSource="{x:Bind Hours}"
+                                                    Tag="{x:Bind Promotion}"
+                                                    SelectedItem="{x:Bind Promotion.Start.Hour, Converter={StaticResource TimeConverter}}"
                                                         />
                                                 <TextBlock
                                                     VerticalAlignment="Center"
@@ -260,9 +269,11 @@
                                                     />
                                                 <ComboBox
                                                     VerticalAlignment="Center"
+                                                    SelectionChanged="StartMinutes_SelectionChanged"
+                                                    Tag="{x:Bind Promotion}"
                                                     ItemsSource="{x:Bind Minutes}"
                                                           Margin="4, 0, 0, 0"
-                                                          SelectedItem="{x:Bind Start.Minute, Converter={StaticResource TimeConverter}}"/>
+                                                          SelectedItem="{x:Bind Promotion.Start.Minute, Converter={StaticResource TimeConverter}}"/>
                                             </StackPanel>
                                             <StackPanel
                                         Orientation="Horizontal"
@@ -270,13 +281,17 @@
                                                 <CalendarDatePicker
                                             VerticalAlignment="Center"
                                             MinWidth="0"
-                                            Date="{x:Bind Path=End}"
+                                            Date="{x:Bind Path=Promotion.End}"
+                                            Tag="{x:Bind Promotion}"
+                                            DateChanged="EndDate_DateChanged"
                                             />
                                                 <ComboBox
                                                     VerticalAlignment="Center"
                                                     Margin="4, 0, 0, 0"
-                                                        ItemsSource="{x:Bind Hours}"
-                                                        SelectedItem="{x:Bind End.Hour, Converter={StaticResource TimeConverter}}"
+                                                    ItemsSource="{x:Bind Hours}"
+                                                    Tag="{x:Bind Promotion}"
+                                                    SelectedItem="{x:Bind Promotion.End.Hour, Converter={StaticResource TimeConverter}}"
+                                                    SelectionChanged="EndHours_SelectionChanged"
                                                         />
                                                 <TextBlock
                                                     VerticalAlignment="Center"
@@ -286,12 +301,16 @@
                                                 <ComboBox
                                                     VerticalAlignment="Center"
                                                     ItemsSource="{x:Bind Minutes}"
-                                                          Margin="4, 0, 0, 0"
-                                                          SelectedItem="{x:Bind End.Minute, Converter={StaticResource TimeConverter}}"/>
+                                                    Tag="{x:Bind Promotion}"
+                                                    Margin="4, 0, 0, 0"
+                                                    SelectionChanged="EndMinutes_SelectionChanged"
+                                                    SelectedItem="{x:Bind Promotion.End.Minute, Converter={StaticResource TimeConverter}}"/>
                                             </StackPanel>
                                             <HyperlinkButton
                                         Grid.Column="6"
                                         Content="X"
+                                                Tag="{x:Bind Promotion}"
+                                        Click="RemovePromotion_Click"
                                         HorizontalAlignment="Center"
                                         Foreground="Red"
                                                />

@@ -51,6 +51,8 @@
       <RootProperty Name="Text" />
       <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="MinWidth" />
+      <RootProperty Name="Tag" />
+      <RootProperty Name="Width" />
       <RootProperty Name="TextAlignment" />
       <RootProperty Name="LineHeight" />
       <RootProperty Name="LineStackingStrategy" />
@@ -163,6 +165,7 @@
       <RootProperty Name="Width" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.ListView">
+      <RootProperty Name="Name" />
       <RootProperty Name="ItemsSource" />
       <RootProperty Name="SelectionMode" />
       <RootProperty Name="IsItemClickEnabled" />
@@ -174,6 +177,7 @@
       <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="HorizontalAlignment" />
       <RootProperty Name="Text" />
+      <RootProperty Name="Tag" />
       <RootProperty Name="Width" />
       <RootProperty Name="MinWidth" />
       <RootProperty Name="Name" />
@@ -181,26 +185,15 @@
       <RootProperty Name="Margin" />
       <RootProperty Name="InputScope" />
       <RootProperty Name="FontSize" />
-      <RootProperty Name="Tag" />
       <RootProperty Name="FontWeight" />
       <RootEvent Name="TextChanged" />
     </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.ComboBox">
-      <RootProperty Name="VerticalAlignment" />
-      <RootProperty Name="MinWidth" />
-      <RootProperty Name="ItemsSource" />
-      <RootProperty Name="SelectedItem" />
-      <RootProperty Name="Width" />
-      <RootProperty Name="Margin" />
-      <RootProperty Name="Name" />
-      <RootProperty Name="Header" />
-    </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.HyperlinkButton">
       <RootProperty Name="Content" />
+      <RootProperty Name="Tag" />
       <RootProperty Name="HorizontalAlignment" />
       <RootProperty Name="Foreground" />
       <RootProperty Name="FontSize" />
-      <RootProperty Name="Tag" />
       <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="Padding" />
       <RootEvent Name="Click" />
@@ -209,6 +202,18 @@
       <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="MinWidth" />
       <RootProperty Name="Date" />
+      <RootProperty Name="Tag" />
+      <RootEvent Name="DateChanged" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.ComboBox">
+      <RootProperty Name="VerticalAlignment" />
+      <RootProperty Name="Margin" />
+      <RootProperty Name="ItemsSource" />
+      <RootProperty Name="Tag" />
+      <RootProperty Name="SelectedItem" />
+      <RootProperty Name="Name" />
+      <RootProperty Name="Header" />
+      <RootEvent Name="SelectionChanged" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.AppBarButton">
       <RootProperty Name="Icon" />

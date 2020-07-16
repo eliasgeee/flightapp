@@ -16,8 +16,19 @@ namespace FlightAppEliasGryp.Models
             get { return EnumHelper.GetValues<PromotionType>(); }
         }
 
-        public PromotionModel()
+        public IEnumerable<string> Hours
         {
+            get { return TimeHelper.GetHours(); }
+        }
+
+        public IEnumerable<string> Minutes
+        {
+            get { return TimeHelper.GetMinutes(); }
+        }
+
+        public PromotionModel(Promotion promotion)
+        {
+            Promotion = promotion;
         }
     }
 }
