@@ -26,6 +26,20 @@ namespace FlightAppEliasGryp.Models
             }
         }
 
+        public async Task<Product> AddPromotionToProduct(Product product, Promotion promotion)
+        {
+            using (var httpClientHandler = new HttpClientHandler())
+            {
+                httpClientHandler.ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => { return true; };
+                using (var client = new HttpClient(httpClientHandler))
+                {
+                    var reqUri = baseUri + "Promotion/Add/" + product.Id;
+                    var json = await client.PostAsync(new Uri(reqUri), new StringContent(JsonConvert.SerializeObject(promotion), System.Text.Encoding.UTF8, "application/json"));
+                    return null;
+                }
+            }
+        }
+
         public async Task<int> ChangeEntryAmount(ShoppingCartEntry entry, int amount)
         {
             using (var httpClientHandler = new HttpClientHandler())

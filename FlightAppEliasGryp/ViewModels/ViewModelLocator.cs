@@ -24,6 +24,7 @@ namespace FlightAppEliasGryp.ViewModels
             Register<ShoppingCartViewModel, ShoppingCartPage>();
             Register<AdminCatalogViewModel, AdminCatalogPage>();
             Register<ProductDetailsViewModel, ProductDetailsPage>();
+            Register<AddPromotionViewModel, AddPromotionDialog>();
         }
 
         public CatalogViewModel CatalogViewModel => SimpleIoc.Default.GetInstance<CatalogViewModel>();
@@ -32,6 +33,7 @@ namespace FlightAppEliasGryp.ViewModels
         public ShoppingCartViewModel ShoppingCartViewModel => SimpleIoc.Default.GetInstance<ShoppingCartViewModel>();
         public AdminCatalogViewModel AdminCatalogViewModel => SimpleIoc.Default.GetInstance<AdminCatalogViewModel>();
         public ProductDetailsViewModel ProductDetailsViewModel => SimpleIoc.Default.GetInstance<ProductDetailsViewModel>();
+        public AddPromotionViewModel AddPromotionViewModel => SimpleIoc.Default.GetInstance<AddPromotionViewModel>();
 
         public NavigationServiceEx NavigationService => SimpleIoc.Default.GetInstance<NavigationServiceEx>();
 

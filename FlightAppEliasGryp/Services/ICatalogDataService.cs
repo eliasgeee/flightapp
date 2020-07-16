@@ -18,5 +18,6 @@ namespace FlightAppEliasGryp.Models
         Task<int> ChangeEntryAmount(ShoppingCartEntry entry, int amount);
         Task<Product> UpdateProductAsync(Product product);
         Task<Product> DeleteProductAsync(Product product);
+        Task<Product> AddPromotionToProduct(Product product, Promotion promotion);
     }
 }

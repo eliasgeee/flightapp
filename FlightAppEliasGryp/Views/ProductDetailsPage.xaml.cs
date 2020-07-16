@@ -152,5 +152,11 @@ namespace FlightAppEliasGryp.Views
             if(entry != null)
             entry.IsDeleted = true;
         }
+
+        private async void AddNewPromotion_Click(object sender, RoutedEventArgs e)
+        {
+            AddPromotionDialog addPromotionDialog = new AddPromotionDialog(ViewModel.Product);
+            ContentDialogResult result = await addPromotionDialog.ShowAsync();
+        }
     }
 }

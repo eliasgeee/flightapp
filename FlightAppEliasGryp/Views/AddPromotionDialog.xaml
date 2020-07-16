@@ -1,0 +1,33 @@
+﻿<ContentDialog
+    x:Class="FlightAppEliasGryp.Views.AddPromotionDialog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:FlightAppEliasGryp.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:system="using:System"
+    mc:Ignorable="d"
+    Title="Add new promotion"
+    PrimaryButtonText="Add promotion"
+    SecondaryButtonText="Cancel"
+    PrimaryButtonClick="ContentDialog_PrimaryButtonClick"
+    SecondaryButtonClick="ContentDialog_SecondaryButtonClick">
+
+    <StackPanel>
+        <ComboBox ItemsSource="{x:Bind PromotionTypes}" Header="Type" Name="Type"/>
+        <TextBox Header="Required quantity" Name="Quantity" Margin="0,8,0,0"/>
+        <TextBox Header="Amount" Name="Amount" Margin="0,8,0,0"/>
+        <StackPanel Orientation="Horizontal" Margin="0,8,0,0">
+            <CalendarDatePicker Header="Start" Date="{x:Bind Today}" VerticalAlignment="Bottom" Name="DateStart"/>
+            <ComboBox ItemsSource="{x:Bind Hours}" VerticalAlignment="Bottom" Margin="8,0,0,0" Name="HoursStart"/>
+            <TextBlock Text=":" VerticalAlignment="Bottom" FontSize="24" Margin="8,0,0,0"/>
+            <ComboBox ItemsSource="{x:Bind Minutes}" VerticalAlignment="Bottom" Margin="8,0,0,0" Name="MinutesStart"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Margin="0,8,0,0">
+            <CalendarDatePicker Header="End" Date="{x:Bind Today}" VerticalAlignment="Bottom" Name="DateEnd"/>
+            <ComboBox ItemsSource="{x:Bind Hours}" VerticalAlignment="Bottom" Margin="8,0,0,0" Name="HoursEnd"/>
+            <TextBlock Text=":" VerticalAlignment="Bottom" FontSize="24" Margin="8,0,0,0"/>
+            <ComboBox ItemsSource="{x:Bind Minutes}" VerticalAlignment="Bottom" Margin="8,0,0,0" Name="MinutesEnd"/>
+        </StackPanel>
+    </StackPanel>
+</ContentDialog>

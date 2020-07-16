@@ -18,9 +18,9 @@
         </Grid.RowDefinitions>
 
         <CommandBar x:ConnectionId='2' x:Name="commandBar" Height="36" DefaultLabelPosition="Right" Background="Transparent" Grid.Row="0" Margin="0, 0, 48, 0">
-            <AppBarButton x:ConnectionId='28' x:Name="buttonDelete" Icon="Delete" Label="Delete" LabelPosition="Default" HorizontalAlignment="Left" Tag="delete"                           />
-            <AppBarButton x:ConnectionId='29' x:Name="buttonCancel" Icon="Cancel" Label="Cancel" LabelPosition="Default" HorizontalAlignment="Left" Tag="cancel"                           />
-            <AppBarButton x:ConnectionId='30' x:Name="buttonSave" Icon="Save" Label="Save" LabelPosition="Default" HorizontalAlignment="Left" Tag="save"                         />
+            <AppBarButton x:ConnectionId='29' x:Name="buttonDelete" Icon="Delete" Label="Delete" LabelPosition="Default" HorizontalAlignment="Left" Tag="delete"                           />
+            <AppBarButton x:ConnectionId='30' x:Name="buttonCancel" Icon="Cancel" Label="Cancel" LabelPosition="Default" HorizontalAlignment="Left" Tag="cancel"                           />
+            <AppBarButton x:ConnectionId='31' x:Name="buttonSave" Icon="Save" Label="Save" LabelPosition="Default" HorizontalAlignment="Left" Tag="save"                         />
         </CommandBar>
 
         <ScrollViewer
@@ -48,27 +48,27 @@
                     <StackPanel Margin="0,12">
                         <Grid  Margin="6" Height="180">
                             <Grid Background="LightGray">
-                                <Image x:ConnectionId='27'                                                
+                                <Image x:ConnectionId='28'                                                
                            Stretch="UniformToFill" 
                            HorizontalAlignment="Center" 
                            VerticalAlignment="Center" />
                             </Grid>
                         </Grid>
                     </StackPanel>
-                    <TextBlock x:ConnectionId='22' FontSize="16" FontWeight="Bold"                                       
+                    <TextBlock x:ConnectionId='23' FontSize="16" FontWeight="Bold"                                       
                            TextAlignment="Center"/>
 
                     <TextBlock Text="Category" FontSize="12" Margin="0, 12, 0, 0"/>
-                    <TextBlock x:ConnectionId='23'                                        FontWeight="SemiBold"/>
+                    <TextBlock x:ConnectionId='24'                                        FontWeight="SemiBold"/>
 
                     <TextBlock Text="Price" FontSize="12" Margin="0, 12, 0, 0"/>
-                    <TextBlock x:ConnectionId='24'                                         FontWeight="SemiBold"/>
+                    <TextBlock x:ConnectionId='25'                                         FontWeight="SemiBold"/>
 
                     <TextBlock Text="Reduced price" FontSize="12" Margin="0, 12, 0, 0"/>
-                    <TextBlock x:ConnectionId='25'                                                     FontWeight="SemiBold"/>
+                    <TextBlock x:ConnectionId='26'                                                     FontWeight="SemiBold"/>
 
                     <TextBlock Text="Stock" FontSize="12" Margin="0, 12, 0, 0"/>
-                    <TextBlock x:ConnectionId='26'                                         FontWeight="SemiBold"/>
+                    <TextBlock x:ConnectionId='27'                                         FontWeight="SemiBold"/>
                 </StackPanel>
 
             </Grid>
@@ -85,15 +85,15 @@
                         </Grid.RowDefinitions>
 
                         <StackPanel Grid.Column="0" Margin="30" Grid.Row="0">
-                            <TextBox x:ConnectionId='18' Header="Name"                                        Margin="0, 12, 0, 0" Name="ProductName"/>
-                            <ComboBox x:ConnectionId='19' Header="Category"                                     Margin="0, 12, 0, 0"
+                            <TextBox x:ConnectionId='19' Header="Name"                                        Margin="0, 12, 0, 0" Name="ProductName"/>
+                            <ComboBox x:ConnectionId='20' Header="Category"                                     Margin="0, 12, 0, 0"
                                                                                                                                  
                                       Name="ProductCat"/>
-                            <TextBox x:ConnectionId='20' Header="Stock"                                        
+                            <TextBox x:ConnectionId='21' Header="Stock"                                        
                                      InputScope="CurrencyAmount"
                                      Margin="0, 12, 0, 0"
                                      Name="ProductPrice"/>
-                            <TextBox x:ConnectionId='21' Header="Price"                                         Margin="0, 12, 0, 0"
+                            <TextBox x:ConnectionId='22' Header="Price"                                         Margin="0, 12, 0, 0"
                                      InputScope="CurrencyAmount"
                                      Name="ProductStock"/>
                         </StackPanel>
@@ -126,14 +126,24 @@
                     FontWeight="SemiBold"
                     Margin="0,48,0,24"
                     Grid.Column="0"/>
-                    <TextBlock x:ConnectionId='17'
+                        <StackPanel
+                            Grid.Column="1"
+                            HorizontalAlignment="Right"
+                            Margin="0,48,0,24"
+                            Orientation="Horizontal"
+                            >
+                            <TextBlock x:ConnectionId='17'
                                                                                   
                     FontSize="25"
                     FontWeight="SemiBold"
-                    Margin="0,48,0,24"
-                    Grid.Column="1"
-                    HorizontalAlignment="Right"/>
-                </Grid>
+                    />
+                            <Button x:ConnectionId='18'
+                                Margin="8,0,0,0"
+                            Content="Add new"
+                                                         
+                            />
+                        </StackPanel>
+                    </Grid>
                 <StackPanel
                     Grid.Row="1"
                 >

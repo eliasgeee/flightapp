@@ -126,14 +126,24 @@
                     FontWeight="SemiBold"
                     Margin="0,48,0,24"
                     Grid.Column="0"/>
-                    <TextBlock
+                        <StackPanel
+                            Grid.Column="1"
+                            HorizontalAlignment="Right"
+                            Margin="0,48,0,24"
+                            Orientation="Horizontal"
+                            >
+                            <TextBlock
                     Text="{x:Bind Path=ViewModel.Product.GetAmountOfPromotions()}"
                     FontSize="25"
                     FontWeight="SemiBold"
-                    Margin="0,48,0,24"
-                    Grid.Column="1"
-                    HorizontalAlignment="Right"/>
-                </Grid>
+                    />
+                            <Button
+                                Margin="8,0,0,0"
+                            Content="Add new"
+                            Click="AddNewPromotion_Click"
+                            />
+                        </StackPanel>
+                    </Grid>
                 <StackPanel
                     Grid.Row="1"
                 >
