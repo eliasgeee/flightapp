@@ -18,6 +18,8 @@ Views\AddPromotionDialog.xbf
 Views\AdminCatalogPage.xbf
 Views\CatalogPage.xbf
 Views\DetailsPage.xbf
+Views\MyOrdersPage.xbf
+Views\OrdersManagementPage.xbf
 Views\ProductDetailsPage.xbf
 Views\ShellPage.xbf
 Views\ShoppingCartIcon.xbf

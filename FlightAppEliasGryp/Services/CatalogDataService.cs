@@ -54,20 +54,6 @@ namespace FlightAppEliasGryp.Models
             }
         }
 
-        public async Task<Order> Checkout()
-        {
-            using (var httpClientHandler = new HttpClientHandler())
-            {
-                httpClientHandler.ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => { return true; };
-                using (var client = new HttpClient(httpClientHandler))
-                {
-                    var reqUri = baseUri + "Checkout/";
-                    var json = await client.PostAsync(new Uri(reqUri), new StringContent("", System.Text.Encoding.UTF8, "application/json"));
-                    return null;
-                }
-            }
-        }
-
         public async Task<Product> DeleteProductAsync(Product product)
         {
             using (var httpClientHandler = new HttpClientHandler())

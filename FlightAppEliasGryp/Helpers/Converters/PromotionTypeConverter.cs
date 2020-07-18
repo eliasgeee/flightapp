@@ -28,13 +28,13 @@ namespace FlightAppEliasGryp.Helpers.Converters
     {
         public static object ConvertFromType(object value)
         {
-            if (value.ToString() == "FIXED_PRICE")
-                return PromotionType.FIXED_PRICE;
+            if (value.ToString() == "FIXEDPRICE")
+                return PromotionType.FIXEDPRICE;
             else if (value.ToString() == "PERCENTAGE")
                 return PromotionType.PERCENTAGE;
             else if (value.ToString() == "QUANTITY")
                 return PromotionType.QUANTITY;
-            return 0;
+            return -1;
         }
     }
 }

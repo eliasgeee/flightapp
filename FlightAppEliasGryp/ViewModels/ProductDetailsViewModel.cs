@@ -41,6 +41,11 @@ namespace FlightAppEliasGryp.ViewModels
             Product = await _catalogDataService.UpdateProductAsync(Product);
         }
 
+        internal void ClearPromotions()
+        {
+            Promotions.Clear();
+        }
+
         public void AddPromotionToPromotionModel(Promotion promotion)
         {
             Promotions.Add(new PromotionModel(promotion));

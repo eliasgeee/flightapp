@@ -152,4 +152,12 @@
   <data name="Shell_AdminCatalog.Content" xml:space="preserve">
     <value>Catalog Management</value>
   </data>
+  <data name="Shell_MyOrders.Content" xml:space="preserve">
+    <value>My Orders</value>
+    <comment>Navigation view item name for My Orders</comment>
+  </data>
+  <data name="Shell_OrderManagement.Content" xml:space="preserve">
+    <value>Orders Management</value>
+    <comment>Navigation view item name for Orders Management</comment>
+  </data>
 </root>

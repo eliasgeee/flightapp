@@ -52,7 +52,7 @@ namespace FlightAppEliasGryp.Views
                 + new TimeSpan(int.Parse(HoursEnd.SelectedItem.ToString()), int.Parse(MinutesEnd.SelectedItem.ToString()), 0);
 
             ViewModel.AddPromotionToProduct(
-                (PromotionType) ProdTypeConverter.ConvertFromType(Type.SelectedItem),
+                (PromotionType)PromTypeConverter.ConvertFromType(Type.SelectedItem),
                 Convert.ToDecimal(Amount.Text),
                 int.Parse(Quantity.Text),
                 Start,

@@ -18,6 +18,7 @@
             <converters:ProdCatConverter x:Key="ProdCatConverter" />
             <converters:PromotionTypeConverter x:Key="PromotionTypeConverter" />
             <converters:TimeConverter x:Key="TimeConverter" />
+            <converters:OrderStatusConverter x:Key="OrderStatusConverter" />
         </ResourceDictionary>
     </Application.Resources>
 </Application>

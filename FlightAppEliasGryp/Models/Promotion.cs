@@ -11,10 +11,10 @@ namespace FlightAppEliasGryp.Models
     {
         public int Id { get; set; }
         public int RequiredAmount { get; set; }
-        public decimal DiscountAmount { get; set; }
+        public decimal Amount { get; set; }
         public DateTime Start { get; set; }
         public DateTime End { get; set; }
-        public PromotionType Type { get; set; }
+        public PromotionType PromotionType { get; set; }
         public decimal ReducedAmount { get; set; }
         public bool IsActive { get; set; }
         public bool IsDeleted { get; set; }
@@ -28,12 +28,12 @@ namespace FlightAppEliasGryp.Models
 
         public override string ToString()
         {
-            if (Type == PromotionType.PERCENTAGE)
-                return "Discount of " + DiscountAmount + "%";
-            if (Type == PromotionType.QUANTITY)
-                return "Discount of " + DiscountAmount + "items";
-            if (Type == PromotionType.FIXED_PRICE)
-                return "Discount of " + DiscountAmount + "$";
+            if (PromotionType == PromotionType.PERCENTAGE)
+                return "Discount of " + Amount + "%";
+            if (PromotionType == PromotionType.QUANTITY)
+                return "Discount of " + Amount + "items";
+            if (PromotionType == PromotionType.FIXEDPRICE)
+                return "Discount of " + Amount + "$";
             return "";
         }
 
@@ -45,6 +45,6 @@ namespace FlightAppEliasGryp.Models
 
     public enum PromotionType
     {
-        FIXED_PRICE, PERCENTAGE, QUANTITY
+        PERCENTAGE, FIXEDPRICE, QUANTITY
     }
 }

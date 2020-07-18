@@ -25,8 +25,8 @@ namespace FlightAppEliasGryp.ViewModels
         {
             _catalogDataService.AddPromotionToProduct(Product, new Promotion()
             {
-                Type = type,
-                DiscountAmount = amount,
+                PromotionType = type,
+                Amount = amount,
                 RequiredAmount = quantity,
                 Start = start,
                 End = end

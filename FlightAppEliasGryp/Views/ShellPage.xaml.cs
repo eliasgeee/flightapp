@@ -19,6 +19,13 @@ namespace FlightAppEliasGryp.Views
             InitializeComponent();
             DataContext = ViewModel;
             ViewModel.Initialize(shellFrame, navigationView, KeyboardAccelerators);
+            InitAsync();
+        }
+
+        private async void InitAsync()
+        {
+            ViewModel.GetNewOrdersCount();
+            OrderManagement.Content = OrderManagement.Content + " (" + ViewModel.NewOrders +")";
         }
     }
 }

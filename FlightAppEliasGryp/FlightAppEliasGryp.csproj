@@ -142,6 +142,7 @@
     <Compile Include="Activation\ActivationHandler.cs" />
     <Compile Include="Behaviors\NavigationViewHeaderBehavior.cs" />
     <Compile Include="Behaviors\NavigationViewHeaderMode.cs" />
+    <Compile Include="Helpers\Converters\OrderStatusConverter.cs" />
     <Compile Include="Helpers\Converters\ProdCatConverter.cs" />
     <Compile Include="Helpers\Converters\PromotionTypeConverter.cs" />
     <Compile Include="Helpers\Converters\TimeConverter.cs" />
@@ -150,7 +151,11 @@
     <Compile Include="Helpers\TimeHelper.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\OrderProduct.cs" />
+    <Compile Include="Models\OrderPromotionModel.cs" />
+    <Compile Include="Models\Passenger.cs" />
+    <Compile Include="Models\PaymentType.cs" />
     <Compile Include="Models\PromotionModel.cs" />
+    <Compile Include="Models\SeatNumber.cs" />
     <Compile Include="Models\ShoppingCart.cs" />
     <Compile Include="Models\ShoppingCartEntry.cs" />
     <Compile Include="Services\CatalogDataService.cs" />
@@ -160,11 +165,15 @@
     <Compile Include="Models\Promotion.cs" />
     <Compile Include="Services\ActivationService.cs" />
     <Compile Include="Activation\DefaultActivationHandler.cs" />
+    <Compile Include="Services\IOrderDataService.cs" />
     <Compile Include="Services\NavigationServiceEx.cs" />
+    <Compile Include="Services\OrderDataService.cs" />
     <Compile Include="ViewModels\AddPromotionViewModel.cs" />
     <Compile Include="ViewModels\AdminCatalogViewModel.cs" />
     <Compile Include="ViewModels\CatalogViewModel.cs" />
     <Compile Include="ViewModels\DetailsViewModel.cs" />
+    <Compile Include="ViewModels\MyOrdersViewModel.cs" />
+    <Compile Include="ViewModels\OrderManagementViewModel.cs" />
     <Compile Include="ViewModels\ProductDetailsViewModel.cs" />
     <Compile Include="ViewModels\ShellViewModel.cs" />
     <Compile Include="ViewModels\ShoppingCartViewModel.cs" />
@@ -180,6 +189,12 @@
     </Compile>
     <Compile Include="Views\DetailsPage.xaml.cs">
       <DependentUpon>DetailsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MyOrdersPage.xaml.cs">
+      <DependentUpon>MyOrdersPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\OrdersManagementPage.xaml.cs">
+      <DependentUpon>OrdersManagementPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ProductDetailsPage.xaml.cs">
       <DependentUpon>ProductDetailsPage.xaml</DependentUpon>
@@ -236,6 +251,14 @@
     <Page Include="Views\DetailsPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\MyOrdersPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\OrdersManagementPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ProductDetailsPage.xaml">
       <SubType>Designer</SubType>

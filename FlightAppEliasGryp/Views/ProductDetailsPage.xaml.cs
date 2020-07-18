@@ -37,7 +37,7 @@ namespace FlightAppEliasGryp.Views
             base.OnNavigatedTo(e);
             var product = e.Parameter as Product;
             ViewModel.Product = product;
-
+            ViewModel.ClearPromotions();
             createPromotions(product.Promotions);
 
             //            await ViewModel.LoadDataAsync();
@@ -96,7 +96,7 @@ namespace FlightAppEliasGryp.Views
             var txtBox = (TextBox)sender;
             var entry = (Promotion)txtBox.Tag;
             if(entry != null)
-            entry.DiscountAmount = Convert.ToDecimal(txtBox.Text);
+            entry.Amount = Convert.ToDecimal(txtBox.Text);
         }
 
         private void StartDate_DateChanged(CalendarDatePicker sender, CalendarDatePickerDateChangedEventArgs args)

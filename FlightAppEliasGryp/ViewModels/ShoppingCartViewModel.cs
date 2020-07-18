@@ -14,12 +14,15 @@ namespace FlightAppEliasGryp.ViewModels
         public ShoppingCart ShoppingCart { get; set; }
         public NavigationServiceEx NavigationService => ViewModelLocator.Current.NavigationService;
         private ICatalogDataService _catalogDataService { get; set; }
+        private IOrderDataService _orderDataService { get; set; }
 
         public ShoppingCartViewModel(
-         ICatalogDataService catalogDataService
+         ICatalogDataService catalogDataService,
+         IOrderDataService orderDataService
             )
         {
             _catalogDataService = catalogDataService;
+            _orderDataService = orderDataService;
             LoadDataAsync();
         }
 
@@ -36,7 +39,7 @@ namespace FlightAppEliasGryp.ViewModels
 
         public async void Checkout()
         {
-            var data = await _catalogDataService.Checkout();
+            var data = await _orderDataService.Checkout(PaymentType.CASH);
         }
 
         public async void ChangeEntryAmount(ShoppingCartEntry entry, int amount)

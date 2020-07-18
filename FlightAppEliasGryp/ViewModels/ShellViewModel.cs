@@ -51,8 +51,19 @@ namespace FlightAppEliasGryp.ViewModels
 
         public ICommand ItemInvokedCommand => _itemInvokedCommand ?? (_itemInvokedCommand = new RelayCommand<WinUI.NavigationViewItemInvokedEventArgs>(OnItemInvoked));
 
-        public ShellViewModel()
+        private IOrderDataService _orderDataService { get; set; }
+
+        public int NewOrders { get; set; }
+
+        public ShellViewModel(IOrderDataService orderDataService)
         {
+            _orderDataService = orderDataService;
+        }
+
+        public async void GetNewOrdersCount()
+        {
+            var data = await _orderDataService.GetUncompletedOrdersCount();
+            NewOrders = data;
         }
 
         public void Initialize(Frame frame, WinUI.NavigationView navigationView, IList<KeyboardAccelerator> keyboardAccelerators)

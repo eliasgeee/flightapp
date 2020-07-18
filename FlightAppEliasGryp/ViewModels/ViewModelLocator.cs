@@ -17,6 +17,7 @@ namespace FlightAppEliasGryp.ViewModels
         private ViewModelLocator()
         {
             SimpleIoc.Default.Register<ICatalogDataService, CatalogDataService>();
+            SimpleIoc.Default.Register<IOrderDataService, OrderDataService>();
             SimpleIoc.Default.Register(() => new NavigationServiceEx());
             SimpleIoc.Default.Register<ShellViewModel>();
             Register<DetailsViewModel, DetailsPage>();
@@ -25,6 +26,8 @@ namespace FlightAppEliasGryp.ViewModels
             Register<AdminCatalogViewModel, AdminCatalogPage>();
             Register<ProductDetailsViewModel, ProductDetailsPage>();
             Register<AddPromotionViewModel, AddPromotionDialog>();
+            Register<MyOrdersViewModel, MyOrdersPage>();
+            Register<OrderManagementViewModel, OrdersManagementPage>();
         }
 
         public CatalogViewModel CatalogViewModel => SimpleIoc.Default.GetInstance<CatalogViewModel>();
@@ -34,6 +37,8 @@ namespace FlightAppEliasGryp.ViewModels
         public AdminCatalogViewModel AdminCatalogViewModel => SimpleIoc.Default.GetInstance<AdminCatalogViewModel>();
         public ProductDetailsViewModel ProductDetailsViewModel => SimpleIoc.Default.GetInstance<ProductDetailsViewModel>();
         public AddPromotionViewModel AddPromotionViewModel => SimpleIoc.Default.GetInstance<AddPromotionViewModel>();
+        public OrderManagementViewModel OrderManagementViewModel => SimpleIoc.Default.GetInstance<OrderManagementViewModel>();
+        public MyOrdersViewModel MyOrdersViewModel => SimpleIoc.Default.GetInstance<MyOrdersViewModel>();
 
         public NavigationServiceEx NavigationService => SimpleIoc.Default.GetInstance<NavigationServiceEx>();
 
