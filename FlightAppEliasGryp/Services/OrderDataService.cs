@@ -13,6 +13,20 @@ namespace FlightAppEliasGryp.Services
     {
         private readonly string baseUri = "https://localhost:44332/api/Order/";
 
+        public async Task<Order> ChangeOrderStatus(Order order, OrderStatus newStatus)
+        {
+            using (var httpClientHandler = new HttpClientHandler())
+            {
+                httpClientHandler.ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => { return true; };
+                using (var client = new HttpClient(httpClientHandler))
+                {
+                    var reqUri = baseUri + order.Id + "/" + newStatus;
+                    var json = await client.PutAsync(new Uri(reqUri), new StringContent(JsonConvert.SerializeObject(newStatus), System.Text.Encoding.UTF8, "application/json"));
+                    return null;
+                }
+            }
+        }
+
         public async Task<Order> Checkout(PaymentType paymentType)
         {
             using (var httpClientHandler = new HttpClientHandler())

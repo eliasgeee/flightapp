@@ -13,12 +13,14 @@
                 <ResourceDictionary Source="/Styles/_Thickness.xaml" />
                 <ResourceDictionary Source="/Styles/TextBlock.xaml" />
                 <ResourceDictionary Source="/Styles/Page.xaml"/>
+                <ResourceDictionary Source="/Styles/Button.xaml"/>
             </ResourceDictionary.MergedDictionaries>
 
             <converters:ProdCatConverter x:Key="ProdCatConverter" />
             <converters:PromotionTypeConverter x:Key="PromotionTypeConverter" />
             <converters:TimeConverter x:Key="TimeConverter" />
             <converters:OrderStatusConverter x:Key="OrderStatusConverter" />
+            <converters:OrderConverter x:Key="OrderConverter" />
         </ResourceDictionary>
     </Application.Resources>
 </Application>

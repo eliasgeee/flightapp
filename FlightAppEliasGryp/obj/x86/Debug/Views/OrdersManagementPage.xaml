@@ -10,16 +10,17 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
+
     <Grid BorderBrush="LightGray"
           BorderThickness="1,0,0,0">
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="1.5*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <Grid Margin="26,28,24,496" BorderBrush="LightGray" BorderThickness="0, 0, 0, 1" Grid.Row="0" Grid.RowSpan="2">
-            
+        <Grid Margin="24,24,24,0" BorderBrush="LightGray" BorderThickness="0, 0, 0, 1" Grid.Row="0" Grid.RowSpan="2">
+
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="*" />
@@ -62,14 +63,13 @@
                             Name="OrderItems"
                             IsItemClickEnabled="True"
                                                 
-            
                             >
-                    <ListView.ItemContainerStyle>
-                        <Style TargetType="ListViewItem">
-                            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
                         <Setter Property="Padding" Value="0,8" />
                     </Style>
-                    </ListView.ItemContainerStyle>
+                </ListView.ItemContainerStyle>
                 <ListView.ItemTemplate>
                     <DataTemplate
                                                              
@@ -89,12 +89,12 @@
                             <TextBlock x:ConnectionId='19'                    Grid.Column="0" HorizontalAlignment="Left"/>
                             <TextBlock x:ConnectionId='20'                                                 Grid.Column="1" HorizontalAlignment="Left"/>
                             <TextBlock x:ConnectionId='21'                             Grid.Column="2" HorizontalAlignment="Left"/>
-                            <TextBlock x:ConnectionId='22'                      Grid.Column="3" HorizontalAlignment="Left"/>
-                            <TextBlock x:ConnectionId='23'                                  Grid.Column="4" HorizontalAlignment="Left"/>
+                            <TextBlock x:ConnectionId='22'                                              Grid.Column="3" HorizontalAlignment="Left"/>
+                            <TextBlock x:ConnectionId='23'                                    Grid.Column="4" HorizontalAlignment="Left"/>
                             <TextBlock x:ConnectionId='24'                            Grid.Column="5" HorizontalAlignment="Left"/>
                             <TextBlock x:ConnectionId='25'                             Grid.Column="6" HorizontalAlignment="Left"/>
                             <TextBlock x:ConnectionId='26'                        Grid.Column="7" HorizontalAlignment="Left"/>
-                       </Grid>
+                        </Grid>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
@@ -104,7 +104,7 @@
                 <ColumnDefinition />
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
-            <StackPanel Grid.Column="0">
+            <StackPanel Grid.Column="0" BorderBrush="LightGray" BorderThickness="0, 0, 1, 0">
                 <TextBlock FontSize="20" FontWeight="SemiBold" Text="Order details"/>
 
                 <TextBlock FontSize="16" Text="Order ID" Margin="0,8,0,0"/>
@@ -113,7 +113,8 @@
                 <TextBlock FontSize="16" Text="Status" Margin="0,8,0,0"/>
                 <ComboBox x:ConnectionId='12' FontSize="16" FontWeight="SemiBold"
                                                               
-                                                                                                                                     />
+                                                                                                                                     
+                                                                          Name="SelectedItemOrderStatus"/>
 
                 <TextBlock FontSize="16" Text="Order Time" Margin="0,8,0,0"/>
                 <TextBlock x:ConnectionId='13' FontSize="16"                                             FontWeight="SemiBold"/>
@@ -127,70 +128,69 @@
                 <TextBlock x:ConnectionId='15' FontSize="16"                                                                        FontWeight="SemiBold"/>
             </StackPanel>
 
-            <Grid Grid.Column="1">
+            <Grid Grid.Column="1" Margin="24, 0, 0, 0">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
-                <TextBlock FontSize="16" FontWeight="SemiBold" Text="Order items" Grid.Row="0" />
+                <TextBlock FontSize="20" FontWeight="SemiBold" Text="Order items" Grid.Row="0" />
                 <Grid Grid.Row="1" Margin="0, 24, 0, 0">
                     <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="*" />
-                </Grid.RowDefinitions>
-                <Grid Grid.Row="0">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="10*"/>
-                        <ColumnDefinition Width="13*"/>
-                        <ColumnDefinition Width="8*"/>
-                        <ColumnDefinition Width="8*"/>
-                        <ColumnDefinition Width="11*"/>
-                    </Grid.ColumnDefinitions>
-                    <TextBlock Text="Product image" Grid.Column="0" HorizontalAlignment="Left"/>
-                    <TextBlock Text="Product name" Grid.Column="1" HorizontalAlignment="Left"/>
-                    <TextBlock Text="Price" Grid.Column="2" HorizontalAlignment="Left"/>
-                    <TextBlock Text="Discount" Grid.Column="3" HorizontalAlignment="Left"/>
-                    <TextBlock Text="Amount in order" Grid.Column="4" HorizontalAlignment="Left"/>
-                </Grid>
-                <ListView x:ConnectionId='3' 
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0" BorderBrush="LightGray" BorderThickness="0, 0, 0, 1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="10*"/>
+                            <ColumnDefinition Width="15*"/>
+                            <ColumnDefinition Width="6*"/>
+                            <ColumnDefinition Width="8*"/>
+                            <ColumnDefinition Width="11*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="Product image" Grid.Column="0" HorizontalAlignment="Left"/>
+                        <TextBlock Text="Product name" Grid.Column="1" HorizontalAlignment="Left"/>
+                        <TextBlock Text="Price" Grid.Column="2" HorizontalAlignment="Left"/>
+                        <TextBlock Text="Discount" Grid.Column="3" HorizontalAlignment="Left"/>
+                        <TextBlock Text="Amount in order" Grid.Column="4" HorizontalAlignment="Left"/>
+                    </Grid>
+                    <ListView x:ConnectionId='3' 
                                                                                                 
                             SelectionMode="None"
                             Name="OrderDetailProductItems"
                             IsItemClickEnabled="False"
                     Grid.Row="1">
-                    <ListView.ItemContainerStyle>
-                        <Style TargetType="ListViewItem">
-                            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
-                            <Setter Property="Margin" Value="0, 24, 0, 0" />
-                        </Style>
-                    </ListView.ItemContainerStyle>
-                    <ListView.ItemTemplate>
-                        <DataTemplate
+                        <ListView.ItemContainerStyle>
+                            <Style TargetType="ListViewItem">
+                                <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                                <Setter Property="Margin" Value="0, 24, 0, 0" />
+                            </Style>
+                        </ListView.ItemContainerStyle>
+                        <ListView.ItemTemplate>
+                            <DataTemplate
                                                                     
                                     >
-                            <ScrollViewer x:ConnectionId='5'>
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
+                                <ScrollViewer x:ConnectionId='5'>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="10*"/>
-                                            <ColumnDefinition Width="13*"/>
-                                            <ColumnDefinition Width="8*"/>
+                                            <ColumnDefinition Width="15*"/>
+                                            <ColumnDefinition Width="6*"/>
                                             <ColumnDefinition Width="8*"/>
                                             <ColumnDefinition Width="11*"/>
                                         </Grid.ColumnDefinitions>
 
-                                    <Image x:ConnectionId='6'                         Stretch='Uniform' MaxHeight="80" MaxWidth="80" Grid.Column="0" HorizontalAlignment="Left"/>
+                                        <Image x:ConnectionId='6'                         Stretch='Uniform' MaxHeight="80" MaxWidth="80" Grid.Column="0" HorizontalAlignment="Left"/>
                                         <TextBlock x:ConnectionId='7'                      Grid.Column="1" HorizontalAlignment="Left"  TextWrapping="Wrap"/>
-                                    <TextBlock x:ConnectionId='8'                       Grid.Column="2" HorizontalAlignment="Left"/>
+                                        <TextBlock x:ConnectionId='8'                       Grid.Column="2" HorizontalAlignment="Left"/>
                                         <TextBlock x:ConnectionId='9'                                                 Grid.Column="3" HorizontalAlignment="Left"/>
-                                    <TextBlock x:ConnectionId='10'                        Grid.Column="4" HorizontalAlignment="Left"/>
-                                </Grid>
-                            </ScrollViewer>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
+                                        <TextBlock x:ConnectionId='10'                        Grid.Column="4" HorizontalAlignment="Left"/>
+                                    </Grid>
+                                </ScrollViewer>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </Grid>
             </Grid>
-            </Grid>
-            
         </Grid>
     </Grid>
 </Page>

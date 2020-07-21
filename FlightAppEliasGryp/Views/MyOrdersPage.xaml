@@ -5,10 +5,294 @@
     xmlns:local="using:FlightAppEliasGryp.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:models="using:FlightAppEliasGryp.Models"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Page.Transitions>
+        <TransitionCollection>
+            <NavigationThemeTransition />
+        </TransitionCollection>
+    </Page.Transitions>
 
-    <Grid>
+    <Page.Resources>
+        <DataTemplate x:Key="OrdersOverviewTemplate" x:DataType="models:Order">
+            <Grid Margin="0,11,0,13">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
 
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <StackPanel BorderBrush="LightGray" BorderThickness="0,0,0,1">
+                    <TextBlock Text="{x:Bind OrderTotal}" FontSize="20" FontWeight="SemiBold" Style="{ThemeResource ListTitleStyle}"/>
+                    <TextBlock Text="{x:Bind GetIsPaidFormatted()}" Style="{ThemeResource ListSubTitleStyle}"/>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{x:Bind OrderStatus}" HorizontalAlignment="Left"  Margin="0, 0, 0, 8"/>
+                        <TextBlock Text="{x:Bind GetDateAndTimeOrderCreated()}" FontStyle="Italic" HorizontalAlignment="Right" Margin="8, 0, 0, 8"/>
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
+        </DataTemplate>
+
+        <DataTemplate x:Key="OrderDetailContentTemplate" x:DataType="models:Order">
+            <ScrollViewer>
+                <StackPanel>
+                    <StackPanel Orientation="Horizontal" Margin="0,8">
+                        <TextBlock
+                    Style="{ThemeResource TitleTextBlockStyle}"
+                    HorizontalAlignment="Left"
+                    Text="{x:Bind GetOrderId()}"/>
+                    </StackPanel>
+                    <Grid
+                    Margin="0,24"
+                    >
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="10*"/>
+                            <ColumnDefinition Width="10*"/>
+                            <ColumnDefinition Width="8*"/>
+                            <ColumnDefinition Width="8*"/>
+                            <ColumnDefinition Width="8*"/>
+                            <ColumnDefinition Width="8*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock
+                    HorizontalAlignment="Left"
+                    Style="{ThemeResource ListTitleStyle}"
+                    Text="Customer name"
+                    Grid.Column="0"
+                        Grid.Row="0"/>
+                        <TextBlock
+                    HorizontalAlignment="Left"
+                    Style="{ThemeResource ListTitleStyle}"
+                    Text="Order Time"
+                    Grid.Column="1"
+                        Grid.Row="0"/>
+                        <TextBlock
+                    HorizontalAlignment="Left"
+                    Style="{ThemeResource ListTitleStyle}"
+                    Text="Order Total"
+                    Grid.Column="2"
+                        Grid.Row="0"/>
+                        <TextBlock
+                    HorizontalAlignment="Left"
+                    Style="{ThemeResource ListTitleStyle}"
+                    Text="Order Quantity"
+                    Grid.Column="3"
+                        Grid.Row="0"/>
+                        <TextBlock
+                    HorizontalAlignment="Left"
+                    Style="{ThemeResource ListTitleStyle}"
+                    Text="Payment Type"
+                    Grid.Column="4"
+                        Grid.Row="0"/>
+                        <TextBlock
+                    HorizontalAlignment="Left"
+                    Style="{ThemeResource ListTitleStyle}"
+                    Text="Total Paid"
+                    Grid.Column="5"
+                        Grid.Row="0"/>
+                        <TextBlock HorizontalAlignment="Left" Style="{ThemeResource BodyTextStyle}" Text="{x:Bind Passenger.GetFullName()}"
+                               Grid.Row="1" Grid.Column="0"/>
+                        <TextBlock HorizontalAlignment="Left" Style="{ThemeResource BodyTextStyle}" Text="{x:Bind GetDateAndTimeOrderCreated()}"
+                               Grid.Row="1" Grid.Column="1"/>
+                        <TextBlock HorizontalAlignment="Left" Style="{ThemeResource BodyTextStyle}" Text="{x:Bind OrderTotal}"
+                               Grid.Row="1" Grid.Column="2"/>
+                        <TextBlock HorizontalAlignment="Left" Style="{ThemeResource BodyTextStyle}" Text="{x:Bind GetOrderQuantity()}"
+                               Grid.Row="1" Grid.Column="3"/>
+                        <TextBlock HorizontalAlignment="Left" Style="{ThemeResource BodyTextStyle}" Text="{x:Bind PaymentType}"
+                               Grid.Row="1" Grid.Column="4"/>
+                        <TextBlock HorizontalAlignment="Left" Style="{ThemeResource BodyTextStyle}" Text="{x:Bind TotalAmountPaid()}"
+                               Grid.Row="1" Grid.Column="5"/>
+
+                    </Grid>
+                    <Grid Margin="0,24,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="10*"/>
+                            <ColumnDefinition Width="15*"/>
+                            <ColumnDefinition Width="6*"/>
+                            <ColumnDefinition Width="8*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <TextBlock
+                    Style="{ThemeResource TitleTextBlockStyle}"
+                    HorizontalAlignment="Left"
+                    Text="Ordered Products"
+                                Grid.Row="0"/>
+
+                        <TextBlock
+                    HorizontalAlignment="Left"
+                    Style="{ThemeResource ListTitleStyle}"
+                    Text="Product name"
+                    Grid.Column="1"
+                                Margin="0,24,0,0"
+                                Grid.Row="1"/>
+                        <TextBlock
+                    HorizontalAlignment="Left"
+                    Style="{ThemeResource ListTitleStyle}"
+                    Text="Quantity"
+                                Margin="0,24,0,0"
+                    Grid.Column="2"
+                                Grid.Row="1"/>
+                        <TextBlock
+                    HorizontalAlignment="Left"
+                                Margin="0,24,0,0"
+                    Style="{ThemeResource ListTitleStyle}"
+                    Text="Price"
+                    Grid.Column="3"
+                                Grid.Row="1"/>
+                        <ListView 
+                      ItemsSource="{x:Bind OrderItems, Mode=OneWay}"
+                            SelectionMode="None"
+                            Name="OrderDetailProductItems"
+                            IsItemClickEnabled="False"
+                                Grid.Row="2"
+                                Grid.ColumnSpan="4">
+                            <ListView.ItemContainerStyle>
+                                <Style TargetType="ListViewItem">
+                                    <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                                    <Setter Property="Margin" Value="0, 24, 0, 0" />
+                                </Style>
+                            </ListView.ItemContainerStyle>
+                            <ListView.ItemTemplate>
+                                <DataTemplate
+                                    x:DataType="models:OrderProduct">
+
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="10*"/>
+                                            <ColumnDefinition Width="15*"/>
+                                            <ColumnDefinition Width="6*"/>
+                                            <ColumnDefinition Width="8*"/>
+                                        </Grid.ColumnDefinitions>
+
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition />
+                                            <RowDefinition />
+                                        </Grid.RowDefinitions>
+
+                                        <Image Source="{x:Bind Image}" Stretch='Uniform' MaxHeight="80" MaxWidth="80" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left"/>
+                                        <TextBlock Text="{x:Bind Name}" Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left"  TextWrapping="Wrap"/>
+                                        <TextBlock Text="{x:Bind Amount}" Grid.Column="2" Grid.Row="0" HorizontalAlignment="Left"/>
+                                        <TextBlock Text="{x:Bind Price}" Grid.Column="3" Grid.Row="0" HorizontalAlignment="Left"/>
+
+                                        <ListView
+                                                ItemsSource="{x:Bind AppliedPromotions, Mode=OneWay}"
+                                                SelectionMode="None"
+                                                    Grid.ColumnSpan="4"
+                                                Grid.Row="1"
+                                                Name="OrderDetailProductPromotions"
+                                                IsItemClickEnabled="False"
+                                                >
+                                            <ListView.ItemContainerStyle>
+                                                <Style TargetType="ListViewItem">
+                                                    <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                                                    <Setter Property="Margin" Value="0, 24, 0, 0" />
+                                                </Style>
+                                            </ListView.ItemContainerStyle>
+                                            <ListView.ItemTemplate>
+                                                <DataTemplate
+                                    x:DataType="models:OrderPromotionModel"
+                                    >
+                                                    <Grid>
+                                                        <Grid.ColumnDefinitions>
+                                                            <ColumnDefinition Width="10*"/>
+                                                            <ColumnDefinition Width="15*"/>
+                                                            <ColumnDefinition Width="6*"/>
+                                                            <ColumnDefinition Width="8*"/>
+                                                        </Grid.ColumnDefinitions>
+                                                        <TextBlock Text="{x:Bind ToString()}" Grid.Column="1"/>
+                                                        <TextBlock Text="{x:Bind GetFormattedReducedAmount()}" Grid.Column="3"/>
+                                                    </Grid>
+                                                </DataTemplate>
+                                            </ListView.ItemTemplate>
+                                        </ListView>
+                                    </Grid>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </Grid>
+                </StackPanel>
+            </ScrollViewer>
+        </DataTemplate>
+    </Page.Resources>
+
+    <Grid x:Name="LayoutRoot" Loaded="LayoutRoot_Loaded">
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="AdaptiveStates" CurrentStateChanged="AdaptiveStates_CurrentStateChanged">
+                <VisualState x:Name="DefaultState">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="720" />
+                    </VisualState.StateTriggers>
+                </VisualState>
+
+                <VisualState x:Name="NarrowState">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0" />
+                    </VisualState.StateTriggers>
+
+                    <VisualState.Setters>
+                        <Setter Target="OverviewColumn.Width" Value="*" />
+                        <Setter Target="DetailColumn.Width" Value="0" />
+                        <Setter Target="OrdersOverViewListView.SelectionMode" Value="None" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition x:Name="OverviewColumn" Width="320" />
+            <ColumnDefinition x:Name="DetailColumn" Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <TextBlock
+            Text="{x:Bind ViewModel.GetMyOrdersCount()}"
+            Margin="12,8,8,8"
+            Style="{ThemeResource TitleTextBlockStyle}" />
+
+        <ListView
+            x:Name="OrdersOverViewListView"
+            Grid.Row="1"
+            ItemContainerTransitions="{x:Null}"
+            ItemsSource="{x:Bind Path=ViewModel.MyOrders, Mode=OneWay}"
+            ItemTemplate="{StaticResource OrdersOverviewTemplate}"
+            IsItemClickEnabled="True"
+            ItemClick="OrdersOverViewListView_ItemClick">
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                </Style>
+            </ListView.ItemContainerStyle>
+        </ListView>
+
+        <ContentPresenter
+            x:Name="DetailContentPresenter"
+            Grid.Column="1"
+            Grid.RowSpan="2"
+            BorderThickness="1,0,0,0"
+            Padding="24,0"
+            BorderBrush="{ThemeResource SystemControlForegroundBaseLowBrush}"
+            Content="{x:Bind OrdersOverViewListView.SelectedItem, Mode=OneWay}"
+            ContentTemplate="{StaticResource OrderDetailContentTemplate}"
+            >
+            <ContentPresenter.ContentTransitions>
+                <TransitionCollection />
+            </ContentPresenter.ContentTransitions>
+        </ContentPresenter>
     </Grid>
 </Page>

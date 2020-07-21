@@ -25,7 +25,7 @@ namespace FlightAppEliasGryp.Views
         private async void InitAsync()
         {
             ViewModel.GetNewOrdersCount();
-            OrderManagement.Content = OrderManagement.Content + " (" + ViewModel.NewOrders +")";
+          //  OrderManagement.Content = OrderManagement.Content + " (" + ViewModel.NewOrders +")";
         }
     }
 }

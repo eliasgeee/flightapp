@@ -35,5 +35,21 @@ namespace FlightAppEliasGryp.ViewModels
                 UncompletedOrders.Add(item);
             }
         }
+
+        public int GetAmountOfNewOrders()
+        {
+            return UncompletedOrders.Where(e => e.OrderStatus == OrderStatus.NEW).Count();
+        }
+
+        public int GetAmountOfPendingOrders()
+        {
+            return UncompletedOrders.Where(e => e.OrderStatus == OrderStatus.PENDING).Count();
+        }
+
+        public void ChangeOrderStatus(Order order, OrderStatus newStatus)
+        {
+            if(newStatus != SelectedItem.OrderStatus)
+            _orderDataService.ChangeOrderStatus(order, newStatus);
+        }
     }
 }

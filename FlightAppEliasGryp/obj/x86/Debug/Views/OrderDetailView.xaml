@@ -1,0 +1,204 @@
+﻿<UserControl x:ConnectionId='1'
+    x:Class="FlightAppEliasGryp.Views.OrderDetailView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:FlightAppEliasGryp.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:models="using:FlightAppEliasGryp.Models"
+    mc:Ignorable="d"
+    d:DesignHeight="300"
+    d:DesignWidth="400">
+    <ScrollViewer x:ConnectionId='2' x:Name="ContentToPrint">
+        <StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,8">
+                <TextBlock x:ConnectionId='21'
+                    Style="{ThemeResource TitleTextBlockStyle}"
+                    HorizontalAlignment="Left"
+                                                              />
+            </StackPanel>
+            <Grid
+                    Margin="0,24"
+                    >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="10*"/>
+                    <ColumnDefinition Width="10*"/>
+                    <ColumnDefinition Width="8*"/>
+                    <ColumnDefinition Width="8*"/>
+                    <ColumnDefinition Width="8*"/>
+                    <ColumnDefinition Width="8*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock
+                    HorizontalAlignment="Left"
+                    Style="{ThemeResource ListTitleStyle}"
+                    Text="Customer name"
+                    Grid.Column="0"
+                        Grid.Row="0"/>
+                <TextBlock
+                    HorizontalAlignment="Left"
+                    Style="{ThemeResource ListTitleStyle}"
+                    Text="Order Time"
+                    Grid.Column="1"
+                    Margin="8,0,0,0"
+                        Grid.Row="0"/>
+                <TextBlock
+                    HorizontalAlignment="Left"
+                    Style="{ThemeResource ListTitleStyle}"
+                    Text="Order Total"
+                    Grid.Column="2"
+                    Margin="8,0,0,0"
+                        Grid.Row="0"/>
+                <TextBlock
+                    HorizontalAlignment="Left"
+                    Style="{ThemeResource ListTitleStyle}"
+                    Text="Order Quantity"
+                    Grid.Column="3"
+                    Margin="8,0,0,0"
+                        Grid.Row="0"/>
+                <TextBlock
+                    HorizontalAlignment="Left"
+                    Style="{ThemeResource ListTitleStyle}"
+                    Text="Payment Type"
+                    Grid.Column="4"
+                    Margin="8,0,0,0"
+                        Grid.Row="0"/>
+                <TextBlock
+                    HorizontalAlignment="Left"
+                    Style="{ThemeResource ListTitleStyle}"
+                    Text="Total Paid"
+                    Grid.Column="5"
+                    Margin="8,0,0,0"
+                        Grid.Row="0"/>
+                <TextBlock x:ConnectionId='15' HorizontalAlignment="Left" Style="{ThemeResource BodyTextStyle}"                                                      
+                               Grid.Row="1" Grid.Column="0"/>
+                <TextBlock x:ConnectionId='16' HorizontalAlignment="Left" Style="{ThemeResource BodyTextStyle}"                                                           
+                               Grid.Row="1" Grid.Column="1" Margin="8,0,0,0"/>
+                <TextBlock x:ConnectionId='17' HorizontalAlignment="Left" Style="{ThemeResource BodyTextStyle}"                                         
+                               Grid.Row="1" Grid.Column="2" Margin="8,0,0,0"/>
+                <TextBlock x:ConnectionId='18' HorizontalAlignment="Left" Style="{ThemeResource BodyTextStyle}"                                                 
+                               Grid.Row="1" Grid.Column="3" Margin="8,0,0,0"/>
+                <TextBlock x:ConnectionId='19' HorizontalAlignment="Left" Style="{ThemeResource BodyTextStyle}"                                          
+                               Grid.Row="1" Grid.Column="4" Margin="8,0,0,0"/>
+                <TextBlock x:ConnectionId='20' HorizontalAlignment="Left" Style="{ThemeResource BodyTextStyle}"                                                
+                               Grid.Row="1" Grid.Column="5" Margin="8,0,0,0"/>
+
+            </Grid>
+            <Grid Margin="0,24,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="10*"/>
+                    <ColumnDefinition Width="15*"/>
+                    <ColumnDefinition Width="6*"/>
+                    <ColumnDefinition Width="8*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <TextBlock
+                    Style="{ThemeResource TitleTextBlockStyle}"
+                    HorizontalAlignment="Left"
+                    Text="Ordered Products"
+                                Grid.Row="0"/>
+
+                <TextBlock
+                    HorizontalAlignment="Left"
+                    Style="{ThemeResource ListTitleStyle}"
+                    Text="Product name"
+                    Grid.Column="1"
+                                Margin="0,24,0,0"
+                                Grid.Row="1"/>
+                <TextBlock
+                    HorizontalAlignment="Left"
+                    Style="{ThemeResource ListTitleStyle}"
+                    Text="Quantity"
+                                Margin="0,24,0,0"
+                    Grid.Column="2"
+                                Grid.Row="1"/>
+                <TextBlock
+                    HorizontalAlignment="Left"
+                                Margin="0,24,0,0"
+                    Style="{ThemeResource ListTitleStyle}"
+                    Text="Price"
+                    Grid.Column="3"
+                                Grid.Row="1"/>
+                <ListView x:ConnectionId='3' 
+                                                                                  
+                            SelectionMode="None"
+                            Name="OrderDetailProductItems"
+                            IsItemClickEnabled="False"
+                                Grid.Row="2"
+                                Grid.ColumnSpan="4">
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="ListViewItem">
+                            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                            <Setter Property="Margin" Value="0, 24, 0, 0" />
+                        </Style>
+                    </ListView.ItemContainerStyle>
+                    <ListView.ItemTemplate>
+                        <DataTemplate
+                                                                    >
+
+                            <Grid x:ConnectionId='5'>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="10*"/>
+                                    <ColumnDefinition Width="15*"/>
+                                    <ColumnDefinition Width="6*"/>
+                                    <ColumnDefinition Width="8*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+
+                                <Image x:ConnectionId='6'                         Stretch='Uniform' MaxHeight="80" MaxWidth="80" Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left"/>
+                                <TextBlock x:ConnectionId='7'                      Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left"  TextWrapping="Wrap"/>
+                                <TextBlock x:ConnectionId='8'                        Grid.Column="2" Grid.Row="0" HorizontalAlignment="Left"/>
+                                <TextBlock x:ConnectionId='9'                       Grid.Column="3" Grid.Row="0" HorizontalAlignment="Left"/>
+
+                                <ListView x:ConnectionId='10'
+                                                                                                     
+                                                SelectionMode="None"
+                                                    Grid.ColumnSpan="4"
+                                                Grid.Row="1"
+                                                Name="OrderDetailProductPromotions"
+                                                IsItemClickEnabled="False"
+                                                >
+                                    <ListView.ItemContainerStyle>
+                                        <Style TargetType="ListViewItem">
+                                            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+                                            <Setter Property="Margin" Value="0, 24, 0, 0" />
+                                        </Style>
+                                    </ListView.ItemContainerStyle>
+                                    <ListView.ItemTemplate>
+                                        <DataTemplate
+                                                                           
+                                    >
+                                            <Grid x:ConnectionId='12'>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="10*"/>
+                                                    <ColumnDefinition Width="15*"/>
+                                                    <ColumnDefinition Width="6*"/>
+                                                    <ColumnDefinition Width="8*"/>
+                                                </Grid.ColumnDefinitions>
+                                                <TextBlock x:ConnectionId='13'                            Grid.Column="1"/>
+                                                <TextBlock x:ConnectionId='14'                                             Grid.Column="3"/>
+                                            </Grid>
+                                        </DataTemplate>
+                                    </ListView.ItemTemplate>
+                                </ListView>
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Grid>
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>
+

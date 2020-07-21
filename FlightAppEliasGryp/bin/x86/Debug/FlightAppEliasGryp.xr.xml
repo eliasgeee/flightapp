@@ -19,12 +19,18 @@
     <RootType FullName="FlightAppEliasGryp.Helpers.Converters.PromotionTypeConverter" />
     <RootType FullName="FlightAppEliasGryp.Helpers.Converters.TimeConverter" />
     <RootType FullName="FlightAppEliasGryp.Helpers.Converters.OrderStatusConverter" />
-    <RootType FullName="Windows.UI.Xaml.Controls.Page">
-      <RootProperty Name="Background" />
+    <RootType FullName="FlightAppEliasGryp.Helpers.Converters.OrderConverter" />
+    <RootType FullName="Windows.UI.Xaml.Controls.Button">
+      <RootProperty Name="Margin" />
+      <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="Content" />
+      <RootProperty Name="HorizontalAlignment" />
       <RootProperty Name="Style" />
+      <RootEvent Name="Click" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Control">
+      <RootProperty Name="Foreground" />
+      <RootProperty Name="BorderBrush" />
       <RootProperty Name="Background" />
       <RootProperty Name="HorizontalContentAlignment" />
       <RootProperty Name="Padding" />
@@ -32,6 +38,16 @@
     <RootType FullName="Windows.UI.Xaml.Setter">
       <RootProperty Name="Property" />
       <RootProperty Name="Value" />
+      <RootProperty Name="Target" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.Page">
+      <RootProperty Name="Background" />
+      <RootProperty Name="Content" />
+      <RootProperty Name="Style" />
+      <RootProperty Name="Transitions" />
+      <RootProperty Name="Resources" />
+      <RootEvent Name="Loaded" />
+      <RootEvent Name="Unloaded" />
     </RootType>
     <RootType FullName="Microsoft.Xaml.DirectUI.ProxyTypes.ThemeResourceExtension" />
     <RootType FullName="Windows.UI.Xaml.Media.SolidColorBrush">
@@ -51,6 +67,7 @@
       <RootProperty Name="Margin" />
       <RootProperty Name="HorizontalAlignment" />
       <RootProperty Name="Style" />
+      <RootProperty Name="FontStyle" />
       <RootProperty Name="MinWidth" />
       <RootProperty Name="Tag" />
       <RootProperty Name="Width" />
@@ -78,6 +95,9 @@
       <RootProperty Name="Margin" />
       <RootProperty Name="HorizontalAlignment" />
       <RootProperty Name="VerticalAlignment" />
+      <RootProperty Name="Visibility" />
+      <RootProperty Name="BorderBrush" />
+      <RootProperty Name="BorderThickness" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.ComboBox">
       <RootProperty Name="Name" />
@@ -128,20 +148,21 @@
       <RootProperty Name="Children" />
       <RootProperty Name="Padding" />
       <RootProperty Name="Background" />
+      <RootProperty Name="ColumnDefinitions" />
       <RootProperty Name="BorderBrush" />
       <RootProperty Name="BorderThickness" />
       <RootProperty Name="Name" />
-      <RootProperty Name="ColumnDefinitions" />
       <RootProperty Name="Height" />
       <RootProperty Name="Width" />
+      <RootEvent Name="Loaded" />
       <RootMethod Name="GetRow" />
       <RootMethod Name="SetRow" />
       <RootMethod Name="GetColumnSpan" />
       <RootMethod Name="SetColumnSpan" />
-      <RootMethod Name="GetRowSpan" />
-      <RootMethod Name="SetRowSpan" />
       <RootMethod Name="GetColumn" />
       <RootMethod Name="SetColumn" />
+      <RootMethod Name="GetRowSpan" />
+      <RootMethod Name="SetRowSpan" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.RowDefinition">
       <RootProperty Name="Height" />
@@ -181,25 +202,35 @@
       <RootProperty Name="Height" />
       <RootProperty Name="Width" />
     </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.Button">
-      <RootProperty Name="Margin" />
-      <RootProperty Name="VerticalAlignment" />
-      <RootProperty Name="Content" />
-      <RootProperty Name="HorizontalAlignment" />
-      <RootProperty Name="Foreground" />
-      <RootProperty Name="BorderBrush" />
-      <RootEvent Name="Click" />
-    </RootType>
     <RootType FullName="FlightAppEliasGryp.Views.AdminCatalogPage" />
     <RootType FullName="FlightAppEliasGryp.Views.ShoppingCartIcon">
       <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="HorizontalAlignment" />
     </RootType>
     <RootType FullName="FlightAppEliasGryp.Views.CatalogPage" />
-    <RootType FullName="FlightAppEliasGryp.Views.DetailsPage" />
-    <RootType FullName="FlightAppEliasGryp.Views.MyOrdersPage" />
     <RootType FullName="Windows.UI.Xaml.Controls.ColumnDefinition">
       <RootProperty Name="Width" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.RichTextBlockOverflow" />
+    <RootType FullName="Windows.UI.Xaml.Controls.RichTextBlock">
+      <RootProperty Name="Foreground" />
+      <RootProperty Name="FontSize" />
+      <RootProperty Name="TextAlignment" />
+      <RootProperty Name="FontFamily" />
+      <RootProperty Name="Blocks" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Documents.Paragraph">
+      <RootProperty Name="Inlines" />
+    </RootType>
+    <RootType FullName="FlightAppEliasGryp.Views.ContinuationPage" />
+    <RootType FullName="FlightAppEliasGryp.Views.DetailsPage" />
+    <RootType FullName="Windows.UI.Xaml.Media.Animation.TransitionCollection" />
+    <RootType FullName="Windows.UI.Xaml.Media.Animation.NavigationThemeTransition" />
+    <RootType FullName="Windows.UI.Xaml.Controls.ScrollViewer">
+      <RootProperty Name="Content" />
+      <RootProperty Name="VerticalScrollBarVisibility" />
+      <RootProperty Name="VerticalScrollMode" />
+      <RootProperty Name="Padding" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.ListView">
       <RootProperty Name="Name" />
@@ -208,14 +239,42 @@
       <RootProperty Name="IsItemClickEnabled" />
       <RootProperty Name="ItemContainerStyle" />
       <RootProperty Name="ItemTemplate" />
+      <RootProperty Name="ItemContainerTransitions" />
       <RootEvent Name="ItemClick" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.ListViewItem" />
-    <RootType FullName="Windows.UI.Xaml.Controls.ScrollViewer">
-      <RootProperty Name="Content" />
-      <RootProperty Name="VerticalScrollBarVisibility" />
-      <RootProperty Name="VerticalScrollMode" />
+    <RootType FullName="Windows.UI.Xaml.VisualStateManager">
+      <RootMethod Name="GetVisualStateGroups" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.VisualStateGroup">
+      <RootProperty Name="States" />
+      <RootEvent Name="CurrentStateChanged" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.VisualState">
+      <RootProperty Name="StateTriggers" />
+      <RootProperty Name="Setters" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.AdaptiveTrigger">
+      <RootProperty Name="MinWindowWidth" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.ContentPresenter">
+      <RootProperty Name="BorderThickness" />
       <RootProperty Name="Padding" />
+      <RootProperty Name="BorderBrush" />
+      <RootProperty Name="Content" />
+      <RootProperty Name="ContentTemplate" />
+      <RootProperty Name="ContentTransitions" />
+    </RootType>
+    <RootType FullName="Microsoft.Xaml.DirectUI.ProxyTypes.NullExtension" />
+    <RootType FullName="FlightAppEliasGryp.Views.MyOrdersPage" />
+    <RootType FullName="FlightAppEliasGryp.Views.OrderDetailView">
+      <RootProperty Name="Margin" />
+      <RootProperty Name="SelectedOrder" />
+    </RootType>
+    <RootType FullName="FlightAppEliasGryp.Views.OrderDetailPage" />
+    <RootType FullName="Windows.UI.Xaml.Controls.UserControl">
+      <RootProperty Name="Content" />
+      <RootEvent Name="Tapped" />
     </RootType>
     <RootType FullName="FlightAppEliasGryp.Views.OrdersManagementPage" />
     <RootType FullName="Windows.UI.Xaml.Controls.CommandBar">
@@ -278,10 +337,6 @@
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Frame" />
     <RootType FullName="FlightAppEliasGryp.Views.ShellPage" />
-    <RootType FullName="Windows.UI.Xaml.Controls.UserControl">
-      <RootProperty Name="Content" />
-      <RootEvent Name="Tapped" />
-    </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Canvas">
       <RootProperty Name="Width" />
       <RootProperty Name="Height" />

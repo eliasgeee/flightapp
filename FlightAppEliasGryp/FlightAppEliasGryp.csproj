@@ -142,6 +142,7 @@
     <Compile Include="Activation\ActivationHandler.cs" />
     <Compile Include="Behaviors\NavigationViewHeaderBehavior.cs" />
     <Compile Include="Behaviors\NavigationViewHeaderMode.cs" />
+    <Compile Include="Helpers\Converters\OrderConverter.cs" />
     <Compile Include="Helpers\Converters\OrderStatusConverter.cs" />
     <Compile Include="Helpers\Converters\ProdCatConverter.cs" />
     <Compile Include="Helpers\Converters\PromotionTypeConverter.cs" />
@@ -173,6 +174,7 @@
     <Compile Include="ViewModels\CatalogViewModel.cs" />
     <Compile Include="ViewModels\DetailsViewModel.cs" />
     <Compile Include="ViewModels\MyOrdersViewModel.cs" />
+    <Compile Include="ViewModels\OrderDetailsViewModel.cs" />
     <Compile Include="ViewModels\OrderManagementViewModel.cs" />
     <Compile Include="ViewModels\ProductDetailsViewModel.cs" />
     <Compile Include="ViewModels\ShellViewModel.cs" />
@@ -187,11 +189,20 @@
     <Compile Include="Views\CatalogPage.xaml.cs">
       <DependentUpon>CatalogPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\ContinuationPage.xaml.cs">
+      <DependentUpon>ContinuationPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\DetailsPage.xaml.cs">
       <DependentUpon>DetailsPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MyOrdersPage.xaml.cs">
       <DependentUpon>MyOrdersPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\OrderDetailPage.xaml.cs">
+      <DependentUpon>OrderDetailPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\OrderDetailView.xaml.cs">
+      <DependentUpon>OrderDetailView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\OrdersManagementPage.xaml.cs">
       <DependentUpon>OrdersManagementPage.xaml</DependentUpon>
@@ -216,6 +227,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Styles\Button.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Styles\Page.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -248,11 +263,23 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Views\ContinuationPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\DetailsPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\MyOrdersPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\OrderDetailPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\OrderDetailView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

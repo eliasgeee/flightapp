@@ -14,6 +14,7 @@ using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
@@ -25,6 +26,8 @@ namespace FlightAppEliasGryp.Views
     /// </summary>
     public sealed partial class OrdersManagementPage : Page
     {
+        private Order _lastSelectedItem;
+
         private OrderManagementViewModel ViewModel
         {
             get { return ViewModelLocator.Current.OrderManagementViewModel; }
@@ -47,5 +50,11 @@ namespace FlightAppEliasGryp.Views
             ViewModel.SelectedItem = item;
             OrderDetailsPanel.Visibility = Visibility.Visible;
         }
+
+        private void OrderStatus_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+                ViewModel.ChangeOrderStatus(ViewModel.SelectedItem, (OrderStatus) SelectedItemOrderStatus.SelectedItem);
+        }
+
     }
 }
