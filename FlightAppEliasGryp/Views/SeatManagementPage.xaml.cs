@@ -54,6 +54,7 @@ namespace FlightAppEliasGryp.Views
 
             for (int i=0; i < ViewModel.Seats.Count; i++)
             {
+                //TODO REFACTOR BUT WORKS + Show fly-out with passenger detailss
                 TextBlock text = new TextBlock();
                 if(ViewModel.Seats.ElementAt(i).Passenger != null)
                 text.Text = ViewModel.Seats.ElementAt(i).Passenger.GetFullName();
