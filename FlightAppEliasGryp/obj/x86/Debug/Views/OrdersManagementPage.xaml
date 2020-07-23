@@ -56,7 +56,7 @@
                            HorizontalAlignment="Left"/>
             </Grid>
 
-            <ListView x:ConnectionId='16'
+            <ListView x:ConnectionId='15'
                             Grid.Row="1"
                                                                                                 
                             SelectionMode="None"
@@ -74,7 +74,7 @@
                     <DataTemplate
                                                              
                                     >
-                        <Grid x:ConnectionId='18' Background="Transparent">
+                        <Grid x:ConnectionId='17' Background="Transparent">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="10*"/>
                                 <ColumnDefinition Width="10*"/>
@@ -86,14 +86,14 @@
                                 <ColumnDefinition Width="5*"/>
                             </Grid.ColumnDefinitions>
 
-                            <TextBlock x:ConnectionId='19'                    Grid.Column="0" HorizontalAlignment="Left"/>
-                            <TextBlock x:ConnectionId='20'                                                 Grid.Column="1" HorizontalAlignment="Left"/>
-                            <TextBlock x:ConnectionId='21'                             Grid.Column="2" HorizontalAlignment="Left"/>
-                            <TextBlock x:ConnectionId='22'                                              Grid.Column="3" HorizontalAlignment="Left"/>
-                            <TextBlock x:ConnectionId='23'                                    Grid.Column="4" HorizontalAlignment="Left"/>
-                            <TextBlock x:ConnectionId='24'                            Grid.Column="5" HorizontalAlignment="Left"/>
-                            <TextBlock x:ConnectionId='25'                             Grid.Column="6" HorizontalAlignment="Left"/>
-                            <TextBlock x:ConnectionId='26'                        Grid.Column="7" HorizontalAlignment="Left"/>
+                            <TextBlock x:ConnectionId='18'                    Grid.Column="0" HorizontalAlignment="Left"/>
+                            <!--<TextBlock Text="{x:Bind Passenger.SeatNumber.ToString()}" Grid.Column="1" HorizontalAlignment="Left"/>-->
+                            <TextBlock x:ConnectionId='19'                             Grid.Column="2" HorizontalAlignment="Left"/>
+                            <TextBlock x:ConnectionId='20'                                              Grid.Column="3" HorizontalAlignment="Left"/>
+                            <TextBlock x:ConnectionId='21'                                    Grid.Column="4" HorizontalAlignment="Left"/>
+                            <TextBlock x:ConnectionId='22'                            Grid.Column="5" HorizontalAlignment="Left"/>
+                            <TextBlock x:ConnectionId='23'                             Grid.Column="6" HorizontalAlignment="Left"/>
+                            <TextBlock x:ConnectionId='24'                        Grid.Column="7" HorizontalAlignment="Left"/>
                         </Grid>
                     </DataTemplate>
                 </ListView.ItemTemplate>
@@ -125,7 +125,7 @@
                 <TextBlock x:ConnectionId='14' FontSize="16"                                                                FontWeight="SemiBold"/>
 
                 <TextBlock FontSize="16" Text="Passenger Seat" Margin="0,8,0,0"/>
-                <TextBlock x:ConnectionId='15' FontSize="16"                                                                        FontWeight="SemiBold"/>
+                <!--<TextBlock FontSize="16" Text="{x:Bind ViewModel.SelectedItem.Passenger.SeatNumber.ToString()}" FontWeight="SemiBold"/>-->
             </StackPanel>
 
             <Grid Grid.Column="1" Margin="24, 0, 0, 0">

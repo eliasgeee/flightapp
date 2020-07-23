@@ -18,6 +18,7 @@ namespace FlightAppEliasGryp.ViewModels
         {
             SimpleIoc.Default.Register<ICatalogDataService, CatalogDataService>();
             SimpleIoc.Default.Register<IOrderDataService, OrderDataService>();
+            SimpleIoc.Default.Register<IFlightService, FlightService>();
             SimpleIoc.Default.Register(() => new NavigationServiceEx());
             SimpleIoc.Default.Register<ShellViewModel>();
             Register<DetailsViewModel, DetailsPage>();
@@ -29,6 +30,7 @@ namespace FlightAppEliasGryp.ViewModels
             Register<MyOrdersViewModel, MyOrdersPage>();
             Register<OrderManagementViewModel, OrdersManagementPage>();
             Register<OrderDetailsViewModel, OrderDetailPage>();
+            Register<SeatManagementViewModel, SeatManagementPage>();
         }
 
         public CatalogViewModel CatalogViewModel => SimpleIoc.Default.GetInstance<CatalogViewModel>();
@@ -41,6 +43,7 @@ namespace FlightAppEliasGryp.ViewModels
         public OrderManagementViewModel OrderManagementViewModel => SimpleIoc.Default.GetInstance<OrderManagementViewModel>();
         public MyOrdersViewModel MyOrdersViewModel => SimpleIoc.Default.GetInstance<MyOrdersViewModel>();
         public OrderDetailsViewModel OrderDetailsViewModel => SimpleIoc.Default.GetInstance<OrderDetailsViewModel>();
+        public SeatManagementViewModel SeatManagementViewModel => SimpleIoc.Default.GetInstance<SeatManagementViewModel>();
 
         public NavigationServiceEx NavigationService => SimpleIoc.Default.GetInstance<NavigationServiceEx>();
 

@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace FlightAppEliasGryp.Models
 {
-    public class SeatNumber
+    public class Seat
     {
         public int Row { get; set; }
         public char Chair { get; set; }
         public Passenger Passenger { get; set; }
 
-        public SeatNumber()
+        public Seat()
         {
 
         }

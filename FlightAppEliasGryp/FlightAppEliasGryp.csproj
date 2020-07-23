@@ -146,9 +146,11 @@
     <Compile Include="Helpers\Converters\OrderStatusConverter.cs" />
     <Compile Include="Helpers\Converters\ProdCatConverter.cs" />
     <Compile Include="Helpers\Converters\PromotionTypeConverter.cs" />
+    <Compile Include="Helpers\Converters\IntConverter.cs" />
     <Compile Include="Helpers\Converters\TimeConverter.cs" />
     <Compile Include="Helpers\EnumHelper.cs" />
     <Compile Include="Helpers\NavHelper.cs" />
+    <Compile Include="Helpers\SeatHelper.cs" />
     <Compile Include="Helpers\TimeHelper.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\OrderProduct.cs" />
@@ -156,16 +158,18 @@
     <Compile Include="Models\Passenger.cs" />
     <Compile Include="Models\PaymentType.cs" />
     <Compile Include="Models\PromotionModel.cs" />
-    <Compile Include="Models\SeatNumber.cs" />
+    <Compile Include="Models\Seat.cs" />
     <Compile Include="Models\ShoppingCart.cs" />
     <Compile Include="Models\ShoppingCartEntry.cs" />
     <Compile Include="Services\CatalogDataService.cs" />
     <Compile Include="Models\Flight.cs" />
+    <Compile Include="Services\FlightService.cs" />
     <Compile Include="Services\ICatalogDataService.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\Promotion.cs" />
     <Compile Include="Services\ActivationService.cs" />
     <Compile Include="Activation\DefaultActivationHandler.cs" />
+    <Compile Include="Services\IFlightService.cs" />
     <Compile Include="Services\IOrderDataService.cs" />
     <Compile Include="Services\NavigationServiceEx.cs" />
     <Compile Include="Services\OrderDataService.cs" />
@@ -177,6 +181,7 @@
     <Compile Include="ViewModels\OrderDetailsViewModel.cs" />
     <Compile Include="ViewModels\OrderManagementViewModel.cs" />
     <Compile Include="ViewModels\ProductDetailsViewModel.cs" />
+    <Compile Include="ViewModels\SeatManagementViewModel.cs" />
     <Compile Include="ViewModels\ShellViewModel.cs" />
     <Compile Include="ViewModels\ShoppingCartViewModel.cs" />
     <Compile Include="ViewModels\ViewModelLocator.cs" />
@@ -209,6 +214,9 @@
     </Compile>
     <Compile Include="Views\ProductDetailsPage.xaml.cs">
       <DependentUpon>ProductDetailsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SeatManagementPage.xaml.cs">
+      <DependentUpon>SeatManagementPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ShellPage.xaml.cs">
       <DependentUpon>ShellPage.xaml</DependentUpon>
@@ -288,6 +296,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ProductDetailsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SeatManagementPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

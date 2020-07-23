@@ -20,6 +20,7 @@
     <RootType FullName="FlightAppEliasGryp.Helpers.Converters.TimeConverter" />
     <RootType FullName="FlightAppEliasGryp.Helpers.Converters.OrderStatusConverter" />
     <RootType FullName="FlightAppEliasGryp.Helpers.Converters.OrderConverter" />
+    <RootType FullName="FlightAppEliasGryp.Helpers.Converters.IntConverter" />
     <RootType FullName="Windows.UI.Xaml.Controls.Button">
       <RootProperty Name="Margin" />
       <RootProperty Name="VerticalAlignment" />
@@ -303,6 +304,7 @@
       <RootEvent Name="Click" />
     </RootType>
     <RootType FullName="FlightAppEliasGryp.Views.ProductDetailsPage" />
+    <RootType FullName="FlightAppEliasGryp.Views.SeatManagementPage" />
     <RootType FullName="Microsoft.Xaml.Interactivity.Interaction">
       <RootMethod Name="GetBehaviors" />
       <RootMethod Name="SetBehaviors" />

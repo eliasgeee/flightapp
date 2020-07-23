@@ -21,6 +21,7 @@
             <converters:TimeConverter x:Key="TimeConverter" />
             <converters:OrderStatusConverter x:Key="OrderStatusConverter" />
             <converters:OrderConverter x:Key="OrderConverter" />
+            <converters:IntConverter x:Key="IntConverter" />
         </ResourceDictionary>
     </Application.Resources>
 </Application>

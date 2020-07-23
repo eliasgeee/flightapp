@@ -87,7 +87,7 @@
                             </Grid.ColumnDefinitions>
 
                             <TextBlock Text="{x:Bind Id}" Grid.Column="0" HorizontalAlignment="Left"/>
-                            <TextBlock Text="{x:Bind Passenger.SeatNumber.ToString()}" Grid.Column="1" HorizontalAlignment="Left"/>
+                            <!--<TextBlock Text="{x:Bind Passenger.SeatNumber.ToString()}" Grid.Column="1" HorizontalAlignment="Left"/>-->
                             <TextBlock Text="{x:Bind OrderStatus}" Grid.Column="2" HorizontalAlignment="Left"/>
                             <TextBlock Text="{x:Bind GetDateAndTimeOrderCreated()}" Grid.Column="3" HorizontalAlignment="Left"/>
                             <TextBlock Text="{x:Bind GetOrderQuantity()}" Grid.Column="4" HorizontalAlignment="Left"/>
@@ -125,7 +125,7 @@
                 <TextBlock FontSize="16" Text="{x:Bind ViewModel.SelectedItem.Passenger.GetFullName()}" FontWeight="SemiBold"/>
 
                 <TextBlock FontSize="16" Text="Passenger Seat" Margin="0,8,0,0"/>
-                <TextBlock FontSize="16" Text="{x:Bind ViewModel.SelectedItem.Passenger.SeatNumber.ToString()}" FontWeight="SemiBold"/>
+                <!--<TextBlock FontSize="16" Text="{x:Bind ViewModel.SelectedItem.Passenger.SeatNumber.ToString()}" FontWeight="SemiBold"/>-->
             </StackPanel>
 
             <Grid Grid.Column="1" Margin="24, 0, 0, 0">

@@ -36,6 +36,7 @@
             <winui:NavigationViewItem x:Uid="Shell_AdminCatalog" Icon="Shop" helpers:NavHelper.NavigateTo="FlightAppEliasGryp.ViewModels.AdminCatalogViewModel" />
             <winui:NavigationViewItem x:Uid="Shell_MyOrders" Icon="Document" helpers:NavHelper.NavigateTo="FlightAppEliasGryp.ViewModels.MyOrdersViewModel" />
             <winui:NavigationViewItem Name="OrderManagement" x:Uid="Shell_OrderManagement" Icon="Document" helpers:NavHelper.NavigateTo="FlightAppEliasGryp.ViewModels.OrderManagementViewModel" />
+            <winui:NavigationViewItem x:Uid="Shell_SeatManagement" Icon="Document" helpers:NavHelper.NavigateTo="FlightAppEliasGryp.ViewModels.SeatManagementViewModel" />
         </winui:NavigationView.MenuItems>
         <i:Interaction.Behaviors>
             <behaviors:NavigationViewHeaderBehavior

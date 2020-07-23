@@ -25,6 +25,7 @@ Views\OrderDetailPage.xbf
 Views\OrderDetailView.xbf
 Views\OrdersManagementPage.xbf
 Views\ProductDetailsPage.xbf
+Views\SeatManagementPage.xbf
 Views\ShellPage.xbf
 Views\ShoppingCartIcon.xbf
 Views\ShoppingCartPage.xbf
