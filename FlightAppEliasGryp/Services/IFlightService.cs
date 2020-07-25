@@ -10,5 +10,6 @@ namespace FlightAppEliasGryp.Services
     public interface IFlightService
     {
         Task<IList<Seat>> GetSeatsAsync();
+        Task<IList<Seat>> SwitchSeatsAsync(Seat seat1, Seat seat2);
     }
 }

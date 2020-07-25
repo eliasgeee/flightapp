@@ -24,6 +24,7 @@ Views\MyOrdersPage.xbf
 Views\OrderDetailPage.xbf
 Views\OrderDetailView.xbf
 Views\OrdersManagementPage.xbf
+Views\PassengerItem.xbf
 Views\ProductDetailsPage.xbf
 Views\SeatManagementPage.xbf
 Views\ShellPage.xbf

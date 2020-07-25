@@ -175,6 +175,9 @@
     <AppxPackagedFile Include="C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\bin\x86\Debug\Views\OrdersManagementPage.xbf">
       <PackagePath>Views\OrdersManagementPage.xbf</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\bin\x86\Debug\Views\PassengerItem.xbf">
+      <PackagePath>Views\PassengerItem.xbf</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\bin\x86\Debug\Views\ProductDetailsPage.xbf">
       <PackagePath>Views\ProductDetailsPage.xbf</PackagePath>
     </AppxPackagedFile>

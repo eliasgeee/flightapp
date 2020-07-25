@@ -173,3 +173,8 @@ C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\obj\x86\Debug\
 C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\obj\x86\Debug\.winmd_cache\$Microsoft.Graphics.Canvas.winmd_636340357040000000.json
 C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\obj\x86\Debug\.winmd_cache\$Microsoft.UI.Xaml.Markup.winmd_636885274160000000.json
 C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\obj\x86\Debug\.winmd_cache\$Robmikh.CompositionSurfaceFactory.winmd_636421296520000000.json
+C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\bin\x86\Debug\Views\PassengerItem.xbf
+C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\obj\x86\Debug\Views\PassengerItem.g.i.cs
+C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\obj\x86\Debug\Views\PassengerItem.g.cs
+C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\obj\x86\Debug\Views\PassengerItem.xaml
+C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\obj\x86\Debug\Views\PassengerItem.xbf

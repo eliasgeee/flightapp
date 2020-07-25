@@ -69,8 +69,10 @@
       <RootProperty Name="HorizontalAlignment" />
       <RootProperty Name="Style" />
       <RootProperty Name="FontStyle" />
-      <RootProperty Name="MinWidth" />
+      <RootProperty Name="AllowDrop" />
+      <RootProperty Name="CanDrag" />
       <RootProperty Name="Tag" />
+      <RootProperty Name="MinWidth" />
       <RootProperty Name="Width" />
       <RootProperty Name="TextAlignment" />
       <RootProperty Name="LineHeight" />
@@ -278,6 +280,7 @@
       <RootEvent Name="Tapped" />
     </RootType>
     <RootType FullName="FlightAppEliasGryp.Views.OrdersManagementPage" />
+    <RootType FullName="FlightAppEliasGryp.Views.PassengerItem" />
     <RootType FullName="Windows.UI.Xaml.Controls.CommandBar">
       <RootProperty Name="Height" />
       <RootProperty Name="DefaultLabelPosition" />

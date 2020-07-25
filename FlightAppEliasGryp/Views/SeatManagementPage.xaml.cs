@@ -1,9 +1,11 @@
-﻿using FlightAppEliasGryp.ViewModels;
+﻿using FlightAppEliasGryp.Models;
+using FlightAppEliasGryp.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using Windows.ApplicationModel.DataTransfer;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -54,21 +56,24 @@ namespace FlightAppEliasGryp.Views
 
             for (int i=0; i < ViewModel.Seats.Count; i++)
             {
-                //TODO REFACTOR BUT WORKS + Show fly-out with passenger detailss
-                TextBlock text = new TextBlock();
-                if(ViewModel.Seats.ElementAt(i).Passenger != null)
-                text.Text = ViewModel.Seats.ElementAt(i).Passenger.GetFullName();
-                grid.Children.Add(text);
+                PassengerItem passengerItem = new PassengerItem() {
+                    Seat = ViewModel.Seats.ElementAt(i)
+                };
+                passengerItem.PassengerBlock.DragStarting += Passenger_DragStarting;
+                passengerItem.PassengerBlock.Drop += Passenger_Drop;
+                passengerItem.PassengerBlock.DragEnter += Passenger_Text_DragEnter;
+                grid.Children.Add(passengerItem);
                 var ro = ViewModel.Seats.ElementAt(i).Row;
                 var indRo = ViewModel.Rows.IndexOf(ro);
-                Grid.SetRow(text, indRo + 1);
+                
+                Grid.SetRow(passengerItem, indRo + 1);
                 var c = ViewModel.Seats.ElementAt(i).Chair;
                 var ind = ViewModel.Chairs.IndexOf(c);
-                Grid.SetColumn(text, ind + 1);
+                Grid.SetColumn(passengerItem, ind + 1);
             }
         }
 
-        private void InitGrid()
+            private void InitGrid()
         {
             grid = Container;
 
@@ -104,6 +109,50 @@ namespace FlightAppEliasGryp.Views
         {
             InitGrid();
             InitData();
+        }
+
+        private void Passenger_DragStarting(UIElement sender, DragStartingEventArgs args)
+        {
+            var textblock = sender as TextBlock;
+            var passenger = textblock.Tag as Passenger;
+            var parent = textblock.Parent as PassengerItem;
+            args.Data.SetText(parent.Seat.Passenger.Id.ToString());
+            args.Data.RequestedOperation = DataPackageOperation.Move;
+        }
+
+        private async void Passenger_Drop(object sender, DragEventArgs e)
+        {
+            var passenger = await e.DataView.GetTextAsync();
+            var txt = sender as TextBlock;
+            var item = txt.Parent as PassengerItem;
+
+            int i = 0;
+            bool foundSeat = false;
+            Passenger oldPassenger;
+            Seat oldSeat = null;
+            do
+            {
+                if (ViewModel.Seats.ElementAt(i).Passenger != null)
+                {
+                    if (ViewModel.Seats.ElementAt(i).Passenger.Id == int.Parse(passenger))
+                    {
+                        oldPassenger = item.Seat.Passenger;
+                        item.Seat.Passenger = ViewModel.Seats.ElementAt(i).Passenger;
+                        ViewModel.Seats.ElementAt(i).Passenger = oldPassenger;
+                        oldSeat = ViewModel.Seats.ElementAt(i);
+                        foundSeat = true;
+                    }
+                }
+                i++;
+            } while (i < ViewModel.Seats.Count & foundSeat == false);
+
+            if(oldSeat != item.Seat)
+            ViewModel.SwitchSeats(oldSeat, item.Seat);
+        }
+
+        private void Passenger_Text_DragEnter(object sender, DragEventArgs e)
+        {
+            e.AcceptedOperation = DataPackageOperation.Move;
         }
     }
 }

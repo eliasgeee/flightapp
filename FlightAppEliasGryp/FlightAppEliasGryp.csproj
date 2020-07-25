@@ -152,6 +152,7 @@
     <Compile Include="Helpers\NavHelper.cs" />
     <Compile Include="Helpers\SeatHelper.cs" />
     <Compile Include="Helpers\TimeHelper.cs" />
+    <Compile Include="Models\DTO%27s\ChangeSeatDTO.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\OrderProduct.cs" />
     <Compile Include="Models\OrderPromotionModel.cs" />
@@ -211,6 +212,9 @@
     </Compile>
     <Compile Include="Views\OrdersManagementPage.xaml.cs">
       <DependentUpon>OrdersManagementPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PassengerItem.xaml.cs">
+      <DependentUpon>PassengerItem.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ProductDetailsPage.xaml.cs">
       <DependentUpon>ProductDetailsPage.xaml</DependentUpon>
@@ -292,6 +296,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\OrdersManagementPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PassengerItem.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

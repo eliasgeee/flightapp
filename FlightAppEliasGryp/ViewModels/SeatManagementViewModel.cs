@@ -39,5 +39,7 @@ namespace FlightAppEliasGryp.ViewModels
 
         public int GetAmountOfChairs() { return Seats.GroupBy(t => t.Chair).Count(); }
         public int GetAmountOfRows() { return Seats.GroupBy(t => t.Row).Count(); }
+
+        public async void SwitchSeats(Seat seat1, Seat seat2) { await _flightService.SwitchSeatsAsync(seat1, seat2); }
     }
 }
