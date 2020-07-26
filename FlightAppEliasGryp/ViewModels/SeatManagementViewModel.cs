@@ -25,7 +25,7 @@ namespace FlightAppEliasGryp.ViewModels
             Seats = new ObservableCollection<Seat>();
         }
 
-        public async void LoadDataAsync()
+        public async Task LoadDataAsync()
         {
             Seats.Clear();
             var data = await _flightService.GetSeatsAsync();

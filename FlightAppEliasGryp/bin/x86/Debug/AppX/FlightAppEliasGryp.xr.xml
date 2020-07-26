@@ -69,10 +69,9 @@
       <RootProperty Name="HorizontalAlignment" />
       <RootProperty Name="Style" />
       <RootProperty Name="FontStyle" />
-      <RootProperty Name="AllowDrop" />
-      <RootProperty Name="CanDrag" />
-      <RootProperty Name="Tag" />
+      <RootProperty Name="MaxWidth" />
       <RootProperty Name="MinWidth" />
+      <RootProperty Name="Tag" />
       <RootProperty Name="Width" />
       <RootProperty Name="TextAlignment" />
       <RootProperty Name="LineHeight" />
@@ -101,6 +100,9 @@
       <RootProperty Name="Visibility" />
       <RootProperty Name="BorderBrush" />
       <RootProperty Name="BorderThickness" />
+      <RootProperty Name="AllowDrop" />
+      <RootProperty Name="CanDrag" />
+      <RootProperty Name="Tag" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.ComboBox">
       <RootProperty Name="Name" />
@@ -277,9 +279,17 @@
     <RootType FullName="FlightAppEliasGryp.Views.OrderDetailPage" />
     <RootType FullName="Windows.UI.Xaml.Controls.UserControl">
       <RootProperty Name="Content" />
+      <RootProperty Name="MaxHeight" />
+      <RootProperty Name="Margin" />
       <RootEvent Name="Tapped" />
     </RootType>
     <RootType FullName="FlightAppEliasGryp.Views.OrdersManagementPage" />
+    <RootType FullName="Windows.UI.Xaml.Media.ImageBrush">
+      <RootProperty Name="ImageSource" />
+      <RootProperty Name="AlignmentY" />
+      <RootProperty Name="AlignmentX" />
+      <RootProperty Name="Stretch" />
+    </RootType>
     <RootType FullName="FlightAppEliasGryp.Views.PassengerItem" />
     <RootType FullName="Windows.UI.Xaml.Controls.CommandBar">
       <RootProperty Name="Height" />

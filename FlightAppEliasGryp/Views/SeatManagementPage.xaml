@@ -9,6 +9,5 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid x:Name="Container" Margin="24, 24, 24, 0">
-        <Button Click="Button_Click" Content="Click"/>
     </Grid>
 </Page>

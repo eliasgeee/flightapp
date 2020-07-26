@@ -7,10 +7,28 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     d:DesignHeight="300"
-    d:DesignWidth="400">
+    d:DesignWidth="400"
+    MaxHeight="200"
+    Margin="4, 4, 0, 4"
+    >
 
-    <TextBlock x:ConnectionId='2' AllowDrop="True"                                              CanDrag="True"
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="..\Images/plane_seat.jpg" AlignmentY="Top" AlignmentX="Center" Stretch="Fill"/>
+        </Grid.Background>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <StackPanel x:ConnectionId='2'  AllowDrop="True" x:Name="PassengerNameContainer"
+          CanDrag="True"                               VerticalAlignment="Center"  HorizontalAlignment="Center" Grid.Row="1">
+            <TextBlock x:ConnectionId='3'                                     
                x:Name="Passenger_Text"
-                                            />
+                       
+                       TextWrapping="Wrap"
+                       MaxWidth="30"
+                   />
+        </StackPanel>
+    </Grid>
 </UserControl>
 

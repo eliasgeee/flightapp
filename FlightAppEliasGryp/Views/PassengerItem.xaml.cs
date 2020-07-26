@@ -29,6 +29,6 @@ namespace FlightAppEliasGryp.Views
 
         public Seat Seat { get; set; }
 
-        public TextBlock PassengerBlock {get { return Passenger_Text;  } }
+        public StackPanel PassengerBlock {get { return PassengerNameContainer;  } }
     }
 }

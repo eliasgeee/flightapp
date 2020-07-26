@@ -88,6 +88,12 @@
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\bin\10.0.18362.0\XamlCompiler\Microsoft.UI.Xaml.Markup.winmd">
       <PackagePath>Microsoft.UI.Xaml.Markup.winmd</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\Images\plane_311452.jpg">
+      <PackagePath>Images\plane_311452.jpg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\Images\plane_seat.jpg">
+      <PackagePath>Images\plane_seat.jpg</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\shopping-cart--v2.png">
       <PackagePath>shopping-cart--v2.png</PackagePath>
     </AppxPackagedFile>

@@ -9,7 +9,6 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid x:ConnectionId='2' x:Name="Container" Margin="24, 24, 24, 0">
-        <Button x:ConnectionId='3'                      Content="Click"/>
     </Grid>
 </Page>
 
