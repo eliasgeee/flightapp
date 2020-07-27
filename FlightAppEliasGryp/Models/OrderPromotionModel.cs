@@ -18,11 +18,11 @@ namespace FlightAppEliasGryp.Models
         public override string ToString()
         {
             if (DiscountType == "PERCENTAGE")
-                return "Discount of " + Amount + "%";
+                return $"Discount of {Amount}%";
             if (DiscountType == "QUANTITY")
-                return "Discount of " + Amount + "items";
+                return $"Discount of {Amount} items";
             if (DiscountType == "FIXEDPRICE")
-                return "Discount of " + Amount + "$";
+                return $"Discount of {Amount}$";
             return "";
         }
 

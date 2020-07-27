@@ -33,8 +33,11 @@ namespace FlightAppEliasGryp.ViewModels
             {
                 Seats.Add(item);
             }
-            Chairs = SeatHelper.GetChairs(GetAmountOfChairs());
-            Rows = SeatHelper.GetRows(GetAmountOfRows());
+            await Task.Run(() =>
+            {
+                Chairs = SeatHelper.GetChairs(GetAmountOfChairs());
+                Rows = SeatHelper.GetRows(GetAmountOfRows());
+            });
         }
 
         public int GetAmountOfChairs() { return Seats.GroupBy(t => t.Chair).Count(); }

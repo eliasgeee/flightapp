@@ -36,7 +36,7 @@ namespace FlightAppEliasGryp.ViewModels
 
         public string GetMyOrdersCount()
         {
-            return "My Orders (" + MyOrders.Count + ")"; 
+            return $"My Orders ({MyOrders.Count})";
         }
 
         internal void ViewOrderDetails(Order order)

@@ -14,7 +14,7 @@ namespace FlightAppEliasGryp.Models
 
         public string GetFullName()
         {
-            return Firstname + " " + Lastname;
+            return $"{Firstname} {Lastname}";
         }
     }
 }

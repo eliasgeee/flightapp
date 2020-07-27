@@ -43,7 +43,7 @@ namespace FlightAppEliasGryp.Models
 
         public string GetOrderId()
         {
-            return "Order #" + Id;
+            return $"Order #{Id}";
         }
 
         public string GetDateAndTimeOrderCreated()

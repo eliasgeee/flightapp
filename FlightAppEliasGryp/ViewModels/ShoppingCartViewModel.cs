@@ -3,6 +3,7 @@ using FlightAppEliasGryp.Services;
 using GalaSoft.MvvmLight;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,7 +12,11 @@ namespace FlightAppEliasGryp.ViewModels
 {
     public class ShoppingCartViewModel : ViewModelBase
     {
-        public ShoppingCart ShoppingCart { get; set; }
+        private ShoppingCart _shoppingCart;
+        public ShoppingCart ShoppingCart { get { return _shoppingCart;  } set {
+                _shoppingCart = value;
+                RaisePropertyChanged();
+            } }
         public NavigationServiceEx NavigationService => ViewModelLocator.Current.NavigationService;
         private ICatalogDataService _catalogDataService { get; set; }
         private IOrderDataService _orderDataService { get; set; }

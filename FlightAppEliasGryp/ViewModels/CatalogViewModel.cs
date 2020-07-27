@@ -22,7 +22,11 @@ namespace FlightAppEliasGryp.ViewModels
 
         internal ICollection<Product> Products { get => products; set => products = value; }
 
-        public int ItemsInShoppingCart { get; set; }
+        private int _itemsInShoppingCart;
+        public int ItemsInShoppingCart { get { return _itemsInShoppingCart; } set {
+                _itemsInShoppingCart = value;
+                RaisePropertyChanged();
+            } }
 
         private ICollection<Product> products;
 

@@ -8,14 +8,8 @@ using System.Threading.Tasks;
 
 namespace FlightAppEliasGryp.Models
 {
-    class Flight
+    public class Flight : NotificationBase
     {
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        protected void RaisePropertyChanged([CallerMemberName]string propertyName = "")
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
 
         private long flightNumber;
         public long FlightNumber

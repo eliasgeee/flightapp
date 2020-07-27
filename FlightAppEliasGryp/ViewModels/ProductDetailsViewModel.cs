@@ -31,13 +31,16 @@ namespace FlightAppEliasGryp.ViewModels
 
         public async void UpdateProduct(string name, decimal price, int stock)
         {
-            Product.Name = name;
-            Product.Price = price;
-            Product.Stock = stock;
-            Product.Promotions.Clear();
-            Promotions.ForEach(promotion =>
-            Product.Promotions.Add(promotion.Promotion)
-                );
+            await Task.Run(() =>
+            {
+                Product.Name = name;
+                Product.Price = price;
+                Product.Stock = stock;
+                Product.Promotions.Clear();
+                Promotions.ForEach(promotion =>
+                Product.Promotions.Add(promotion.Promotion)
+                    );
+            });
             Product = await _catalogDataService.UpdateProductAsync(Product);
         }
 

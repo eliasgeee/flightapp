@@ -46,12 +46,12 @@ namespace FlightAppEliasGryp.Models
 
         public string GetFormattedPrice()
         {
-            return Price.ToString() + " $";
+            return $"{Price} $";
         }
 
         public string GetAmountOfPromotions()
         {
-            return Promotions.Count + " active";
+            return $"{Promotions.Count} active";
         }
     }
 

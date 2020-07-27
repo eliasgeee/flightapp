@@ -19,7 +19,7 @@ namespace FlightAppEliasGryp.Models
 
         public string GetFormattedAmountOfItems()
         {
-            return AmountOfItems + " Items";
+            return $"{AmountOfItems} items";
         }
     }
 }
