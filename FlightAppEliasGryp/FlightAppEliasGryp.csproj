@@ -140,6 +140,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Activation\ActivationHandler.cs" />
+    <Compile Include="Background\LocationBackgroundTask.cs" />
     <Compile Include="Behaviors\NavigationViewHeaderBehavior.cs" />
     <Compile Include="Behaviors\NavigationViewHeaderMode.cs" />
     <Compile Include="Helpers\Converters\OrderConverter.cs" />
@@ -149,10 +150,21 @@
     <Compile Include="Helpers\Converters\IntConverter.cs" />
     <Compile Include="Helpers\Converters\TimeConverter.cs" />
     <Compile Include="Helpers\EnumHelper.cs" />
+    <Compile Include="Models\ApiRequest.cs" />
+    <Compile Include="Models\Environment.cs" />
+    <Compile Include="Services\DataService.cs" />
+    <Compile Include="Services\HttpClientService.cs" />
     <Compile Include="Helpers\NavHelper.cs" />
     <Compile Include="Helpers\SeatHelper.cs" />
     <Compile Include="Helpers\TimeHelper.cs" />
+    <Compile Include="Models\ApplicationUser.cs" />
+    <Compile Include="Models\Conversation.cs" />
+    <Compile Include="Models\ConversationPerson.cs" />
+    <Compile Include="Models\CurrentUser.cs" />
     <Compile Include="Models\DTO%27s\ChangeSeatDTO.cs" />
+    <Compile Include="Models\DTO%27s\LoginDTO.cs" />
+    <Compile Include="Models\Location.cs" />
+    <Compile Include="Models\Message.cs" />
     <Compile Include="Models\NotificationBase.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\OrderProduct.cs" />
@@ -163,30 +175,50 @@
     <Compile Include="Models\Seat.cs" />
     <Compile Include="Models\ShoppingCart.cs" />
     <Compile Include="Models\ShoppingCartEntry.cs" />
+    <Compile Include="Services\AuthenticationService.cs" />
     <Compile Include="Services\CatalogDataService.cs" />
     <Compile Include="Models\Flight.cs" />
+    <Compile Include="Services\ConversationService.cs" />
     <Compile Include="Services\FlightService.cs" />
+    <Compile Include="Services\IAuthenticationService.cs" />
     <Compile Include="Services\ICatalogDataService.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\Promotion.cs" />
     <Compile Include="Services\ActivationService.cs" />
     <Compile Include="Activation\DefaultActivationHandler.cs" />
+    <Compile Include="Services\IConversationService.cs" />
+    <Compile Include="Services\IDataService.cs" />
     <Compile Include="Services\IFlightService.cs" />
+    <Compile Include="Services\ILocalStorageService.cs" />
+    <Compile Include="Services\ILocationService.cs" />
     <Compile Include="Services\IOrderDataService.cs" />
+    <Compile Include="Services\IAccountService.cs" />
+    <Compile Include="Services\LocalStorageService.cs" />
+    <Compile Include="Services\LocationService.cs" />
     <Compile Include="Services\NavigationServiceEx.cs" />
     <Compile Include="Services\OrderDataService.cs" />
+    <Compile Include="Services\AccountService.cs" />
     <Compile Include="ViewModels\AddPromotionViewModel.cs" />
     <Compile Include="ViewModels\AdminCatalogViewModel.cs" />
+    <Compile Include="ViewModels\ConversationDetailViewModel.cs" />
+    <Compile Include="ViewModels\Base\CustomBaseViewModel.cs" />
     <Compile Include="ViewModels\CatalogViewModel.cs" />
+    <Compile Include="ViewModels\ConversationsOverviewViewModel.cs" />
+    <Compile Include="ViewModels\ConversationsViewModel.cs" />
+    <Compile Include="ViewModels\ConversationViewModelItem.cs" />
     <Compile Include="ViewModels\DetailsViewModel.cs" />
+    <Compile Include="ViewModels\FlightViewModel.cs" />
+    <Compile Include="ViewModels\LiveFlightDataViewModel.cs" />
     <Compile Include="ViewModels\MyOrdersViewModel.cs" />
+    <Compile Include="ViewModels\PassengerLoginViewModel.cs" />
+    <Compile Include="ViewModels\TravelGroupConvoViewModel.cs" />
     <Compile Include="ViewModels\OrderDetailsViewModel.cs" />
     <Compile Include="ViewModels\OrderManagementViewModel.cs" />
     <Compile Include="ViewModels\ProductDetailsViewModel.cs" />
     <Compile Include="ViewModels\SeatManagementViewModel.cs" />
     <Compile Include="ViewModels\ShellViewModel.cs" />
     <Compile Include="ViewModels\ShoppingCartViewModel.cs" />
-    <Compile Include="ViewModels\ViewModelLocator.cs" />
+    <Compile Include="ViewModels\Base\ViewModelLocator.cs" />
     <Compile Include="Views\AddPromotionDialog.xaml.cs">
       <DependentUpon>AddPromotionDialog.xaml</DependentUpon>
     </Compile>
@@ -199,8 +231,29 @@
     <Compile Include="Views\ContinuationPage.xaml.cs">
       <DependentUpon>ContinuationPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\ConversationDetailPage.xaml.cs">
+      <DependentUpon>ConversationDetailPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ConversationsOverviewPage.xaml.cs">
+      <DependentUpon>ConversationsOverviewPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ConversationsPage.xaml.cs">
+      <DependentUpon>ConversationsPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\DetailsPage.xaml.cs">
       <DependentUpon>DetailsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Flight\FlightPage.xaml.cs">
+      <DependentUpon>FlightPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Flight\Map\FlightMap.xaml.cs">
+      <DependentUpon>FlightMap.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Flight\Map\FlightMarker.xaml.cs">
+      <DependentUpon>FlightMarker.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Flight\Map\LocationMarker.xaml.cs">
+      <DependentUpon>LocationMarker.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MyOrdersPage.xaml.cs">
       <DependentUpon>MyOrdersPage.xaml</DependentUpon>
@@ -217,6 +270,9 @@
     <Compile Include="Views\PassengerItem.xaml.cs">
       <DependentUpon>PassengerItem.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\PassengerLogInPage.xaml.cs">
+      <DependentUpon>PassengerLogInPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ProductDetailsPage.xaml.cs">
       <DependentUpon>ProductDetailsPage.xaml</DependentUpon>
     </Compile>
@@ -231,6 +287,9 @@
     </Compile>
     <Compile Include="Views\ShoppingCartPage.xaml.cs">
       <DependentUpon>ShoppingCartPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TravelGroupConvoPage.xaml.cs">
+      <DependentUpon>TravelGroupConvoPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -280,9 +339,37 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\ConversationDetailPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ConversationsOverviewPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ConversationsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\DetailsPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Flight\FlightPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Flight\Map\FlightMap.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Flight\Map\FlightMarker.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Flight\Map\LocationMarker.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\MyOrdersPage.xaml">
       <SubType>Designer</SubType>
@@ -301,6 +388,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\PassengerItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PassengerLogInPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -324,6 +415,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\TravelGroupConvoPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -334,6 +429,9 @@
     <Compile Include="Helpers\ResourceExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Images\pin.png" />
+    <Content Include="Images\pin.svg" />
+    <Content Include="Images\plane.png" />
     <Content Include="Images\plane_311452.jpg" />
     <Content Include="Images\plane_seat.jpg" />
     <Content Include="shopping-cart--v2.png" />

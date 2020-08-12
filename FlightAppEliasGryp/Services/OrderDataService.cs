@@ -11,76 +11,62 @@ namespace FlightAppEliasGryp.Services
 {
     public class OrderDataService : IOrderDataService
     {
-        private readonly string baseUri = "https://localhost:44332/api/Order/";
+        private readonly string baseUri = "Order/";
+        private HttpClientService _clientService;
+        private DataService<Order> _dataService;
+        private DataService<int> _countDataService;
+
+        public OrderDataService(HttpClientService clientService)
+        {
+            _clientService = clientService;
+            _dataService = new DataService<Order>(_clientService);
+            _countDataService = new DataService<int>(_clientService);
+        }
 
         public async Task<Order> ChangeOrderStatus(Order order, OrderStatus newStatus)
         {
-            using (var httpClientHandler = new HttpClientHandler())
+            var request = await _dataService.MakeRequest(new ApiRequest(ApiRequestType.PUT)
             {
-                httpClientHandler.ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => { return true; };
-                using (var client = new HttpClient(httpClientHandler))
-                {
-                    var reqUri = baseUri + order.Id + "/" + newStatus;
-                    var json = await client.PutAsync(new Uri(reqUri), new StringContent(JsonConvert.SerializeObject(newStatus), System.Text.Encoding.UTF8, "application/json"));
-                    return null;
-                }
-            }
+                Uri = baseUri + order.Id + "/" + newStatus,
+                Body = newStatus
+            });
+            return request.AsSingle();
         }
 
         public async Task<Order> Checkout(PaymentType paymentType)
         {
-            using (var httpClientHandler = new HttpClientHandler())
+            var request = await _dataService.MakeRequest(new ApiRequest(ApiRequestType.POST)
             {
-                httpClientHandler.ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => { return true; };
-                using (var client = new HttpClient(httpClientHandler))
-                {
-                    var reqUri = baseUri + "Checkout/" + paymentType;
-                    var json = await client.PostAsync(new Uri(reqUri), new StringContent("", System.Text.Encoding.UTF8, "application/json"));
-                    return null;
-                }
-            }
+                Uri = baseUri + "Checkout/" + paymentType
+            });
+            return request.AsSingle();
         }
 
         public async Task<IList<Order>> GetPassengerOrders()
         {
-            using (var httpClientHandler = new HttpClientHandler())
+            var request = await _dataService.MakeRequest(new ApiRequest(ApiRequestType.GET)
             {
-                httpClientHandler.ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => { return true; };
-                using (var client = new HttpClient(httpClientHandler))
-                {
-                    var reqUri = baseUri + "Passenger/";
-                    var json = await client.GetStringAsync(new Uri(reqUri));
-                    return JsonConvert.DeserializeObject<List<Order>>(json); ;
-                }
-            }
+                Uri = baseUri + "Passenger/"
+            });
+            return request.AsList().ToList();
         }
 
         public async Task<IList<Order>> GetUncompletedOrders()
         {
-            using (var httpClientHandler = new HttpClientHandler())
+            var request = await _dataService.MakeRequest(new ApiRequest(ApiRequestType.GET)
             {
-                httpClientHandler.ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => { return true; };
-                using (var client = new HttpClient(httpClientHandler))
-                {
-                    var reqUri = baseUri + "UncompletedOrders/";
-                    var json = await client.GetStringAsync(new Uri(reqUri));
-                    return JsonConvert.DeserializeObject<List<Order>>(json); ;
-                }
-            }
+                Uri =  baseUri + "UncompletedOrders/"
+            });
+            return request.AsList().ToList();
         }
 
         public async Task<int> GetUncompletedOrdersCount()
         {
-            using (var httpClientHandler = new HttpClientHandler())
+            var request = await _countDataService.MakeRequest(new ApiRequest(ApiRequestType.GET)
             {
-                httpClientHandler.ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => { return true; };
-                using (var client = new HttpClient(httpClientHandler))
-                {
-                    var reqUri = baseUri + "UncompletedOrdersCount/";
-                    var json = await client.GetStringAsync(new Uri(reqUri));
-                    return JsonConvert.DeserializeObject<int>(json); ;
-                }
-            }
+                Uri = baseUri + "UncompletedOrdersCount/"
+            });
+            return request.AsSingle();
         }
     }
 }

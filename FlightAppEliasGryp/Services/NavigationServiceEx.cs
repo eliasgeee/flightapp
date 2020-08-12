@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-
+using System.Threading.Tasks;
+using FlightAppEliasGryp.Core.Interfaces;
 using FlightAppEliasGryp.Helpers;
-
+using Windows.ApplicationModel.Core;
+using Windows.UI.Core;
+using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media.Animation;
@@ -11,13 +14,16 @@ using Windows.UI.Xaml.Navigation;
 
 namespace FlightAppEliasGryp.Services
 {
-    public class NavigationServiceEx
+    public class NavigationServiceEx : INavigationService
     {
         public event NavigatedEventHandler Navigated;
 
         public event NavigationFailedEventHandler NavigationFailed;
 
         private readonly Dictionary<string, Type> _pages = new Dictionary<string, Type>();
+
+        static public int MainViewId { get; set;  }
+        public bool IsMainView => CoreApplication.GetCurrentView().IsMain;
 
         private Frame _frame;
         private object _lastParamUsed;
@@ -138,8 +144,51 @@ namespace FlightAppEliasGryp.Services
             }
         }
 
+        private void SetMainView()
+        {
+            MainViewId = ApplicationView.GetForCurrentView().Id;
+        }
         private void Frame_NavigationFailed(object sender, NavigationFailedEventArgs e) => NavigationFailed?.Invoke(sender, e);
 
         private void Frame_Navigated(object sender, NavigationEventArgs e) => Navigated?.Invoke(sender, e);
+
+        public async Task<int> CreateNewViewAsync<TViewModel>(object parameter = null)
+        {
+            return await CreateNewViewAsync(typeof(TViewModel), parameter);
+        }
+        public async Task<int> CreateNewViewAsync(Type viewModelType, object parameter = null)
+        {
+            int viewId = 0;
+
+            var newView = CoreApplication.CreateNewView();
+            await newView.Dispatcher.RunAsync(CoreDispatcherPriority.Normal, () =>
+            {
+                viewId = ApplicationView.GetForCurrentView().Id;
+
+                var frame = new Frame();
+                //var args = new ShellArgs
+                //{
+                //    ViewModel = viewModelType,
+                //    Parameter = parameter
+                //};
+              //  frame.Navigate(typeof(ShellView), args);
+
+                Window.Current.Content = frame;
+                Window.Current.Activate();
+            });
+
+            if (await ApplicationViewSwitcher.TryShowAsStandaloneAsync(viewId))
+            {
+                return viewId;
+            }
+
+            return 0;
+        }
+
+        public async Task CloseViewAsync()
+        {
+            int currentId = ApplicationView.GetForCurrentView().Id;
+            await ApplicationViewSwitcher.SwitchAsync(MainViewId, currentId, ApplicationViewSwitchingOptions.ConsolidateViews);
+        }
     }
 }

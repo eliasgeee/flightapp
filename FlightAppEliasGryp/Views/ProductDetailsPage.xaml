@@ -44,7 +44,7 @@
               Grid.Row="0"
               Margin="0,0,0,0">
 
-                <StackPanel Margin="12,6">
+                <StackPanel Margin="12,6" >
                     <StackPanel Margin="0,12">
                         <Grid  Margin="6" Height="180">
                             <Grid Background="LightGray">
@@ -85,12 +85,12 @@
                         </Grid.RowDefinitions>
 
                         <StackPanel Grid.Column="0" Margin="30" Grid.Row="0">
-                            <TextBox Header="Name" Text="{x:Bind ViewModel.Product.Name}" Margin="0, 12, 0, 0" Name="ProductName"/>
+                                <TextBox Header="Name" Text="{x:Bind ViewModel.Product.Name}" Margin="0, 12, 0, 0" Name="ProductName"/>
                             <ComboBox Header="Category" ItemsSource="{x:Bind ProductTypes}" Margin="0, 12, 0, 0"
                                       SelectedItem="{x:Bind ViewModel.Product.Type, Converter={StaticResource ProdCatConverter}}"
                                       Name="ProductCat"/>
                             <TextBox Header="Stock" Text="{x:Bind ViewModel.Product.Price}"
-                                     InputScope="CurrencyAmount"
+                                     InputScope="Number"
                                      Margin="0, 12, 0, 0"
                                      Name="ProductPrice"/>
                             <TextBox Header="Price" Text="{x:Bind ViewModel.Product.Stock}" Margin="0, 12, 0, 0"

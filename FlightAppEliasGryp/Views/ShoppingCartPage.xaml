@@ -57,7 +57,7 @@
                 <TextBlock
                     Grid.Row="0"
                         Grid.Column="1"
-                        Text="{x:Bind Path=ViewModel.ShoppingCart.TotalCost}"
+                        Text="{x:Bind Path=ViewModel.ShoppingCart.TotalCost, Mode=OneWay}"
                         Foreground="White"
                         FontSize="16"
                         HorizontalAlignment="Right"
@@ -98,7 +98,7 @@
                     Margin="0,48,0,24"
                     Grid.Column="0"/>
                 <TextBlock
-                    Text="{x:Bind Path=ViewModel.ShoppingCart.GetFormattedAmountOfItems()}"
+                    Text="{x:Bind Path=ViewModel.ShoppingCart.GetFormattedAmountOfItems(), Mode=OneWay}"
                     FontSize="25"
                     FontWeight="SemiBold"
                     Margin="0,48,0,24"

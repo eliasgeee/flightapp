@@ -1,5 +1,6 @@
 ﻿using FlightAppEliasGryp.Models;
 using FlightAppEliasGryp.Services;
+using FlightAppEliasGryp.ViewModels.Base;
 using FlightAppEliasGryp.Views;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
@@ -16,9 +17,8 @@ using System.Windows.Input;
 
 namespace FlightAppEliasGryp.ViewModels
 {
-    public class CatalogViewModel : ViewModelBase
+    public class CatalogViewModel : CustomBaseViewModel
     {
-        public NavigationServiceEx NavigationService => ViewModelLocator.Current.NavigationService;
 
         internal ICollection<Product> Products { get => products; set => products = value; }
 

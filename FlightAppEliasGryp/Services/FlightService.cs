@@ -12,34 +12,55 @@ namespace FlightAppEliasGryp.Services
 {
     public class FlightService : IFlightService
     {
-        private readonly string baseUri = "https://localhost:44332/api/Flight/";
+        private readonly string baseUri = "Flight/";
+        private HttpClientService _clientService;
+        private DataService<Flight> _flightDataService;
+        private DataService<Seat> _seatDataService;
+        private DataService<ApplicationUser> _userDataService;
+
+        public FlightService(HttpClientService clientService)
+        {
+            _clientService = clientService;
+            _flightDataService = new DataService<Flight>(_clientService);
+            _seatDataService = new DataService<Seat>(_clientService);
+            _userDataService = new DataService<ApplicationUser>(_clientService);
+        }
+
+        public async Task<Flight> GetInfoCurrentFlight()
+        {
+            var request = await _flightDataService.MakeRequest(new ApiRequest(ApiRequestType.GET)
+            {
+                Uri = baseUri + "Flight"
+            });
+            return request.AsSingle();
+        }
 
         public async Task<IList<Seat>> GetSeatsAsync()
         {
-            using (var httpClientHandler = new HttpClientHandler())
+            var request = await _seatDataService.MakeRequest(new ApiRequest(ApiRequestType.GET)
             {
-                httpClientHandler.ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => { return true; };
-                using (var client = new HttpClient(httpClientHandler))
-                {
-                    var reqUri = baseUri + "Seats";
-                    var json = await client.GetStringAsync(new Uri(reqUri));
-                    return JsonConvert.DeserializeObject<IList<Seat>>(json);
-                }
-            }
+                Uri = baseUri + "Seats"
+            });
+            return request.AsList().ToList();
         }
 
         public async Task<IList<Seat>> SwitchSeatsAsync(Seat seat1, Seat seat2)
         {
-            using (var httpClientHandler = new HttpClientHandler())
+            var request = await _seatDataService.MakeRequest(new ApiRequest(ApiRequestType.POST)
             {
-                httpClientHandler.ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => { return true; };
-                using (var client = new HttpClient(httpClientHandler))
-                {
-                    var reqUri = baseUri + "Passenger/Seats/";
-                    var json = await client.PostAsync(new Uri(reqUri), new StringContent(JsonConvert.SerializeObject(new ChangeSeatDTO(seat1, seat2)), System.Text.Encoding.UTF8, "application/json"));
-                    return null;
-                }
-            }
+                Uri = baseUri + "Passenger/Seats/",
+                Body = new ChangeSeatDTO(seat1, seat2)
+            });
+            return request.AsList().ToList();
+        }
+
+        public async Task<ICollection<ApplicationUser>> GetTravelGroup(Passenger passenger)
+        {
+            var request = await _userDataService.MakeRequest(new ApiRequest(ApiRequestType.GET)
+            {
+                Uri = baseUri + "Travelgroup/" + passenger.TravelGroupId
+            });
+            return request.AsList();
         }
     }
 }

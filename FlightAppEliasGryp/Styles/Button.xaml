@@ -6,5 +6,6 @@
     <Style x:Key="ButtonCheckout" TargetType="Button">
         <Setter Property="Foreground" Value="White" />
         <Setter Property="BorderBrush" Value="White" />
+        <Setter Property="Background" Value="Transparent" />
     </Style>
 </ResourceDictionary>

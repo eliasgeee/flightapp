@@ -968,8 +968,9 @@ namespace FlightAppEliasGryp.Views
                     }
                 }
             }
-            private void Update_ViewModel_UncompletedOrders(global::System.Collections.Generic.ICollection<global::FlightAppEliasGryp.Models.Order> obj, int phase)
+            private void Update_ViewModel_UncompletedOrders(global::System.Collections.ObjectModel.ObservableCollection<global::FlightAppEliasGryp.Models.Order> obj, int phase)
             {
+                this.bindingsTracking.UpdateChildListeners_ViewModel_UncompletedOrders(obj);
                 if ((phase & ((1 << 0) | NOT_PHASED | DATA_CHANGED)) != 0)
                 {
                     // Views\OrdersManagementPage.xaml line 59
@@ -1009,6 +1010,7 @@ namespace FlightAppEliasGryp.Views
                 public void ReleaseAllListeners()
                 {
                     UpdateChildListeners_ViewModel(null);
+                    UpdateChildListeners_ViewModel_UncompletedOrders(null);
                 }
 
                 public void PropertyChanged_ViewModel(object sender, global::System.ComponentModel.PropertyChangedEventArgs e)
@@ -1067,6 +1069,55 @@ namespace FlightAppEliasGryp.Views
                         {
                             cache_ViewModel = obj;
                             ((global::System.ComponentModel.INotifyPropertyChanged)obj).PropertyChanged += PropertyChanged_ViewModel;
+                        }
+                    }
+                }
+                public void PropertyChanged_ViewModel_UncompletedOrders(object sender, global::System.ComponentModel.PropertyChangedEventArgs e)
+                {
+                    OrdersManagementPage_obj1_Bindings bindings = TryGetBindingObject();
+                    if (bindings != null)
+                    {
+                        string propName = e.PropertyName;
+                        global::System.Collections.ObjectModel.ObservableCollection<global::FlightAppEliasGryp.Models.Order> obj = sender as global::System.Collections.ObjectModel.ObservableCollection<global::FlightAppEliasGryp.Models.Order>;
+                        if (global::System.String.IsNullOrEmpty(propName))
+                        {
+                        }
+                        else
+                        {
+                            switch (propName)
+                            {
+                                default:
+                                    break;
+                            }
+                        }
+                        bindings.CompleteUpdate(DATA_CHANGED);
+                    }
+                }
+                public void CollectionChanged_ViewModel_UncompletedOrders(object sender, global::System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+                {
+                    OrdersManagementPage_obj1_Bindings bindings = TryGetBindingObject();
+                    if (bindings != null)
+                    {
+                        global::System.Collections.ObjectModel.ObservableCollection<global::FlightAppEliasGryp.Models.Order> obj = sender as global::System.Collections.ObjectModel.ObservableCollection<global::FlightAppEliasGryp.Models.Order>;
+                        bindings.CompleteUpdate(DATA_CHANGED);
+                    }
+                }
+                private global::System.Collections.ObjectModel.ObservableCollection<global::FlightAppEliasGryp.Models.Order> cache_ViewModel_UncompletedOrders = null;
+                public void UpdateChildListeners_ViewModel_UncompletedOrders(global::System.Collections.ObjectModel.ObservableCollection<global::FlightAppEliasGryp.Models.Order> obj)
+                {
+                    if (obj != cache_ViewModel_UncompletedOrders)
+                    {
+                        if (cache_ViewModel_UncompletedOrders != null)
+                        {
+                            ((global::System.ComponentModel.INotifyPropertyChanged)cache_ViewModel_UncompletedOrders).PropertyChanged -= PropertyChanged_ViewModel_UncompletedOrders;
+                            ((global::System.Collections.Specialized.INotifyCollectionChanged)cache_ViewModel_UncompletedOrders).CollectionChanged -= CollectionChanged_ViewModel_UncompletedOrders;
+                            cache_ViewModel_UncompletedOrders = null;
+                        }
+                        if (obj != null)
+                        {
+                            cache_ViewModel_UncompletedOrders = obj;
+                            ((global::System.ComponentModel.INotifyPropertyChanged)obj).PropertyChanged += PropertyChanged_ViewModel_UncompletedOrders;
+                            ((global::System.Collections.Specialized.INotifyCollectionChanged)obj).CollectionChanged += CollectionChanged_ViewModel_UncompletedOrders;
                         }
                     }
                 }

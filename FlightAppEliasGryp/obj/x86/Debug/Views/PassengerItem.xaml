@@ -22,9 +22,8 @@
         </Grid.RowDefinitions>
         <StackPanel x:ConnectionId='2'  AllowDrop="True" x:Name="PassengerNameContainer"
           CanDrag="True"                               VerticalAlignment="Center"  HorizontalAlignment="Center" Grid.Row="1">
-            <TextBlock x:ConnectionId='3'                                     
+            <TextBlock x:ConnectionId='3'                                                                                       
                x:Name="Passenger_Text"
-                       
                        TextWrapping="Wrap"
                        MaxWidth="30"
                    />

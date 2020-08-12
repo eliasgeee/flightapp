@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GalaSoft.MvvmLight;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -8,18 +9,18 @@ using System.Threading.Tasks;
 
 namespace FlightAppEliasGryp.Models
 {
-    public class Flight : NotificationBase
+    public class Flight : ObservableObject
     {
 
-        private long flightNumber;
+        private long _flightNumber;
+        public List<Location> Locations { get; set; }
         public long FlightNumber
         {
-            get { return flightNumber; }
+            get { return _flightNumber; }
 
             set
             {
-                this.flightNumber = value;
-                RaisePropertyChanged();
+                Set("FlightNumber", ref _flightNumber, value);
             }
         }
         private DateTime eat;

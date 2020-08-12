@@ -12,7 +12,7 @@ namespace FlightAppEliasGryp.ViewModels
 {
     public class OrderManagementViewModel : ViewModelBase
     {
-        public ICollection<Order> UncompletedOrders { get; set; }
+        public ObservableCollection<Order> UncompletedOrders { get; set; }
         public Order SelectedItem { get; set; }
 
         private IOrderDataService _orderDataService { get; set; }

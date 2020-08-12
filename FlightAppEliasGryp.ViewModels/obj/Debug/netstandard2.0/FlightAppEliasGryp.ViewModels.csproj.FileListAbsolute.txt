@@ -1,0 +1,9 @@
+C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp.ViewModels\bin\Debug\netstandard2.0\FlightAppEliasGryp.ViewModels.deps.json
+C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp.ViewModels\bin\Debug\netstandard2.0\FlightAppEliasGryp.ViewModels.dll
+C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp.ViewModels\bin\Debug\netstandard2.0\FlightAppEliasGryp.ViewModels.pdb
+C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp.ViewModels\obj\Debug\netstandard2.0\FlightAppEliasGryp.ViewModels.csprojAssemblyReference.cache
+C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp.ViewModels\obj\Debug\netstandard2.0\FlightAppEliasGryp.ViewModels.csproj.CoreCompileInputs.cache
+C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp.ViewModels\obj\Debug\netstandard2.0\FlightAppEliasGryp.ViewModels.AssemblyInfoInputs.cache
+C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp.ViewModels\obj\Debug\netstandard2.0\FlightAppEliasGryp.ViewModels.AssemblyInfo.cs
+C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp.ViewModels\obj\Debug\netstandard2.0\FlightAppEliasGryp.ViewModels.dll
+C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp.ViewModels\obj\Debug\netstandard2.0\FlightAppEliasGryp.ViewModels.pdb

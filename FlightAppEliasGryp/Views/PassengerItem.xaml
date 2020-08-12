@@ -22,9 +22,8 @@
         </Grid.RowDefinitions>
         <StackPanel  AllowDrop="True" x:Name="PassengerNameContainer"
           CanDrag="True" Tag="{x:Bind Seat.Passenger}" VerticalAlignment="Center"  HorizontalAlignment="Center" Grid.Row="1">
-            <TextBlock Text="{x:Bind Seat.GetPassenger()}" 
+            <TextBlock Text="{x:Bind Seat.Passenger.GetFullName(), FallbackValue='Empty seat', Mode=OneWay}" 
                x:Name="Passenger_Text"
-                       
                        TextWrapping="Wrap"
                        MaxWidth="30"
                    />

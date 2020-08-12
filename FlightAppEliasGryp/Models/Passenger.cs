@@ -6,15 +6,13 @@ using System.Threading.Tasks;
 
 namespace FlightAppEliasGryp.Models
 {
-    public class Passenger
+    public class Passenger : ApplicationUser
     {
-        public int Id { get; set; }
-        public string Firstname { get; set; }
-        public string Lastname { get; set; }
+        public int TravelGroupId { get; set; }
 
-        public string GetFullName()
+        public override string GetFullName()
         {
-            return $"{Firstname} {Lastname}";
+            return base.GetFullName();
         }
     }
 }

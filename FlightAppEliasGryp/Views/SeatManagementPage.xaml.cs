@@ -138,7 +138,7 @@ namespace FlightAppEliasGryp.Views
                 {
                     if (ViewModel.Seats.ElementAt(i).Passenger != null)
                     {
-                        if (ViewModel.Seats.ElementAt(i).Passenger.Id == int.Parse(passenger))
+                        if (ViewModel.Seats.ElementAt(i).Passenger.Id == passenger)
                         {
                             oldPassenger = item.Seat.Passenger;
                             item.Seat.Passenger = ViewModel.Seats.ElementAt(i).Passenger;

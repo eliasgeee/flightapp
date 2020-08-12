@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using FlightAppEliasGryp.Models;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,150 +7,114 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FlightAppEliasGryp.Models
+namespace FlightAppEliasGryp.Services
 {
     public class CatalogDataService : ICatalogDataService
     {
-        private readonly string baseUri = "https://localhost:44332/api/Catalog/";
+        private readonly string baseUri = "Catalog/";
+        private HttpClientService _clientService;
+        private DataService<Product> _productDataService;
+        private DataService<ShoppingCart> _shoppingCartDataService;
+        private DataService<int> _countDataService;
+
+        public CatalogDataService(HttpClientService clientService)
+        {
+            _clientService = clientService;
+            _productDataService = new DataService<Product>(_clientService);
+            _shoppingCartDataService = new DataService<ShoppingCart>(_clientService);
+            _countDataService = new DataService<int>(_clientService);
+        }
 
         public async Task<IList<Product>> AddProductToShoppingCart(Product product)
         {
-            using (var httpClientHandler = new HttpClientHandler())
+            var request = await _productDataService.MakeRequest(new ApiRequest(ApiRequestType.POST)
             {
-                httpClientHandler.ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => { return true; };
-                using (var client = new HttpClient(httpClientHandler))
-                {
-                    var reqUri = baseUri + "ShoppingCart/" + product.Id;
-                    var json = await client.PostAsync(new Uri(reqUri), new StringContent(product.Id.ToString(), System.Text.Encoding.UTF8, "application/json"));
-                    return null;
-                }
-            }
+                Uri = baseUri + "ShoppingCart/" + product.Id,
+            });
+            return request.AsList().ToList();
         }
 
         public async Task<Product> AddPromotionToProduct(Product product, Promotion promotion)
         {
-            using (var httpClientHandler = new HttpClientHandler())
+            var request = await _productDataService.MakeRequest(new ApiRequest(ApiRequestType.POST)
             {
-                httpClientHandler.ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => { return true; };
-                using (var client = new HttpClient(httpClientHandler))
-                {
-                    var reqUri = baseUri + "Promotion/Add/" + product.Id;
-                    var json = await client.PostAsync(new Uri(reqUri), new StringContent(JsonConvert.SerializeObject(promotion), System.Text.Encoding.UTF8, "application/json"));
-                    return null;
-                }
-            }
+                Uri = baseUri + "Promotion/Add/" + product.Id,
+                Body = promotion
+            });
+            return request.AsSingle();
         }
 
         public async Task<int> ChangeEntryAmount(ShoppingCartEntry entry, int amount)
         {
-            using (var httpClientHandler = new HttpClientHandler())
+            var request = await _countDataService.MakeRequest(new ApiRequest(ApiRequestType.PUT)
             {
-                httpClientHandler.ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => { return true; };
-                using (var client = new HttpClient(httpClientHandler))
-                {
-                    var reqUri = baseUri + "ShoppingCart/Entry/" + entry.Id + "/Amount/" + amount;
-                    var json = await client.PutAsync(new Uri(reqUri), new StringContent(amount.ToString(), System.Text.Encoding.UTF8, "application/json"));
-                    return 0;
-                }
-            }
+                Uri = baseUri + "ShoppingCart/Entry/" + entry.Id + "/Amount/" + amount
+            });
+            return request.AsSingle();
         }
 
         public async Task<Product> DeleteProductAsync(Product product)
         {
-            using (var httpClientHandler = new HttpClientHandler())
+            var request = await _productDataService.MakeRequest(new ApiRequest(ApiRequestType.PUT)
             {
-                httpClientHandler.ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => { return true; };
-                using (var client = new HttpClient(httpClientHandler))
-                {
-                    var reqUri = baseUri + "Product/Remove/" + product.Id;
-                    var json = await client.DeleteAsync(new Uri(reqUri));
-                    return null;
-                }
-            }
+                Uri = baseUri + "Product/Remove/" + product.Id
+            });
+            return request.AsSingle();
         }
 
         public async Task<int> GetAmountOfItemsInShoppingCartAsync()
         {
-            using (var httpClientHandler = new HttpClientHandler())
+            var request = await _countDataService.MakeRequest(new ApiRequest(ApiRequestType.GET)
             {
-                httpClientHandler.ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => { return true; };
-                using (var client = new HttpClient(httpClientHandler))
-                {
-                    var reqUri = baseUri + "ShoppingCartItems";
-                    var json = await client.GetStringAsync(new Uri(reqUri));
-                    return JsonConvert.DeserializeObject<int>(json);
-                }
-            }
+                Uri = baseUri + "ShoppingCartItems"
+            });
+            return request.AsSingle();
         }
 
         public async Task<Product> GetProductAsync(int id)
         {
-            using (var httpClientHandler = new HttpClientHandler())
+            var request = await _productDataService.MakeRequest(new ApiRequest(ApiRequestType.GET)
             {
-                httpClientHandler.ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => { return true; };
-                using (var client = new HttpClient(httpClientHandler))
-                {
-                    var reqUri = baseUri + "Product/" + id + "/";
-                    var json = await client.GetStringAsync(new Uri(reqUri));
-                    return JsonConvert.DeserializeObject<Product>(json);
-                }
-            }
+                Uri = baseUri + "Product/" + id + "/"
+            });
+            return request.AsSingle();
         }
 
         public async Task<IList<Product>> GetProductsAsync()
         {
-            using (var httpClientHandler = new HttpClientHandler())
+            var request = await _productDataService.MakeRequest(new ApiRequest(ApiRequestType.GET)
             {
-                httpClientHandler.ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => { return true; };
-                using (var client = new HttpClient(httpClientHandler))
-                {
-                    var reqUri = baseUri + "Products/";
-                    var json = await client.GetStringAsync(new Uri(reqUri));
-                    return JsonConvert.DeserializeObject<IList<Product>>(json);
-                }
-            }
+                Uri = baseUri + "Products/"
+            });
+            return request.AsList().ToList();
         }
 
         public async Task<ShoppingCart> GetShoppingCart()
         {
-            using(var httpClientHandler = new HttpClientHandler())
+            var request = await _shoppingCartDataService.MakeRequest(new ApiRequest(ApiRequestType.GET)
             {
-                httpClientHandler.ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => { return true; };
-                using(var client = new HttpClient(httpClientHandler))
-                {
-                    var reqUri = baseUri + "ShoppingCart/";
-                    var json = await client.GetStringAsync(new Uri(reqUri));
-                    return JsonConvert.DeserializeObject<ShoppingCart>(json);
-                }
-            }
+                Uri = baseUri + "ShoppingCart/"
+            });
+            return request.AsSingle();
         }
 
         public async Task<ShoppingCart> RemoveEntryFromShoppingCart(ShoppingCartEntry entry)
         {
-            using(var httpClientHandler = new HttpClientHandler())
+            var request = await _shoppingCartDataService.MakeRequest(new ApiRequest(ApiRequestType.PUT)
             {
-                httpClientHandler.ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => { return true; };
-                using (var client = new HttpClient(httpClientHandler))
-                {
-                    var reqUri = baseUri + "ShoppingCart/Remove/" + entry.Product.Id;
-                    var json = await client.PutAsync(new Uri(reqUri), new StringContent(entry.Product.Id.ToString(), System.Text.Encoding.UTF8, "application/json"));
-                    return null;
-                }
-            }
+                Uri = baseUri + "ShoppingCart/Remove/" + entry.Product.Id
+            });
+            return request.AsSingle();
         }
 
         public async Task<Product> UpdateProductAsync(Product product)
         {
-            using (var httpClientHandler = new HttpClientHandler())
+            var request = await _productDataService.MakeRequest(new ApiRequest(ApiRequestType.PUT)
             {
-                httpClientHandler.ServerCertificateCustomValidationCallback = (message, cert, chain, errors) => { return true; };
-                using (var client = new HttpClient(httpClientHandler))
-                {
-                    var reqUri = baseUri + "Product/Update/" + product.Id;
-                    var json = await client.PutAsync(new Uri(reqUri), new StringContent(JsonConvert.SerializeObject(product), System.Text.Encoding.UTF8, "application/json"));
-                    return null;
-                }
-            }
+                Uri = baseUri + "Product/Update/" + product.Id,
+                Body = product
+            });
+            return request.AsSingle();
         }
     }
 }

@@ -19,7 +19,6 @@
 
     <winui:NavigationView
         x:Name="navigationView"
-        IsBackButtonVisible="Visible"
         IsBackEnabled="{x:Bind ViewModel.IsBackEnabled, Mode=OneWay}"
         SelectedItem="{x:Bind ViewModel.Selected, Mode=OneWay}"
         IsSettingsVisible="True"
@@ -37,6 +36,8 @@
             <winui:NavigationViewItem x:Uid="Shell_MyOrders" Icon="Document" helpers:NavHelper.NavigateTo="FlightAppEliasGryp.ViewModels.MyOrdersViewModel" />
             <winui:NavigationViewItem Name="OrderManagement" x:Uid="Shell_OrderManagement" Icon="Document" helpers:NavHelper.NavigateTo="FlightAppEliasGryp.ViewModels.OrderManagementViewModel" />
             <winui:NavigationViewItem x:Uid="Shell_SeatManagement" Icon="Document" helpers:NavHelper.NavigateTo="FlightAppEliasGryp.ViewModels.SeatManagementViewModel" />
+            <winui:NavigationViewItem x:Uid="Shell_FlightMap" Icon="Map" helpers:NavHelper.NavigateTo="FlightAppEliasGryp.ViewModels.FlightViewModel" Content="Map"/>
+            <winui:NavigationViewItem x:Uid="Shell_Convos" Icon="Document" helpers:NavHelper.NavigateTo="FlightAppEliasGryp.ViewModels.ConversationsViewModel" Content="Messages"/>
         </winui:NavigationView.MenuItems>
         <i:Interaction.Behaviors>
             <behaviors:NavigationViewHeaderBehavior
