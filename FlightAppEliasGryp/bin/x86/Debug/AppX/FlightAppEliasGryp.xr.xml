@@ -31,6 +31,7 @@
       <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="Content" />
       <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="Command" />
       <RootProperty Name="Style" />
       <RootEvent Name="Click" />
     </RootType>
@@ -105,6 +106,8 @@
       <RootProperty Name="Visibility" />
       <RootProperty Name="BorderBrush" />
       <RootProperty Name="BorderThickness" />
+      <RootProperty Name="Padding" />
+      <RootProperty Name="Spacing" />
       <RootProperty Name="AllowDrop" />
       <RootProperty Name="CanDrag" />
       <RootProperty Name="Tag" />
@@ -125,13 +128,13 @@
       <RootProperty Name="Name" />
       <RootProperty Name="Header" />
       <RootProperty Name="Margin" />
-      <RootProperty Name="VerticalAlignment" />
+      <RootProperty Name="Width" />
       <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="InputScope" />
+      <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="Text" />
       <RootProperty Name="Tag" />
-      <RootProperty Name="Width" />
       <RootProperty Name="MinWidth" />
-      <RootProperty Name="InputScope" />
       <RootProperty Name="FontSize" />
       <RootProperty Name="FontWeight" />
       <RootEvent Name="TextChanged" />
@@ -322,6 +325,31 @@
     </RootType>
     <RootType FullName="FlightAppEliasGryp.Views.Map.FlightMarker" />
     <RootType FullName="FlightAppEliasGryp.Views.Map.LocationMarker" />
+    <RootType FullName="Windows.UI.Xaml.Controls.Hub">
+      <RootProperty Name="Header" />
+      <RootProperty Name="Background" />
+      <RootProperty Name="Sections" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Media.ImageBrush">
+      <RootProperty Name="ImageSource" />
+      <RootProperty Name="Stretch" />
+      <RootProperty Name="AlignmentY" />
+      <RootProperty Name="AlignmentX" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.HubSection">
+      <RootProperty Name="Header" />
+      <RootProperty Name="Background" />
+      <RootProperty Name="Width" />
+      <RootProperty Name="ContentTemplate" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.Pivot">
+      <RootProperty Name="Items" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.PivotItem">
+      <RootProperty Name="Header" />
+      <RootProperty Name="Content" />
+    </RootType>
+    <RootType FullName="FlightAppEliasGryp.Views.MainPage" />
     <RootType FullName="FlightAppEliasGryp.Views.MyOrdersPage" />
     <RootType FullName="FlightAppEliasGryp.Views.OrderDetailView">
       <RootProperty Name="Margin" />
@@ -329,12 +357,6 @@
     </RootType>
     <RootType FullName="FlightAppEliasGryp.Views.OrderDetailPage" />
     <RootType FullName="FlightAppEliasGryp.Views.OrdersManagementPage" />
-    <RootType FullName="Windows.UI.Xaml.Media.ImageBrush">
-      <RootProperty Name="ImageSource" />
-      <RootProperty Name="AlignmentY" />
-      <RootProperty Name="AlignmentX" />
-      <RootProperty Name="Stretch" />
-    </RootType>
     <RootType FullName="FlightAppEliasGryp.Views.PassengerItem" />
     <RootType FullName="FlightAppEliasGryp.Views.PassengerLogInPage" />
     <RootType FullName="Windows.UI.Xaml.Controls.CommandBar">
@@ -368,6 +390,7 @@
     <RootType FullName="Microsoft.UI.Xaml.Controls.NavigationView">
       <RootProperty Name="IsBackEnabled" />
       <RootProperty Name="SelectedItem" />
+      <RootProperty Name="IsPaneVisible" />
       <RootProperty Name="IsSettingsVisible" />
       <RootProperty Name="Background" />
       <RootProperty Name="MenuItems" />
@@ -375,6 +398,7 @@
     </RootType>
     <RootType FullName="Microsoft.UI.Xaml.Controls.NavigationViewItem">
       <RootProperty Name="Icon" />
+      <RootProperty Name="Visibility" />
       <RootProperty Name="Name" />
       <RootProperty Name="Content" />
     </RootType>

@@ -209,6 +209,7 @@
     <Compile Include="ViewModels\DetailsViewModel.cs" />
     <Compile Include="ViewModels\FlightViewModel.cs" />
     <Compile Include="ViewModels\LiveFlightDataViewModel.cs" />
+    <Compile Include="ViewModels\MainPageViewModel.cs" />
     <Compile Include="ViewModels\MyOrdersViewModel.cs" />
     <Compile Include="ViewModels\PassengerLoginViewModel.cs" />
     <Compile Include="ViewModels\TravelGroupConvoViewModel.cs" />
@@ -254,6 +255,9 @@
     </Compile>
     <Compile Include="Views\Flight\Map\LocationMarker.xaml.cs">
       <DependentUpon>LocationMarker.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MyOrdersPage.xaml.cs">
       <DependentUpon>MyOrdersPage.xaml</DependentUpon>
@@ -371,6 +375,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\MainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\MyOrdersPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -429,6 +437,8 @@
     <Compile Include="Helpers\ResourceExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Images\airplane_view.jpg" />
+    <Content Include="Images\airplane_view2.jpg" />
     <Content Include="Images\pin.png" />
     <Content Include="Images\pin.svg" />
     <Content Include="Images\plane.png" />

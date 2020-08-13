@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Input;
 
 using FlightAppEliasGryp.Helpers;
+using FlightAppEliasGryp.Models;
 using FlightAppEliasGryp.Services;
 
 using GalaSoft.MvvmLight;
@@ -23,20 +24,41 @@ namespace FlightAppEliasGryp.ViewModels
 {
     public class ShellViewModel : ViewModelBase
     {
+        private const string cantGoBackParameter = "navigatedFromLogIn";
+
         private readonly KeyboardAccelerator _altLeftKeyboardAccelerator = BuildKeyboardAccelerator(VirtualKey.Left, VirtualKeyModifiers.Menu);
         private readonly KeyboardAccelerator _backKeyboardAccelerator = BuildKeyboardAccelerator(VirtualKey.GoBack);
+        private readonly IAuthenticationService _authenticationService;
 
         private bool _isBackEnabled;
+        private bool _isNavigationVisible;
         private IList<KeyboardAccelerator> _keyboardAccelerators;
         private WinUI.NavigationView _navigationView;
         private WinUI.NavigationViewItem _selected;
         private ICommand _loadedCommand;
         private ICommand _itemInvokedCommand;
+        private ICommand _logoutClickedCommand;
+
+        private CurrentUser _currentUser;
+
+        public bool IsNavigationVisible
+        {
+            get { return _isNavigationVisible; }
+            set {
+                Set(ref _isNavigationVisible, value);
+            }
+        }
 
         public bool IsBackEnabled
         {
             get { return _isBackEnabled; }
             set { Set(ref _isBackEnabled, value); }
+        }
+
+        public CurrentUser CurrentUser
+        {
+            get { return _currentUser; }
+            set { Set(ref _currentUser, value); }
         }
 
         public static NavigationServiceEx NavigationService => ViewModelLocator.Current.NavigationService;
@@ -51,22 +73,14 @@ namespace FlightAppEliasGryp.ViewModels
 
         public ICommand ItemInvokedCommand => _itemInvokedCommand ?? (_itemInvokedCommand = new RelayCommand<WinUI.NavigationViewItemInvokedEventArgs>(OnItemInvoked));
 
-        private IOrderDataService _orderDataService { get; set; }
+        public ICommand Logout => _logoutClickedCommand ?? ( _logoutClickedCommand = new RelayCommand(OnLogoutClicked) );
 
-        public int NewOrders { get; set; }
-
-        public ShellViewModel(IOrderDataService orderDataService)
+        public ShellViewModel(IAuthenticationService authenticationService)
         {
-            _orderDataService = orderDataService;
+            _authenticationService = authenticationService;
         }
 
-        public async void GetNewOrdersCount()
-        {
-            var data = await _orderDataService.GetUncompletedOrdersCount();
-            NewOrders = data;
-        }
-
-        public void Initialize(Frame frame, WinUI.NavigationView navigationView, IList<KeyboardAccelerator> keyboardAccelerators)
+        public async void Initialize(Frame frame, WinUI.NavigationView navigationView, IList<KeyboardAccelerator> keyboardAccelerators)
         {
             _navigationView = navigationView;
             _keyboardAccelerators = keyboardAccelerators;
@@ -74,6 +88,37 @@ namespace FlightAppEliasGryp.ViewModels
             NavigationService.NavigationFailed += Frame_NavigationFailed;
             NavigationService.Navigated += Frame_Navigated;
             _navigationView.BackRequested += OnBackRequested;
+            var user = await _authenticationService.GetTokenCurrentUser();
+            if (user != null)
+            {
+                CurrentUser = user;
+                NavigationService.NavigateAndClearBackstack("FlightAppEliasGryp.ViewModels.DetailsViewModel");
+            }
+        }
+
+        private async void OnLogoutClicked()
+        {
+            var result = await ShowLogoutComfirmationDialog();
+
+            if (result == ContentDialogResult.Primary)
+            {
+                await _authenticationService.LogOut();
+                NavigationService.NavigateAndClearBackstack("FlightAppEliasGryp.ViewModels.MainPageViewModel");
+            }
+        }
+
+        private async Task<ContentDialogResult> ShowLogoutComfirmationDialog()
+        {
+            ContentDialog dialog = new ContentDialog()
+            {
+                Title = "Log out",
+                Content = "Are you sure you want to log out?",
+                PrimaryButtonText = "Yes",
+                CloseButtonText = "Cancel",
+                DefaultButton = ContentDialogButton.Close
+            };
+            ContentDialogResult result = await dialog.ShowAsync();
+            return result;
         }
 
         private async void OnLoaded()
@@ -104,12 +149,23 @@ namespace FlightAppEliasGryp.ViewModels
             throw e.Exception;
         }
 
-        private void Frame_Navigated(object sender, NavigationEventArgs e)
+        private async void Frame_Navigated(object sender, NavigationEventArgs e)
         {
-            IsBackEnabled = NavigationService.CanGoBack;
+            if (e.Parameter as string == cantGoBackParameter)
+            {
+                IsBackEnabled = false;
+                var user = await _authenticationService.GetTokenCurrentUser();
+                if (user != null) { CurrentUser = user; }
+            }
+            else
+                IsBackEnabled = NavigationService.CanGoBack;
             Selected = _navigationView.MenuItems
                             .OfType<WinUI.NavigationViewItem>()
                             .FirstOrDefault(menuItem => IsMenuItemForPageType(menuItem, e.SourcePageType));
+            if (e.SourcePageType == typeof(Views.MainPage))
+                IsNavigationVisible = false;
+            else
+                IsNavigationVisible = true;
         }
 
         private bool IsMenuItemForPageType(WinUI.NavigationViewItem menuItem, Type sourcePageType)

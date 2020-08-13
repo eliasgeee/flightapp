@@ -27,6 +27,7 @@ Views\Flight\FlightPage.xbf
 Views\Flight\Map\FlightMap.xbf
 Views\Flight\Map\FlightMarker.xbf
 Views\Flight\Map\LocationMarker.xbf
+Views\MainPage.xbf
 Views\MyOrdersPage.xbf
 Views\OrderDetailPage.xbf
 Views\OrderDetailView.xbf
@@ -39,6 +40,8 @@ Views\ShellPage.xbf
 Views\ShoppingCartIcon.xbf
 Views\ShoppingCartPage.xbf
 Views\TravelGroupConvoPage.xbf
+Images\airplane_view.jpg
+Images\airplane_view2.jpg
 Images\pin.png
 Images\pin.svg
 Images\plane.png

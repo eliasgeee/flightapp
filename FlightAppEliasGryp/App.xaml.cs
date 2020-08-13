@@ -46,7 +46,7 @@ namespace FlightAppEliasGryp
 
         private ActivationService CreateActivationService()
         {
-            return new ActivationService(this, typeof(ViewModels.PassengerLoginViewModel), new Lazy<UIElement>(CreateShell));
+            return new ActivationService(this, typeof(ViewModels.MainPageViewModel), new Lazy<UIElement>(CreateShell));
         }
 
         private UIElement CreateShell()

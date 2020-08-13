@@ -42,6 +42,7 @@ namespace FlightAppEliasGryp.ViewModels
             Register<ConversationDetailViewModel, ConversationDetailPage>();
             Register<ConversationsOverviewViewModel, ConversationsOverviewPage>();
             Register<PassengerLoginViewModel, PassengerLogInPage>();
+            Register<MainPageViewModel, MainPage>();
         }
 
         public CatalogViewModel CatalogViewModel => SimpleIoc.Default.GetInstance<CatalogViewModel>();
@@ -60,6 +61,7 @@ namespace FlightAppEliasGryp.ViewModels
         public ConversationDetailViewModel ConversationDetailViewModel => SimpleIoc.Default.GetInstance<ConversationDetailViewModel>();
         public ConversationViewModelItem ConversationViewModelItem => SimpleIoc.Default.GetInstance<ConversationViewModelItem>();
         public PassengerLoginViewModel PassengerLogInViewModel => SimpleIoc.Default.GetInstance<PassengerLoginViewModel>();
+        public MainPageViewModel MainPageViewModel => SimpleIoc.Default.GetInstance<MainPageViewModel>();
 
         public NavigationServiceEx NavigationService => SimpleIoc.Default.GetInstance<NavigationServiceEx>();
 

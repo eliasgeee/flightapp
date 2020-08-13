@@ -16,6 +16,7 @@ namespace FlightAppEliasGryp.Services
 {
     public class NavigationServiceEx : INavigationService
     {
+        private const string cantGoBackParameter = "navigatedFromLogIn";
         public event NavigatedEventHandler Navigated;
 
         public event NavigationFailedEventHandler NavigationFailed;
@@ -91,6 +92,13 @@ namespace FlightAppEliasGryp.Services
             {
                 return false;
             }
+        }
+
+        public void NavigateAndClearBackstack(string pagekey)
+        {
+            Navigate(pagekey, cantGoBackParameter);
+            foreach (var item in Frame.BackStack.ToList())
+                Frame.BackStack.Remove(item);
         }
 
         public void Configure(string key, Type pageType)

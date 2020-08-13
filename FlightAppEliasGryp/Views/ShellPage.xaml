@@ -21,6 +21,7 @@
         x:Name="navigationView"
         IsBackEnabled="{x:Bind ViewModel.IsBackEnabled, Mode=OneWay}"
         SelectedItem="{x:Bind ViewModel.Selected, Mode=OneWay}"
+        IsPaneVisible="{x:Bind ViewModel.IsNavigationVisible, Mode=OneWay}"
         IsSettingsVisible="True"
         Background="{ThemeResource SystemControlBackgroundAltHighBrush}">
         <winui:NavigationView.MenuItems>
@@ -30,14 +31,15 @@
             Or to use an IconElement instead of a Symbol see https://github.com/Microsoft/WindowsTemplateStudio/blob/master/docs/projectTypes/navigationpane.md
             Edit String/en-US/Resources.resw: Add a menu item title for each page
             -->
-            <winui:NavigationViewItem x:Uid="Shell_Details" Icon="Document" helpers:NavHelper.NavigateTo="FlightAppEliasGryp.ViewModels.DetailsViewModel" />
-            <winui:NavigationViewItem x:Uid="Shell_Catalog" Icon="Shop" helpers:NavHelper.NavigateTo="FlightAppEliasGryp.ViewModels.CatalogViewModel" />
-            <winui:NavigationViewItem x:Uid="Shell_AdminCatalog" Icon="Shop" helpers:NavHelper.NavigateTo="FlightAppEliasGryp.ViewModels.AdminCatalogViewModel" />
-            <winui:NavigationViewItem x:Uid="Shell_MyOrders" Icon="Document" helpers:NavHelper.NavigateTo="FlightAppEliasGryp.ViewModels.MyOrdersViewModel" />
-            <winui:NavigationViewItem Name="OrderManagement" x:Uid="Shell_OrderManagement" Icon="Document" helpers:NavHelper.NavigateTo="FlightAppEliasGryp.ViewModels.OrderManagementViewModel" />
-            <winui:NavigationViewItem x:Uid="Shell_SeatManagement" Icon="Document" helpers:NavHelper.NavigateTo="FlightAppEliasGryp.ViewModels.SeatManagementViewModel" />
-            <winui:NavigationViewItem x:Uid="Shell_FlightMap" Icon="Map" helpers:NavHelper.NavigateTo="FlightAppEliasGryp.ViewModels.FlightViewModel" Content="Map"/>
-            <winui:NavigationViewItem x:Uid="Shell_Convos" Icon="Document" helpers:NavHelper.NavigateTo="FlightAppEliasGryp.ViewModels.ConversationsViewModel" Content="Messages"/>
+            <winui:NavigationViewItem x:Uid="Shell_Details" Icon="Document" helpers:NavHelper.NavigateTo="FlightAppEliasGryp.ViewModels.DetailsViewModel"/>
+            <winui:NavigationViewItem x:Uid="Shell_Catalog" Icon="Shop" helpers:NavHelper.NavigateTo="FlightAppEliasGryp.ViewModels.CatalogViewModel" Visibility="{x:Bind ViewModel.CurrentUser.IsPassenger, Mode=OneWay}"/>
+            <winui:NavigationViewItem x:Uid="Shell_AdminCatalog" Icon="Shop" helpers:NavHelper.NavigateTo="FlightAppEliasGryp.ViewModels.AdminCatalogViewModel" Visibility="{x:Bind ViewModel.CurrentUser.IsCrewMember, Mode=OneWay}"/>
+            <winui:NavigationViewItem x:Uid="Shell_MyOrders" Icon="Document" helpers:NavHelper.NavigateTo="FlightAppEliasGryp.ViewModels.MyOrdersViewModel" Visibility="{x:Bind ViewModel.CurrentUser.IsPassenger, Mode=OneWay}"/>
+            <winui:NavigationViewItem Name="OrderManagement" x:Uid="Shell_OrderManagement" Icon="Document" helpers:NavHelper.NavigateTo="FlightAppEliasGryp.ViewModels.OrderManagementViewModel" Visibility="{x:Bind ViewModel.CurrentUser.IsCrewMember, Mode=OneWay}"/>
+            <winui:NavigationViewItem x:Uid="Shell_SeatManagement" Icon="Document" helpers:NavHelper.NavigateTo="FlightAppEliasGryp.ViewModels.SeatManagementViewModel" Visibility="{x:Bind ViewModel.CurrentUser.IsCrewMember, Mode=OneWay}"/>
+            <winui:NavigationViewItem x:Uid="Shell_FlightMap" Icon="Map" helpers:NavHelper.NavigateTo="FlightAppEliasGryp.ViewModels.FlightViewModel" Content="Map" Visibility="{x:Bind ViewModel.CurrentUser.IsPassenger, Mode=OneWay}"/>
+            <winui:NavigationViewItem x:Uid="Shell_Convos" Icon="Document" helpers:NavHelper.NavigateTo="FlightAppEliasGryp.ViewModels.ConversationsViewModel" Content="Messages" Visibility="{x:Bind ViewModel.CurrentUser.IsPassenger, Mode=OneWay}"/>
+            <Button Content="Logout" Command="{x:Bind ViewModel.Logout}" />
         </winui:NavigationView.MenuItems>
         <i:Interaction.Behaviors>
             <behaviors:NavigationViewHeaderBehavior

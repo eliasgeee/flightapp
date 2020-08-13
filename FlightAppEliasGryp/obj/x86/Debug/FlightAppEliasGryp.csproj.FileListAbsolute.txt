@@ -25,6 +25,8 @@ C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\obj\x86\Debug\
 C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\obj\x86\Debug\Views\Flight\Map\FlightMarker.g.cs
 C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\obj\x86\Debug\Views\Flight\Map\LocationMarker.g.i.cs
 C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\obj\x86\Debug\Views\Flight\Map\LocationMarker.g.cs
+C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\obj\x86\Debug\Views\MainPage.g.i.cs
+C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\obj\x86\Debug\Views\MainPage.g.cs
 C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\obj\x86\Debug\Views\MyOrdersPage.g.i.cs
 C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\obj\x86\Debug\Views\MyOrdersPage.g.cs
 C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\obj\x86\Debug\Views\OrderDetailPage.g.i.cs
@@ -70,6 +72,7 @@ C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\obj\x86\Debug\
 C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\obj\x86\Debug\Views\Flight\Map\FlightMap.xaml
 C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\obj\x86\Debug\Views\Flight\Map\FlightMarker.xaml
 C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\obj\x86\Debug\Views\Flight\Map\LocationMarker.xaml
+C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\obj\x86\Debug\Views\MainPage.xaml
 C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\obj\x86\Debug\Views\MyOrdersPage.xaml
 C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\obj\x86\Debug\Views\OrderDetailPage.xaml
 C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\obj\x86\Debug\Views\OrderDetailView.xaml
@@ -102,6 +105,7 @@ C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\obj\x86\Debug\
 C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\obj\x86\Debug\Views\Flight\Map\FlightMap.xbf
 C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\obj\x86\Debug\Views\Flight\Map\FlightMarker.xbf
 C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\obj\x86\Debug\Views\Flight\Map\LocationMarker.xbf
+C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\obj\x86\Debug\Views\MainPage.xbf
 C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\obj\x86\Debug\Views\MyOrdersPage.xbf
 C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\obj\x86\Debug\Views\OrderDetailPage.xbf
 C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\obj\x86\Debug\Views\OrderDetailView.xbf
@@ -135,6 +139,7 @@ C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\bin\x86\Debug\
 C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\bin\x86\Debug\Views\Flight\Map\FlightMap.xbf
 C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\bin\x86\Debug\Views\Flight\Map\FlightMarker.xbf
 C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\bin\x86\Debug\Views\Flight\Map\LocationMarker.xbf
+C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\bin\x86\Debug\Views\MainPage.xbf
 C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\bin\x86\Debug\Views\MyOrdersPage.xbf
 C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\bin\x86\Debug\Views\OrderDetailPage.xbf
 C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\bin\x86\Debug\Views\OrderDetailView.xbf

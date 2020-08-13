@@ -18,7 +18,7 @@ namespace FlightAppEliasGryp.ViewModels
 
         public void Login(int row, char chair)
         {
-            _accountService.LogIn(row, chair);
+            _accountService.PassengerLogIn(row, chair);
         }
     }
 }

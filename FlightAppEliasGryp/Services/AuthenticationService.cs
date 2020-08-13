@@ -26,11 +26,11 @@ namespace FlightAppEliasGryp.Services
             _dataService = new DataService<CurrentUser>(_clientService);
         }
 
-        public async Task<CurrentUser> LogIn (int row, char chair)
+        public async Task<CurrentUser> PassengerLogIn (int row, char chair)
         {
             var request = await _dataService.MakeRequest(new ApiRequest(ApiRequestType.POST)
             {
-                Uri = baseUri,
+                Uri = baseUri + "Passenger",
                 Body = new LoginDTO { Chair = chair, Row = row }
             });
             var token = request.AsSingle();
@@ -44,7 +44,6 @@ namespace FlightAppEliasGryp.Services
         private async Task SaveToken(CurrentUser user)
         {
             await _storageService.SaveFileInStorage(userFilename, user, CreationCollisionOption.ReplaceExisting);
-            
         }
 
         public async Task<CurrentUser> GetTokenCurrentUser()
