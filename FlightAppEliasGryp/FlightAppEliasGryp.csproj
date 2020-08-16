@@ -151,7 +151,11 @@
     <Compile Include="Helpers\Converters\TimeConverter.cs" />
     <Compile Include="Helpers\EnumHelper.cs" />
     <Compile Include="Models\ApiRequest.cs" />
+    <Compile Include="Models\CrewMember.cs" />
+    <Compile Include="Models\DTO%27s\CrewMemberLoginDTO.cs" />
     <Compile Include="Models\Environment.cs" />
+    <Compile Include="Models\FlightInfo.cs" />
+    <Compile Include="Models\WeatherForecast.cs" />
     <Compile Include="Services\DataService.cs" />
     <Compile Include="Services\HttpClientService.cs" />
     <Compile Include="Helpers\NavHelper.cs" />
@@ -193,11 +197,13 @@
     <Compile Include="Services\ILocationService.cs" />
     <Compile Include="Services\IOrderDataService.cs" />
     <Compile Include="Services\IAccountService.cs" />
+    <Compile Include="Services\IWeatherDataService.cs" />
     <Compile Include="Services\LocalStorageService.cs" />
     <Compile Include="Services\LocationService.cs" />
     <Compile Include="Services\NavigationServiceEx.cs" />
     <Compile Include="Services\OrderDataService.cs" />
     <Compile Include="Services\AccountService.cs" />
+    <Compile Include="Services\WeatherDataService.cs" />
     <Compile Include="ViewModels\AddPromotionViewModel.cs" />
     <Compile Include="ViewModels\AdminCatalogViewModel.cs" />
     <Compile Include="ViewModels\ConversationDetailViewModel.cs" />
@@ -206,12 +212,14 @@
     <Compile Include="ViewModels\ConversationsOverviewViewModel.cs" />
     <Compile Include="ViewModels\ConversationsViewModel.cs" />
     <Compile Include="ViewModels\ConversationViewModelItem.cs" />
+    <Compile Include="ViewModels\CrewMemberLoginViewModel.cs" />
     <Compile Include="ViewModels\DetailsViewModel.cs" />
     <Compile Include="ViewModels\FlightViewModel.cs" />
     <Compile Include="ViewModels\LiveFlightDataViewModel.cs" />
     <Compile Include="ViewModels\MainPageViewModel.cs" />
     <Compile Include="ViewModels\MyOrdersViewModel.cs" />
     <Compile Include="ViewModels\PassengerLoginViewModel.cs" />
+    <Compile Include="ViewModels\SeatViewModel.cs" />
     <Compile Include="ViewModels\TravelGroupConvoViewModel.cs" />
     <Compile Include="ViewModels\OrderDetailsViewModel.cs" />
     <Compile Include="ViewModels\OrderManagementViewModel.cs" />
@@ -220,6 +228,7 @@
     <Compile Include="ViewModels\ShellViewModel.cs" />
     <Compile Include="ViewModels\ShoppingCartViewModel.cs" />
     <Compile Include="ViewModels\Base\ViewModelLocator.cs" />
+    <Compile Include="ViewModels\WeatherForecastViewModel.cs" />
     <Compile Include="Views\AddPromotionDialog.xaml.cs">
       <DependentUpon>AddPromotionDialog.xaml</DependentUpon>
     </Compile>
@@ -241,11 +250,20 @@
     <Compile Include="Views\ConversationsPage.xaml.cs">
       <DependentUpon>ConversationsPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\CrewMemberLogicControl.xaml.cs">
+      <DependentUpon>CrewMemberLogicControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\DetailsPage.xaml.cs">
       <DependentUpon>DetailsPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Flight\AirportCard.xaml.cs">
+      <DependentUpon>AirportCard.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Flight\FlightPage.xaml.cs">
       <DependentUpon>FlightPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Flight\LocationCard.xaml.cs">
+      <DependentUpon>LocationCard.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Flight\Map\FlightMap.xaml.cs">
       <DependentUpon>FlightMap.xaml</DependentUpon>
@@ -255,6 +273,9 @@
     </Compile>
     <Compile Include="Views\Flight\Map\LocationMarker.xaml.cs">
       <DependentUpon>LocationMarker.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Flight\WeatherForecastControl.xaml.cs">
+      <DependentUpon>WeatherForecastControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
@@ -274,8 +295,8 @@
     <Compile Include="Views\PassengerItem.xaml.cs">
       <DependentUpon>PassengerItem.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\PassengerLogInPage.xaml.cs">
-      <DependentUpon>PassengerLogInPage.xaml</DependentUpon>
+    <Compile Include="Views\PassengerLoginControl.xaml.cs">
+      <DependentUpon>PassengerLoginControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ProductDetailsPage.xaml.cs">
       <DependentUpon>ProductDetailsPage.xaml</DependentUpon>
@@ -355,11 +376,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\CrewMemberLogicControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\DetailsPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Views\Flight\AirportCard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Flight\FlightPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Flight\LocationCard.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -372,6 +405,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Flight\Map\LocationMarker.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Flight\WeatherForecastControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -399,7 +436,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\PassengerLogInPage.xaml">
+    <Page Include="Views\PassengerLoginControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

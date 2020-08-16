@@ -25,7 +25,7 @@ namespace FlightAppEliasGryp.ViewModels
         public async Task LoadDataAsync()
         {
             var data = await _flightDataService.GetInfoCurrentFlight();
-            Flight = data;
+            Flight = data.Flight;
         }
 
         public async Task<object> GetCurrentLocationPlane()

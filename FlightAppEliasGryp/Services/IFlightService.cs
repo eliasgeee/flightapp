@@ -11,7 +11,7 @@ namespace FlightAppEliasGryp.Services
     {
         Task<IList<Seat>> GetSeatsAsync();
         Task<IList<Seat>> SwitchSeatsAsync(Seat seat1, Seat seat2);
-        Task<Flight> GetInfoCurrentFlight();
+        Task<FlightInfo> GetInfoCurrentFlight();
         Task<ICollection<ApplicationUser>> GetTravelGroup(Passenger passenger);
     }
 }

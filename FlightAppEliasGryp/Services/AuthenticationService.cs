@@ -34,8 +34,29 @@ namespace FlightAppEliasGryp.Services
                 Body = new LoginDTO { Chair = chair, Row = row }
             });
             var token = request.AsSingle();
+            CurrentUser result = null;
             if (token != null)
-                await SaveToken(token);
+                result = await Authenticate(token);
+            return result;
+        }
+
+        public async Task<CurrentUser> CrewMemberLogIn(CrewMember crewMember)
+        {
+            var request = await _dataService.MakeRequest(new ApiRequest(ApiRequestType.POST)
+            {
+                Uri = baseUri + "Crew",
+                Body = new CrewMemberLoginDTO() { UserName = crewMember.UserName, Password = crewMember.Password }
+            });
+            var token = request.AsSingle();
+            CurrentUser result = null;
+            if (token != null)
+                result = await Authenticate(token);
+            return result;
+        }
+
+        private async Task<CurrentUser> Authenticate(CurrentUser currentUser)
+        {
+            await SaveToken(currentUser);
             var result = await GetTokenCurrentUser();
             _clientService.Authenticate(result.Token);
             return result;

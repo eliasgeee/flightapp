@@ -5,28 +5,26 @@
     xmlns:local="using:FlightAppEliasGryp.Views.Map"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:flight="using:FlightAppEliasGryp.Views.Flight"
+    xmlns:models="using:FlightAppEliasGryp.Models"
     mc:Ignorable="d"
     d:DesignHeight="300"
     d:DesignWidth="400">
 
-    <Grid Tapped="Grid_Tapped">
+    <Grid Tapped="Grid_Tapped" x:Name="FlyGrid">
         <FlyoutBase.AttachedFlyout>
-            <Flyout>
+            <Flyout AreOpenCloseAnimationsEnabled="True">
+                <Flyout.FlyoutPresenterStyle>
+                    <Style TargetType="FlyoutPresenter">
+                        <Setter Property="MaxWidth" Value="1000"/>
+                        <Setter Property="ScrollViewer.HorizontalScrollMode" Value="Disabled"/>
+                        <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled"/>
+                    </Style>
+                </Flyout.FlyoutPresenterStyle>
                 <ContentControl Content="{Binding}">
                     <ContentControl.ContentTemplate>
-                        <DataTemplate>
-                            <StackPanel>
-                                <TextBlock Text="{Binding Path=Airport}" Style="{StaticResource ListTitleStyle}" />
-
-                                <TextBlock Text="Type" FontWeight="SemiBold" Margin="0, 8, 0, 0"/>
-                                <TextBlock Text="{Binding Path=Type}" />
-
-                                <TextBlock Text="City" FontWeight="SemiBold" Margin="0, 8, 0, 0"/>
-                                <TextBlock Text="{Binding Path=City}" />
-
-                                <TextBlock Text="Country" FontWeight="SemiBold" Margin="0, 8, 0, 0"/>
-                                <TextBlock Text="{Binding Path=Country}" />
-                            </StackPanel>
+                        <DataTemplate x:DataType="models:Location" x:Name="RootGrid">
+                            <flight:LocationCard Location="{x:Bind}" />
                         </DataTemplate>
                     </ContentControl.ContentTemplate>
                 </ContentControl>

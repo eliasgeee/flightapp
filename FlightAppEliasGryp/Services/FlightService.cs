@@ -15,6 +15,7 @@ namespace FlightAppEliasGryp.Services
         private readonly string baseUri = "Flight/";
         private HttpClientService _clientService;
         private DataService<Flight> _flightDataService;
+        private DataService<FlightInfo> _flightInfoDataService;
         private DataService<Seat> _seatDataService;
         private DataService<ApplicationUser> _userDataService;
 
@@ -24,11 +25,12 @@ namespace FlightAppEliasGryp.Services
             _flightDataService = new DataService<Flight>(_clientService);
             _seatDataService = new DataService<Seat>(_clientService);
             _userDataService = new DataService<ApplicationUser>(_clientService);
+            _flightInfoDataService = new DataService<FlightInfo>(_clientService);
         }
 
-        public async Task<Flight> GetInfoCurrentFlight()
+        public async Task<FlightInfo> GetInfoCurrentFlight()
         {
-            var request = await _flightDataService.MakeRequest(new ApiRequest(ApiRequestType.GET)
+            var request = await _flightInfoDataService.MakeRequest(new ApiRequest(ApiRequestType.GET)
             {
                 Uri = baseUri + "Flight"
             });

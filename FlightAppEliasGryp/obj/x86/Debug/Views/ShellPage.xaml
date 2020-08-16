@@ -17,51 +17,54 @@
         </ic:EventTriggerBehavior>
     </i:Interaction.Behaviors>
 
-    <winui:NavigationView x:ConnectionId='3'
+    <Grid Background="{ThemeResource SystemControlAcrylicWindowBrush}">
+        <winui:NavigationView x:ConnectionId='3'
+        PaneDisplayMode="Top"
         x:Name="navigationView"
                                                                      
                                                                
                                                                            
         IsSettingsVisible="True"
         Background="{ThemeResource SystemControlBackgroundAltHighBrush}">
-        <winui:NavigationView.MenuItems>
-            <!--
+            <winui:NavigationView.MenuItems>
+                <!--
             TODO WTS: Change the symbols for each item as appropriate for your app
             More on Segoe UI Symbol icons: https://docs.microsoft.com/windows/uwp/style/segoe-ui-symbol-font
             Or to use an IconElement instead of a Symbol see https://github.com/Microsoft/WindowsTemplateStudio/blob/master/docs/projectTypes/navigationpane.md
             Edit String/en-US/Resources.resw: Add a menu item title for each page
             -->
-            <winui:NavigationViewItem x:Uid="Shell_Details" Icon="Document" helpers:NavHelper.NavigateTo="FlightAppEliasGryp.ViewModels.DetailsViewModel"/>
-            <winui:NavigationViewItem x:ConnectionId='4' x:Uid="Shell_Catalog" Icon="Shop" helpers:NavHelper.NavigateTo="FlightAppEliasGryp.ViewModels.CatalogViewModel"                                                                     />
-            <winui:NavigationViewItem x:ConnectionId='5' x:Uid="Shell_AdminCatalog" Icon="Shop" helpers:NavHelper.NavigateTo="FlightAppEliasGryp.ViewModels.AdminCatalogViewModel"                                                                      />
-            <winui:NavigationViewItem x:ConnectionId='6' x:Uid="Shell_MyOrders" Icon="Document" helpers:NavHelper.NavigateTo="FlightAppEliasGryp.ViewModels.MyOrdersViewModel"                                                                     />
-            <winui:NavigationViewItem x:ConnectionId='7' Name="OrderManagement" x:Uid="Shell_OrderManagement" Icon="Document" helpers:NavHelper.NavigateTo="FlightAppEliasGryp.ViewModels.OrderManagementViewModel"                                                                      />
-            <winui:NavigationViewItem x:ConnectionId='8' x:Uid="Shell_SeatManagement" Icon="Document" helpers:NavHelper.NavigateTo="FlightAppEliasGryp.ViewModels.SeatManagementViewModel"                                                                      />
-            <winui:NavigationViewItem x:ConnectionId='9' x:Uid="Shell_FlightMap" Icon="Map" helpers:NavHelper.NavigateTo="FlightAppEliasGryp.ViewModels.FlightViewModel" Content="Map"                                                                     />
-            <winui:NavigationViewItem x:ConnectionId='10' x:Uid="Shell_Convos" Icon="Document" helpers:NavHelper.NavigateTo="FlightAppEliasGryp.ViewModels.ConversationsViewModel" Content="Messages"                                                                     />
-            <Button x:ConnectionId='11' Content="Logout"                                     />
-        </winui:NavigationView.MenuItems>
-        <i:Interaction.Behaviors>
-            <behaviors:NavigationViewHeaderBehavior x:ConnectionId='12'
+                <winui:NavigationViewItem x:Uid="Shell_Details" Icon="Document" helpers:NavHelper.NavigateTo="FlightAppEliasGryp.ViewModels.DetailsViewModel"/>
+                <winui:NavigationViewItem x:ConnectionId='4' x:Uid="Shell_Catalog" Icon="Shop" helpers:NavHelper.NavigateTo="FlightAppEliasGryp.ViewModels.CatalogViewModel"                                                                     />
+                <winui:NavigationViewItem x:ConnectionId='5' x:Uid="Shell_AdminCatalog" Icon="Shop" helpers:NavHelper.NavigateTo="FlightAppEliasGryp.ViewModels.AdminCatalogViewModel"                                                                      />
+                <winui:NavigationViewItem x:ConnectionId='6' x:Uid="Shell_MyOrders" Icon="Document" helpers:NavHelper.NavigateTo="FlightAppEliasGryp.ViewModels.MyOrdersViewModel"                                                                     />
+                <winui:NavigationViewItem x:ConnectionId='7' Name="OrderManagement" x:Uid="Shell_OrderManagement" Icon="Document" helpers:NavHelper.NavigateTo="FlightAppEliasGryp.ViewModels.OrderManagementViewModel"                                                                      />
+                <winui:NavigationViewItem x:ConnectionId='8' x:Uid="Shell_SeatManagement" Icon="Document" helpers:NavHelper.NavigateTo="FlightAppEliasGryp.ViewModels.SeatManagementViewModel"                                                                      />
+                <winui:NavigationViewItem x:ConnectionId='9' x:Uid="Shell_FlightMap" Icon="Map" helpers:NavHelper.NavigateTo="FlightAppEliasGryp.ViewModels.FlightViewModel" Content="Map"                                                                     />
+                <winui:NavigationViewItem x:ConnectionId='10' x:Uid="Shell_Convos" Icon="Document" helpers:NavHelper.NavigateTo="FlightAppEliasGryp.ViewModels.ConversationsViewModel" Content="Messages"                                                                     />
+                <Button x:ConnectionId='11' Content="Logout"                                     />
+            </winui:NavigationView.MenuItems>
+            <i:Interaction.Behaviors>
+                <behaviors:NavigationViewHeaderBehavior x:ConnectionId='12'
                                                                                 >
-                <behaviors:NavigationViewHeaderBehavior.DefaultHeaderTemplate>
-                    <DataTemplate>
-                        <Grid>
-                            <TextBlock
+                    <behaviors:NavigationViewHeaderBehavior.DefaultHeaderTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <TextBlock
                                 Text="{Binding}"
                                 Style="{ThemeResource TitleTextBlockStyle}"
                                 Margin="{StaticResource SmallLeftRightMargin}" />
-                        </Grid>
-                    </DataTemplate>
-                </behaviors:NavigationViewHeaderBehavior.DefaultHeaderTemplate>
-            </behaviors:NavigationViewHeaderBehavior>
-            <ic:EventTriggerBehavior EventName="ItemInvoked">
-                <ic:InvokeCommandAction x:ConnectionId='13'                                                 />
-            </ic:EventTriggerBehavior>
-        </i:Interaction.Behaviors>
-        <Grid>
-            <Frame x:ConnectionId='15' x:Name="shellFrame" />
-        </Grid>
-    </winui:NavigationView>
+                            </Grid>
+                        </DataTemplate>
+                    </behaviors:NavigationViewHeaderBehavior.DefaultHeaderTemplate>
+                </behaviors:NavigationViewHeaderBehavior>
+                <ic:EventTriggerBehavior EventName="ItemInvoked">
+                    <ic:InvokeCommandAction x:ConnectionId='13'                                                 />
+                </ic:EventTriggerBehavior>
+            </i:Interaction.Behaviors>
+            <Grid>
+                <Frame x:ConnectionId='15' x:Name="shellFrame" />
+            </Grid>
+        </winui:NavigationView>
+    </Grid>
 </Page>
 

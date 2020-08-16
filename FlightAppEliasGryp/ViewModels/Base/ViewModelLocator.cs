@@ -25,6 +25,7 @@ namespace FlightAppEliasGryp.ViewModels
             SimpleIoc.Default.Register(() => new NavigationServiceEx());
             SimpleIoc.Default.Register<ShellViewModel>();
             SimpleIoc.Default.Register<IAuthenticationService, AuthenticationService>();
+            SimpleIoc.Default.Register<IWeatherDataService, WeatherDataService>();
             SimpleIoc.Default.Register<HttpClientService>();
 
             Register<DetailsViewModel, DetailsPage>();
@@ -41,8 +42,12 @@ namespace FlightAppEliasGryp.ViewModels
             Register<ConversationsViewModel, ConversationsPage>();
             Register<ConversationDetailViewModel, ConversationDetailPage>();
             Register<ConversationsOverviewViewModel, ConversationsOverviewPage>();
-            Register<PassengerLoginViewModel, PassengerLogInPage>();
             Register<MainPageViewModel, MainPage>();
+
+            SimpleIoc.Default.Register<SeatViewModel>();
+            SimpleIoc.Default.Register<PassengerLoginViewModel>();
+            SimpleIoc.Default.Register<CrewMemberLoginViewModel>();
+            SimpleIoc.Default.Register<WeatherForecastViewModel>();
         }
 
         public CatalogViewModel CatalogViewModel => SimpleIoc.Default.GetInstance<CatalogViewModel>();
@@ -62,6 +67,11 @@ namespace FlightAppEliasGryp.ViewModels
         public ConversationViewModelItem ConversationViewModelItem => SimpleIoc.Default.GetInstance<ConversationViewModelItem>();
         public PassengerLoginViewModel PassengerLogInViewModel => SimpleIoc.Default.GetInstance<PassengerLoginViewModel>();
         public MainPageViewModel MainPageViewModel => SimpleIoc.Default.GetInstance<MainPageViewModel>();
+        public SeatViewModel SeatViewModel => SimpleIoc.Default.GetInstance<SeatViewModel>();
+        public CrewMemberLoginViewModel CrewMemberLoginViewModel => SimpleIoc.Default.GetInstance<CrewMemberLoginViewModel>();
+        public WeatherForecastViewModel WeatherForecastViewModel => SimpleIoc.Default.GetInstance<WeatherForecastViewModel>();
+
+        public IWeatherDataService WeatherDataService => SimpleIoc.Default.GetInstance<IWeatherDataService>();
 
         public NavigationServiceEx NavigationService => SimpleIoc.Default.GetInstance<NavigationServiceEx>();
 

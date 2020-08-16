@@ -32,24 +32,31 @@ namespace FlightAppEliasGryp.Services
 
         public async Task<DataService<T>> MakeRequest(ApiRequest apiRequest)
         {
-            if (_client == null) await Init();
-
-            _json = null;
-
-            switch (apiRequest.ApiRequestType)
+            try
             {
-                case ApiRequestType.GET:
-                    await Get(apiRequest);
-                    break;
-                case ApiRequestType.POST:
-                    await Post(apiRequest);
-                    break;
-                case ApiRequestType.PUT:
-                    await Put(apiRequest);
-                    break;
-                case ApiRequestType.DELETE:
-                    await Delete(apiRequest);
-                    break;
+                if (_client == null) await Init();
+
+                _json = null;
+
+                switch (apiRequest.ApiRequestType)
+                {
+                    case ApiRequestType.GET:
+                        await Get(apiRequest);
+                        break;
+                    case ApiRequestType.POST:
+                        await Post(apiRequest);
+                        break;
+                    case ApiRequestType.PUT:
+                        await Put(apiRequest);
+                        break;
+                    case ApiRequestType.DELETE:
+                        await Delete(apiRequest);
+                        break;
+                }
+            }
+            catch(Exception e)
+            {
+                
             }
 
             return this;

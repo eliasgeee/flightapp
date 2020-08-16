@@ -5,6 +5,7 @@
     xmlns:local="using:FlightAppEliasGryp.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:flight="using:FlightAppEliasGryp.Views.Flight"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
@@ -18,30 +19,10 @@
             <DataTemplate>
                 <Pivot x:Name="loginSection">
                     <PivotItem Header="Passenger">
-                        <StackPanel Padding="0, 50, 50, 50">
-                            <StackPanel Spacing="10">
-                                <TextBlock Text="Row *" FontWeight="Bold" />
-                                <TextBox x:Name="Row" Width="200" HorizontalAlignment="Left"/>
-                            </StackPanel>
-                            <StackPanel Spacing="10" Margin="0, 8, 0, 0">
-                                <TextBlock Text="Chair *" FontWeight="Bold" />
-                                <TextBox x:Name="Chair" Width="200" HorizontalAlignment="Left"/>
-                            </StackPanel>
-                            <Button Content="Login" Margin="0, 24, 0, 0" Click="Button_Click" HorizontalAlignment="Left"/>
-                        </StackPanel>
+                        <local:PassengerLoginControl />
                     </PivotItem>
                     <PivotItem Header="Crew">
-                        <StackPanel Padding="0, 50, 50, 50">
-                            <StackPanel Spacing="10">
-                                <TextBlock Text="Username *" FontWeight="Bold" />
-                                <TextBox x:Name="Username" Width="200" HorizontalAlignment="Left"/>
-                            </StackPanel>
-                            <StackPanel Spacing="10" Margin="0, 8, 0, 0">
-                                <TextBlock Text="Password *" FontWeight="Bold" />
-                                <TextBox x:Name="Password" Width="200" HorizontalAlignment="Left" InputScope="Password"/>
-                            </StackPanel>
-                            <Button Content="Login" Margin="0, 24, 0, 0" Click="Button_Click_1" HorizontalAlignment="Left"/>
-                        </StackPanel>
+                        <local:CrewMemberLogicControl />
                     </PivotItem>
                 </Pivot>
             </DataTemplate>

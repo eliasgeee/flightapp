@@ -213,6 +213,7 @@ namespace FlightAppEliasGryp.Views
             }
             private void Update_Seat_Passenger(global::FlightAppEliasGryp.Models.Passenger obj, int phase)
             {
+                this.bindingsTracking.UpdateChildListeners_Seat_Passenger(obj);
                 if (obj != null)
                 {
                     if ((phase & (NOT_PHASED | DATA_CHANGED | (1 << 0))) != 0)
@@ -297,8 +298,67 @@ namespace FlightAppEliasGryp.Views
 
                 public void ReleaseAllListeners()
                 {
+                    UpdateChildListeners_Seat_Passenger(null);
                 }
 
+                public void PropertyChanged_Seat_Passenger(object sender, global::System.ComponentModel.PropertyChangedEventArgs e)
+                {
+                    PassengerItem_obj1_Bindings bindings = TryGetBindingObject();
+                    if (bindings != null)
+                    {
+                        string propName = e.PropertyName;
+                        global::FlightAppEliasGryp.Models.Passenger obj = sender as global::FlightAppEliasGryp.Models.Passenger;
+                        if (global::System.String.IsNullOrEmpty(propName))
+                        {
+                            if (obj != null)
+                            {
+                                bindings.Update_Seat_Passenger_M_GetFullName_757602046(DATA_CHANGED);
+                            }
+                            else
+                            {
+                                bindings.UpdateFallback_Seat_Passenger_M_GetFullName_757602046(DATA_CHANGED);
+                            }
+                        }
+                        else
+                        {
+                            switch (propName)
+                            {
+                                case "GetFullName":
+                                {
+                                    if (obj != null)
+                                    {
+                                        bindings.Update_Seat_Passenger_M_GetFullName_757602046(DATA_CHANGED);
+                                    }
+                                    else
+                                    {
+                                        bindings.UpdateFallback_Seat_Passenger_M_GetFullName_757602046(DATA_CHANGED);
+                                    }
+                                    break;
+                                }
+                                default:
+                                    break;
+                            }
+                        }
+                        bindings.CompleteUpdate(DATA_CHANGED);
+                    }
+                }
+                private global::FlightAppEliasGryp.Models.Passenger cache_Seat_Passenger = null;
+                public void UpdateChildListeners_Seat_Passenger(global::FlightAppEliasGryp.Models.Passenger obj)
+                {
+                    if (obj != cache_Seat_Passenger)
+                    {
+                        if (cache_Seat_Passenger != null)
+                        {
+                            ((global::System.ComponentModel.INotifyPropertyChanged)cache_Seat_Passenger).PropertyChanged -= PropertyChanged_Seat_Passenger;
+                            cache_Seat_Passenger = null;
+                        }
+                        if (obj != null)
+                        {
+                            cache_Seat_Passenger = obj;
+                            ((global::System.ComponentModel.INotifyPropertyChanged)obj).PropertyChanged += PropertyChanged_Seat_Passenger;
+                        }
+                    }
+                }
             }
         }
         /// <summary>

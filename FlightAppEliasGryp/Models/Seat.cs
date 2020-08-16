@@ -12,10 +12,7 @@ namespace FlightAppEliasGryp.Models
         public char Chair { get; set; }
         public Passenger Passenger { get; set; }
 
-        public Seat()
-        {
-
-        }
+        public Seat() { }
 
         public string GetPassenger()
         {
@@ -25,10 +22,6 @@ namespace FlightAppEliasGryp.Models
                 return Passenger.GetFullName();
         }
 
-        public override string ToString()
-        {
-            return Row.ToString() + Chair.ToString();
-        }
-
+        public override string ToString() { return $"{Row}{Chair}"; }
     }
 }

@@ -8,6 +8,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Devices.Geolocation;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Maps;
@@ -44,6 +45,38 @@ namespace FlightAppEliasGryp.Views.Map
             }
 
             GetCurrentLocation();
+            DrawLine();
+        }
+
+        private void DrawLine()
+        {
+            List<BasicGeoposition> geopositions = new List<BasicGeoposition>();
+            for (var i = 0; i < ViewModel.Flight.Locations.Count; i++)
+            {
+                geopositions.Add(new BasicGeoposition()
+                {
+                    Latitude = ViewModel.Flight.Locations.ElementAt(i).Latitude,
+                    Longitude = ViewModel.Flight.Locations.ElementAt(i).Longitude
+                });
+            }
+            var mapPolyline = new MapPolyline
+            {
+                Path = new Geopath(geopositions),
+                StrokeColor = Colors.Black,
+                StrokeThickness = 3
+            };
+
+            var MyLines = new List<MapElement>();
+
+            MyLines.Add(mapPolyline);
+
+            var LinesLayer = new MapElementsLayer
+            {
+                ZIndex = 1,
+                MapElements = MyLines
+            };
+
+            Map.Layers.Add(LinesLayer);
         }
 
         private async void GetCurrentLocation()

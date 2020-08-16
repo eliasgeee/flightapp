@@ -92,6 +92,8 @@ namespace FlightAppEliasGryp.ViewModels
             if (user != null)
             {
                 CurrentUser = user;
+                if (user.IsPassenger)
+                    await _authenticationService.PassengerLogIn(user.Row, user.Chair);
                 NavigationService.NavigateAndClearBackstack("FlightAppEliasGryp.ViewModels.DetailsViewModel");
             }
         }

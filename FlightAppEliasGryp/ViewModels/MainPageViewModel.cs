@@ -1,8 +1,11 @@
-﻿using FlightAppEliasGryp.Services;
+﻿using FlightAppEliasGryp.Helpers;
+using FlightAppEliasGryp.Models;
+using FlightAppEliasGryp.Services;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,15 +23,8 @@ namespace FlightAppEliasGryp.ViewModels
 
         //    public ICommand Logout => _loginClickedCommand ?? (_loginClickedCommand = new RelayCommand(OnLoginClicked));
 
-        public MainPageViewModel(IAuthenticationService accountService)
+        public MainPageViewModel()
         {
-            _accountService = accountService;
-        }
-
-        public async void OnPassengerLoginClicked(int row, char chair)
-        {
-            var user = await _accountService.PassengerLogIn(row, chair);
-            if (user != null) NavigationService.NavigateAndClearBackstack("FlightAppEliasGryp.ViewModels.DetailsViewModel");
         }
     }
 }
