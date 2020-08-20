@@ -41,10 +41,12 @@
                 <winui:NavigationViewItem x:ConnectionId='8' x:Uid="Shell_SeatManagement" Icon="Document" helpers:NavHelper.NavigateTo="FlightAppEliasGryp.ViewModels.SeatManagementViewModel"                                                                      />
                 <winui:NavigationViewItem x:ConnectionId='9' x:Uid="Shell_FlightMap" Icon="Map" helpers:NavHelper.NavigateTo="FlightAppEliasGryp.ViewModels.FlightViewModel" Content="Map"                                                                     />
                 <winui:NavigationViewItem x:ConnectionId='10' x:Uid="Shell_Convos" Icon="Document" helpers:NavHelper.NavigateTo="FlightAppEliasGryp.ViewModels.ConversationsViewModel" Content="Messages"                                                                     />
-                <Button x:ConnectionId='11' Content="Logout"                                     />
+                <winui:NavigationViewItem x:ConnectionId='11' x:Uid="Shell_VideoFeed" Icon="Document" helpers:NavHelper.NavigateTo="FlightAppEliasGryp.ViewModels.VideoFeedViewModel" Content="Video"                                                                     />
+                <winui:NavigationViewItem x:ConnectionId='12' x:Uid="Shell_AudioFeed" Icon="Document" helpers:NavHelper.NavigateTo="FlightAppEliasGryp.ViewModels.AudioFeedViewModel" Content="Audio"                                                                     />
+                <Button x:ConnectionId='13' Content="Logout"                                     />
             </winui:NavigationView.MenuItems>
             <i:Interaction.Behaviors>
-                <behaviors:NavigationViewHeaderBehavior x:ConnectionId='12'
+                <behaviors:NavigationViewHeaderBehavior x:ConnectionId='14'
                                                                                 >
                     <behaviors:NavigationViewHeaderBehavior.DefaultHeaderTemplate>
                         <DataTemplate>
@@ -58,11 +60,11 @@
                     </behaviors:NavigationViewHeaderBehavior.DefaultHeaderTemplate>
                 </behaviors:NavigationViewHeaderBehavior>
                 <ic:EventTriggerBehavior EventName="ItemInvoked">
-                    <ic:InvokeCommandAction x:ConnectionId='13'                                                 />
+                    <ic:InvokeCommandAction x:ConnectionId='15'                                                 />
                 </ic:EventTriggerBehavior>
             </i:Interaction.Behaviors>
             <Grid>
-                <Frame x:ConnectionId='15' x:Name="shellFrame" />
+                <Frame x:ConnectionId='17' x:Name="shellFrame" />
             </Grid>
         </winui:NavigationView>
     </Grid>

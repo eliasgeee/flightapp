@@ -5,6 +5,8 @@
   </Roots.Interfaces>
   <Roots.PropertyPathNames>
     <RootPropertyPathName Name="ItemClickCommand" />
+    <RootPropertyPathName Name="ViewModels" />
+    <RootPropertyPathName Name="Category" />
     <RootPropertyPathName Name="FlightNumber" />
   </Roots.PropertyPathNames>
   <Roots.RootTypes>
@@ -106,6 +108,7 @@
       <RootProperty Name="BorderThickness" />
       <RootProperty Name="Padding" />
       <RootProperty Name="Spacing" />
+      <RootProperty Name="Width" />
       <RootProperty Name="AllowDrop" />
       <RootProperty Name="CanDrag" />
       <RootProperty Name="Tag" />
@@ -213,8 +216,8 @@
       <RootProperty Name="MaxHeight" />
       <RootProperty Name="MaxWidth" />
       <RootProperty Name="VerticalAlignment" />
-      <RootProperty Name="Stretch" />
       <RootProperty Name="HorizontalAlignment" />
+      <RootProperty Name="Stretch" />
       <RootProperty Name="Height" />
       <RootProperty Name="Width" />
     </RootType>
@@ -252,6 +255,10 @@
       <RootMethod Name="SetHorizontalScrollMode" />
       <RootMethod Name="GetHorizontalScrollBarVisibility" />
       <RootMethod Name="SetHorizontalScrollBarVisibility" />
+      <RootMethod Name="GetVerticalScrollMode" />
+      <RootMethod Name="SetVerticalScrollMode" />
+      <RootMethod Name="GetVerticalScrollBarVisibility" />
+      <RootMethod Name="SetVerticalScrollBarVisibility" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.ListView">
       <RootProperty Name="ItemsSource" />
@@ -306,6 +313,34 @@
     </RootType>
     <RootType FullName="FlightAppEliasGryp.Views.CrewMemberLogicControl" />
     <RootType FullName="FlightAppEliasGryp.Views.DetailsPage" />
+    <RootType FullName="FlightAppEliasGryp.Views.Entertainment.Audio.AudioFeedPage" />
+    <RootType FullName="Windows.UI.Xaml.Controls.GridView">
+      <RootProperty Name="IsItemClickEnabled" />
+      <RootProperty Name="ItemsSource" />
+      <RootProperty Name="ItemContainerStyle" />
+      <RootProperty Name="VerticalAlignment" />
+      <RootProperty Name="Margin" />
+      <RootProperty Name="ItemsPanel" />
+      <RootProperty Name="ItemTemplate" />
+      <RootEvent Name="ItemClick" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.ItemsPanelTemplate">
+      <RootProperty Name="Template" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.ItemsStackPanel">
+      <RootProperty Name="Margin" />
+      <RootProperty Name="Orientation" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.Border">
+      <RootProperty Name="BorderBrush" />
+      <RootProperty Name="BorderThickness" />
+    </RootType>
+    <RootType FullName="FlightAppEliasGryp.Views.Entertainment.MultimediaOverviewViewItem">
+      <RootProperty Name="DataContext" />
+    </RootType>
+    <RootType FullName="FlightAppEliasGryp.Views.Entertainment.Video.SerieDetailPage" />
+    <RootType FullName="FlightAppEliasGryp.Views.Entertainment.Video.VideoCategoryControl" />
+    <RootType FullName="FlightAppEliasGryp.Views.Entertainment.Video.VideoFeedPage" />
     <RootType FullName="Windows.UI.Xaml.Controls.GridViewHeaderItem">
       <RootProperty Name="Content" />
     </RootType>
@@ -371,11 +406,23 @@
     </RootType>
     <RootType FullName="FlightAppEliasGryp.Views.PassengerLoginControl" />
     <RootType FullName="FlightAppEliasGryp.Views.MainPage" />
-    <RootType FullName="FlightAppEliasGryp.Views.MyOrdersPage" />
+    <RootType FullName="Windows.UI.Xaml.Controls.MediaPlayerElement">
+      <RootProperty Name="AreTransportControlsEnabled" />
+      <RootProperty Name="Source" />
+      <RootProperty Name="PosterSource" />
+      <RootProperty Name="AutoPlay" />
+      <RootProperty Name="TransportControls" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.MediaTransportControls">
+      <RootProperty Name="IsCompact" />
+    </RootType>
+    <RootType FullName="FlightAppEliasGryp.Views.MediaPlayerPage" />
     <RootType FullName="FlightAppEliasGryp.Views.OrderDetailView">
       <RootProperty Name="Margin" />
       <RootProperty Name="SelectedOrder" />
     </RootType>
+    <RootType FullName="FlightAppEliasGryp.Views.MyOrderControl" />
+    <RootType FullName="FlightAppEliasGryp.Views.MyOrdersPage" />
     <RootType FullName="FlightAppEliasGryp.Views.OrderDetailPage" />
     <RootType FullName="FlightAppEliasGryp.Views.OrdersManagementPage" />
     <RootType FullName="FlightAppEliasGryp.Views.PassengerItem" />

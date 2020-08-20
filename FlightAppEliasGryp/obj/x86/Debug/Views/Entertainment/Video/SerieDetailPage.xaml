@@ -1,0 +1,30 @@
+﻿<Page x:ConnectionId='1'
+    x:Class="FlightAppEliasGryp.Views.Entertainment.Video.SerieDetailPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:FlightAppEliasGryp.Views.Entertainment.Video"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid x:ConnectionId='2' Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" x:Name="root">
+        <Grid.RowDefinitions>
+            <RowDefinition x:ConnectionId='3' Height="415" x:Name="TopBorderRow"/>
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid x:ConnectionId='4' Grid.Row="0" Background="LightSlateGray" x:Name="TopBorder" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Image x:ConnectionId='5'                                      
+                   VerticalAlignment="Stretch" 
+                   HorizontalAlignment="Stretch" 
+                   Stretch="Fill"
+                   Grid.ColumnSpan="2" />
+        </Grid>
+    </Grid>
+</Page>
+

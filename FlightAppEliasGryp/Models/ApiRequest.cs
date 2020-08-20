@@ -20,6 +20,6 @@ namespace FlightAppEliasGryp.Models
 
     public enum ApiRequestType
     {
-        GET, POST, PUT, DELETE
+        GET, POST, PUT, DELETE, STREAM
     }
 }

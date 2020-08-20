@@ -153,6 +153,17 @@
     <Compile Include="Models\ApiRequest.cs" />
     <Compile Include="Models\CrewMember.cs" />
     <Compile Include="Models\DTO%27s\CrewMemberLoginDTO.cs" />
+    <Compile Include="Models\Entertainment\Audio\Album.cs" />
+    <Compile Include="Models\Entertainment\Audio\Artist.cs" />
+    <Compile Include="Models\Entertainment\Audio\Podcast.cs" />
+    <Compile Include="Models\Entertainment\Audio\PodcastHost.cs" />
+    <Compile Include="Models\Entertainment\Audio\Track.cs" />
+    <Compile Include="Models\Entertainment\MultiMedia.cs" />
+    <Compile Include="Models\Entertainment\Audio\AudioFeed.cs" />
+    <Compile Include="Models\Entertainment\Video\VideoFeed.cs" />
+    <Compile Include="Models\Entertainment\Video\Episode.cs" />
+    <Compile Include="Models\Entertainment\Video\Movie.cs" />
+    <Compile Include="Models\Entertainment\Video\Serie.cs" />
     <Compile Include="Models\Environment.cs" />
     <Compile Include="Models\FlightInfo.cs" />
     <Compile Include="Models\WeatherForecast.cs" />
@@ -197,15 +208,19 @@
     <Compile Include="Services\ILocationService.cs" />
     <Compile Include="Services\IOrderDataService.cs" />
     <Compile Include="Services\IAccountService.cs" />
+    <Compile Include="Services\IEntertainmentService.cs" />
     <Compile Include="Services\IWeatherDataService.cs" />
     <Compile Include="Services\LocalStorageService.cs" />
     <Compile Include="Services\LocationService.cs" />
     <Compile Include="Services\NavigationServiceEx.cs" />
     <Compile Include="Services\OrderDataService.cs" />
     <Compile Include="Services\AccountService.cs" />
+    <Compile Include="Services\EntertainmentService.cs" />
     <Compile Include="Services\WeatherDataService.cs" />
     <Compile Include="ViewModels\AddPromotionViewModel.cs" />
     <Compile Include="ViewModels\AdminCatalogViewModel.cs" />
+    <Compile Include="ViewModels\AudioFeedViewModel.cs" />
+    <Compile Include="ViewModels\Base\MultimediaViewModel.cs" />
     <Compile Include="ViewModels\ConversationDetailViewModel.cs" />
     <Compile Include="ViewModels\Base\CustomBaseViewModel.cs" />
     <Compile Include="ViewModels\CatalogViewModel.cs" />
@@ -217,6 +232,10 @@
     <Compile Include="ViewModels\FlightViewModel.cs" />
     <Compile Include="ViewModels\LiveFlightDataViewModel.cs" />
     <Compile Include="ViewModels\MainPageViewModel.cs" />
+    <Compile Include="ViewModels\MediaPlayerViewModel.cs" />
+    <Compile Include="ViewModels\MultimediaOverviewViewModel.cs" />
+    <Compile Include="ViewModels\VideoDetailViewModel.cs" />
+    <Compile Include="ViewModels\VideoViewModel.cs" />
     <Compile Include="ViewModels\MyOrdersViewModel.cs" />
     <Compile Include="ViewModels\PassengerLoginViewModel.cs" />
     <Compile Include="ViewModels\SeatViewModel.cs" />
@@ -228,6 +247,7 @@
     <Compile Include="ViewModels\ShellViewModel.cs" />
     <Compile Include="ViewModels\ShoppingCartViewModel.cs" />
     <Compile Include="ViewModels\Base\ViewModelLocator.cs" />
+    <Compile Include="ViewModels\VideoFeedViewModel.cs" />
     <Compile Include="ViewModels\WeatherForecastViewModel.cs" />
     <Compile Include="Views\AddPromotionDialog.xaml.cs">
       <DependentUpon>AddPromotionDialog.xaml</DependentUpon>
@@ -256,6 +276,21 @@
     <Compile Include="Views\DetailsPage.xaml.cs">
       <DependentUpon>DetailsPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Entertainment\Audio\AudioFeedPage.xaml.cs">
+      <DependentUpon>AudioFeedPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Entertainment\MultimediaOverviewViewItem.xaml.cs">
+      <DependentUpon>MultimediaOverviewViewItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Entertainment\Video\SerieDetailPage.xaml.cs">
+      <DependentUpon>SerieDetailPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Entertainment\Video\VideoCategoryControl.xaml.cs">
+      <DependentUpon>VideoCategoryControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Entertainment\Video\VideoFeedPage.xaml.cs">
+      <DependentUpon>VideoFeedPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Flight\AirportCard.xaml.cs">
       <DependentUpon>AirportCard.xaml</DependentUpon>
     </Compile>
@@ -279,6 +314,12 @@
     </Compile>
     <Compile Include="Views\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MediaPlayerPage.xaml.cs">
+      <DependentUpon>MediaPlayerPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MyOrderControl.xaml.cs">
+      <DependentUpon>MyOrderControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MyOrdersPage.xaml.cs">
       <DependentUpon>MyOrdersPage.xaml</DependentUpon>
@@ -384,6 +425,26 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Views\Entertainment\Audio\AudioFeedPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Entertainment\MultimediaOverviewViewItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Entertainment\Video\SerieDetailPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Entertainment\Video\VideoCategoryControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Entertainment\Video\VideoFeedPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Flight\AirportCard.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -413,6 +474,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\MainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MediaPlayerPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MyOrderControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

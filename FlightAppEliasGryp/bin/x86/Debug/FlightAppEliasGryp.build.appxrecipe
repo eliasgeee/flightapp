@@ -196,6 +196,21 @@
     <AppxPackagedFile Include="C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\bin\x86\Debug\Views\DetailsPage.xbf">
       <PackagePath>Views\DetailsPage.xbf</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\bin\x86\Debug\Views\Entertainment\Audio\AudioFeedPage.xbf">
+      <PackagePath>Views\Entertainment\Audio\AudioFeedPage.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\bin\x86\Debug\Views\Entertainment\MultimediaOverviewViewItem.xbf">
+      <PackagePath>Views\Entertainment\MultimediaOverviewViewItem.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\bin\x86\Debug\Views\Entertainment\Video\SerieDetailPage.xbf">
+      <PackagePath>Views\Entertainment\Video\SerieDetailPage.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\bin\x86\Debug\Views\Entertainment\Video\VideoCategoryControl.xbf">
+      <PackagePath>Views\Entertainment\Video\VideoCategoryControl.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\bin\x86\Debug\Views\Entertainment\Video\VideoFeedPage.xbf">
+      <PackagePath>Views\Entertainment\Video\VideoFeedPage.xbf</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\bin\x86\Debug\Views\Flight\AirportCard.xbf">
       <PackagePath>Views\Flight\AirportCard.xbf</PackagePath>
     </AppxPackagedFile>
@@ -219,6 +234,12 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\bin\x86\Debug\Views\MainPage.xbf">
       <PackagePath>Views\MainPage.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\bin\x86\Debug\Views\MediaPlayerPage.xbf">
+      <PackagePath>Views\MediaPlayerPage.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\bin\x86\Debug\Views\MyOrderControl.xbf">
+      <PackagePath>Views\MyOrderControl.xbf</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\bin\x86\Debug\Views\MyOrdersPage.xbf">
       <PackagePath>Views\MyOrdersPage.xbf</PackagePath>

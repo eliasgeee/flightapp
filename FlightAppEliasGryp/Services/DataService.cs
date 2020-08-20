@@ -2,6 +2,7 @@
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net.Http;
 using System.Text;
@@ -16,7 +17,8 @@ namespace FlightAppEliasGryp.Services
         private HttpClient _client;
 
         private string _json { get; set; }
-        private ApiRequest _apiRequest { get; set; } 
+        private ApiRequest _apiRequest { get; set; }
+        private FileStream _file { get; set; }
 
         public DataService(HttpClientService httpClientService)
         {
@@ -52,6 +54,9 @@ namespace FlightAppEliasGryp.Services
                     case ApiRequestType.DELETE:
                         await Delete(apiRequest);
                         break;
+                    case ApiRequestType.STREAM:
+                        await Stream(apiRequest);
+                        break;
                 }
             }
             catch(Exception e)
@@ -60,6 +65,13 @@ namespace FlightAppEliasGryp.Services
             }
 
             return this;
+        }
+
+        private async Task<DataService<T>> Stream(ApiRequest apiRequest)
+        {
+            _client.DefaultRequestHeaders.Accept.Add
+                (new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("video/mp4"));
+            return null;
         }
 
         private async Task<DataService<T>> Get(ApiRequest apiRequest) {

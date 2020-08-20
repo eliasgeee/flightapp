@@ -2,6 +2,8 @@
 using FlightAppEliasGryp.Models;
 using FlightAppEliasGryp.Services;
 using FlightAppEliasGryp.Views;
+using FlightAppEliasGryp.Views.Entertainment.Audio;
+using FlightAppEliasGryp.Views.Entertainment.Video;
 using FlightAppEliasGryp.Views.Flight;
 using GalaSoft.MvvmLight.Ioc;
 
@@ -27,6 +29,7 @@ namespace FlightAppEliasGryp.ViewModels
             SimpleIoc.Default.Register<IAuthenticationService, AuthenticationService>();
             SimpleIoc.Default.Register<IWeatherDataService, WeatherDataService>();
             SimpleIoc.Default.Register<HttpClientService>();
+            SimpleIoc.Default.Register<IEntertainmentService, EntertainmentService>();
 
             Register<DetailsViewModel, DetailsPage>();
             Register<CatalogViewModel, CatalogPage>();
@@ -43,6 +46,10 @@ namespace FlightAppEliasGryp.ViewModels
             Register<ConversationDetailViewModel, ConversationDetailPage>();
             Register<ConversationsOverviewViewModel, ConversationsOverviewPage>();
             Register<MainPageViewModel, MainPage>();
+            Register<MediaPlayerViewModel, MediaPlayerPage>();
+            Register<VideoFeedViewModel, VideoFeedPage>();
+            Register<AudioFeedViewModel, AudioFeedPage>();
+            Register<VideoDetailViewModel, SerieDetailPage>();
 
             SimpleIoc.Default.Register<SeatViewModel>();
             SimpleIoc.Default.Register<PassengerLoginViewModel>();
@@ -70,6 +77,9 @@ namespace FlightAppEliasGryp.ViewModels
         public SeatViewModel SeatViewModel => SimpleIoc.Default.GetInstance<SeatViewModel>();
         public CrewMemberLoginViewModel CrewMemberLoginViewModel => SimpleIoc.Default.GetInstance<CrewMemberLoginViewModel>();
         public WeatherForecastViewModel WeatherForecastViewModel => SimpleIoc.Default.GetInstance<WeatherForecastViewModel>();
+        public MediaPlayerViewModel MediaPlayerViewModel => SimpleIoc.Default.GetInstance<MediaPlayerViewModel>();
+        public VideoFeedViewModel VideoFeedViewModel => SimpleIoc.Default.GetInstance<VideoFeedViewModel>();
+        public AudioFeedViewModel AudioFeedViewModel => SimpleIoc.Default.GetInstance<AudioFeedViewModel>();
 
         public IWeatherDataService WeatherDataService => SimpleIoc.Default.GetInstance<IWeatherDataService>();
 

@@ -24,6 +24,11 @@ Views\ConversationsOverviewPage.xbf
 Views\ConversationsPage.xbf
 Views\CrewMemberLogicControl.xbf
 Views\DetailsPage.xbf
+Views\Entertainment\Audio\AudioFeedPage.xbf
+Views\Entertainment\MultimediaOverviewViewItem.xbf
+Views\Entertainment\Video\SerieDetailPage.xbf
+Views\Entertainment\Video\VideoCategoryControl.xbf
+Views\Entertainment\Video\VideoFeedPage.xbf
 Views\Flight\AirportCard.xbf
 Views\Flight\FlightPage.xbf
 Views\Flight\LocationCard.xbf
@@ -32,6 +37,8 @@ Views\Flight\Map\FlightMarker.xbf
 Views\Flight\Map\LocationMarker.xbf
 Views\Flight\WeatherForecastControl.xbf
 Views\MainPage.xbf
+Views\MediaPlayerPage.xbf
+Views\MyOrderControl.xbf
 Views\MyOrdersPage.xbf
 Views\OrderDetailPage.xbf
 Views\OrderDetailView.xbf

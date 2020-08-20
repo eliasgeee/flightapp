@@ -27,9 +27,6 @@ namespace FlightAppEliasGryp.Views
     /// </summary>
     public sealed partial class OrderDetailPage : Page
     {
-        private PrintHelper _printHelper;
-        private FrameworkElement panelToPrint;
-
         public Order SelectedOrder { get; set; }
 
         public OrderDetailPage()
@@ -43,20 +40,14 @@ namespace FlightAppEliasGryp.Views
 
             SelectedOrder = e.Parameter as Order;
 
-            ReplaceLastBackStackEntryParameter(e.Parameter);
+            RootGrid.Children.Add(new MyOrderControl(SelectedOrder));
 
-            SystemNavigationManager systemNavigationManager = SystemNavigationManager.GetForCurrentView();
-            systemNavigationManager.BackRequested += DetailPage_BackRequested;
-            systemNavigationManager.AppViewBackButtonVisibility = AppViewBackButtonVisibility.Visible;
+            ReplaceLastBackStackEntryParameter(e.Parameter);
         }
 
         protected override void OnNavigatedFrom(NavigationEventArgs e)
         {
             base.OnNavigatedFrom(e);
-
-            SystemNavigationManager systemNavigationManager = SystemNavigationManager.GetForCurrentView();
-            systemNavigationManager.BackRequested -= DetailPage_BackRequested;
-            systemNavigationManager.AppViewBackButtonVisibility = AppViewBackButtonVisibility.Collapsed;
         }
 
         private void OnBackRequested()
@@ -131,53 +122,6 @@ namespace FlightAppEliasGryp.Views
             e.Handled = true;
 
             OnBackRequested();
-        }
-
-        private async void PrintButton_Click(object sender, RoutedEventArgs e)
-        {
-            _printHelper = new PrintHelper(Container);
-            panelToPrint = RootPanel;
-            Container.Children.Remove(panelToPrint);
-
-            _printHelper.AddFrameworkElementToPrint(panelToPrint);
-
-            var printHelperOptions = new PrintHelperOptions(false);
-            printHelperOptions.Orientation = Windows.Graphics.Printing.PrintOrientation.Portrait;
-
-            _printHelper.OnPrintCanceled += PrintHelper_OnPrintCanceled;
-            _printHelper.OnPrintFailed += PrintHelper_OnPrintFailed;
-            _printHelper.OnPrintSucceeded += PrintHelper_OnPrintSucceeded;
-
-            await _printHelper.ShowPrintUIAsync("Print order", printHelperOptions);
-        }
-
-        private async void PrintHelper_OnPrintSucceeded()
-        {
-            ReleasePrintHelper();
-            var dialog = new MessageDialog("Printing done.");
-            await dialog.ShowAsync();
-        }
-
-        private async void PrintHelper_OnPrintFailed()
-        {
-            ReleasePrintHelper();
-            var dialog = new MessageDialog("Printing failed.");
-            await dialog.ShowAsync();
-        }
-
-        private void PrintHelper_OnPrintCanceled()
-        {
-            ReleasePrintHelper();
-        }
-
-        private void ReleasePrintHelper()
-        {
-            _printHelper.Dispose();
-
-            if (!Container.Children.Contains(panelToPrint))
-            {
-                Container.Children.Add(panelToPrint);
-            }
         }
     }
 }

@@ -14,12 +14,8 @@
             <NavigationThemeTransition />
         </TransitionCollection>
     </Page.Transitions>
+    <Grid x:ConnectionId='2' x:Name="RootGrid">
 
-    <StackPanel>
-        <Button x:ConnectionId='2' Content="Print" HorizontalAlignment="Right" x:Name="PrintButton"                          />
-        <Grid x:ConnectionId='3' x:Name="Container">
-            <local:OrderDetailView x:ConnectionId='4' Margin="24, 0, 24, 0" x:Name="RootPanel" x:DeferLoadStrategy="Lazy"                                        />
-        </Grid>
-    </StackPanel>
+    </Grid>
 </Page>
 

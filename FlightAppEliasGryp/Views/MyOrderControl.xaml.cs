@@ -1,4 +1,5 @@
-﻿using Microsoft.Toolkit.Uwp.Helpers;
+﻿using FlightAppEliasGryp.Models;
+using Microsoft.Toolkit.Uwp.Helpers;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -6,6 +7,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Popups;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -23,11 +25,68 @@ namespace FlightAppEliasGryp.Views
         private PrintHelper _printHelper;
         private FrameworkElement panelToPrint;
 
-        public Order SelectedOrder { get; set; }
+        public Order SelectedOrder {
+            get { return (Order)GetValue(OrderProperty); }
+            set
+            {
+                SetValue(OrderProperty, value);
+            }
+        }
 
-        public MyOrderControl()
+        public static readonly DependencyProperty OrderProperty =
+       DependencyProperty.Register("Order", typeof(Order), typeof(MyOrderControl), new PropertyMetadata(null));
+
+        public MyOrderControl(Order Order)
         {
             this.InitializeComponent();
+            SelectedOrder = Order;
+        }
+
+        private async void PrintButton_Click(object sender, RoutedEventArgs e)
+        {
+            _printHelper = new PrintHelper(Container);
+            panelToPrint = RootPanel;
+            Container.Children.Remove(panelToPrint);
+
+            _printHelper.AddFrameworkElementToPrint(panelToPrint);
+
+            var printHelperOptions = new PrintHelperOptions(false);
+            printHelperOptions.Orientation = Windows.Graphics.Printing.PrintOrientation.Portrait;
+
+            _printHelper.OnPrintCanceled += PrintHelper_OnPrintCanceled;
+            _printHelper.OnPrintFailed += PrintHelper_OnPrintFailed;
+            _printHelper.OnPrintSucceeded += PrintHelper_OnPrintSucceeded;
+
+            await _printHelper.ShowPrintUIAsync("Print order", printHelperOptions);
+        }
+
+        private async void PrintHelper_OnPrintSucceeded()
+        {
+            ReleasePrintHelper();
+            var dialog = new MessageDialog("Printing done.");
+            await dialog.ShowAsync();
+        }
+
+        private async void PrintHelper_OnPrintFailed()
+        {
+            ReleasePrintHelper();
+            var dialog = new MessageDialog("Printing failed.");
+            await dialog.ShowAsync();
+        }
+
+        private void PrintHelper_OnPrintCanceled()
+        {
+            ReleasePrintHelper();
+        }
+
+        private void ReleasePrintHelper()
+        {
+            _printHelper.Dispose();
+
+            if (!Container.Children.Contains(panelToPrint))
+            {
+                Container.Children.Add(panelToPrint);
+            }
         }
     }
 }
