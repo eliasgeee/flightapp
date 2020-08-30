@@ -280,6 +280,8 @@
       <RootProperty Name="Inlines" />
     </RootType>
     <RootType FullName="FlightAppEliasGryp.Views.ContinuationPage" />
+    <RootType FullName="Windows.UI.Xaml.Media.Animation.TransitionCollection" />
+    <RootType FullName="Windows.UI.Xaml.Media.Animation.NavigationThemeTransition" />
     <RootType FullName="FlightAppEliasGryp.Views.ConversationDetailView" />
     <RootType FullName="FlightAppEliasGryp.Views.ConversationDetailPage" />
     <RootType FullName="Windows.UI.Xaml.Controls.UserControl">
@@ -289,8 +291,6 @@
       <RootEvent Name="Tapped" />
     </RootType>
     <RootType FullName="FlightAppEliasGryp.Views.ConversationsOverviewPage" />
-    <RootType FullName="Windows.UI.Xaml.Media.Animation.TransitionCollection" />
-    <RootType FullName="Windows.UI.Xaml.Media.Animation.NavigationThemeTransition" />
     <RootType FullName="Windows.UI.Xaml.VisualStateManager">
       <RootMethod Name="GetVisualStateGroups" />
     </RootType>

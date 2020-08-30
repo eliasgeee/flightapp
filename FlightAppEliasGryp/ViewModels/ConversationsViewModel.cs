@@ -48,6 +48,7 @@ namespace FlightAppEliasGryp.ViewModels
 
         internal void ViewConvoDetails(ConversationViewModel conversation)
         {
+            SelectedConversation = conversation;
             NavigationService.Navigate("FlightAppEliasGryp.ViewModels.ConversationDetailViewModel", conversation, new DrillInNavigationTransitionInfo());
         }
 

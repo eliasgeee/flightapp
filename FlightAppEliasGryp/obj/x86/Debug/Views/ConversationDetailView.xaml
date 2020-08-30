@@ -17,7 +17,7 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0">
-            <TextBlock x:ConnectionId='9'                                                                                          
+            <TextBlock x:ConnectionId='9'                                                                                                       
                                Style="{StaticResource PageTitleStyle}"/>
         </StackPanel>
         <ScrollViewer Grid.Row="1">
