@@ -15,12 +15,14 @@ namespace FlightAppEliasGryp.Services
         private HttpClientService _clientService;
         private DataService<Order> _dataService;
         private DataService<int> _countDataService;
+        private readonly INotificationService _notificationService;
 
-        public OrderDataService(HttpClientService clientService)
+        public OrderDataService(HttpClientService clientService, INotificationService notificationService)
         {
             _clientService = clientService;
             _dataService = new DataService<Order>(_clientService);
             _countDataService = new DataService<int>(_clientService);
+            _notificationService = notificationService;
         }
 
         public async Task<Order> ChangeOrderStatus(Order order, OrderStatus newStatus)
@@ -33,13 +35,15 @@ namespace FlightAppEliasGryp.Services
             return request.AsSingle();
         }
 
-        public async Task<Order> Checkout(PaymentType paymentType)
+        public async Task Checkout(PaymentType paymentType)
         {
-            var request = await _dataService.MakeRequest(new ApiRequest(ApiRequestType.POST)
-            {
-                Uri = baseUri + "Checkout/" + paymentType
-            });
-            return request.AsSingle();
+            //var request = await _dataService.MakeRequest(new ApiRequest(ApiRequestType.POST)
+            //{
+            //    Uri = baseUri + "Checkout/" + paymentType
+            //});
+            //return request.AsSingle();
+            if (_notificationService.Connection() == null) await _notificationService.InitConnection();
+            await _notificationService.CheckoutOrder(paymentType);
         }
 
         public async Task<IList<Order>> GetPassengerOrders()

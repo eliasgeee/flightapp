@@ -6,6 +6,8 @@ using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using FlightAppEliasGryp.Models;
+using FlightAppEliasGryp.Models.DTO_s;
+using Microsoft.AspNetCore.SignalR.Client;
 using Newtonsoft.Json;
 
 namespace FlightAppEliasGryp.Services
@@ -13,21 +15,51 @@ namespace FlightAppEliasGryp.Services
     public class ConversationService : IConversationService
     {
         private readonly string baseUri = "Conversation/";
+
+        private readonly IAuthenticationService _authenticationService;
         private HttpClientService _clientService;
         private DataService<Conversation> _dataService;
+        private DataService<Passenger> _passengerDataService;
 
-        public ConversationService(HttpClientService client)
+        private HubConnection _connection;
+        public HubConnection Connection() { return _connection; }
+
+        public ConversationService(HttpClientService client, IAuthenticationService authenticationService)
         {
             _clientService = client;
             _dataService = new DataService<Conversation>(_clientService);
+            _passengerDataService = new DataService<Passenger>(_clientService);
+            _authenticationService = authenticationService;
         }
 
-        public async Task<Conversation> AddNewConversation(Conversation conversation)
+        public async Task InitConnection() {
+            var user = await _authenticationService.GetTokenCurrentUser();
+            if(user != null)
+            _connection = new HubConnectionBuilder()
+            .WithAutomaticReconnect()
+            .WithUrl("https://localhost:44332/convos", options =>
+            {
+                options.AccessTokenProvider = () => Task.FromResult(user.Token);
+            })
+            .Build();
+
+            await _connection.StartAsync();
+        }
+
+        public async Task SendMessage(Conversation conversation, string message)
+        {
+            await _connection.InvokeAsync("SendMessage",
+             conversation.Id, new Message(message));
+         //  await _connection.SendAsync("SendMessage", )
+         //  _connection.InvokeAsync("SendMessage", "heeeeeey");
+        }
+
+        public async Task<Conversation> AddNewConversation(List<Passenger> users, string message)
         {
             var request = await _dataService.MakeRequest(new ApiRequest(ApiRequestType.POST)
             {
                 Uri = baseUri + "Add",
-                Body = conversation
+                Body = new AddConversationDTO() { Users = users, Message = message }
             });
             return request.AsSingle();
         }
@@ -41,14 +73,23 @@ namespace FlightAppEliasGryp.Services
             return request.AsList();
         }
 
-        public async Task<Conversation> SendMessage(Conversation conversation, Message msg)
+        public async Task<ICollection<Passenger>> GetConversationPartnersForPassenger()
         {
-            var request = await _dataService.MakeRequest(new ApiRequest(ApiRequestType.POST)
+            var request = await _passengerDataService.MakeRequest(new ApiRequest(ApiRequestType.GET)
             {
-                Uri = baseUri + conversation.Id + "/Message",
-                Body = msg
+                Uri = baseUri + "ConversationPartners"
             });
-            return request.AsSingle();
+            return request.AsList();
         }
+
+        //public async Task<Conversation> SendMessage(Conversation conversation, Message msg)
+        //{
+        //    var request = await _dataService.MakeRequest(new ApiRequest(ApiRequestType.POST)
+        //    {
+        //        Uri = baseUri + conversation.Id + "/Message",
+        //        Body = msg
+        //    });
+        //    return request.AsSingle();
+        //}
     }
 }

@@ -5,12 +5,16 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using Windows.ApplicationModel.Core;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.ViewManagement;
+using Windows.UI.WindowManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
+using Windows.UI.Xaml.Hosting;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Media.Animation;
@@ -25,7 +29,7 @@ namespace FlightAppEliasGryp.Views
     /// </summary>
     public sealed partial class ConversationsPage : Page
     {
-        private Conversation _lastSelectedItem;
+        private ConversationViewModel _lastSelectedItem;
 
         private ConversationsViewModel ViewModel
         {
@@ -35,8 +39,29 @@ namespace FlightAppEliasGryp.Views
         public ConversationsPage()
         {
             this.InitializeComponent();
+            InitData();
+        }
 
-            ViewModel.LoadDataAsync();
+        private async void InitData()
+        {
+            await ViewModel.LoadDataAsync();
+        }
+
+        private async void HyperlinkButton_Click(object sender, RoutedEventArgs e)
+        {
+            AppWindow appWindow = await AppWindow.TryCreateAsync();
+            Frame appWindowContentFrame = new Frame();
+            appWindowContentFrame.Navigate(typeof(AddConversationPage));
+            ElementCompositionPreview.SetAppWindowContent(appWindow, appWindowContentFrame);
+            await appWindow.TryShowAsync();
+            appWindow.Closed += delegate
+            {
+                appWindowContentFrame.Content = null;
+                appWindow = null;
+                ViewModel.AppWindow = null;
+            };
+
+            ViewModel.AppWindow = appWindow;
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -45,9 +70,9 @@ namespace FlightAppEliasGryp.Views
 
             if (e.Parameter != null)
             {
-                var convo = (Conversation)e.Parameter;
+                var convo = (ConversationViewModel)e.Parameter;
                 _lastSelectedItem =
-                    ViewModel.Conversations.Where((item) => item.Id == convo.Id).FirstOrDefault();
+                    ViewModel.Conversations.Where((item) => item.Conversation.Id == convo.Conversation.Id).FirstOrDefault();
             }
             else
             {
@@ -66,7 +91,7 @@ namespace FlightAppEliasGryp.Views
 
         private void ConversationsOverViewListView_ItemClick(object sender, ItemClickEventArgs e)
         {
-            var clickedItem = (Conversation)e.ClickedItem;
+            var clickedItem = (ConversationViewModel)e.ClickedItem;
             _lastSelectedItem = clickedItem;
 
             if (AdaptiveStates.CurrentState == NarrowState)
@@ -117,12 +142,6 @@ namespace FlightAppEliasGryp.Views
         private void MessageTxt_TextChanged(object sender, TextChangedEventArgs e)
         {
             var textbox = sender as TextBox;
-            ViewModel.MessageTxt = textbox.Text;
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            ViewModel.AddNewMessage(_lastSelectedItem, "");
         }
     }
 }

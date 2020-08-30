@@ -40,12 +40,12 @@ namespace FlightAppEliasGryp.Services
             return result;
         }
 
-        public async Task<CurrentUser> CrewMemberLogIn(CrewMember crewMember)
+        public async Task<CurrentUser> CrewMemberLogIn(string username, string password)
         {
             var request = await _dataService.MakeRequest(new ApiRequest(ApiRequestType.POST)
             {
                 Uri = baseUri + "Crew",
-                Body = new CrewMemberLoginDTO() { UserName = crewMember.UserName, Password = crewMember.Password }
+                Body = new CrewMemberLoginDTO() { UserName = username, Password = password }
             });
             var token = request.AsSingle();
             CurrentUser result = null;

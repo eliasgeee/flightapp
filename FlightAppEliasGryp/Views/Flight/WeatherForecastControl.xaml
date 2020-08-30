@@ -18,7 +18,7 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.ColumnSpan="2">
-            <Image Source="http://openweathermap.org/img/wn/10d@2x.png" MaxHeight="100" MaxWidth="100"
+            <Image Source="{x:Bind ViewModel.WeatherForecast.Icon, Mode=OneWay}" MaxHeight="100" MaxWidth="100"
                    />
             <TextBlock Text="{x:Bind ViewModel.WeatherForecast.Description, Mode=OneWay}"
                    FontSize="16" Margin="24, 0, 0, 0" VerticalAlignment="Center"/>

@@ -16,6 +16,7 @@ namespace FlightAppEliasGryp.ViewModels
         public ICollection<Order> MyOrders { get; set; }
         private IOrderDataService _orderDataService { get; set; }
         public NavigationServiceEx NavigationService => ViewModelLocator.Current.NavigationService;
+        public Order SelectedOrder { get; set; }
 
         public MyOrdersViewModel(IOrderDataService orderDataService)
         {

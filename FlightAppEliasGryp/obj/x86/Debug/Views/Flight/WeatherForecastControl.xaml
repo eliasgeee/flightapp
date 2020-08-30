@@ -18,9 +18,9 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.ColumnSpan="2">
-            <Image Source="http://openweathermap.org/img/wn/10d@2x.png" MaxHeight="100" MaxWidth="100"
+            <Image x:ConnectionId='10'                                                               MaxHeight="100" MaxWidth="100"
                    />
-            <TextBlock x:ConnectionId='10'                                                                   
+            <TextBlock x:ConnectionId='11'                                                                   
                    FontSize="16" Margin="24, 0, 0, 0" VerticalAlignment="Center"/>
         </StackPanel>
         <Grid Grid.Column="0" Grid.Row="1">

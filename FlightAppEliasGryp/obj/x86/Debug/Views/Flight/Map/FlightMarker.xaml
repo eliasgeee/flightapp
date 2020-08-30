@@ -5,6 +5,7 @@
     xmlns:local="using:FlightAppEliasGryp.Views.Map"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:flight="using:FlightAppEliasGryp.Views.Flight"
     mc:Ignorable="d"
     d:DesignHeight="300"
     d:DesignWidth="400">
@@ -12,14 +13,25 @@
     <Grid x:ConnectionId='2'                     >
         
         <FlyoutBase.AttachedFlyout>
-            <Flyout>
-                <ContentControl Content="{Binding}">
+            <Flyout AreOpenCloseAnimationsEnabled="True">
+                <Flyout.FlyoutPresenterStyle>
+                    <Style TargetType="FlyoutPresenter">
+                        <Setter Property="MaxWidth" Value="1000"/>
+                        <Setter Property="ScrollViewer.HorizontalScrollMode" Value="Disabled"/>
+                        <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled"/>
+                    </Style>
+                </Flyout.FlyoutPresenterStyle>
+                <ContentControl>
                     <ContentControl.ContentTemplate>
                         <DataTemplate>
-                            <StackPanel>
-                                <TextBlock Text="Flight number" FontWeight="SemiBold"/>
-                                <TextBlock Text="{Binding Path=FlightNumber}" />
-                            </StackPanel>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <flight:FlightDetailCard Grid.Column="0"/>
+                                <flight:PlaneCard Grid.Column="1" />
+                            </Grid>
                         </DataTemplate>
                     </ContentControl.ContentTemplate>
                 </ContentControl>

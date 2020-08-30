@@ -5,10 +5,166 @@
     xmlns:local="using:FlightAppEliasGryp.Views.Entertainment.Audio"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:entertainment="using:FlightAppEliasGryp.Views.Entertainment"
+    xmlns:audio="using:FlightAppEliasGryp.Models.Entertainment.Audio"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid>
+    <ScrollViewer>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <TextBlock VerticalAlignment="Top" Style="{ThemeResource SubtitleTextBlockStyle}"
+                   FontWeight="Medium" Margin="24,12,0,0" Text="Artists"
+                   Grid.Row="0"/>
+                <GridView x:Name="ArtistsGrid" IsItemClickEnabled="True"
+              ItemsSource="{x:Bind ViewModel.AudioFeed.Artists, Mode=OneWay}"
+              ItemContainerStyle="{StaticResource GridViewItemRevealStyle}"
+              ScrollViewer.HorizontalScrollMode="Auto" 
+              ScrollViewer.HorizontalScrollBarVisibility="Visible" 
+              ScrollViewer.VerticalScrollMode="Disabled"
+              ScrollViewer.VerticalScrollBarVisibility="Hidden"
+              ItemClick="ArtistsGrid_ItemClick"
+              VerticalAlignment="Stretch"
+              Margin="0,40,0,0">
+                    <GridView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <ItemsStackPanel Margin="14,0,0,0" Orientation="Horizontal" />
+                        </ItemsPanelTemplate>
+                    </GridView.ItemsPanel>
+                    <GridView.ItemTemplate>
+                        <DataTemplate x:DataType="audio:Artist">
+                            <Grid x:Name="ArtistsOverviewItem" Margin="10,0" >
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="200" />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <Border Grid.RowSpan="2" x:Name="Shadow" BorderBrush="White" BorderThickness="0"/>
+                                <Image
+            Source="{x:Bind Picture}"
+               HorizontalAlignment="Left"
+               Stretch="UniformToFill" Height="190" Width="190"/>
+                                <StackPanel VerticalAlignment="Bottom" Grid.Row="1" Margin="5,0,5,0" Width="180">
+                                    <TextBlock Text="{x:Bind Name}"
+                       FontWeight="Medium" 
+                       Style="{ThemeResource BodyTextBlockStyle}" TextWrapping="NoWrap"
+                       HorizontalAlignment="Left"/>
+                                </StackPanel>
+                            </Grid>
+                        </DataTemplate>
+                    </GridView.ItemTemplate>
+                </GridView>
+            </Grid>
+            <Grid Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <TextBlock VerticalAlignment="Top" Style="{ThemeResource SubtitleTextBlockStyle}"
+                   FontWeight="Medium" Margin="24,12,0,0" Text="Albums"
+                   Grid.Row="0"/>
 
-    </Grid>
+                <GridView x:Name="AlbumsGrid" IsItemClickEnabled="True"
+              ItemsSource="{x:Bind ViewModel.AudioFeed.Albums, Mode=OneWay}"
+              ItemContainerStyle="{StaticResource GridViewItemRevealStyle}"
+              ScrollViewer.HorizontalScrollMode="Auto" 
+              ScrollViewer.HorizontalScrollBarVisibility="Visible" 
+              ScrollViewer.VerticalScrollMode="Disabled"
+              ScrollViewer.VerticalScrollBarVisibility="Hidden"
+              ItemClick="AlbumsGrid_ItemClick"
+              VerticalAlignment="Stretch"
+              Margin="0,40,0,0">
+                    <GridView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <ItemsStackPanel Margin="14,0,0,0" Orientation="Horizontal" />
+                        </ItemsPanelTemplate>
+                    </GridView.ItemsPanel>
+                    <GridView.ItemTemplate>
+                        <DataTemplate x:DataType="audio:Album">
+                            <Grid x:Name="AlbumOverviewItem" Margin="10,0" >
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="200" />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <Border Grid.RowSpan="2" x:Name="Shadow" BorderBrush="White" BorderThickness="0"/>
+                                <Image
+            Source="{x:Bind Thumbnail}"
+               HorizontalAlignment="Left"
+               Stretch="UniformToFill" Height="190" Width="190"/>
+                                <StackPanel VerticalAlignment="Bottom" Grid.Row="1" Margin="5,0,5,0" Width="180">
+                                    <TextBlock Text="{x:Bind Artist.Name}"
+                                    FontWeight="SemiBold" 
+                       Style="{ThemeResource BodyTextBlockStyle}"
+                                   HorizontalAlignment="Left"/>
+                                    <TextBlock Text="{x:Bind Name}"
+                       FontWeight="Medium" 
+                       Style="{ThemeResource BodyTextBlockStyle}" TextWrapping="NoWrap"
+                       HorizontalAlignment="Left"/>
+                                </StackPanel>
+                            </Grid>
+                        </DataTemplate>
+                    </GridView.ItemTemplate>
+                </GridView>
+            </Grid>
+            <Grid Grid.Row="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <TextBlock VerticalAlignment="Top" Style="{ThemeResource SubtitleTextBlockStyle}"
+                   FontWeight="Medium" Margin="24,12,0,0" Text="Tracks"
+                   Grid.Row="0"/>
+
+                <GridView x:Name="TracksGrid" IsItemClickEnabled="True"
+              ItemsSource="{x:Bind ViewModel.AudioFeed.Tracks, Mode=OneWay}"
+              ItemContainerStyle="{StaticResource GridViewItemRevealStyle}"
+              ScrollViewer.HorizontalScrollMode="Auto" 
+              ScrollViewer.HorizontalScrollBarVisibility="Visible" 
+              ScrollViewer.VerticalScrollMode="Disabled"
+              ScrollViewer.VerticalScrollBarVisibility="Hidden"
+              ItemClick="TracksGrid_ItemClick"
+              VerticalAlignment="Stretch"
+              Margin="0,40,0,0">
+                    <GridView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <ItemsStackPanel Margin="14,0,0,0" Orientation="Horizontal" />
+                        </ItemsPanelTemplate>
+                    </GridView.ItemsPanel>
+                    <GridView.ItemTemplate>
+                        <DataTemplate x:DataType="audio:Track">
+                            <Grid x:Name="TracksOverviewItem" Margin="10,0" >
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="200" />
+                                    <RowDefinition />
+                                </Grid.RowDefinitions>
+                                <Border Grid.RowSpan="2" x:Name="Shadow" BorderBrush="White" BorderThickness="0"/>
+                                <Image
+            Source="{x:Bind Thumbnail}"
+               HorizontalAlignment="Left"
+               Stretch="UniformToFill" Height="190" Width="190"/>
+                                <StackPanel VerticalAlignment="Bottom" Grid.Row="1" Margin="5,0,5,0" Width="180">
+                                    <TextBlock Text="{x:Bind Artist.Name}"
+                                    FontWeight="SemiBold" 
+                       Style="{ThemeResource BodyTextBlockStyle}"
+                                   HorizontalAlignment="Left"/>
+                                    <TextBlock Text="{x:Bind Name}"
+                       FontWeight="Medium" 
+                       Style="{ThemeResource BodyTextBlockStyle}" TextWrapping="NoWrap"
+                       HorizontalAlignment="Left"/>
+                                </StackPanel>
+                            </Grid>
+                        </DataTemplate>
+                    </GridView.ItemTemplate>
+                </GridView>
+            </Grid>
+        </Grid>
+    </ScrollViewer>
 </Page>

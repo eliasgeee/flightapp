@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Windows.UI.WindowManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Media.Animation;
 
@@ -16,33 +17,32 @@ namespace FlightAppEliasGryp.ViewModels
 {
     public class ConversationsViewModel : ViewModelBase
     {
-        public ICollection<Conversation> Conversations { get; set; }
+        public ObservableCollection<ConversationViewModel> Conversations { get; set; }
+        public AppWindow AppWindow { get; set; }
         private IFlightService _flightDataService { get; set; }
         private IConversationService _conversationService { get; set; }
         public NavigationServiceEx NavigationService => ViewModelLocator.Current.NavigationService;
 
         public ICommand ItemClickCommand => new RelayCommand(LoadConversationPartners);
 
-        public string MessageTxt { get; set; }
-
         public ConversationsViewModel(IFlightService flightDataService, IConversationService conversationService)
         {
             _flightDataService = flightDataService;
             _conversationService = conversationService;
-            Conversations = new ObservableCollection<Conversation>();
+            Conversations = new ObservableCollection<ConversationViewModel>();
         }
 
-        public async void LoadDataAsync()
+        public async Task LoadDataAsync()
         {
-            Conversations.Clear();
             var data = await _conversationService.GetAllConversationsForUser();
+            Conversations.Clear();
             foreach (var item in data)
             {
-                Conversations.Add(item);
+                Conversations.Add(new ConversationViewModel(item));
             }
         }
 
-        internal void ViewConvoDetails(Conversation conversation)
+        internal void ViewConvoDetails(ConversationViewModel conversation)
         {
             NavigationService.Navigate("FlightAppEliasGryp.ViewModels.ConversationDetailViewModel", conversation, new DrillInNavigationTransitionInfo());
         }
@@ -52,14 +52,14 @@ namespace FlightAppEliasGryp.ViewModels
             await NavigationService.CreateNewViewAsync<TravelGroupConvoViewModel>();
         }
 
+        public ConversationViewModel GetConvo(int convoId)
+        {
+            return Conversations.Where(e => e.Conversation.Id == convoId).FirstOrDefault();
+        }
+
         public string GetNewMessagesCount()
         {
             return 0.ToString();
-        }
-
-        public async void AddNewMessage(Conversation conversation, string message)
-        {
-            await _conversationService.SendMessage(conversation, new Message(MessageTxt));
         }
     }
 }

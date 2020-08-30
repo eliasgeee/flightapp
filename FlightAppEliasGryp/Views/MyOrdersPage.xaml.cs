@@ -30,7 +30,6 @@ namespace FlightAppEliasGryp.Views
         public MyOrdersPage()
         {
             this.InitializeComponent();
-            if(ViewModel.MyOrders.Count == 0)
             ViewModel.LoadDataAsync();
         }
 

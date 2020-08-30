@@ -12,8 +12,10 @@ namespace FlightAppEliasGryp.Models
 {
     public class Flight : ObservableObject
     {
-
-        private long _flightNumber;
+        public int FlightNumber { get; set; }
+        public DateTime ExpectedArrivalTime { get; set; }
+        public DateTime ExpectedDepartureTime { get; set; }
+        public Plane Plane { get; set; }
 
         private Location _destination;
         public Location Destination { get { return _destination; }
@@ -33,25 +35,7 @@ namespace FlightAppEliasGryp.Models
                 Origin = FindOrigin;
 
             } }
-        public long FlightNumber
-        {
-            get { return _flightNumber; }
-
-            set
-            {
-                Set("FlightNumber", ref _flightNumber, value);
-            }
-        }
-        private DateTime eat;
-        public DateTime Eat
-        {
-            get { return eat; }
-            set
-            {
-                this.eat = value;
-                RaisePropertyChanged();
-            }
-        }
+        
 
         public Location FindDestination { get { return Locations.Where(e => e.Type == LocationType.DESTINATION).FirstOrDefault(); } }
         public Location FindOrigin { get { return Locations.Where(e => e.Type == LocationType.ORIGIN).FirstOrDefault(); } }

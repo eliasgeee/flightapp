@@ -9,6 +9,7 @@
     xmlns:ic="using:Microsoft.Xaml.Interactions.Core"
     xmlns:i="using:Microsoft.Xaml.Interactivity"
     xmlns:behaviors="using:FlightAppEliasGryp.Behaviors"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
     mc:Ignorable="d">
 
     <i:Interaction.Behaviors>
@@ -33,7 +34,8 @@
             Or to use an IconElement instead of a Symbol see https://github.com/Microsoft/WindowsTemplateStudio/blob/master/docs/projectTypes/navigationpane.md
             Edit String/en-US/Resources.resw: Add a menu item title for each page
             -->
-                <winui:NavigationViewItem x:Uid="Shell_Details" Icon="Document" helpers:NavHelper.NavigateTo="FlightAppEliasGryp.ViewModels.DetailsViewModel"/>
+                <winui:NavigationViewItem x:Uid="Shell_Dashboard" Icon="Document" Content="Dashboard" helpers:NavHelper.NavigateTo="FlightAppEliasGryp.ViewModels.CrewDashboardViewModel" Visibility="{x:Bind ViewModel.CurrentUser.IsCrewMember, Mode=OneWay}"/>
+                <winui:NavigationViewItem x:Uid="Shell_Details" Icon="Document" helpers:NavHelper.NavigateTo="FlightAppEliasGryp.ViewModels.DetailsViewModel" Visibility="{x:Bind ViewModel.CurrentUser.IsPassenger, Mode=OneWay}"/>
                 <winui:NavigationViewItem x:Uid="Shell_Catalog" Icon="Shop" helpers:NavHelper.NavigateTo="FlightAppEliasGryp.ViewModels.CatalogViewModel" Visibility="{x:Bind ViewModel.CurrentUser.IsPassenger, Mode=OneWay}"/>
                 <winui:NavigationViewItem x:Uid="Shell_AdminCatalog" Icon="Shop" helpers:NavHelper.NavigateTo="FlightAppEliasGryp.ViewModels.AdminCatalogViewModel" Visibility="{x:Bind ViewModel.CurrentUser.IsCrewMember, Mode=OneWay}"/>
                 <winui:NavigationViewItem x:Uid="Shell_MyOrders" Icon="Document" helpers:NavHelper.NavigateTo="FlightAppEliasGryp.ViewModels.MyOrdersViewModel" Visibility="{x:Bind ViewModel.CurrentUser.IsPassenger, Mode=OneWay}"/>
@@ -67,5 +69,8 @@
                 <Frame x:Name="shellFrame" />
             </Grid>
         </winui:NavigationView>
+        <controls:InAppNotification x:Name="Notification">
+            <TextBlock x:Name="Txt" Text="{Binding}" />
+        </controls:InAppNotification>
     </Grid>
 </Page>

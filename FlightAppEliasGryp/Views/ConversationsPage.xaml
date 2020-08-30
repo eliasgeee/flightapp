@@ -16,7 +16,7 @@
     </Page.Transitions>
 
     <Page.Resources>
-        <DataTemplate x:Key="ConversationsOverviewTemplate" x:DataType="models:Conversation">
+        <DataTemplate x:Key="ConversationsOverviewTemplate" x:DataType="viewmodels:ConversationViewModel">
             <Grid Margin="0,11,0,13">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
@@ -34,15 +34,15 @@
                             <ColumnDefinition />
                             <ColumnDefinition />
                         </Grid.ColumnDefinitions>
-                        <TextBlock Text="{x:Bind GetNamesUsersInConversation()}" FontSize="14" FontWeight="SemiBold" Style="{ThemeResource ListTitleStyle}" Grid.Column="0"/>
-                        <TextBlock Text="{x:Bind GetLatestMessageTime()}" HorizontalAlignment="Right" Margin="8, 0, 0, 8" Grid.Column="1"/>
+                        <TextBlock Text="{x:Bind Conversation.GetNamesUsersInConversation()}" FontSize="14" FontWeight="SemiBold" Style="{ThemeResource ListTitleStyle}" Grid.Column="0"/>
+                        <TextBlock Text="{x:Bind Conversation.GetLatestMessageTime()}" HorizontalAlignment="Right" Margin="8, 0, 0, 8" Grid.Column="1"/>
                     </Grid>
-                    <TextBlock Text="{x:Bind GetLatestMessage()}" Style="{ThemeResource BodyTextStyle}"/>
+                    <TextBlock Text="{x:Bind Conversation.GetLatestMessage()}" Style="{ThemeResource BodyTextStyle}"/>
                 </StackPanel>
             </Grid>
         </DataTemplate>
 
-        <DataTemplate x:Key="ConversationDetailContentTemplate" x:DataType="models:Conversation">
+        <DataTemplate x:Key="ConversationDetailContentTemplate" x:DataType="viewmodels:ConversationViewModel">
             <Grid Margin="24, 24, 24, 24">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
@@ -50,12 +50,13 @@
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
                 <StackPanel Grid.Row="0">
-                    <TextBlock Text="{x:Bind GetNamesUsersInConversation()}" Style="{StaticResource PageTitleStyle}"/>
+                    <TextBlock Text="{x:Bind Conversation.GetNamesUsersInConversation()}"
+                               Style="{StaticResource PageTitleStyle}"/>
                 </StackPanel>
                 <ScrollViewer Grid.Row="1">
                     <ListView
-                        ItemsSource="{x:Bind Messages, Mode=OneWay}"
-                        IsItemClickEnabled="False">
+                        ItemsSource="{x:Bind Conversation.Messages, Mode=OneWay}"
+                        IsItemClickEnabled="False" IsTapEnabled="False">
                         <ListView.ItemTemplate>
                             <DataTemplate
                                     x:DataType="models:Message">
@@ -65,7 +66,7 @@
                                         <ColumnDefinition />
                                     </Grid.ColumnDefinitions>
                                     <StackPanel Grid.Column="0">
-                                        <TextBlock Text="{x:Bind Text}"/>
+                                        <TextBlock Text="{x:Bind ToString()}"/>
                                         <TextBlock Text="{x:Bind GetFormattedTime()}" FontStyle="Italic" FontSize="12"/>
                                     </StackPanel>
                                 </Grid>
@@ -78,8 +79,9 @@
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="Auto"/>
                     </Grid.ColumnDefinitions>
-                    <TextBox x:Name="MessageTxt" Grid.Column="0" Margin="0, 0, 24, 0" TextChanged="MessageTxt_TextChanged"/>
-                    <Button Content="Send" Grid.Column="1" Click="Button_Click"/>
+                    <TextBox x:Name="MessageTxt" Grid.Column="0" Margin="0, 0, 24, 0" Text="{x:Bind NewMessage, Mode=TwoWay}"/>
+                    <Button Content="Send" Grid.Column="1"
+                            Command="{x:Bind AddNewMessageCommand}"/>
                 </Grid>
             </Grid>
         </DataTemplate>
@@ -135,7 +137,7 @@
             VerticalAlignment="Bottom"
             Grid.Column="1"
             HorizontalAlignment="Right"
-                
+            Click="HyperlinkButton_Click"
             />
         </Grid>
     

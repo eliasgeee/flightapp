@@ -25,6 +25,6 @@ namespace FlightAppEliasGryp.Views
             this.InitializeComponent();
         }
 
-        public Order SelectedOrder { get; set; }
+        
     }
 }

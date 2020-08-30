@@ -29,6 +29,7 @@ namespace FlightAppEliasGryp.ViewModels
         private readonly KeyboardAccelerator _altLeftKeyboardAccelerator = BuildKeyboardAccelerator(VirtualKey.Left, VirtualKeyModifiers.Menu);
         private readonly KeyboardAccelerator _backKeyboardAccelerator = BuildKeyboardAccelerator(VirtualKey.GoBack);
         private readonly IAuthenticationService _authenticationService;
+        private readonly IConversationService _conversationService;
 
         private bool _isBackEnabled;
         private bool _isNavigationVisible;
@@ -40,6 +41,8 @@ namespace FlightAppEliasGryp.ViewModels
         private ICommand _logoutClickedCommand;
 
         private CurrentUser _currentUser;
+
+        public IConversationService ConversationService { get { return _conversationService; } }
 
         public bool IsNavigationVisible
         {
@@ -75,9 +78,10 @@ namespace FlightAppEliasGryp.ViewModels
 
         public ICommand Logout => _logoutClickedCommand ?? ( _logoutClickedCommand = new RelayCommand(OnLogoutClicked) );
 
-        public ShellViewModel(IAuthenticationService authenticationService)
+        public ShellViewModel(IAuthenticationService authenticationService, IConversationService conversationService)
         {
             _authenticationService = authenticationService;
+            _conversationService = conversationService;
         }
 
         public async void Initialize(Frame frame, WinUI.NavigationView navigationView, IList<KeyboardAccelerator> keyboardAccelerators)
@@ -93,8 +97,15 @@ namespace FlightAppEliasGryp.ViewModels
             {
                 CurrentUser = user;
                 if (user.IsPassenger)
+                {
                     await _authenticationService.PassengerLogIn(user.Row, user.Chair);
-                NavigationService.NavigateAndClearBackstack("FlightAppEliasGryp.ViewModels.DetailsViewModel");
+                    NavigationService.NavigateAndClearBackstack(typeof(DetailsViewModel).FullName);
+                }
+                if (user.IsCrewMember)
+                {
+                    await _authenticationService.CrewMemberLogIn("admin", "test123");
+                    NavigationService.NavigateAndClearBackstack(typeof(CrewDashboardViewModel).FullName);
+                }
             }
         }
 

@@ -40,7 +40,11 @@
                HorizontalAlignment="Left"
                Stretch="UniformToFill" Height="190" Width="190"/>
                     <StackPanel VerticalAlignment="Bottom" Grid.Row="1" Margin="5,0,5,0" Width="180">
-                        <TextBlock x:ConnectionId='7'                     
+                        <TextBlock x:ConnectionId='7'                       
+                                    FontWeight="SemiBold" 
+                       Style="{ThemeResource BodyTextBlockStyle}"
+                                   HorizontalAlignment="Left"/>
+                        <TextBlock x:ConnectionId='8'                     
                        FontWeight="Medium" 
                        Style="{ThemeResource BodyTextBlockStyle}" TextWrapping="NoWrap"
                        HorizontalAlignment="Left"/>

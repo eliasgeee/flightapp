@@ -10,7 +10,7 @@ namespace FlightAppEliasGryp.Services
     public interface IAuthenticationService
     {
         Task<CurrentUser> PassengerLogIn(int row, char chair);
-        Task<CurrentUser> CrewMemberLogIn(CrewMember crewMember);
+        Task<CurrentUser> CrewMemberLogIn(string username, string password);
         Task<CurrentUser> GetTokenCurrentUser();
         Task LogOut();
     }

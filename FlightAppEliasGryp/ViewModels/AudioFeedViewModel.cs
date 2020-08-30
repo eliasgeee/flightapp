@@ -1,8 +1,10 @@
 ﻿using FlightAppEliasGryp.Models.Entertainment.Audio;
 using FlightAppEliasGryp.Services;
+using FlightAppEliasGryp.ViewModels.Base;
 using GalaSoft.MvvmLight;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,7 +21,7 @@ namespace FlightAppEliasGryp.ViewModels
         private readonly IEntertainmentService _entertainmentService;
 
         public AudioFeedViewModel(IEntertainmentService entertainmentService)
-        {
+        { 
             _entertainmentService = entertainmentService;
         }
 

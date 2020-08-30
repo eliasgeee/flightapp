@@ -31,7 +31,7 @@ namespace FlightAppEliasGryp.Services
             {
                 Uri = baseUri + "ShoppingCart/" + product.Id,
             });
-            return request.AsList().ToList();
+            return null;
         }
 
         public async Task<Product> AddPromotionToProduct(Product product, Promotion promotion)

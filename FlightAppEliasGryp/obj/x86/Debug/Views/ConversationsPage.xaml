@@ -16,7 +16,7 @@
     </Page.Transitions>
 
     <Page.Resources>
-        <DataTemplate x:Key="ConversationsOverviewTemplate"                                 >
+        <DataTemplate x:Key="ConversationsOverviewTemplate"                                              >
             <Grid x:ConnectionId='13' Margin="0,11,0,13">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
@@ -34,15 +34,15 @@
                             <ColumnDefinition />
                             <ColumnDefinition />
                         </Grid.ColumnDefinitions>
-                        <TextBlock x:ConnectionId='15'                                               FontSize="14" FontWeight="SemiBold" Style="{ThemeResource ListTitleStyle}" Grid.Column="0"/>
-                        <TextBlock x:ConnectionId='16'                                        HorizontalAlignment="Right" Margin="8, 0, 0, 8" Grid.Column="1"/>
+                        <TextBlock x:ConnectionId='15'                                                            FontSize="14" FontWeight="SemiBold" Style="{ThemeResource ListTitleStyle}" Grid.Column="0"/>
+                        <TextBlock x:ConnectionId='16'                                                     HorizontalAlignment="Right" Margin="8, 0, 0, 8" Grid.Column="1"/>
                     </Grid>
-                    <TextBlock x:ConnectionId='14'                                    Style="{ThemeResource BodyTextStyle}"/>
+                    <TextBlock x:ConnectionId='14'                                                 Style="{ThemeResource BodyTextStyle}"/>
                 </StackPanel>
             </Grid>
         </DataTemplate>
 
-        <DataTemplate x:Key="ConversationDetailContentTemplate"                                 >
+        <DataTemplate x:Key="ConversationDetailContentTemplate"                                              >
             <Grid x:ConnectionId='3' Margin="24, 24, 24, 24">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
@@ -50,12 +50,13 @@
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
                 <StackPanel Grid.Row="0">
-                    <TextBlock x:ConnectionId='11'                                               Style="{StaticResource PageTitleStyle}"/>
+                    <TextBlock x:ConnectionId='11'                                                           
+                               Style="{StaticResource PageTitleStyle}"/>
                 </StackPanel>
                 <ScrollViewer Grid.Row="1">
                     <ListView x:ConnectionId='6'
-                                                                    
-                        IsItemClickEnabled="False">
+                                                                                 
+                        IsItemClickEnabled="False" IsTapEnabled="False">
                         <ListView.ItemTemplate>
                             <DataTemplate
                                                                >
@@ -65,7 +66,7 @@
                                         <ColumnDefinition />
                                     </Grid.ColumnDefinitions>
                                     <StackPanel Grid.Column="0">
-                                        <TextBlock x:ConnectionId='9'                     />
+                                        <TextBlock x:ConnectionId='9'                           />
                                         <TextBlock x:ConnectionId='10'                                    FontStyle="Italic" FontSize="12"/>
                                     </StackPanel>
                                 </Grid>
@@ -78,8 +79,9 @@
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="Auto"/>
                     </Grid.ColumnDefinitions>
-                    <TextBox x:ConnectionId='4' x:Name="MessageTxt" Grid.Column="0" Margin="0, 0, 24, 0"                                     />
-                    <Button x:ConnectionId='5' Content="Send" Grid.Column="1"                     />
+                    <TextBox x:ConnectionId='4' x:Name="MessageTxt" Grid.Column="0" Margin="0, 0, 24, 0"                                        />
+                    <Button x:ConnectionId='5' Content="Send" Grid.Column="1"
+                                                                   />
                 </Grid>
             </Grid>
         </DataTemplate>
@@ -129,13 +131,13 @@
                 Grid.Column="0"
             Style="{ThemeResource TitleTextBlockStyle}" />
 
-            <HyperlinkButton
+            <HyperlinkButton x:ConnectionId='25'
             Content="+"
             FontSize="32"
             VerticalAlignment="Bottom"
             Grid.Column="1"
             HorizontalAlignment="Right"
-                
+                                         
             />
         </Grid>
     

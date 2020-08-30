@@ -5,25 +5,70 @@
     xmlns:local="using:FlightAppEliasGryp.Views.Entertainment.Video"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:video="using:FlightAppEliasGryp.Models.Entertainment.Video"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" x:Name="root">
+    <Grid x:Name="root">
         <Grid.RowDefinitions>
-            <RowDefinition Height="415" x:Name="TopBorderRow"/>
+            <RowDefinition Height="400"/>
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <Grid Grid.Row="0" Background="LightSlateGray" x:Name="TopBorder" >
+        <Grid Grid.Row="0" Background="{ThemeResource SystemControlBaseLowAcrylicElementBrush}" x:Name="TopBorder" >
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="*"/>
+                <ColumnDefinition />
+                <ColumnDefinition />
             </Grid.ColumnDefinitions>
-
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
             <Image Source="{x:Bind ViewModel.Thumbnail}"
-                   VerticalAlignment="Stretch" 
-                   HorizontalAlignment="Stretch" 
-                   Stretch="Fill"
-                   Grid.ColumnSpan="2" />
+                   Grid.Column="0"
+                   Grid.RowSpan="3"
+                    Height="300" Margin="25,75,24,40" 
+                   VerticalAlignment="Top" 
+                   HorizontalAlignment="Left" />
+            <TextBlock Text="{x:Bind ViewModel.Name}" Grid.Column="1" Grid.Row="0"
+                       Style="{StaticResource PageTitleStyle}" FontWeight="Medium" FontSize="34"
+                       VerticalAlignment="Center" HorizontalAlignment="Left" Margin="0, 75, 24, 0"/>
+            <TextBlock Text="{x:Bind ViewModel.Description}" Grid.Column="1" TextWrapping="Wrap"
+                       Grid.Row="1" Style="{StaticResource BodyTextBlockStyle}" Margin="0, 0, 0, 40"/>
+            <TextBlock Text="{x:Bind ViewModel.VideoGenre}" Grid.Column="1" Grid.Row="2"
+                       Style="{StaticResource CaptionTextBlockStyle}" Margin="0, 74, 24, 40"/>
         </Grid>
+
+        <ScrollViewer Grid.Row="1" HorizontalAlignment="Stretch" Margin="24, 24, 24, 0">
+            <ListView x:Name="EpisodesList"  
+                      ItemsSource="{x:Bind ViewModel.Episodes}"
+                      IsItemClickEnabled="True"
+                      ItemClick="EpisodesList_ItemClick">
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <Setter Property="Margin" Value="0, 24, 0, 0" />
+                    </Style>
+                </ListView.ItemContainerStyle>
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="video:Episode">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Image Source="{x:Bind Thumbnail}" Grid.Column="0" Width="200" Height="150"
+                                   Grid.RowSpan="2" Stretch="Uniform" VerticalAlignment="Top"/>
+                            <StackPanel Spacing="10" Grid.Column="1">
+                                <TextBlock Text="{x:Bind Name}"
+                                       Margin="24, 0, 0, 0"
+                                       Style="{StaticResource TitleTextBlockStyle}"/>
+                                <TextBlock Text="{x:Bind Description}" TextWrapping="Wrap" MaxLines="3"
+                                           Margin="24, 24, 24, 0"/>
+                            </StackPanel>
+                        </Grid>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </ScrollViewer>
     </Grid>
 </Page>

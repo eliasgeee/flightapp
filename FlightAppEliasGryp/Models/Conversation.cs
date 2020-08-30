@@ -18,12 +18,19 @@ namespace FlightAppEliasGryp.Models
             Users = new List<ConversationPerson>();
         }
 
-        public string GetLatestMessage() { return Messages.Last().Text; }
+        public string GetLatestMessage() {
+            if(Messages != null) return Messages.Last().Text;
+            return "";
+        }
         public string GetLatestMessageTime() {
-            if (Messages.Last().Time < DateTime.Today.AddDays(-1))
-                return Messages.Last().Time.ToShortDateString();
-            else
-                return Messages.Last().Time.ToShortTimeString();
+            if(Messages != null)
+            {
+                if (Messages.Last().Time < DateTime.Today.AddDays(-1))
+                    return Messages.Last().Time.ToShortDateString();
+                else
+                    return Messages.Last().Time.ToShortTimeString();
+            }
+            return "";
         }
         public string GetNamesUsersInConversation() {
             var names = "";

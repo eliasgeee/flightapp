@@ -8,7 +8,7 @@ namespace FlightAppEliasGryp.Services
     {
         Task<IList<Order>> GetPassengerOrders();
         Task<IList<Order>> GetUncompletedOrders();
-        Task<Order> Checkout(PaymentType paymentType);
+        Task Checkout(PaymentType paymentType);
         Task<int> GetUncompletedOrdersCount();
         Task<Order> ChangeOrderStatus(Order order, OrderStatus newStatus);
     }

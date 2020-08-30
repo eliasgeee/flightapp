@@ -1,4 +1,5 @@
 ﻿using FlightAppEliasGryp.Models.Entertainment;
+using FlightAppEliasGryp.Models.Entertainment.Audio;
 using FlightAppEliasGryp.Models.Entertainment.Video;
 using FlightAppEliasGryp.Services;
 using GalaSoft.MvvmLight;
@@ -26,6 +27,9 @@ namespace FlightAppEliasGryp.ViewModels.Base
         public List<Episode> Episodes { get; set; }
         public int AmountOfEpisode { get { return Episodes.Count; } }
         public MultiMediaType Type { get; set; }
+        public Guid AlbumId { get; set; }
+        public Artist Artist { get; set; }
+        public MusicGenre MusicGenre { get; set; }
 
         public MultimediaViewModel(MultiMedia multiMedia)
         {
@@ -33,6 +37,29 @@ namespace FlightAppEliasGryp.ViewModels.Base
                 InitSerie(multiMedia as Serie);
             if (multiMedia is Movie)
                 InitMovie(multiMedia as Movie);
+            if (multiMedia is Album)
+                InitAlbum(multiMedia as Album);
+            if (multiMedia is Track)
+                InitTrack(multiMedia as Track);
+        }
+
+        public void InitTrack(Track track)
+        {
+            Id = track.Id;
+            Name = track.Name;
+            Artist = track.Artist;
+            FileName = track.FileName;
+            AlbumId = track.AlbumId;
+            MusicGenre = track.MusicGenre;
+        }
+
+        public void InitAlbum(Album album)
+        {
+            Id = album.Id;
+            Name = album.Name;
+            Artist = album.Artist;
+            FileName = album.FileName;
+            MusicGenre = album.MusicGenre;
         }
 
         public void InitSerie(Serie serie)

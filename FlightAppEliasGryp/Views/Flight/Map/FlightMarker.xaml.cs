@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FlightAppEliasGryp.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -19,9 +20,12 @@ namespace FlightAppEliasGryp.Views.Map
 {
     public sealed partial class FlightMarker : UserControl
     {
+        public FlightDetailViewModel ViewModel { get { return ViewModelLocator.Current.FlightDetailViewModel; } }
+
         public FlightMarker()
         {
             this.InitializeComponent();
+            ViewModel.LoadDataAsync();
         }
 
         private void Grid_Tapped(object sender, TappedRoutedEventArgs e)

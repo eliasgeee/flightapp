@@ -6,10 +6,7 @@ using System.Threading.Tasks;
 
 namespace FlightAppEliasGryp.Models.Entertainment.Audio
 {
-    public class Artist
+    public class Artist : Person
     {
-        public int Id { get; set; }
-        public string Name { get; set; }
-        public string Picture { get; set; }
     }
 }

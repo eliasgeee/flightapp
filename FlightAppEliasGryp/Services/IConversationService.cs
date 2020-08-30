@@ -1,4 +1,5 @@
 ﻿using FlightAppEliasGryp.Models;
+using Microsoft.AspNetCore.SignalR.Client;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,8 +10,12 @@ namespace FlightAppEliasGryp.Services
 {
     public interface IConversationService
     {
-        Task<Conversation> AddNewConversation(Conversation conversation);
+        Task<ICollection<Passenger>> GetConversationPartnersForPassenger();
+        Task<Conversation> AddNewConversation(List<Passenger> users, string message);
         Task<ICollection<Conversation>> GetAllConversationsForUser();
-        Task<Conversation> SendMessage(Conversation conversation, Message message);
+       // Task<Conversation> SendMessage(Conversation conversation, Message message);
+        Task SendMessage(Conversation conversation, string message);
+        HubConnection Connection();
+        Task InitConnection();
     }
 }

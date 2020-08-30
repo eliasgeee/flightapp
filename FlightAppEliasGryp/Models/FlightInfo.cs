@@ -12,5 +12,7 @@ namespace FlightAppEliasGryp.Models
         public DateTime RemainingDurationFlight { get; set; }
         public double DistanceToDestination { get; set; }
         public double CurrentAltitude { get; set; }
+
+        public string GetDistanceFormatted { get { return $"{(DistanceToDestination / 1000000).ToString()}"; } }
     }
 }

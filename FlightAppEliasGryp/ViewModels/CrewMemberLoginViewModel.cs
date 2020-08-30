@@ -42,9 +42,9 @@ namespace FlightAppEliasGryp.ViewModels
             {
                 CrewMember.UserName = _username;
                 CrewMember.Password = _password;
-                var user = await _accountService.CrewMemberLogIn(_crewMember);
+                var user = await _accountService.CrewMemberLogIn(CrewMember.UserName, CrewMember.Password);
                 if(user != null)
-                    NavigationService.NavigateAndClearBackstack("FlightAppEliasGryp.ViewModels.DetailsViewModel");
+                    NavigationService.NavigateAndClearBackstack(typeof(CrewDashboardViewModel).FullName);
             }
             catch (ArgumentException ex)
             {

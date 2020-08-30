@@ -13,6 +13,8 @@ namespace FlightAppEliasGryp.Models
         public int Row { get; set; }
         public char Chair { get; set; }
         public string Token { get; set; }
+        public string Password { get; set; }
+        public string UserName { get; set; }
 
         private UserRole _userRole;
         public UserRole UserRole { get { return _userRole; } set {

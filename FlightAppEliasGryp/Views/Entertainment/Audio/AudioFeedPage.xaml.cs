@@ -31,7 +31,22 @@ namespace FlightAppEliasGryp.Views.Entertainment.Audio
         public AudioFeedPage()
         {
             this.InitializeComponent();
-            if(ViewModel.AudioFeed == null) ViewModel.LoadDataAsync();
+            ViewModel.LoadDataAsync();
+        }
+
+        private void AlbumsGrid_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            
+        }
+
+        private void TracksGrid_ItemClick(object sender, ItemClickEventArgs e)
+        {
+
+        }
+
+        private void ArtistsGrid_ItemClick(object sender, ItemClickEventArgs e)
+        {
+
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using FlightAppEliasGryp.Models;
+using FlightAppEliasGryp.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -25,7 +26,7 @@ namespace FlightAppEliasGryp.Views
     /// </summary>
     public sealed partial class ConversationDetailPage : Page
     {
-        public Conversation SelectedConversation { get; set; }
+        public ConversationViewModel SelectedConversation { get; set; }
 
         public ConversationDetailPage()
         {
@@ -36,7 +37,7 @@ namespace FlightAppEliasGryp.Views
         {
             base.OnNavigatedTo(e);
 
-            SelectedConversation = e.Parameter as Conversation;
+            SelectedConversation = e.Parameter as ConversationViewModel;
 
             ReplaceLastBackStackEntryParameter(e.Parameter);
 

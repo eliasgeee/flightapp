@@ -1,0 +1,36 @@
+﻿<Page x:ConnectionId='1'
+    x:Class="FlightAppEliasGryp.Views.AddConversationPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:FlightAppEliasGryp.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewmodels="using:FlightAppEliasGryp.ViewModels"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <ScrollViewer Grid.Row="0">
+            <ListView x:ConnectionId='4'                                                       IsMultiSelectCheckBoxEnabled="False"
+              SelectionMode="Multiple" x:Name="TravelgroupList">
+                <ListView.ItemTemplate>
+                    <DataTemplate                                                     >
+                        <StackPanel x:ConnectionId='6' Spacing="10" Orientation="Horizontal">
+                            <CheckBox IsChecked="{Binding IsSelected,Mode=TwoWay}" />
+                            <TextBlock x:ConnectionId='7'                                        />
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </ScrollViewer>
+        <TextBox x:ConnectionId='2' PlaceholderText="Write a new message..."                                               
+                 VerticalAlignment="Stretch" Grid.Row="1" x:Name="MsgText"/>
+        <Button x:ConnectionId='3' Content="Add" Grid.Row="2" HorizontalAlignment="Stretch"                      x:Name="AddButton"/>
+    </Grid>
+</Page>
+

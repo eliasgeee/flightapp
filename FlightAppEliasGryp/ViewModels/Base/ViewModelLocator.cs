@@ -2,6 +2,7 @@
 using FlightAppEliasGryp.Models;
 using FlightAppEliasGryp.Services;
 using FlightAppEliasGryp.Views;
+using FlightAppEliasGryp.Views.Dashboard;
 using FlightAppEliasGryp.Views.Entertainment.Audio;
 using FlightAppEliasGryp.Views.Entertainment.Video;
 using FlightAppEliasGryp.Views.Flight;
@@ -30,6 +31,7 @@ namespace FlightAppEliasGryp.ViewModels
             SimpleIoc.Default.Register<IWeatherDataService, WeatherDataService>();
             SimpleIoc.Default.Register<HttpClientService>();
             SimpleIoc.Default.Register<IEntertainmentService, EntertainmentService>();
+            SimpleIoc.Default.Register<INotificationService, NotificationService>();
 
             Register<DetailsViewModel, DetailsPage>();
             Register<CatalogViewModel, CatalogPage>();
@@ -50,11 +52,14 @@ namespace FlightAppEliasGryp.ViewModels
             Register<VideoFeedViewModel, VideoFeedPage>();
             Register<AudioFeedViewModel, AudioFeedPage>();
             Register<VideoDetailViewModel, SerieDetailPage>();
+            Register<CrewDashboardViewModel, CrewDashboardPage>();
 
             SimpleIoc.Default.Register<SeatViewModel>();
             SimpleIoc.Default.Register<PassengerLoginViewModel>();
             SimpleIoc.Default.Register<CrewMemberLoginViewModel>();
             SimpleIoc.Default.Register<WeatherForecastViewModel>();
+            SimpleIoc.Default.Register<AddConversationViewModel>();
+            SimpleIoc.Default.Register<FlightDetailViewModel>();
         }
 
         public CatalogViewModel CatalogViewModel => SimpleIoc.Default.GetInstance<CatalogViewModel>();
@@ -80,8 +85,13 @@ namespace FlightAppEliasGryp.ViewModels
         public MediaPlayerViewModel MediaPlayerViewModel => SimpleIoc.Default.GetInstance<MediaPlayerViewModel>();
         public VideoFeedViewModel VideoFeedViewModel => SimpleIoc.Default.GetInstance<VideoFeedViewModel>();
         public AudioFeedViewModel AudioFeedViewModel => SimpleIoc.Default.GetInstance<AudioFeedViewModel>();
+        public VideoDetailViewModel VideoDetailViewModel => SimpleIoc.Default.GetInstance<VideoDetailViewModel>();
+        public CrewDashboardViewModel CrewDashboardViewModel => SimpleIoc.Default.GetInstance<CrewDashboardViewModel>();
+        public AddConversationViewModel AddConversationViewModel => SimpleIoc.Default.GetInstance<AddConversationViewModel>();
+        public FlightDetailViewModel FlightDetailViewModel => SimpleIoc.Default.GetInstance<FlightDetailViewModel>();
 
         public IWeatherDataService WeatherDataService => SimpleIoc.Default.GetInstance<IWeatherDataService>();
+        public IConversationService ConversationService => SimpleIoc.Default.GetInstance<IConversationService>();
 
         public NavigationServiceEx NavigationService => SimpleIoc.Default.GetInstance<NavigationServiceEx>();
 

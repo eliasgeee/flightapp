@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace FlightAppEliasGryp.Models.Entertainment.Audio
 {
-    public class PodcastHost
+    public class PodcastHost : Person
     {
-        public Guid Id { get; set; }
-        public string Name { get; set; }
+        public new Guid Id { get; set; }
     }
 }

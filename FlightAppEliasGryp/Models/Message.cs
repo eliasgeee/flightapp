@@ -13,6 +13,7 @@ namespace FlightAppEliasGryp.Models
         public ApplicationUser Sender { get; set; }
         public DateTime Time { get; set; }
         public bool IsUser { get; set; }
+        public int Column { get { if (IsUser) return 1; else return 0; }  }
 
         public Message(string text)
         {

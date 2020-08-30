@@ -1,4 +1,6 @@
-﻿using FlightAppEliasGryp.ViewModels.Base;
+﻿using FlightAppEliasGryp.Models.Entertainment;
+using FlightAppEliasGryp.ViewModels;
+using FlightAppEliasGryp.ViewModels.Base;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -31,6 +33,8 @@ namespace FlightAppEliasGryp.Views.Entertainment.Video
             }
         }
 
+        public VideoDetailViewModel VideoDetailView { get { return ViewModelLocator.Current.VideoDetailViewModel; } }
+
         public static readonly DependencyProperty ViewModelProperty =
        DependencyProperty.Register("ViewModel", typeof(MultimediaViewModel),
            typeof(SerieDetailPage), new PropertyMetadata(null));
@@ -45,6 +49,12 @@ namespace FlightAppEliasGryp.Views.Entertainment.Video
             base.OnNavigatedTo(e);
             var media = e.Parameter as MultimediaViewModel;
             ViewModel = media;
+        }
+
+        private void EpisodesList_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            var media = e.ClickedItem as MultiMedia;
+            VideoDetailView.PlayMedia(media);
         }
     }
 }

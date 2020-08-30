@@ -116,6 +116,9 @@
     <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
   </PropertyGroup>
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.SignalR.Client">
+      <Version>3.1.7</Version>
+    </PackageReference>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>6.2.9</Version>
     </PackageReference>
@@ -150,8 +153,11 @@
     <Compile Include="Helpers\Converters\IntConverter.cs" />
     <Compile Include="Helpers\Converters\TimeConverter.cs" />
     <Compile Include="Helpers\EnumHelper.cs" />
+    <Compile Include="Models\AddPassengerNotificationDTO.cs" />
     <Compile Include="Models\ApiRequest.cs" />
+    <Compile Include="Models\ChatMessage.cs" />
     <Compile Include="Models\CrewMember.cs" />
+    <Compile Include="Models\DTO%27s\AddConversationDTO.cs" />
     <Compile Include="Models\DTO%27s\CrewMemberLoginDTO.cs" />
     <Compile Include="Models\Entertainment\Audio\Album.cs" />
     <Compile Include="Models\Entertainment\Audio\Artist.cs" />
@@ -160,12 +166,15 @@
     <Compile Include="Models\Entertainment\Audio\Track.cs" />
     <Compile Include="Models\Entertainment\MultiMedia.cs" />
     <Compile Include="Models\Entertainment\Audio\AudioFeed.cs" />
+    <Compile Include="Models\Entertainment\Person.cs" />
     <Compile Include="Models\Entertainment\Video\VideoFeed.cs" />
     <Compile Include="Models\Entertainment\Video\Episode.cs" />
     <Compile Include="Models\Entertainment\Video\Movie.cs" />
     <Compile Include="Models\Entertainment\Video\Serie.cs" />
     <Compile Include="Models\Environment.cs" />
     <Compile Include="Models\FlightInfo.cs" />
+    <Compile Include="Models\Notification.cs" />
+    <Compile Include="Models\Plane.cs" />
     <Compile Include="Models\WeatherForecast.cs" />
     <Compile Include="Services\DataService.cs" />
     <Compile Include="Services\HttpClientService.cs" />
@@ -206,6 +215,7 @@
     <Compile Include="Services\IFlightService.cs" />
     <Compile Include="Services\ILocalStorageService.cs" />
     <Compile Include="Services\ILocationService.cs" />
+    <Compile Include="Services\INotificationService.cs" />
     <Compile Include="Services\IOrderDataService.cs" />
     <Compile Include="Services\IAccountService.cs" />
     <Compile Include="Services\IEntertainmentService.cs" />
@@ -213,10 +223,12 @@
     <Compile Include="Services\LocalStorageService.cs" />
     <Compile Include="Services\LocationService.cs" />
     <Compile Include="Services\NavigationServiceEx.cs" />
+    <Compile Include="Services\NotificationService.cs" />
     <Compile Include="Services\OrderDataService.cs" />
     <Compile Include="Services\AccountService.cs" />
     <Compile Include="Services\EntertainmentService.cs" />
     <Compile Include="Services\WeatherDataService.cs" />
+    <Compile Include="ViewModels\AddConversationViewModel.cs" />
     <Compile Include="ViewModels\AddPromotionViewModel.cs" />
     <Compile Include="ViewModels\AdminCatalogViewModel.cs" />
     <Compile Include="ViewModels\AudioFeedViewModel.cs" />
@@ -224,16 +236,22 @@
     <Compile Include="ViewModels\ConversationDetailViewModel.cs" />
     <Compile Include="ViewModels\Base\CustomBaseViewModel.cs" />
     <Compile Include="ViewModels\CatalogViewModel.cs" />
+    <Compile Include="ViewModels\ConversationPartnerViewModel.cs" />
     <Compile Include="ViewModels\ConversationsOverviewViewModel.cs" />
     <Compile Include="ViewModels\ConversationsViewModel.cs" />
+    <Compile Include="ViewModels\ConversationViewModel.cs" />
     <Compile Include="ViewModels\ConversationViewModelItem.cs" />
+    <Compile Include="ViewModels\CrewDashboardViewModel.cs" />
     <Compile Include="ViewModels\CrewMemberLoginViewModel.cs" />
     <Compile Include="ViewModels\DetailsViewModel.cs" />
+    <Compile Include="ViewModels\FlightDetailViewModel.cs" />
     <Compile Include="ViewModels\FlightViewModel.cs" />
     <Compile Include="ViewModels\LiveFlightDataViewModel.cs" />
     <Compile Include="ViewModels\MainPageViewModel.cs" />
     <Compile Include="ViewModels\MediaPlayerViewModel.cs" />
     <Compile Include="ViewModels\MultimediaOverviewViewModel.cs" />
+    <Compile Include="ViewModels\ProductViewModel.cs" />
+    <Compile Include="ViewModels\SelectedSeatViewModel.cs" />
     <Compile Include="ViewModels\VideoDetailViewModel.cs" />
     <Compile Include="ViewModels\VideoViewModel.cs" />
     <Compile Include="ViewModels\MyOrdersViewModel.cs" />
@@ -249,13 +267,16 @@
     <Compile Include="ViewModels\Base\ViewModelLocator.cs" />
     <Compile Include="ViewModels\VideoFeedViewModel.cs" />
     <Compile Include="ViewModels\WeatherForecastViewModel.cs" />
+    <Compile Include="Views\AddConversationPage.xaml.cs">
+      <DependentUpon>AddConversationPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\AddPromotionDialog.xaml.cs">
       <DependentUpon>AddPromotionDialog.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\AdminCatalogPage.xaml.cs">
       <DependentUpon>AdminCatalogPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\CatalogPage.xaml.cs">
+    <Compile Include="Views\Catalog\Passenger\CatalogPage.xaml.cs">
       <DependentUpon>CatalogPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ContinuationPage.xaml.cs">
@@ -272,6 +293,12 @@
     </Compile>
     <Compile Include="Views\CrewMemberLogicControl.xaml.cs">
       <DependentUpon>CrewMemberLogicControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Dashboard\CrewDashboardPage.xaml.cs">
+      <DependentUpon>CrewDashboardPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Dashboard\SendPassengerNotification.xaml.cs">
+      <DependentUpon>SendPassengerNotification.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\DetailsPage.xaml.cs">
       <DependentUpon>DetailsPage.xaml</DependentUpon>
@@ -294,6 +321,9 @@
     <Compile Include="Views\Flight\AirportCard.xaml.cs">
       <DependentUpon>AirportCard.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Flight\FlightDetailCard.xaml.cs">
+      <DependentUpon>FlightDetailCard.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Flight\FlightPage.xaml.cs">
       <DependentUpon>FlightPage.xaml</DependentUpon>
     </Compile>
@@ -309,14 +339,20 @@
     <Compile Include="Views\Flight\Map\LocationMarker.xaml.cs">
       <DependentUpon>LocationMarker.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Flight\PlaneCard.xaml.cs">
+      <DependentUpon>PlaneCard.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Flight\WeatherForecastControl.xaml.cs">
       <DependentUpon>WeatherForecastControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\MediaPlayerPage.xaml.cs">
+    <Compile Include="Views\Entertainment\MediaPlayerPage.xaml.cs">
       <DependentUpon>MediaPlayerPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MessageItem.xaml.cs">
+      <DependentUpon>MessageItem.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MyOrderControl.xaml.cs">
       <DependentUpon>MyOrderControl.xaml</DependentUpon>
@@ -389,6 +425,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\AddConversationPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\AddPromotionDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -397,7 +437,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\CatalogPage.xaml">
+    <Page Include="Views\Catalog\Passenger\CatalogPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -418,6 +458,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\CrewMemberLogicControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Dashboard\CrewDashboardPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Dashboard\SendPassengerNotification.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -449,6 +497,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\Flight\FlightDetailCard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Flight\FlightPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -469,6 +521,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\Flight\PlaneCard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Flight\WeatherForecastControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -477,7 +533,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\MediaPlayerPage.xaml">
+    <Page Include="Views\Entertainment\MediaPlayerPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MessageItem.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -576,7 +636,9 @@
       <Name>FlightAppEliasGryp.Core</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Views\Catalog\Crew\" />
+  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

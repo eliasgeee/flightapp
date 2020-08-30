@@ -29,10 +29,13 @@ namespace FlightAppEliasGryp.ViewModels
             } }
 
         private ICollection<Product> products;
-
         private ICollection<Product> Bestellingen { get; set; }
-
         private ICatalogDataService _catalogDataService { get; set; }
+
+        private ICommand _addToShoppingCart;
+
+        public ICommand AddToShoppingCartCommand =>
+            _addToShoppingCart ?? (_addToShoppingCart = new RelayCommand<Product>(AddProductToShoppingCart));
 
         public CatalogViewModel(
          ICatalogDataService catalogDataService
@@ -70,8 +73,7 @@ namespace FlightAppEliasGryp.ViewModels
             if (clickedItem != null)
             {
                 NavigationService.Frame.SetListDataItemForNextConnectedAnimation(clickedItem);
-                var data = await _catalogDataService.AddProductToShoppingCart(clickedItem);
-                Bestellingen = data;
+                await _catalogDataService.AddProductToShoppingCart(clickedItem);
             }
             GetAmountOfItemsInShoppingCart();
         }

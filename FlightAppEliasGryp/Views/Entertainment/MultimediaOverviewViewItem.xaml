@@ -40,6 +40,10 @@
                HorizontalAlignment="Left"
                Stretch="UniformToFill" Height="190" Width="190"/>
                     <StackPanel VerticalAlignment="Bottom" Grid.Row="1" Margin="5,0,5,0" Width="180">
+                        <TextBlock Text="{x:Bind Artist}"
+                                    FontWeight="SemiBold" 
+                       Style="{ThemeResource BodyTextBlockStyle}"
+                                   HorizontalAlignment="Left"/>
                         <TextBlock Text="{x:Bind Name}"
                        FontWeight="Medium" 
                        Style="{ThemeResource BodyTextBlockStyle}" TextWrapping="NoWrap"

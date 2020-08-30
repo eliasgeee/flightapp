@@ -5,26 +5,71 @@
     xmlns:local="using:FlightAppEliasGryp.Views.Entertainment.Video"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:video="using:FlightAppEliasGryp.Models.Entertainment.Video"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid x:ConnectionId='2' Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" x:Name="root">
+    <Grid x:ConnectionId='2' x:Name="root">
         <Grid.RowDefinitions>
-            <RowDefinition x:ConnectionId='3' Height="415" x:Name="TopBorderRow"/>
+            <RowDefinition Height="400"/>
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <Grid x:ConnectionId='4' Grid.Row="0" Background="LightSlateGray" x:Name="TopBorder" >
+        <Grid x:ConnectionId='3' Grid.Row="0" Background="{ThemeResource SystemControlBaseLowAcrylicElementBrush}" x:Name="TopBorder" >
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition Width="*"/>
+                <ColumnDefinition />
+                <ColumnDefinition />
             </Grid.ColumnDefinitions>
-
-            <Image x:ConnectionId='5'                                      
-                   VerticalAlignment="Stretch" 
-                   HorizontalAlignment="Stretch" 
-                   Stretch="Fill"
-                   Grid.ColumnSpan="2" />
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Image x:ConnectionId='10'                                      
+                   Grid.Column="0"
+                   Grid.RowSpan="3"
+                    Height="300" Margin="25,75,24,40" 
+                   VerticalAlignment="Top" 
+                   HorizontalAlignment="Left" />
+            <TextBlock x:ConnectionId='11'                                Grid.Column="1" Grid.Row="0"
+                       Style="{StaticResource PageTitleStyle}" FontWeight="Medium" FontSize="34"
+                       VerticalAlignment="Center" HorizontalAlignment="Left" Margin="0, 75, 24, 0"/>
+            <TextBlock x:ConnectionId='12'                                       Grid.Column="1" TextWrapping="Wrap"
+                       Grid.Row="1" Style="{StaticResource BodyTextBlockStyle}" Margin="0, 0, 0, 40"/>
+            <TextBlock x:ConnectionId='13'                                      Grid.Column="1" Grid.Row="2"
+                       Style="{StaticResource CaptionTextBlockStyle}" Margin="0, 74, 24, 40"/>
         </Grid>
+
+        <ScrollViewer Grid.Row="1" HorizontalAlignment="Stretch" Margin="24, 24, 24, 0">
+            <ListView x:ConnectionId='4' x:Name="EpisodesList"  
+                                                               
+                      IsItemClickEnabled="True"
+                                                        >
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <Setter Property="Margin" Value="0, 24, 0, 0" />
+                    </Style>
+                </ListView.ItemContainerStyle>
+                <ListView.ItemTemplate>
+                    <DataTemplate                           >
+                        <Grid x:ConnectionId='6'>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Image x:ConnectionId='7'                             Grid.Column="0" Width="200" Height="150"
+                                   Grid.RowSpan="2" Stretch="Uniform" VerticalAlignment="Top"/>
+                            <StackPanel Spacing="10" Grid.Column="1">
+                                <TextBlock x:ConnectionId='8'                     
+                                       Margin="24, 0, 0, 0"
+                                       Style="{StaticResource TitleTextBlockStyle}"/>
+                                <TextBlock x:ConnectionId='9'                             TextWrapping="Wrap" MaxLines="3"
+                                           Margin="24, 24, 24, 0"/>
+                            </StackPanel>
+                        </Grid>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </ScrollViewer>
     </Grid>
 </Page>
 

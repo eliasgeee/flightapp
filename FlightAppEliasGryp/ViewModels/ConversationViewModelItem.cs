@@ -26,7 +26,7 @@ namespace FlightAppEliasGryp.ViewModels
 
         private async void AddNewMessage(string text)
         {
-            await _conversationService.SendMessage(Conversation, new Message(text));
+            await _conversationService.SendMessage(Conversation, text);
         }
     }
 }

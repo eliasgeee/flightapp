@@ -6,10 +6,12 @@ using System.Threading.Tasks;
 
 namespace FlightAppEliasGryp.Models.Entertainment.Audio
 {
-    public class Podcast
+    public class Podcast : MultiMedia
     {
         public List<PodcastHost> Hosts { get; private set; }
         public PodcastGenre PodcastGenre { get; set; }
+
+        
     }
 
     public enum PodcastGenre
