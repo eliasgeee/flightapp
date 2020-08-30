@@ -15,7 +15,7 @@
                 <TextBlock
                     Style="{ThemeResource TitleTextBlockStyle}"
                     HorizontalAlignment="Left"
-                    Text="{x:Bind SelectedOrder.GetOrderId()}"/>
+                    Text="{x:Bind ViewModel.SelectedOrder.GetOrderId(), Mode=OneWay}"/>
             </StackPanel>
             <Grid
                     Margin="0,24"
@@ -44,48 +44,43 @@
                     Style="{ThemeResource ListTitleStyle}"
                     Text="Order Time"
                     Grid.Column="1"
-                    Margin="8,0,0,0"
                         Grid.Row="0"/>
                 <TextBlock
                     HorizontalAlignment="Left"
                     Style="{ThemeResource ListTitleStyle}"
                     Text="Order Total"
                     Grid.Column="2"
-                    Margin="8,0,0,0"
                         Grid.Row="0"/>
                 <TextBlock
                     HorizontalAlignment="Left"
                     Style="{ThemeResource ListTitleStyle}"
                     Text="Order Quantity"
                     Grid.Column="3"
-                    Margin="8,0,0,0"
                         Grid.Row="0"/>
                 <TextBlock
                     HorizontalAlignment="Left"
                     Style="{ThemeResource ListTitleStyle}"
                     Text="Payment Type"
                     Grid.Column="4"
-                    Margin="8,0,0,0"
                         Grid.Row="0"/>
                 <TextBlock
                     HorizontalAlignment="Left"
                     Style="{ThemeResource ListTitleStyle}"
                     Text="Total Paid"
                     Grid.Column="5"
-                    Margin="8,0,0,0"
                         Grid.Row="0"/>
-                <TextBlock HorizontalAlignment="Left" Style="{ThemeResource BodyTextStyle}" Text="{x:Bind SelectedOrder.Passenger.GetFullName()}"
+                <TextBlock HorizontalAlignment="Left" Style="{ThemeResource BodyTextStyle}" Text="{x:Bind ViewModel.SelectedOrder.Passenger.GetFullName(), Mode=OneWay}"
                                Grid.Row="1" Grid.Column="0"/>
-                <TextBlock HorizontalAlignment="Left" Style="{ThemeResource BodyTextStyle}" Text="{x:Bind SelectedOrder.GetDateAndTimeOrderCreated()}"
-                               Grid.Row="1" Grid.Column="1" Margin="8,0,0,0"/>
-                <TextBlock HorizontalAlignment="Left" Style="{ThemeResource BodyTextStyle}" Text="{x:Bind SelectedOrder.OrderTotal}"
-                               Grid.Row="1" Grid.Column="2" Margin="8,0,0,0"/>
-                <TextBlock HorizontalAlignment="Left" Style="{ThemeResource BodyTextStyle}" Text="{x:Bind SelectedOrder.GetOrderQuantity()}"
-                               Grid.Row="1" Grid.Column="3" Margin="8,0,0,0"/>
-                <TextBlock HorizontalAlignment="Left" Style="{ThemeResource BodyTextStyle}" Text="{x:Bind SelectedOrder.PaymentType}"
-                               Grid.Row="1" Grid.Column="4" Margin="8,0,0,0"/>
-                <TextBlock HorizontalAlignment="Left" Style="{ThemeResource BodyTextStyle}" Text="{x:Bind SelectedOrder.TotalAmountPaid()}"
-                               Grid.Row="1" Grid.Column="5" Margin="8,0,0,0"/>
+                <TextBlock HorizontalAlignment="Left" Style="{ThemeResource BodyTextStyle}" Text="{x:Bind ViewModel.SelectedOrder.GetDateAndTimeOrderCreated(), Mode=OneWay}"
+                               Grid.Row="1" Grid.Column="1"/>
+                <TextBlock HorizontalAlignment="Left" Style="{ThemeResource BodyTextStyle}" Text="{x:Bind ViewModel.SelectedOrder.OrderTotal, Mode=OneWay}"
+                               Grid.Row="1" Grid.Column="2"/>
+                <TextBlock HorizontalAlignment="Left" Style="{ThemeResource BodyTextStyle}" Text="{x:Bind ViewModel.SelectedOrder.GetOrderQuantity(), Mode=OneWay}"
+                               Grid.Row="1" Grid.Column="3"/>
+                <TextBlock HorizontalAlignment="Left" Style="{ThemeResource BodyTextStyle}" Text="{x:Bind ViewModel.SelectedOrder.PaymentType, Mode=OneWay}"
+                               Grid.Row="1" Grid.Column="4"/>
+                <TextBlock HorizontalAlignment="Left" Style="{ThemeResource BodyTextStyle}" Text="{x:Bind ViewModel.SelectedOrder.TotalAmountPaid(), Mode=OneWay}"
+                               Grid.Row="1" Grid.Column="5"/>
 
             </Grid>
             <Grid Margin="0,24,0,0">
@@ -128,7 +123,7 @@
                     Grid.Column="3"
                                 Grid.Row="1"/>
                 <ListView 
-                      ItemsSource="{x:Bind SelectedOrder.OrderItems, Mode=OneWay}"
+                      ItemsSource="{x:Bind ViewModel.SelectedOrder.OrderItems, Mode=OneWay}"
                             SelectionMode="None"
                             Name="OrderDetailProductItems"
                             IsItemClickEnabled="False"

@@ -25,12 +25,10 @@ namespace FlightAppEliasGryp.Views
     /// </summary>
     public sealed partial class MyOrdersPage : Page
     {
-        private Order _lastSelectedItem;
 
         public MyOrdersPage()
         {
             this.InitializeComponent();
-            ViewModel.LoadDataAsync();
         }
 
         private MyOrdersViewModel ViewModel
@@ -38,19 +36,21 @@ namespace FlightAppEliasGryp.Views
             get { return ViewModelLocator.Current.MyOrdersViewModel; }
         }
 
-        protected override void OnNavigatedTo(NavigationEventArgs e)
+        protected async override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
 
             if (e.Parameter != null)
             {
                 var order = (Order)e.Parameter;
-                _lastSelectedItem =
+                ViewModel.SelectedOrder =
                     ViewModel.MyOrders.Where((item) => item.Id == order.Id).FirstOrDefault();
             }
             else
             {
-                _lastSelectedItem = null;
+                await ViewModel.LoadDataAsync();
+                if (ViewModel.MyOrders != null)
+                ViewModel.SelectedOrder = ViewModel.MyOrders.FirstOrDefault();
             }
 
             UpdateForVisualState(AdaptiveStates.CurrentState);
@@ -60,13 +60,13 @@ namespace FlightAppEliasGryp.Views
 
             private void LayoutRoot_Loaded(object sender, RoutedEventArgs e)
         {
-            OrdersOverViewListView.SelectedItem = _lastSelectedItem;
+            OrdersOverViewListView.SelectedItem = ViewModel.SelectedOrder;
         }
 
         private void OrdersOverViewListView_ItemClick(object sender, ItemClickEventArgs e)
         {
             var clickedItem = (Order)e.ClickedItem;
-            _lastSelectedItem = clickedItem;
+            ViewModel.SelectedOrder = clickedItem;
 
             if (AdaptiveStates.CurrentState == NarrowState)
             {
@@ -87,9 +87,9 @@ namespace FlightAppEliasGryp.Views
         {
             var isNarrow = newState == NarrowState;
 
-            if (isNarrow && oldState == DefaultState && _lastSelectedItem != null)
+            if (isNarrow && oldState == DefaultState && ViewModel.SelectedOrder != null)
             {
-                Frame.Navigate(typeof(OrderDetailPage), _lastSelectedItem, new SuppressNavigationTransitionInfo());
+                Frame.Navigate(typeof(OrderDetailPage), ViewModel.SelectedOrder, new SuppressNavigationTransitionInfo());
             }
 
             EntranceNavigationTransitionInfo.SetIsTargetElement(OrdersOverViewListView, isNarrow);

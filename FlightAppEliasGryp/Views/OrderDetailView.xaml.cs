@@ -1,4 +1,5 @@
 ﻿using FlightAppEliasGryp.Models;
+using FlightAppEliasGryp.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -20,11 +21,14 @@ namespace FlightAppEliasGryp.Views
 {
     public sealed partial class OrderDetailView : UserControl
     {
+        private MyOrdersViewModel ViewModel
+        {
+            get { return ViewModelLocator.Current.MyOrdersViewModel; }
+        }
+
         public OrderDetailView()
         {
             this.InitializeComponent();
         }
-
-        
     }
 }

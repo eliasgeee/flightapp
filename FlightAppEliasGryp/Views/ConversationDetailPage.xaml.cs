@@ -26,7 +26,10 @@ namespace FlightAppEliasGryp.Views
     /// </summary>
     public sealed partial class ConversationDetailPage : Page
     {
-        public ConversationViewModel SelectedConversation { get; set; }
+        private ConversationsViewModel ViewModel
+        {
+            get { return ViewModelLocator.Current.ConversationsViewModel; }
+        }
 
         public ConversationDetailPage()
         {
@@ -37,7 +40,7 @@ namespace FlightAppEliasGryp.Views
         {
             base.OnNavigatedTo(e);
 
-            SelectedConversation = e.Parameter as ConversationViewModel;
+            ViewModel.SelectedConversation = e.Parameter as ConversationViewModel;
 
             ReplaceLastBackStackEntryParameter(e.Parameter);
 

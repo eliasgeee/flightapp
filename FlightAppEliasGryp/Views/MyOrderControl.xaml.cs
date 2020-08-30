@@ -1,4 +1,5 @@
 ﻿using FlightAppEliasGryp.Models;
+using FlightAppEliasGryp.ViewModels;
 using Microsoft.Toolkit.Uwp.Helpers;
 using System;
 using System.Collections.Generic;
@@ -22,24 +23,16 @@ namespace FlightAppEliasGryp.Views
 {
     public sealed partial class MyOrderControl : UserControl
     {
+        private MyOrdersViewModel ViewModel
+        {
+            get { return ViewModelLocator.Current.MyOrdersViewModel; }
+        }
         private PrintHelper _printHelper;
         private FrameworkElement panelToPrint;
 
-        public Order SelectedOrder {
-            get { return (Order)GetValue(OrderProperty); }
-            set
-            {
-                SetValue(OrderProperty, value);
-            }
-        }
-
-        public static readonly DependencyProperty OrderProperty =
-       DependencyProperty.Register("Order", typeof(Order), typeof(MyOrderControl), new PropertyMetadata(null));
-
-        public MyOrderControl(Order Order)
+        public MyOrderControl()
         {
             this.InitializeComponent();
-            SelectedOrder = Order;
         }
 
         private async void PrintButton_Click(object sender, RoutedEventArgs e)

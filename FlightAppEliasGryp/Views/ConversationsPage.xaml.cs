@@ -29,7 +29,6 @@ namespace FlightAppEliasGryp.Views
     /// </summary>
     public sealed partial class ConversationsPage : Page
     {
-        private ConversationViewModel _lastSelectedItem;
 
         private ConversationsViewModel ViewModel
         {
@@ -39,12 +38,6 @@ namespace FlightAppEliasGryp.Views
         public ConversationsPage()
         {
             this.InitializeComponent();
-            InitData();
-        }
-
-        private async void InitData()
-        {
-            await ViewModel.LoadDataAsync();
         }
 
         private async void HyperlinkButton_Click(object sender, RoutedEventArgs e)
@@ -64,19 +57,20 @@ namespace FlightAppEliasGryp.Views
             ViewModel.AppWindow = appWindow;
         }
 
-        protected override void OnNavigatedTo(NavigationEventArgs e)
+        protected async override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
 
             if (e.Parameter != null)
             {
                 var convo = (ConversationViewModel)e.Parameter;
-                _lastSelectedItem =
+                ViewModel.SelectedConversation =
                     ViewModel.Conversations.Where((item) => item.Conversation.Id == convo.Conversation.Id).FirstOrDefault();
             }
             else
             {
-                _lastSelectedItem = null;
+                await ViewModel.LoadDataAsync();
+                ViewModel.SelectedConversation = ViewModel.Conversations.FirstOrDefault();
             }
 
             UpdateForVisualState(AdaptiveStates.CurrentState);
@@ -86,13 +80,13 @@ namespace FlightAppEliasGryp.Views
 
         private void LayoutRoot_Loaded(object sender, RoutedEventArgs e)
         {
-            ConversationsOverViewListView.SelectedItem = _lastSelectedItem;
+            ConversationsOverViewListView.SelectedItem = ViewModel.SelectedConversation;
         }
 
         private void ConversationsOverViewListView_ItemClick(object sender, ItemClickEventArgs e)
         {
             var clickedItem = (ConversationViewModel)e.ClickedItem;
-            _lastSelectedItem = clickedItem;
+            ViewModel.SelectedConversation = clickedItem;
 
             if (AdaptiveStates.CurrentState == NarrowState)
             {
@@ -113,9 +107,9 @@ namespace FlightAppEliasGryp.Views
         {
             var isNarrow = newState == NarrowState;
 
-            if (isNarrow && oldState == DefaultState && _lastSelectedItem != null)
+            if (isNarrow && oldState == DefaultState && ViewModel.SelectedConversation != null)
             {
-                Frame.Navigate(typeof(OrderDetailPage), _lastSelectedItem, new SuppressNavigationTransitionInfo());
+                Frame.Navigate(typeof(ConversationDetailPage), ViewModel.SelectedConversation, new SuppressNavigationTransitionInfo());
             }
 
             EntranceNavigationTransitionInfo.SetIsTargetElement(ConversationsOverViewListView, isNarrow);

@@ -285,6 +285,9 @@
     <Compile Include="Views\ConversationDetailPage.xaml.cs">
       <DependentUpon>ConversationDetailPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\ConversationDetailView.xaml.cs">
+      <DependentUpon>ConversationDetailView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\ConversationsOverviewPage.xaml.cs">
       <DependentUpon>ConversationsOverviewPage.xaml</DependentUpon>
     </Compile>
@@ -446,6 +449,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ConversationDetailPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ConversationDetailView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

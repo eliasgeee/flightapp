@@ -12,7 +12,7 @@
     <StackPanel>
         <Button Content="Print" HorizontalAlignment="Right" x:Name="PrintButton" Click="PrintButton_Click"/>
         <Grid x:Name="Container">
-            <local:OrderDetailView Margin="24, 0, 24, 0" x:Name="RootPanel" x:DeferLoadStrategy="Lazy" SelectedOrder="{x:Bind SelectedOrder}" />
+            <local:OrderDetailView Margin="24, 0, 24, 0" x:Name="RootPanel"/>
         </Grid>
     </StackPanel>
 </UserControl>

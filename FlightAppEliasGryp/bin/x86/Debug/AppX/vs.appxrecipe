@@ -30,13 +30,13 @@
     <AppXManifest Include="C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2020-08-30T00:45:22.311</Modified>
+      <Modified>2020-08-30T01:50:59.861</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\bin\x86\Debug\FlightAppEliasGryp.exe">
       <PackagePath>entrypoint\FlightAppEliasGryp.exe</PackagePath>
-      <Modified>2020-08-30T00:45:20.650</Modified>
+      <Modified>2020-08-30T01:50:58.043</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Elias\.nuget\packages\colorcode.core\2.0.6\lib\netstandard1.4\ColorCode.Core.dll">
       <PackagePath>ColorCode.Core.dll</PackagePath>
@@ -196,7 +196,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp.Core\bin\Debug\netstandard2.0\FlightAppEliasGryp.Core.dll">
       <PackagePath>FlightAppEliasGryp.Core.dll</PackagePath>
-      <Modified>2020-08-29T22:49:08.658</Modified>
+      <Modified>2020-08-30T01:33:09.752</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Elias\.nuget\packages\robmikh.compositionsurfacefactory\0.7.3\lib\uap10.0\Robmikh.CompositionSurfaceFactory.winmd">
       <PackagePath>Robmikh.CompositionSurfaceFactory.winmd</PackagePath>
@@ -282,207 +282,211 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\bin\x86\Debug\FlightAppEliasGryp.xr.xml">
       <PackagePath>FlightAppEliasGryp.xr.xml</PackagePath>
-      <Modified>2020-08-29T22:51:04.882</Modified>
+      <Modified>2020-08-30T01:50:57.438</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\bin\x86\Debug\Microsoft.UI.Xaml\DensityStyles\Compact.xbf">
       <PackagePath>Microsoft.UI.Xaml\DensityStyles\Compact.xbf</PackagePath>
-      <Modified>2020-08-30T00:45:19.934</Modified>
+      <Modified>2020-08-30T01:50:57.545</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2020-08-30T00:45:19.935</Modified>
+      <Modified>2020-08-30T01:50:57.546</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\bin\x86\Debug\Styles\Button.xbf">
       <PackagePath>Styles\Button.xbf</PackagePath>
-      <Modified>2020-08-30T00:45:19.934</Modified>
+      <Modified>2020-08-30T01:50:57.545</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\bin\x86\Debug\Styles\Page.xbf">
       <PackagePath>Styles\Page.xbf</PackagePath>
-      <Modified>2020-08-30T00:45:19.935</Modified>
+      <Modified>2020-08-30T01:50:57.545</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\bin\x86\Debug\Styles\_Colors.xbf">
       <PackagePath>Styles\_Colors.xbf</PackagePath>
-      <Modified>2020-08-30T00:45:19.935</Modified>
+      <Modified>2020-08-30T01:50:57.545</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\bin\x86\Debug\Styles\_FontSizes.xbf">
       <PackagePath>Styles\_FontSizes.xbf</PackagePath>
-      <Modified>2020-08-30T00:45:19.935</Modified>
+      <Modified>2020-08-30T01:50:57.545</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\bin\x86\Debug\Styles\_Thickness.xbf">
       <PackagePath>Styles\_Thickness.xbf</PackagePath>
-      <Modified>2020-08-30T00:45:19.935</Modified>
+      <Modified>2020-08-30T01:50:57.545</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\bin\x86\Debug\Styles\TextBlock.xbf">
       <PackagePath>Styles\TextBlock.xbf</PackagePath>
-      <Modified>2020-08-30T00:45:19.935</Modified>
+      <Modified>2020-08-30T01:50:57.545</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\bin\x86\Debug\Views\AddConversationPage.xbf">
       <PackagePath>Views\AddConversationPage.xbf</PackagePath>
-      <Modified>2020-08-30T00:45:19.935</Modified>
+      <Modified>2020-08-30T01:50:57.546</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\bin\x86\Debug\Views\AddPromotionDialog.xbf">
       <PackagePath>Views\AddPromotionDialog.xbf</PackagePath>
-      <Modified>2020-08-30T00:45:19.936</Modified>
+      <Modified>2020-08-30T01:50:57.546</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\bin\x86\Debug\Views\AdminCatalogPage.xbf">
       <PackagePath>Views\AdminCatalogPage.xbf</PackagePath>
-      <Modified>2020-08-30T00:45:19.936</Modified>
+      <Modified>2020-08-30T01:50:57.546</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\bin\x86\Debug\Views\Catalog\Passenger\CatalogPage.xbf">
       <PackagePath>Views\Catalog\Passenger\CatalogPage.xbf</PackagePath>
-      <Modified>2020-08-30T00:45:19.936</Modified>
+      <Modified>2020-08-30T01:50:57.546</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\bin\x86\Debug\Views\ContinuationPage.xbf">
       <PackagePath>Views\ContinuationPage.xbf</PackagePath>
-      <Modified>2020-08-30T00:45:19.936</Modified>
+      <Modified>2020-08-30T01:50:57.546</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\bin\x86\Debug\Views\ConversationDetailPage.xbf">
       <PackagePath>Views\ConversationDetailPage.xbf</PackagePath>
-      <Modified>2020-08-30T00:45:19.936</Modified>
+      <Modified>2020-08-30T01:50:57.546</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\bin\x86\Debug\Views\ConversationDetailView.xbf">
+      <PackagePath>Views\ConversationDetailView.xbf</PackagePath>
+      <Modified>2020-08-30T01:50:57.546</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\bin\x86\Debug\Views\ConversationsOverviewPage.xbf">
       <PackagePath>Views\ConversationsOverviewPage.xbf</PackagePath>
-      <Modified>2020-08-30T00:45:19.936</Modified>
+      <Modified>2020-08-30T01:50:57.546</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\bin\x86\Debug\Views\ConversationsPage.xbf">
       <PackagePath>Views\ConversationsPage.xbf</PackagePath>
-      <Modified>2020-08-30T00:45:19.859</Modified>
+      <Modified>2020-08-30T01:50:57.546</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\bin\x86\Debug\Views\CrewMemberLogicControl.xbf">
       <PackagePath>Views\CrewMemberLogicControl.xbf</PackagePath>
-      <Modified>2020-08-30T00:45:19.936</Modified>
+      <Modified>2020-08-30T01:50:57.546</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\bin\x86\Debug\Views\Dashboard\CrewDashboardPage.xbf">
       <PackagePath>Views\Dashboard\CrewDashboardPage.xbf</PackagePath>
-      <Modified>2020-08-30T00:45:19.937</Modified>
+      <Modified>2020-08-30T01:50:57.547</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\bin\x86\Debug\Views\Dashboard\SendPassengerNotification.xbf">
       <PackagePath>Views\Dashboard\SendPassengerNotification.xbf</PackagePath>
-      <Modified>2020-08-30T00:45:19.937</Modified>
+      <Modified>2020-08-30T01:50:57.547</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\bin\x86\Debug\Views\DetailsPage.xbf">
       <PackagePath>Views\DetailsPage.xbf</PackagePath>
-      <Modified>2020-08-30T00:45:19.937</Modified>
+      <Modified>2020-08-30T01:50:57.547</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\bin\x86\Debug\Views\Entertainment\Audio\AudioFeedPage.xbf">
       <PackagePath>Views\Entertainment\Audio\AudioFeedPage.xbf</PackagePath>
-      <Modified>2020-08-30T00:45:19.866</Modified>
+      <Modified>2020-08-30T01:50:57.493</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\bin\x86\Debug\Views\Entertainment\MultimediaOverviewViewItem.xbf">
       <PackagePath>Views\Entertainment\MultimediaOverviewViewItem.xbf</PackagePath>
-      <Modified>2020-08-30T00:45:19.937</Modified>
+      <Modified>2020-08-30T01:50:57.547</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\bin\x86\Debug\Views\Entertainment\Video\SerieDetailPage.xbf">
       <PackagePath>Views\Entertainment\Video\SerieDetailPage.xbf</PackagePath>
-      <Modified>2020-08-30T00:45:19.937</Modified>
+      <Modified>2020-08-30T01:50:57.547</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\bin\x86\Debug\Views\Entertainment\Video\VideoCategoryControl.xbf">
       <PackagePath>Views\Entertainment\Video\VideoCategoryControl.xbf</PackagePath>
-      <Modified>2020-08-30T00:45:19.937</Modified>
+      <Modified>2020-08-30T01:50:57.547</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\bin\x86\Debug\Views\Entertainment\Video\VideoFeedPage.xbf">
       <PackagePath>Views\Entertainment\Video\VideoFeedPage.xbf</PackagePath>
-      <Modified>2020-08-30T00:45:19.937</Modified>
+      <Modified>2020-08-30T01:50:57.547</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\bin\x86\Debug\Views\Flight\AirportCard.xbf">
       <PackagePath>Views\Flight\AirportCard.xbf</PackagePath>
-      <Modified>2020-08-30T00:45:19.937</Modified>
+      <Modified>2020-08-30T01:50:57.547</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\bin\x86\Debug\Views\Flight\FlightDetailCard.xbf">
       <PackagePath>Views\Flight\FlightDetailCard.xbf</PackagePath>
-      <Modified>2020-08-30T00:45:19.938</Modified>
+      <Modified>2020-08-30T01:50:57.547</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\bin\x86\Debug\Views\Flight\FlightPage.xbf">
       <PackagePath>Views\Flight\FlightPage.xbf</PackagePath>
-      <Modified>2020-08-30T00:45:19.938</Modified>
+      <Modified>2020-08-30T01:50:57.547</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\bin\x86\Debug\Views\Flight\LocationCard.xbf">
       <PackagePath>Views\Flight\LocationCard.xbf</PackagePath>
-      <Modified>2020-08-30T00:45:19.938</Modified>
+      <Modified>2020-08-30T01:50:57.547</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\bin\x86\Debug\Views\Flight\Map\FlightMap.xbf">
       <PackagePath>Views\Flight\Map\FlightMap.xbf</PackagePath>
-      <Modified>2020-08-30T00:45:19.938</Modified>
+      <Modified>2020-08-30T01:50:57.547</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\bin\x86\Debug\Views\Flight\Map\FlightMarker.xbf">
       <PackagePath>Views\Flight\Map\FlightMarker.xbf</PackagePath>
-      <Modified>2020-08-30T00:45:19.939</Modified>
+      <Modified>2020-08-30T01:50:57.548</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\bin\x86\Debug\Views\Flight\Map\LocationMarker.xbf">
       <PackagePath>Views\Flight\Map\LocationMarker.xbf</PackagePath>
-      <Modified>2020-08-30T00:45:19.939</Modified>
+      <Modified>2020-08-30T01:50:57.548</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\bin\x86\Debug\Views\Flight\PlaneCard.xbf">
       <PackagePath>Views\Flight\PlaneCard.xbf</PackagePath>
-      <Modified>2020-08-30T00:45:19.940</Modified>
+      <Modified>2020-08-30T01:50:57.548</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\bin\x86\Debug\Views\Flight\WeatherForecastControl.xbf">
       <PackagePath>Views\Flight\WeatherForecastControl.xbf</PackagePath>
-      <Modified>2020-08-30T00:45:19.940</Modified>
+      <Modified>2020-08-30T01:50:57.548</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\bin\x86\Debug\Views\MainPage.xbf">
       <PackagePath>Views\MainPage.xbf</PackagePath>
-      <Modified>2020-08-30T00:45:19.940</Modified>
+      <Modified>2020-08-30T01:50:57.548</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\bin\x86\Debug\Views\Entertainment\MediaPlayerPage.xbf">
       <PackagePath>Views\Entertainment\MediaPlayerPage.xbf</PackagePath>
-      <Modified>2020-08-30T00:45:19.940</Modified>
+      <Modified>2020-08-30T01:50:57.548</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\bin\x86\Debug\Views\MessageItem.xbf">
       <PackagePath>Views\MessageItem.xbf</PackagePath>
-      <Modified>2020-08-30T00:45:19.941</Modified>
+      <Modified>2020-08-30T01:50:57.548</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\bin\x86\Debug\Views\MyOrderControl.xbf">
       <PackagePath>Views\MyOrderControl.xbf</PackagePath>
-      <Modified>2020-08-30T00:45:19.941</Modified>
+      <Modified>2020-08-30T01:50:57.548</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\bin\x86\Debug\Views\MyOrdersPage.xbf">
       <PackagePath>Views\MyOrdersPage.xbf</PackagePath>
-      <Modified>2020-08-30T00:45:19.895</Modified>
+      <Modified>2020-08-30T01:50:57.548</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\bin\x86\Debug\Views\OrderDetailPage.xbf">
       <PackagePath>Views\OrderDetailPage.xbf</PackagePath>
-      <Modified>2020-08-30T00:45:19.941</Modified>
+      <Modified>2020-08-30T01:50:57.548</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\bin\x86\Debug\Views\OrderDetailView.xbf">
       <PackagePath>Views\OrderDetailView.xbf</PackagePath>
-      <Modified>2020-08-30T00:45:19.900</Modified>
+      <Modified>2020-08-30T01:50:57.548</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\bin\x86\Debug\Views\OrdersManagementPage.xbf">
       <PackagePath>Views\OrdersManagementPage.xbf</PackagePath>
-      <Modified>2020-08-30T00:45:19.909</Modified>
+      <Modified>2020-08-30T01:50:57.525</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\bin\x86\Debug\Views\PassengerItem.xbf">
       <PackagePath>Views\PassengerItem.xbf</PackagePath>
-      <Modified>2020-08-30T00:45:19.942</Modified>
+      <Modified>2020-08-30T01:50:57.548</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\bin\x86\Debug\Views\PassengerLoginControl.xbf">
       <PackagePath>Views\PassengerLoginControl.xbf</PackagePath>
-      <Modified>2020-08-30T00:45:19.942</Modified>
+      <Modified>2020-08-30T01:50:57.549</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\bin\x86\Debug\Views\ProductDetailsPage.xbf">
       <PackagePath>Views\ProductDetailsPage.xbf</PackagePath>
-      <Modified>2020-08-30T00:45:19.918</Modified>
+      <Modified>2020-08-30T01:50:57.533</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\bin\x86\Debug\Views\SeatManagementPage.xbf">
       <PackagePath>Views\SeatManagementPage.xbf</PackagePath>
-      <Modified>2020-08-30T00:45:19.942</Modified>
+      <Modified>2020-08-30T01:50:57.549</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\bin\x86\Debug\Views\ShellPage.xbf">
       <PackagePath>Views\ShellPage.xbf</PackagePath>
-      <Modified>2020-08-30T00:45:19.926</Modified>
+      <Modified>2020-08-30T01:50:57.539</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\bin\x86\Debug\Views\ShoppingCartIcon.xbf">
       <PackagePath>Views\ShoppingCartIcon.xbf</PackagePath>
-      <Modified>2020-08-30T00:45:19.942</Modified>
+      <Modified>2020-08-30T01:50:57.549</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\bin\x86\Debug\Views\ShoppingCartPage.xbf">
       <PackagePath>Views\ShoppingCartPage.xbf</PackagePath>
-      <Modified>2020-08-30T00:45:19.943</Modified>
+      <Modified>2020-08-30T01:50:57.549</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\bin\x86\Debug\Views\TravelGroupConvoPage.xbf">
       <PackagePath>Views\TravelGroupConvoPage.xbf</PackagePath>
-      <Modified>2020-08-30T00:45:19.943</Modified>
+      <Modified>2020-08-30T01:50:57.549</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.UniversalCRT.Debug\10.0.18362.0\\redist\Debug\x86\ucrtbased.dll">
       <PackagePath>ucrtbased.dll</PackagePath>
@@ -642,11 +646,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2020-08-29T22:49:50.924</Modified>
+      <Modified>2020-08-30T01:50:58.313</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\bin\x86\Debug\Core\FlightAppEliasGryp.exe">
       <PackagePath>FlightAppEliasGryp.exe</PackagePath>
-      <Modified>2020-08-30T00:45:22.304</Modified>
+      <Modified>2020-08-30T01:50:59.856</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

@@ -15,7 +15,7 @@
                 <TextBlock x:ConnectionId='21'
                     Style="{ThemeResource TitleTextBlockStyle}"
                     HorizontalAlignment="Left"
-                                                              />
+                                                                                     />
             </StackPanel>
             <Grid
                     Margin="0,24"
@@ -44,48 +44,43 @@
                     Style="{ThemeResource ListTitleStyle}"
                     Text="Order Time"
                     Grid.Column="1"
-                    Margin="8,0,0,0"
                         Grid.Row="0"/>
                 <TextBlock
                     HorizontalAlignment="Left"
                     Style="{ThemeResource ListTitleStyle}"
                     Text="Order Total"
                     Grid.Column="2"
-                    Margin="8,0,0,0"
                         Grid.Row="0"/>
                 <TextBlock
                     HorizontalAlignment="Left"
                     Style="{ThemeResource ListTitleStyle}"
                     Text="Order Quantity"
                     Grid.Column="3"
-                    Margin="8,0,0,0"
                         Grid.Row="0"/>
                 <TextBlock
                     HorizontalAlignment="Left"
                     Style="{ThemeResource ListTitleStyle}"
                     Text="Payment Type"
                     Grid.Column="4"
-                    Margin="8,0,0,0"
                         Grid.Row="0"/>
                 <TextBlock
                     HorizontalAlignment="Left"
                     Style="{ThemeResource ListTitleStyle}"
                     Text="Total Paid"
                     Grid.Column="5"
-                    Margin="8,0,0,0"
                         Grid.Row="0"/>
-                <TextBlock x:ConnectionId='15' HorizontalAlignment="Left" Style="{ThemeResource BodyTextStyle}"                                                      
+                <TextBlock x:ConnectionId='15' HorizontalAlignment="Left" Style="{ThemeResource BodyTextStyle}"                                                                             
                                Grid.Row="1" Grid.Column="0"/>
-                <TextBlock x:ConnectionId='16' HorizontalAlignment="Left" Style="{ThemeResource BodyTextStyle}"                                                           
-                               Grid.Row="1" Grid.Column="1" Margin="8,0,0,0"/>
-                <TextBlock x:ConnectionId='17' HorizontalAlignment="Left" Style="{ThemeResource BodyTextStyle}"                                         
-                               Grid.Row="1" Grid.Column="2" Margin="8,0,0,0"/>
-                <TextBlock x:ConnectionId='18' HorizontalAlignment="Left" Style="{ThemeResource BodyTextStyle}"                                                 
-                               Grid.Row="1" Grid.Column="3" Margin="8,0,0,0"/>
-                <TextBlock x:ConnectionId='19' HorizontalAlignment="Left" Style="{ThemeResource BodyTextStyle}"                                          
-                               Grid.Row="1" Grid.Column="4" Margin="8,0,0,0"/>
-                <TextBlock x:ConnectionId='20' HorizontalAlignment="Left" Style="{ThemeResource BodyTextStyle}"                                                
-                               Grid.Row="1" Grid.Column="5" Margin="8,0,0,0"/>
+                <TextBlock x:ConnectionId='16' HorizontalAlignment="Left" Style="{ThemeResource BodyTextStyle}"                                                                                  
+                               Grid.Row="1" Grid.Column="1"/>
+                <TextBlock x:ConnectionId='17' HorizontalAlignment="Left" Style="{ThemeResource BodyTextStyle}"                                                                
+                               Grid.Row="1" Grid.Column="2"/>
+                <TextBlock x:ConnectionId='18' HorizontalAlignment="Left" Style="{ThemeResource BodyTextStyle}"                                                                        
+                               Grid.Row="1" Grid.Column="3"/>
+                <TextBlock x:ConnectionId='19' HorizontalAlignment="Left" Style="{ThemeResource BodyTextStyle}"                                                                 
+                               Grid.Row="1" Grid.Column="4"/>
+                <TextBlock x:ConnectionId='20' HorizontalAlignment="Left" Style="{ThemeResource BodyTextStyle}"                                                                       
+                               Grid.Row="1" Grid.Column="5"/>
 
             </Grid>
             <Grid Margin="0,24,0,0">
@@ -128,7 +123,7 @@
                     Grid.Column="3"
                                 Grid.Row="1"/>
                 <ListView x:ConnectionId='3' 
-                                                                                  
+                                                                                            
                             SelectionMode="None"
                             Name="OrderDetailProductItems"
                             IsItemClickEnabled="False"

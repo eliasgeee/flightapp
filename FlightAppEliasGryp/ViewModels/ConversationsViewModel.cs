@@ -23,6 +23,10 @@ namespace FlightAppEliasGryp.ViewModels
         private IConversationService _conversationService { get; set; }
         public NavigationServiceEx NavigationService => ViewModelLocator.Current.NavigationService;
 
+        private ConversationViewModel _selectedConversation;
+        public ConversationViewModel SelectedConversation { get { return _selectedConversation; }
+            set { Set("SelectedConversation", ref _selectedConversation, value); } }
+
         public ICommand ItemClickCommand => new RelayCommand(LoadConversationPartners);
 
         public ConversationsViewModel(IFlightService flightDataService, IConversationService conversationService)

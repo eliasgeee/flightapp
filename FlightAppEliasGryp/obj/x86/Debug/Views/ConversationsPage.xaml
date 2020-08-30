@@ -17,7 +17,7 @@
 
     <Page.Resources>
         <DataTemplate x:Key="ConversationsOverviewTemplate"                                              >
-            <Grid x:ConnectionId='13' Margin="0,11,0,13">
+            <Grid x:ConnectionId='5' Margin="0,11,0,13">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
@@ -34,69 +34,29 @@
                             <ColumnDefinition />
                             <ColumnDefinition />
                         </Grid.ColumnDefinitions>
-                        <TextBlock x:ConnectionId='15'                                                            FontSize="14" FontWeight="SemiBold" Style="{ThemeResource ListTitleStyle}" Grid.Column="0"/>
-                        <TextBlock x:ConnectionId='16'                                                     HorizontalAlignment="Right" Margin="8, 0, 0, 8" Grid.Column="1"/>
+                        <TextBlock x:ConnectionId='7'                                                            FontSize="14" FontWeight="SemiBold" Style="{ThemeResource ListTitleStyle}" Grid.Column="0"/>
+                        <TextBlock x:ConnectionId='8'                                                     HorizontalAlignment="Right" Margin="8, 0, 0, 8" Grid.Column="1"/>
                     </Grid>
-                    <TextBlock x:ConnectionId='14'                                                 Style="{ThemeResource BodyTextStyle}"/>
+                    <TextBlock x:ConnectionId='6'                                                 Style="{ThemeResource BodyTextStyle}"/>
                 </StackPanel>
             </Grid>
         </DataTemplate>
 
         <DataTemplate x:Key="ConversationDetailContentTemplate"                                              >
-            <Grid x:ConnectionId='3' Margin="24, 24, 24, 24">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="Auto"/>
-                </Grid.RowDefinitions>
-                <StackPanel Grid.Row="0">
-                    <TextBlock x:ConnectionId='11'                                                           
-                               Style="{StaticResource PageTitleStyle}"/>
-                </StackPanel>
-                <ScrollViewer Grid.Row="1">
-                    <ListView x:ConnectionId='6'
-                                                                                 
-                        IsItemClickEnabled="False" IsTapEnabled="False">
-                        <ListView.ItemTemplate>
-                            <DataTemplate
-                                                               >
-                                <Grid x:ConnectionId='8'>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition />
-                                        <ColumnDefinition />
-                                    </Grid.ColumnDefinitions>
-                                    <StackPanel Grid.Column="0">
-                                        <TextBlock x:ConnectionId='9'                           />
-                                        <TextBlock x:ConnectionId='10'                                    FontStyle="Italic" FontSize="12"/>
-                                    </StackPanel>
-                                </Grid>
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>
-                </ScrollViewer>
-                <Grid Grid.Row="2">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="Auto"/>
-                    </Grid.ColumnDefinitions>
-                    <TextBox x:ConnectionId='4' x:Name="MessageTxt" Grid.Column="0" Margin="0, 0, 24, 0"                                        />
-                    <Button x:ConnectionId='5' Content="Send" Grid.Column="1"
-                                                                   />
-                </Grid>
-            </Grid>
+            <local:ConversationDetailView />
         </DataTemplate>
     </Page.Resources>
 
-    <Grid x:ConnectionId='17' x:Name="LayoutRoot"                           >
+    <Grid x:ConnectionId='9' x:Name="LayoutRoot"                           >
         <VisualStateManager.VisualStateGroups>
-            <VisualStateGroup x:ConnectionId='18' x:Name="AdaptiveStates"                                                         >
-                <VisualState x:ConnectionId='19' x:Name="DefaultState">
+            <VisualStateGroup x:ConnectionId='10' x:Name="AdaptiveStates"                                                         >
+                <VisualState x:ConnectionId='11' x:Name="DefaultState">
                     <VisualState.StateTriggers>
                         <AdaptiveTrigger MinWindowWidth="720" />
                     </VisualState.StateTriggers>
                 </VisualState>
 
-                <VisualState x:ConnectionId='20' x:Name="NarrowState">
+                <VisualState x:ConnectionId='12' x:Name="NarrowState">
                     <VisualState.StateTriggers>
                         <AdaptiveTrigger MinWindowWidth="0" />
                     </VisualState.StateTriggers>
@@ -116,8 +76,8 @@
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition x:ConnectionId='21' x:Name="OverviewColumn" Width="320" />
-            <ColumnDefinition x:ConnectionId='22' x:Name="DetailColumn" Width="*" />
+            <ColumnDefinition x:ConnectionId='13' x:Name="OverviewColumn" Width="320" />
+            <ColumnDefinition x:ConnectionId='14' x:Name="DetailColumn" Width="*" />
         </Grid.ColumnDefinitions>
 
         <Grid Margin="12,8,8,8" BorderBrush="LightGray" BorderThickness="0, 0, 0, 1">
@@ -131,7 +91,7 @@
                 Grid.Column="0"
             Style="{ThemeResource TitleTextBlockStyle}" />
 
-            <HyperlinkButton x:ConnectionId='25'
+            <HyperlinkButton x:ConnectionId='17'
             Content="+"
             FontSize="32"
             VerticalAlignment="Bottom"
@@ -141,7 +101,7 @@
             />
         </Grid>
     
-        <ListView x:ConnectionId='23'
+        <ListView x:ConnectionId='15'
             x:Name="ConversationsOverViewListView"
             Grid.Row="1"
             ItemContainerTransitions="{x:Null}"
@@ -156,7 +116,7 @@
             </ListView.ItemContainerStyle>
         </ListView>
 
-        <ContentPresenter x:ConnectionId='24'
+        <ContentPresenter x:ConnectionId='16'
             x:Name="DetailContentPresenter"
             Grid.Column="1"
             Grid.RowSpan="2"

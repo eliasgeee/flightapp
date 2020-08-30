@@ -256,6 +256,9 @@
     <AppxPackagedFile Include="C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\bin\x86\Debug\Views\ConversationDetailPage.xbf">
       <PackagePath>Views\ConversationDetailPage.xbf</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\bin\x86\Debug\Views\ConversationDetailView.xbf">
+      <PackagePath>Views\ConversationDetailView.xbf</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\bin\x86\Debug\Views\ConversationsOverviewPage.xbf">
       <PackagePath>Views\ConversationsOverviewPage.xbf</PackagePath>
     </AppxPackagedFile>

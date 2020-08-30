@@ -43,47 +43,7 @@
         </DataTemplate>
 
         <DataTemplate x:Key="ConversationDetailContentTemplate" x:DataType="viewmodels:ConversationViewModel">
-            <Grid Margin="24, 24, 24, 24">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="Auto"/>
-                </Grid.RowDefinitions>
-                <StackPanel Grid.Row="0">
-                    <TextBlock Text="{x:Bind Conversation.GetNamesUsersInConversation()}"
-                               Style="{StaticResource PageTitleStyle}"/>
-                </StackPanel>
-                <ScrollViewer Grid.Row="1">
-                    <ListView
-                        ItemsSource="{x:Bind Conversation.Messages, Mode=OneWay}"
-                        IsItemClickEnabled="False" IsTapEnabled="False">
-                        <ListView.ItemTemplate>
-                            <DataTemplate
-                                    x:DataType="models:Message">
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition />
-                                        <ColumnDefinition />
-                                    </Grid.ColumnDefinitions>
-                                    <StackPanel Grid.Column="0">
-                                        <TextBlock Text="{x:Bind ToString()}"/>
-                                        <TextBlock Text="{x:Bind GetFormattedTime()}" FontStyle="Italic" FontSize="12"/>
-                                    </StackPanel>
-                                </Grid>
-                            </DataTemplate>
-                        </ListView.ItemTemplate>
-                    </ListView>
-                </ScrollViewer>
-                <Grid Grid.Row="2">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="Auto"/>
-                    </Grid.ColumnDefinitions>
-                    <TextBox x:Name="MessageTxt" Grid.Column="0" Margin="0, 0, 24, 0" Text="{x:Bind NewMessage, Mode=TwoWay}"/>
-                    <Button Content="Send" Grid.Column="1"
-                            Command="{x:Bind AddNewMessageCommand}"/>
-                </Grid>
-            </Grid>
+            <local:ConversationDetailView />
         </DataTemplate>
     </Page.Resources>
 

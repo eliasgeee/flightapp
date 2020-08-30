@@ -40,8 +40,6 @@ namespace FlightAppEliasGryp.Views
 
             SelectedOrder = e.Parameter as Order;
 
-            RootGrid.Children.Add(new MyOrderControl(SelectedOrder));
-
             ReplaceLastBackStackEntryParameter(e.Parameter);
         }
 

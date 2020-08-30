@@ -14,7 +14,5 @@
             <NavigationThemeTransition />
         </TransitionCollection>
     </Page.Transitions>
-    <Grid x:Name="RootGrid">
-
-    </Grid>
+    <local:MyOrderControl />
 </Page>

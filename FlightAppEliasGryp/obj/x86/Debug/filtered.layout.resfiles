@@ -21,6 +21,7 @@ Views\AdminCatalogPage.xbf
 Views\Catalog\Passenger\CatalogPage.xbf
 Views\ContinuationPage.xbf
 Views\ConversationDetailPage.xbf
+Views\ConversationDetailView.xbf
 Views\ConversationsOverviewPage.xbf
 Views\ConversationsPage.xbf
 Views\CrewMemberLogicControl.xbf

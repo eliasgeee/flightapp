@@ -16,7 +16,9 @@ namespace FlightAppEliasGryp.ViewModels
         public ICollection<Order> MyOrders { get; set; }
         private IOrderDataService _orderDataService { get; set; }
         public NavigationServiceEx NavigationService => ViewModelLocator.Current.NavigationService;
-        public Order SelectedOrder { get; set; }
+
+        private Order _selectedOrder;
+        public Order SelectedOrder { get { return _selectedOrder; } set { Set("SelectedOrder", ref _selectedOrder, value); } }
 
         public MyOrdersViewModel(IOrderDataService orderDataService)
         {
@@ -24,7 +26,7 @@ namespace FlightAppEliasGryp.ViewModels
             MyOrders = new ObservableCollection<Order>();
         }
 
-        public async void LoadDataAsync()
+        public async Task LoadDataAsync()
         {
             MyOrders = new ObservableCollection<Order>();
             MyOrders.Clear();

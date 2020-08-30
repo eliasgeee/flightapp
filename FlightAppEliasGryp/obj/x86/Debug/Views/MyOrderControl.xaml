@@ -1,4 +1,4 @@
-﻿<UserControl x:ConnectionId='1'
+﻿<UserControl
     x:Class="FlightAppEliasGryp.Views.MyOrderControl"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -12,7 +12,7 @@
     <StackPanel>
         <Button x:ConnectionId='2' Content="Print" HorizontalAlignment="Right" x:Name="PrintButton"                          />
         <Grid x:ConnectionId='3' x:Name="Container">
-            <local:OrderDetailView x:ConnectionId='4' Margin="24, 0, 24, 0" x:Name="RootPanel" x:DeferLoadStrategy="Lazy"                                        />
+            <local:OrderDetailView x:ConnectionId='4' Margin="24, 0, 24, 0" x:Name="RootPanel"/>
         </Grid>
     </StackPanel>
 </UserControl>
