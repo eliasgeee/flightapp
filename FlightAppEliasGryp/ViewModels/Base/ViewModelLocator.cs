@@ -60,6 +60,7 @@ namespace FlightAppEliasGryp.ViewModels
             SimpleIoc.Default.Register<WeatherForecastViewModel>();
             SimpleIoc.Default.Register<AddConversationViewModel>();
             SimpleIoc.Default.Register<FlightDetailViewModel>();
+            SimpleIoc.Default.Register<AddNewMessageViewModel>();
         }
 
         public CatalogViewModel CatalogViewModel => SimpleIoc.Default.GetInstance<CatalogViewModel>();
@@ -89,6 +90,7 @@ namespace FlightAppEliasGryp.ViewModels
         public CrewDashboardViewModel CrewDashboardViewModel => SimpleIoc.Default.GetInstance<CrewDashboardViewModel>();
         public AddConversationViewModel AddConversationViewModel => SimpleIoc.Default.GetInstance<AddConversationViewModel>();
         public FlightDetailViewModel FlightDetailViewModel => SimpleIoc.Default.GetInstance<FlightDetailViewModel>();
+        public AddNewMessageViewModel AddNewMessageViewModel => SimpleIoc.Default.GetInstance<AddNewMessageViewModel>();
 
         public IWeatherDataService WeatherDataService => SimpleIoc.Default.GetInstance<IWeatherDataService>();
         public IConversationService ConversationService => SimpleIoc.Default.GetInstance<IConversationService>();

@@ -24,7 +24,6 @@ namespace FlightAppEliasGryp.ViewModels
         {
             _catalogDataService = catalogDataService;
             products = new ObservableCollection<Product>();
-            LoadDataAsync();
         }
 
         public async void LoadDataAsync()

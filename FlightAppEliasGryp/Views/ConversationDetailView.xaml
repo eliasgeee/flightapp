@@ -41,14 +41,6 @@
                 </ListView.ItemTemplate>
             </ListView>
         </ScrollViewer>
-        <Grid Grid.Row="2">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="Auto"/>
-            </Grid.ColumnDefinitions>
-            <TextBox x:Name="MessageTxt" Grid.Column="0" Margin="0, 0, 24, 0" Text="{x:Bind ViewModel.SelectedConversation.NewMessage, Mode=TwoWay}"/>
-            <Button Content="Send" Grid.Column="1"
-                            Command="{x:Bind ViewModel.SelectedConversation.AddNewMessageCommand}"/>
-        </Grid>
+        <local:AddNewMessageCard Grid.Row="2"/>
     </Grid>
 </UserControl>

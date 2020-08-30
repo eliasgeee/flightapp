@@ -59,6 +59,7 @@ namespace FlightAppEliasGryp.Views.Map
                     Longitude = ViewModel.Flight.Locations.ElementAt(i).Longitude
                 });
             }
+           
             var mapPolyline = new MapPolyline
             {
                 Path = new Geopath(geopositions),

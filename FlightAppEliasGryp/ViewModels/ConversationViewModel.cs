@@ -20,19 +20,9 @@ namespace FlightAppEliasGryp.ViewModels
         public Conversation Conversation { get { return _conversation; }
             set { Set("Conversation", ref _conversation, value);  } }
 
-        private string _newMessage;
-        public string NewMessage { get { return _newMessage; } set { Set("NewMessage", ref _newMessage, value); } }
-
-        public ICommand AddNewMessageCommand => new RelayCommand(AddNewMessage);
-
         public ConversationViewModel(Conversation conversation)
         {
             Conversation = conversation;
-        }
-
-        public async void AddNewMessage()
-        {
-            await _conversationService.SendMessage(Conversation, NewMessage);
         }
     }
 }

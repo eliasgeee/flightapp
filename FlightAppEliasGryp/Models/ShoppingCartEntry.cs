@@ -30,10 +30,7 @@ namespace FlightAppEliasGryp.Models
 
         public string GetTotalCost()
         {
-            if (ReducedAmount == 0)
-                return PriceBeforePromotions.ToString();
-            else
-                return "";
+            return PriceBeforePromotions.ToString();
         }
     }
 }

@@ -121,6 +121,9 @@
     <AppxPackagedFile Include="C:\Users\Elias\.nuget\packages\newtonsoft.json\10.0.3\lib\netstandard1.3\Newtonsoft.Json.dll">
       <PackagePath>Newtonsoft.Json.dll</PackagePath>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Elias\.nuget\packages\prism.core\7.2.0.1422\lib\netstandard2.0\Prism.dll">
+      <PackagePath>Prism.dll</PackagePath>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Elias\.nuget\packages\robmikh.compositionsurfacefactory\0.7.3\runtimes\win10-x86\native\Robmikh.CompositionSurfaceFactory.dll">
       <PackagePath>Robmikh.CompositionSurfaceFactory.dll</PackagePath>
     </AppxPackagedFile>
@@ -240,6 +243,9 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\bin\x86\Debug\Views\AddConversationPage.xbf">
       <PackagePath>Views\AddConversationPage.xbf</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\bin\x86\Debug\Views\AddNewMessageCard.xbf">
+      <PackagePath>Views\AddNewMessageCard.xbf</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Elias\source\repos\FlightAppEliasGryp\FlightAppEliasGryp\bin\x86\Debug\Views\AddPromotionDialog.xbf">
       <PackagePath>Views\AddPromotionDialog.xbf</PackagePath>

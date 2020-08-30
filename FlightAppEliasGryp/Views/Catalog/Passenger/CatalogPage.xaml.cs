@@ -26,21 +26,10 @@ namespace FlightAppEliasGryp.Views
 //            await ViewModel.LoadDataAsync();
         }
 
-        private async void AddToShoppingCart(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        private void AddToShoppingCart(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
             Product clickedProduct = ((Button)sender).DataContext as Product;
             ViewModel.AddProductToShoppingCart(clickedProduct);
-           // ViewModel.addBestelling(clickedProduct);
-            ContentDialog dialog = new ContentDialog()
-            {
-                Title = "Added to shopping cart",
-                Content = new TextBlock()
-                {
-                    Text = "You've added " + clickedProduct.Name + " successfully to your shopping cart"
-                },
-                CloseButtonText = "OK"
-            };
-            await dialog.ShowAsync();
         }
 
         private void AdaptiveGridView_SelectionChanged(object sender, SelectionChangedEventArgs e)

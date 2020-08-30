@@ -4,6 +4,7 @@ using FlightAppEliasGryp.Models;
 using FlightAppEliasGryp.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
@@ -39,8 +40,6 @@ namespace FlightAppEliasGryp.Views
             ViewModel.Product = product;
             ViewModel.ClearPromotions();
             createPromotions(product.Promotions);
-
-            //            await ViewModel.LoadDataAsync();
         }
 
         private void createPromotions(List<Promotion> promotions)
@@ -56,17 +55,32 @@ namespace FlightAppEliasGryp.Views
             var promotion = toggleSwitch.Tag as Promotion;
         }
 
-        private void ButtonDelete_Click(object sender, RoutedEventArgs e)
+        private async void ButtonDelete_Click(object sender, RoutedEventArgs e)
         {
-            ViewModel.DeleteProduct();
+            ContentDialog dialog = new ContentDialog()
+            {
+                Title = "Delete product",
+                Content = new TextBlock()
+                {
+                    Text = "Do you want to delete this product?"
+                },
+                CloseButtonText = "Cancel",
+                PrimaryButtonText = "Yes"
+            };
+            ContentDialogResult result = await dialog.ShowAsync();
+
+            if (result == ContentDialogResult.Primary)
+                ViewModel.DeleteProduct();
         }
 
         private void ButtonCancel_Click(object sender, RoutedEventArgs e)
         {
             PromotionItems.Items.Clear();
 
-            ViewModel.Promotions.ForEach(prom =>
-               PromotionItems.Items.Add(prom));
+            foreach(var prom in ViewModel.Promotions)
+            {
+                PromotionItems.Items.Add(prom);
+            }
 
             ProductName.Text = ViewModel.Product.Name;
             ProductCat.SelectedItem = ProdTypeConverter.ConvertFromType(ViewModel.Product.Type);
@@ -157,6 +171,40 @@ namespace FlightAppEliasGryp.Views
         {
             AddPromotionDialog addPromotionDialog = new AddPromotionDialog(ViewModel.Product);
             ContentDialogResult result = await addPromotionDialog.ShowAsync();
+        }
+
+        private void ProductStock_BeforeTextChanging(TextBox sender, TextBoxBeforeTextChangingEventArgs args)
+        {
+            args.Cancel = args.NewText.Any(c => !char.IsDigit(c));
+        }
+
+        private void ProductPrice_BeforeTextChanging(TextBox sender, TextBoxBeforeTextChangingEventArgs args)
+        {
+            args.Cancel = args.NewText.Any(c => !(c.Equals('.') || c.Equals(',') || char.IsDigit(c)));
+        }
+
+        private void ProductName_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            var textbox = sender as TextBox;
+            ViewModel.NewName = textbox.Text;
+        }
+
+        private void ProductStock_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            var textbox = sender as TextBox;
+            ViewModel.NewStock = int.Parse(textbox.Text);
+        }
+
+        private void ProductPrice_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            var textbox = sender as TextBox;
+            ViewModel.NewPrice = textbox.Text;
+        }
+
+        protected override void OnNavigatingFrom(NavigatingCancelEventArgs e)
+        {
+            base.OnNavigatingFrom(e);
+            ViewModel.PriceErrorMsg = "";
         }
     }
 }

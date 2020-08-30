@@ -18,9 +18,9 @@
         </Grid.RowDefinitions>
 
         <CommandBar x:ConnectionId='2' x:Name="commandBar" Height="36" DefaultLabelPosition="Right" Background="Transparent" Grid.Row="0" Margin="0, 0, 48, 0">
-            <AppBarButton x:ConnectionId='29' x:Name="buttonDelete" Icon="Delete" Label="Delete" LabelPosition="Default" HorizontalAlignment="Left" Tag="delete"                           />
-            <AppBarButton x:ConnectionId='30' x:Name="buttonCancel" Icon="Cancel" Label="Cancel" LabelPosition="Default" HorizontalAlignment="Left" Tag="cancel"                           />
-            <AppBarButton x:ConnectionId='31' x:Name="buttonSave" Icon="Save" Label="Save" LabelPosition="Default" HorizontalAlignment="Left" Tag="save"                         />
+            <AppBarButton x:ConnectionId='28' x:Name="buttonDelete" Icon="Delete" Label="Delete" LabelPosition="Default" HorizontalAlignment="Left" Tag="delete"                           />
+            <AppBarButton x:ConnectionId='29' x:Name="buttonCancel" Icon="Cancel" Label="Cancel" LabelPosition="Default" HorizontalAlignment="Left" Tag="cancel"                           />
+            <AppBarButton x:ConnectionId='30' x:Name="buttonSave" Icon="Save" Label="Save" LabelPosition="Default" HorizontalAlignment="Left" Tag="save"                                                />
         </CommandBar>
 
         <ScrollViewer
@@ -48,27 +48,27 @@
                     <StackPanel Margin="0,12">
                         <Grid  Margin="6" Height="180">
                             <Grid Background="LightGray">
-                                <Image x:ConnectionId='28'                                                
+                                <Image x:ConnectionId='27'                                                
                            Stretch="UniformToFill" 
                            HorizontalAlignment="Center" 
                            VerticalAlignment="Center" />
                             </Grid>
                         </Grid>
                     </StackPanel>
-                    <TextBlock x:ConnectionId='23' FontSize="16" FontWeight="Bold"                                       
+                    <TextBlock x:ConnectionId='22' FontSize="16" FontWeight="Bold"                                       
                            TextAlignment="Center"/>
 
                     <TextBlock Text="Category" FontSize="12" Margin="0, 12, 0, 0"/>
-                    <TextBlock x:ConnectionId='24'                                        FontWeight="SemiBold"/>
+                    <TextBlock x:ConnectionId='23'                                        FontWeight="SemiBold"/>
 
                     <TextBlock Text="Price" FontSize="12" Margin="0, 12, 0, 0"/>
-                    <TextBlock x:ConnectionId='25'                                         FontWeight="SemiBold"/>
+                    <TextBlock x:ConnectionId='24'                                         FontWeight="SemiBold"/>
 
                     <TextBlock Text="Reduced price" FontSize="12" Margin="0, 12, 0, 0"/>
-                    <TextBlock x:ConnectionId='26'                                                     FontWeight="SemiBold"/>
+                    <TextBlock x:ConnectionId='25'                                                     FontWeight="SemiBold"/>
 
                     <TextBlock Text="Stock" FontSize="12" Margin="0, 12, 0, 0"/>
-                    <TextBlock x:ConnectionId='27'                                         FontWeight="SemiBold"/>
+                    <TextBlock x:ConnectionId='26'                                         FontWeight="SemiBold"/>
                 </StackPanel>
 
             </Grid>
@@ -85,18 +85,27 @@
                         </Grid.RowDefinitions>
 
                         <StackPanel Grid.Column="0" Margin="30" Grid.Row="0">
-                                <TextBox x:ConnectionId='19' Header="Name"                                        Margin="0, 12, 0, 0" Name="ProductName"/>
-                            <ComboBox x:ConnectionId='20' Header="Category"                                     Margin="0, 12, 0, 0"
-                                                                                                                                 
+                                <StackPanel  Margin="0, 12, 0, 0">
+                                    <TextBox x:ConnectionId='20' Header="Name"                                                           
+                                             Name="ProductName"                                      />
+                                    <TextBlock x:ConnectionId='21' x:Name="ProductNameErrorMsg" Foreground="Red"                                                            TextWrapping="Wrap"/>
+                                </StackPanel>
+                                <ComboBox x:ConnectionId='15' Header="Category"                                     Margin="0, 12, 0, 0"
+                                                                                                                                                     
                                       Name="ProductCat"/>
-                            <TextBox x:ConnectionId='21' Header="Stock"                                        
-                                     InputScope="Number"
-                                     Margin="0, 12, 0, 0"
-                                     Name="ProductPrice"/>
-                            <TextBox x:ConnectionId='22' Header="Price"                                         Margin="0, 12, 0, 0"
-                                     InputScope="CurrencyAmount"
-                                     Name="ProductStock"/>
-                        </StackPanel>
+                                <StackPanel Margin="0, 12, 0, 0">
+                                    <TextBox x:ConnectionId='18' Header="Stock"                                                            
+                                     InputScope="Number"                                       
+                                     Name="ProductStock"                                                     />
+                                    <TextBlock x:ConnectionId='19' x:Name="StockErrorMsg" Foreground="Red"                                                      TextWrapping="Wrap"/>
+                                </StackPanel>
+                                <StackPanel Margin="0, 12, 0, 0">
+                                    <TextBox x:ConnectionId='16' Header="Price"                                                            
+                                     InputScope="CurrencyAmount"                                       
+                                     Name="ProductPrice"                                                     />
+                                    <TextBlock x:ConnectionId='17' x:Name="PriceErrorMsg" Foreground="Red"                                                      TextWrapping="Wrap"/>
+                                </StackPanel>
+                            </StackPanel>
                     </Grid>
                 </Grid>
 
@@ -132,12 +141,12 @@
                             Margin="0,48,0,24"
                             Orientation="Horizontal"
                             >
-                            <TextBlock x:ConnectionId='17'
-                                                                                  
+                            <TextBlock x:ConnectionId='13'
+                                                                                
                     FontSize="25"
                     FontWeight="SemiBold"
                     />
-                            <Button x:ConnectionId='18'
+                            <Button x:ConnectionId='14'
                                 Margin="8,0,0,0"
                             Content="Add new"
                                                          
@@ -230,20 +239,18 @@
                                                                                      
                                             FontSize="16"
                                         />
-                                        <TextBox x:ConnectionId='7'
+                                        <TextBlock x:ConnectionId='7'
                                             Grid.Column="1"
                                             VerticalAlignment="Center"
                                             HorizontalAlignment="Left"
                                                                                          
-                                                                                    
                                                                     
                                             Width="70"/>
-                                        <TextBox x:ConnectionId='8'
+                                        <TextBlock x:ConnectionId='8'
                                             Grid.Column="2"
                                             VerticalAlignment="Center"
                                             HorizontalAlignment="Left"
                                             MinWidth="0"
-                                                                                    
                                                                                  
                                                                     
                                             Width="70"/>
@@ -257,64 +264,62 @@
                                             <StackPanel
                                         Orientation="Horizontal"
                                         Grid.Column="4">
-                                                <CalendarDatePicker x:ConnectionId='14'
+                                                <TextBlock x:ConnectionId='12'
                                             VerticalAlignment="Center"
                                             MinWidth="0"
                                                                     
-                                                                               
-                                                                                
+                                                                                         
                                             />
-                                                <ComboBox x:ConnectionId='15'
+                                                <!--<ComboBox
                                                     VerticalAlignment="Center"
                                                     Margin="4, 0, 0, 0"
-                                                                                                  
-                                                                                
-                                                                            
-                                                                                                                                          
+                                                    SelectionChanged="StartHours_SelectionChanged"
+                                                    ItemsSource="{x:Bind Hours}"
+                                                    Tag="{x:Bind Promotion}"
+                                                    SelectedItem="{x:Bind Promotion.Start.Hour, Converter={StaticResource TimeConverter}}"
                                                         />
                                                 <TextBlock
                                                     VerticalAlignment="Center"
                                                     Margin="4, 0, 0, 0"
                                                     Text=":"
                                                     />
-                                                <ComboBox x:ConnectionId='16'
+                                                <ComboBox
                                                     VerticalAlignment="Center"
-                                                                                                    
-                                                                            
-                                                                                  
+                                                    SelectionChanged="StartMinutes_SelectionChanged"
+                                                    Tag="{x:Bind Promotion}"
+                                                    ItemsSource="{x:Bind Minutes}"
                                                           Margin="4, 0, 0, 0"
-                                                                                                                                                  />
+                                                          SelectedItem="{x:Bind Promotion.Start.Minute, Converter={StaticResource TimeConverter}}"/>-->
                                             </StackPanel>
                                             <StackPanel
                                         Orientation="Horizontal"
                                         Grid.Column="5">
-                                                <CalendarDatePicker x:ConnectionId='11'
+                                                <TextBlock x:ConnectionId='11'
                                             VerticalAlignment="Center"
                                             MinWidth="0"
-                                                                              
+                                                                                       
                                                                     
-                                                                             
                                             />
-                                                <ComboBox x:ConnectionId='12'
+                                                <!--<ComboBox
                                                     VerticalAlignment="Center"
                                                     Margin="4, 0, 0, 0"
-                                                                                
-                                                                            
-                                                                                                                                        
-                                                                                                
+                                                    ItemsSource="{x:Bind Hours}"
+                                                    Tag="{x:Bind Promotion}"
+                                                    SelectedItem="{x:Bind Promotion.End.Hour, Converter={StaticResource TimeConverter}}"
+                                                    SelectionChanged="EndHours_SelectionChanged"
                                                         />
                                                 <TextBlock
                                                     VerticalAlignment="Center"
                                                     Margin="4, 0, 0, 0"
                                                     Text=":"
                                                     />
-                                                <ComboBox x:ConnectionId='13'
+                                                <ComboBox
                                                     VerticalAlignment="Center"
-                                                                                  
-                                                                            
+                                                    ItemsSource="{x:Bind Minutes}"
+                                                    Tag="{x:Bind Promotion}"
                                                     Margin="4, 0, 0, 0"
-                                                                                                  
-                                                                                                                                          />
+                                                    SelectionChanged="EndMinutes_SelectionChanged"
+                                                    SelectedItem="{x:Bind Promotion.End.Minute, Converter={StaticResource TimeConverter}}"/>-->
                                             </StackPanel>
                                             <HyperlinkButton x:ConnectionId='10'
                                         Grid.Column="6"

@@ -137,6 +137,9 @@
     <PackageReference Include="MvvmLightStd10">
       <Version>5.4.1.2</Version>
     </PackageReference>
+    <PackageReference Include="Prism.Core">
+      <Version>7.2.0.1422</Version>
+    </PackageReference>
   </ItemGroup>
   <ItemGroup>
     <PRIResource Include="Strings\en-us\Resources.resw" />
@@ -152,12 +155,16 @@
     <Compile Include="Helpers\Converters\PromotionTypeConverter.cs" />
     <Compile Include="Helpers\Converters\IntConverter.cs" />
     <Compile Include="Helpers\Converters\TimeConverter.cs" />
+    <Compile Include="Helpers\GreaterThanToday.cs" />
+    <Compile Include="Helpers\LaterThanPropertyAttribute.cs" />
     <Compile Include="Helpers\EnumHelper.cs" />
     <Compile Include="Models\AddPassengerNotificationDTO.cs" />
     <Compile Include="Models\ApiRequest.cs" />
     <Compile Include="Models\ChatMessage.cs" />
     <Compile Include="Models\CrewMember.cs" />
     <Compile Include="Models\DTO%27s\AddConversationDTO.cs" />
+    <Compile Include="Models\DTO%27s\AddPromotionDTO.cs" />
+    <Compile Include="Models\DTO%27s\AddPromotionNotificationDTO.cs" />
     <Compile Include="Models\DTO%27s\CrewMemberLoginDTO.cs" />
     <Compile Include="Models\Entertainment\Audio\Album.cs" />
     <Compile Include="Models\Entertainment\Audio\Artist.cs" />
@@ -175,6 +182,7 @@
     <Compile Include="Models\FlightInfo.cs" />
     <Compile Include="Models\Notification.cs" />
     <Compile Include="Models\Plane.cs" />
+    <Compile Include="Models\PromotionValid.cs" />
     <Compile Include="Models\WeatherForecast.cs" />
     <Compile Include="Services\DataService.cs" />
     <Compile Include="Services\HttpClientService.cs" />
@@ -229,6 +237,7 @@
     <Compile Include="Services\EntertainmentService.cs" />
     <Compile Include="Services\WeatherDataService.cs" />
     <Compile Include="ViewModels\AddConversationViewModel.cs" />
+    <Compile Include="ViewModels\AddNewMessageViewModel.cs" />
     <Compile Include="ViewModels\AddPromotionViewModel.cs" />
     <Compile Include="ViewModels\AdminCatalogViewModel.cs" />
     <Compile Include="ViewModels\AudioFeedViewModel.cs" />
@@ -269,6 +278,9 @@
     <Compile Include="ViewModels\WeatherForecastViewModel.cs" />
     <Compile Include="Views\AddConversationPage.xaml.cs">
       <DependentUpon>AddConversationPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AddNewMessageCard.xaml.cs">
+      <DependentUpon>AddNewMessageCard.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\AddPromotionDialog.xaml.cs">
       <DependentUpon>AddPromotionDialog.xaml</DependentUpon>
@@ -429,6 +441,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\AddConversationPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AddNewMessageCard.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

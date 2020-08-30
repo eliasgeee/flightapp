@@ -44,6 +44,7 @@ namespace FlightAppEliasGryp.ViewModels
             {
                 Conversations.Add(new ConversationViewModel(item));
             }
+            SelectedConversation = Conversations.FirstOrDefault();
         }
 
         internal void ViewConvoDetails(ConversationViewModel conversation)

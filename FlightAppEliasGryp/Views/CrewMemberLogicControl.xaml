@@ -15,7 +15,8 @@
         </StackPanel>
         <StackPanel Spacing="10" Margin="0, 8, 0, 0">
             <TextBlock Text="Password *" FontWeight="Bold" />
-            <TextBox x:Name="Password" Width="200" HorizontalAlignment="Left" InputScope="Password" TextChanged="Password_TextChanged"/>
+            <PasswordBox x:Name="Password" Width="200" HorizontalAlignment="Left"
+                         PasswordChanged="Password_PasswordChanged"/>
             <TextBlock x:Name="ErrorMsg" Foreground="Red" Text="{x:Bind ViewModel.ErrorMsg, Mode=OneWay}" TextWrapping="Wrap"/>
         </StackPanel>
         <Button Content="Login" Margin="0, 24, 0, 0" HorizontalAlignment="Left" Command="{x:Bind ViewModel.LoginClickedCommand}"/>

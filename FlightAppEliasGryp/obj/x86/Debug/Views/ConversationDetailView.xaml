@@ -17,39 +17,31 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0">
-            <TextBlock x:ConnectionId='9'                                                                                                       
+            <TextBlock x:ConnectionId='7'                                                                                                       
                                Style="{StaticResource PageTitleStyle}"/>
         </StackPanel>
         <ScrollViewer Grid.Row="1">
-            <ListView x:ConnectionId='4'
+            <ListView x:ConnectionId='2'
                                                                                                                 
                         IsItemClickEnabled="False" IsTapEnabled="False">
                 <ListView.ItemTemplate>
                     <DataTemplate
                                                                >
-                        <Grid x:ConnectionId='6'>
+                        <Grid x:ConnectionId='4'>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition />
                                 <ColumnDefinition />
                             </Grid.ColumnDefinitions>
                             <StackPanel Grid.Column="0">
-                                <TextBlock x:ConnectionId='7'                           />
-                                <TextBlock x:ConnectionId='8'                                    FontStyle="Italic" FontSize="12"/>
+                                <TextBlock x:ConnectionId='5'                           />
+                                <TextBlock x:ConnectionId='6'                                    FontStyle="Italic" FontSize="12"/>
                             </StackPanel>
                         </Grid>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
         </ScrollViewer>
-        <Grid Grid.Row="2">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*"/>
-                <ColumnDefinition Width="Auto"/>
-            </Grid.ColumnDefinitions>
-            <TextBox x:ConnectionId='2' x:Name="MessageTxt" Grid.Column="0" Margin="0, 0, 24, 0"                                                                       />
-            <Button x:ConnectionId='3' Content="Send" Grid.Column="1"
-                                                                                                  />
-        </Grid>
+        <local:AddNewMessageCard Grid.Row="2"/>
     </Grid>
 </UserControl>
 

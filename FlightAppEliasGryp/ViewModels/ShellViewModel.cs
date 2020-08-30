@@ -29,7 +29,6 @@ namespace FlightAppEliasGryp.ViewModels
         private readonly KeyboardAccelerator _altLeftKeyboardAccelerator = BuildKeyboardAccelerator(VirtualKey.Left, VirtualKeyModifiers.Menu);
         private readonly KeyboardAccelerator _backKeyboardAccelerator = BuildKeyboardAccelerator(VirtualKey.GoBack);
         private readonly IAuthenticationService _authenticationService;
-        private readonly IConversationService _conversationService;
 
         private bool _isBackEnabled;
         private bool _isNavigationVisible;
@@ -42,7 +41,8 @@ namespace FlightAppEliasGryp.ViewModels
 
         private CurrentUser _currentUser;
 
-        public IConversationService ConversationService { get { return _conversationService; } }
+        public IConversationService ConversationService { get; }
+        public INotificationService NotificationService { get; }
 
         public bool IsNavigationVisible
         {
@@ -78,10 +78,11 @@ namespace FlightAppEliasGryp.ViewModels
 
         public ICommand Logout => _logoutClickedCommand ?? ( _logoutClickedCommand = new RelayCommand(OnLogoutClicked) );
 
-        public ShellViewModel(IAuthenticationService authenticationService, IConversationService conversationService)
+        public ShellViewModel(IAuthenticationService authenticationService, IConversationService conversationService, INotificationService notificationService)
         {
             _authenticationService = authenticationService;
-            _conversationService = conversationService;
+            ConversationService = conversationService;
+            NotificationService = notificationService;
         }
 
         public async void Initialize(Frame frame, WinUI.NavigationView navigationView, IList<KeyboardAccelerator> keyboardAccelerators)
@@ -103,13 +104,13 @@ namespace FlightAppEliasGryp.ViewModels
                 }
                 if (user.IsCrewMember)
                 {
-                    await _authenticationService.CrewMemberLogIn("admin", "test123");
+                    await _authenticationService.CrewMemberLogIn(user.UserName, user.Password);
                     NavigationService.NavigateAndClearBackstack(typeof(CrewDashboardViewModel).FullName);
                 }
             }
         }
 
-        private async void OnLogoutClicked()
+        public async void OnLogoutClicked()
         {
             var result = await ShowLogoutComfirmationDialog();
 
@@ -145,11 +146,15 @@ namespace FlightAppEliasGryp.ViewModels
 
         private void OnItemInvoked(WinUI.NavigationViewItemInvokedEventArgs args)
         {
-            var item = _navigationView.MenuItems
+            if (args.InvokedItem.ToString() == "Logout") OnLogoutClicked();
+            else
+            {
+                var item = _navigationView.MenuItems
                             .OfType<WinUI.NavigationViewItem>()
                             .First(menuItem => (string)menuItem.Content == (string)args.InvokedItem);
-            var pageKey = item.GetValue(NavHelper.NavigateToProperty) as string;
-            NavigationService.Navigate(pageKey);
+                var pageKey = item.GetValue(NavHelper.NavigateToProperty) as string;
+                NavigationService.Navigate(pageKey);
+            }
         }
 
         private void OnBackRequested(WinUI.NavigationView sender, WinUI.NavigationViewBackRequestedEventArgs args)

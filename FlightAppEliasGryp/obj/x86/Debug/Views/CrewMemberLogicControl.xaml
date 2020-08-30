@@ -15,7 +15,8 @@
         </StackPanel>
         <StackPanel Spacing="10" Margin="0, 8, 0, 0">
             <TextBlock Text="Password *" FontWeight="Bold" />
-            <TextBox x:ConnectionId='3' x:Name="Password" Width="200" HorizontalAlignment="Left" InputScope="Password"                                   />
+            <PasswordBox x:ConnectionId='3' x:Name="Password" Width="200" HorizontalAlignment="Left"
+                                                                   />
             <TextBlock x:ConnectionId='4' x:Name="ErrorMsg" Foreground="Red"                                                 TextWrapping="Wrap"/>
         </StackPanel>
         <Button x:ConnectionId='2' Content="Login" Margin="0, 24, 0, 0" HorizontalAlignment="Left"                                                 />

@@ -24,7 +24,7 @@ namespace FlightAppEliasGryp.Views
     /// </summary>
     public sealed partial class ShoppingCartPage : Page
     {
-        private ShoppingCartViewModel ViewModel
+        public ShoppingCartViewModel ViewModel
         {
             get { return ViewModelLocator.Current.ShoppingCartViewModel; }
         }
@@ -32,15 +32,28 @@ namespace FlightAppEliasGryp.Views
         public ShoppingCartPage()
         {
             InitializeComponent();
+            ViewModel.LoadDataAsync();
         }
 
-        private void OnRemoveEntryClicked(object sender, RoutedEventArgs e)
+        private async void OnRemoveEntryClicked(object sender, RoutedEventArgs e)
         {
             var button = (HyperlinkButton)sender;
             var entry = (ShoppingCartEntry)button.Tag;
 
-            ViewModel.RemoveEntryFromShoppingCart(entry);
+            ContentDialog dialog = new ContentDialog()
+            {
+                Title = "Added to shopping cart",
+                Content = new TextBlock()
+                {
+                    Text = "Do you want to remove this item from your shopping cart?"
+                },
+                CloseButtonText = "Cancel",
+                PrimaryButtonText = "Yes"
+            };
+            ContentDialogResult result =  await dialog.ShowAsync();
 
+            if(result == ContentDialogResult.Primary)
+            ViewModel.RemoveEntryFromShoppingCart(entry);
         }
 
         private void Checkout(object sender, RoutedEventArgs e)

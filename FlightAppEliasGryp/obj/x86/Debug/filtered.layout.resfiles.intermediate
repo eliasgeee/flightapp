@@ -16,6 +16,7 @@ Styles\Button.xbf
 Styles\Page.xbf
 Styles\TextBlock.xbf
 Views\AddConversationPage.xbf
+Views\AddNewMessageCard.xbf
 Views\AddPromotionDialog.xbf
 Views\AdminCatalogPage.xbf
 Views\Catalog\Passenger\CatalogPage.xbf

@@ -252,15 +252,11 @@
                                             VerticalAlignment="Top"
                                             >
                                             <TextBlock
-                                            Grid.Column="4"
                                             Text="{x:Bind Path=GetTotalCost()}"
                                             FontSize="16"
                                             VerticalAlignment="Top"
-                                            
                                             FontWeight="SemiBold"/>
-                                            <!--TextDecorations="Underline"-->
                                             <TextBlock
-                                            Grid.Column="4"
                                             Text="{x:Bind Path=GetPriceAfterPromotions()}"
                                             FontSize="16"
                                             VerticalAlignment="Top"

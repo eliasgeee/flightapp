@@ -45,7 +45,7 @@
                 <winui:NavigationViewItem x:Uid="Shell_Convos" Icon="Document" helpers:NavHelper.NavigateTo="FlightAppEliasGryp.ViewModels.ConversationsViewModel" Content="Messages" Visibility="{x:Bind ViewModel.CurrentUser.IsPassenger, Mode=OneWay}"/>
                 <winui:NavigationViewItem x:Uid="Shell_VideoFeed" Icon="Document" helpers:NavHelper.NavigateTo="FlightAppEliasGryp.ViewModels.VideoFeedViewModel" Content="Video" Visibility="{x:Bind ViewModel.CurrentUser.IsPassenger, Mode=OneWay}"/>
                 <winui:NavigationViewItem x:Uid="Shell_AudioFeed" Icon="Document" helpers:NavHelper.NavigateTo="FlightAppEliasGryp.ViewModels.AudioFeedViewModel" Content="Audio" Visibility="{x:Bind ViewModel.CurrentUser.IsPassenger, Mode=OneWay}"/>
-                <Button Content="Logout" Command="{x:Bind ViewModel.Logout}" />
+                <winui:NavigationViewItem Content="Logout" x:Uid="LogOut"/>
             </winui:NavigationView.MenuItems>
             <i:Interaction.Behaviors>
                 <behaviors:NavigationViewHeaderBehavior

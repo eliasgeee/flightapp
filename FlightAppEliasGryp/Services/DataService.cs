@@ -92,7 +92,7 @@ namespace FlightAppEliasGryp.Services
         }
 
         private async Task Delete (ApiRequest apiRequest) {
-            var response = await _client.DeleteAsync(new Uri(apiRequest.Uri));
+            var response = await _client.DeleteAsync(new Uri(baseUri + apiRequest.Uri));
             if (response.IsSuccessStatusCode)
                 _json = await response.Content.ReadAsStringAsync();
         }

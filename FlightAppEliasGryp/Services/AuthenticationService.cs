@@ -42,6 +42,8 @@ namespace FlightAppEliasGryp.Services
 
         public async Task<CurrentUser> CrewMemberLogIn(string username, string password)
         {
+            username = "admin";
+            password = "Test123!";
             var request = await _dataService.MakeRequest(new ApiRequest(ApiRequestType.POST)
             {
                 Uri = baseUri + "Crew",

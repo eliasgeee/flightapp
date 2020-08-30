@@ -1,5 +1,6 @@
 ﻿
 using FlightAppEliasGryp.Models;
+using FlightAppEliasGryp.Models.DTO_s;
 using Microsoft.AspNetCore.SignalR.Client;
 using System;
 using System.Collections.Generic;
@@ -14,6 +15,7 @@ namespace FlightAppEliasGryp.Services
         HubConnection Connection();
         Task InitConnection();
         Task SendPassengerNotification(IList<Passenger> receivers, string text);
+        Task SendPromotionNotification(Product product, Promotion promotion);
         Task CheckoutOrder(PaymentType paymentType);
     }
 }

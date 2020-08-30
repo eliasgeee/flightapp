@@ -35,6 +35,7 @@ namespace FlightAppEliasGryp.Views
         public AdminCatalogPage()
         {
             this.InitializeComponent();
+            ViewModel.LoadDataAsync();
         }
 
         private void AdaptiveGridView_SelectionChanged(object sender, SelectionChangedEventArgs e)

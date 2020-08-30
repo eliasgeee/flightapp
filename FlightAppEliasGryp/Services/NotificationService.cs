@@ -1,4 +1,5 @@
 ﻿using FlightAppEliasGryp.Models;
+using FlightAppEliasGryp.Models.DTO_s;
 using Microsoft.AspNetCore.SignalR.Client;
 using System;
 using System.Collections.Generic;
@@ -22,6 +23,7 @@ namespace FlightAppEliasGryp.Services
         public async Task InitConnection()
         {
             var user = await _authenticationService.GetTokenCurrentUser();
+            if(user != null)
             _connection = new HubConnectionBuilder()
                 .WithAutomaticReconnect()
             .WithUrl("https://localhost:44332/notifications", options =>
@@ -42,6 +44,15 @@ namespace FlightAppEliasGryp.Services
         {
             await _connection.InvokeAsync("SendPassengerNotification",
              new AddPassengerNotificationDTO() { Receivers = receivers, Text = text });
+        }
+
+        public async Task SendPromotionNotification(Product product, Promotion promotion)
+        {
+            await _connection.InvokeAsync("SendPromotionNotification", new AddPromotionNotificationDTO()
+            {
+                Product = product,
+                Promotion = promotion
+            });
         }
     }
 }

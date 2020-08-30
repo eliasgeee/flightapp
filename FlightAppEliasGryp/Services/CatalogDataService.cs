@@ -14,6 +14,7 @@ namespace FlightAppEliasGryp.Services
         private readonly string baseUri = "Catalog/";
         private HttpClientService _clientService;
         private DataService<Product> _productDataService;
+        private DataService<Promotion> _promotionDataService;
         private DataService<ShoppingCart> _shoppingCartDataService;
         private DataService<int> _countDataService;
 
@@ -23,6 +24,7 @@ namespace FlightAppEliasGryp.Services
             _productDataService = new DataService<Product>(_clientService);
             _shoppingCartDataService = new DataService<ShoppingCart>(_clientService);
             _countDataService = new DataService<int>(_clientService);
+            _promotionDataService = new DataService<Promotion>(_clientService);
         }
 
         public async Task<IList<Product>> AddProductToShoppingCart(Product product)
@@ -34,9 +36,9 @@ namespace FlightAppEliasGryp.Services
             return null;
         }
 
-        public async Task<Product> AddPromotionToProduct(Product product, Promotion promotion)
+        public async Task<Promotion> AddPromotionToProduct(Product product, Promotion promotion)
         {
-            var request = await _productDataService.MakeRequest(new ApiRequest(ApiRequestType.POST)
+            var request = await _promotionDataService.MakeRequest(new ApiRequest(ApiRequestType.POST)
             {
                 Uri = baseUri + "Promotion/Add/" + product.Id,
                 Body = promotion
@@ -44,9 +46,9 @@ namespace FlightAppEliasGryp.Services
             return request.AsSingle();
         }
 
-        public async Task<int> ChangeEntryAmount(ShoppingCartEntry entry, int amount)
+        public async Task<ShoppingCart> ChangeEntryAmount(ShoppingCartEntry entry, int amount)
         {
-            var request = await _countDataService.MakeRequest(new ApiRequest(ApiRequestType.PUT)
+            var request = await _shoppingCartDataService.MakeRequest(new ApiRequest(ApiRequestType.PUT)
             {
                 Uri = baseUri + "ShoppingCart/Entry/" + entry.Id + "/Amount/" + amount
             });
@@ -55,7 +57,7 @@ namespace FlightAppEliasGryp.Services
 
         public async Task<Product> DeleteProductAsync(Product product)
         {
-            var request = await _productDataService.MakeRequest(new ApiRequest(ApiRequestType.PUT)
+            var request = await _productDataService.MakeRequest(new ApiRequest(ApiRequestType.DELETE)
             {
                 Uri = baseUri + "Product/Remove/" + product.Id
             });

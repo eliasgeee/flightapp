@@ -32,12 +32,12 @@ namespace FlightAppEliasGryp.Views
 
         private void Username_TextChanged(object sender, TextChangedEventArgs e)
         {
-            ViewModel.ValidateLogin(Username.Text, Password.Text);
+            ViewModel.ValidateLogin(Username.Text, Password.Password);
         }
 
-        private void Password_TextChanged(object sender, TextChangedEventArgs e)
+        private void Password_PasswordChanged(object sender, RoutedEventArgs e)
         {
-            ViewModel.ValidateLogin(Username.Text, Password.Text);
+            ViewModel.ValidateLogin(Username.Text, Password.Password);
         }
     }
 }

@@ -36,6 +36,20 @@ namespace FlightAppEliasGryp.Views
             DataContext = ViewModel;
             ViewModel.Initialize(shellFrame, navigationView, KeyboardAccelerators);
             LoadChatSignalRAsync();
+            LoadSignalRNotifications();
+        }
+
+        private async void LoadSignalRNotifications()
+        {
+            try
+            {
+                if (ViewModel.NotificationService.Connection() == null) await ViewModel.NotificationService.InitConnection();
+                ViewModel.ConversationService.Connection().On<string>("NewPromotionNotification", async (msg) => {
+                    Notification.DataContext = msg;
+                    Notification.Show();
+                });
+            }
+            catch(Exception e) { }
         }
 
         private async void LoadChatSignalRAsync()
@@ -60,6 +74,11 @@ namespace FlightAppEliasGryp.Views
             //var convo = ConvoViewModel.GetConvo(Message.ConvoId);
             //Notification.Visibility = Windows.UI.Xaml.Visibility.Collapsed;
             //NavigationService.Navigate(typeof(ConversationsViewModel).FullName, convo);
+        }
+
+        private void Button_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            ViewModel.OnLogoutClicked();
         }
     }
 }

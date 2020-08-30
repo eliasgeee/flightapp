@@ -28,10 +28,9 @@ namespace FlightAppEliasGryp.ViewModels
         {
             _catalogDataService = catalogDataService;
             _orderDataService = orderDataService;
-            LoadDataAsync();
         }
 
-        private async void LoadDataAsync()
+        public async void LoadDataAsync()
         {
             var data = await _catalogDataService.GetShoppingCart();
             ShoppingCart = data;
@@ -52,7 +51,13 @@ namespace FlightAppEliasGryp.ViewModels
 
         public async void ChangeEntryAmount(ShoppingCartEntry entry, int amount)
         {
-            await _catalogDataService.ChangeEntryAmount(entry, amount);
+            ShoppingCart data = null;
+            if (amount <= 0)
+                RemoveEntryFromShoppingCart(entry);
+            if(amount > 0)
+                data = await _catalogDataService.ChangeEntryAmount(entry, amount);
+            if (data != null)
+                ShoppingCart = data;
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using GalaSoft.MvvmLight.Command;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,30 +9,22 @@ using System.Windows.Input;
 
 namespace FlightAppEliasGryp.Models
 {
-    public class Product
+    public class Product : IValidatableObject
     {
         public int Id { get; set; }
 
-        private string _name { get; set; }
-        public string Name { get { return _name; } set {
-                if (value.Length < 2)
-                    throw new Exception("Name must be 2 characters minimum");
-                _name = value;
-            } }
-        public string Image { get; set; }
+        [Required (ErrorMessage = "Name is required")]
+        [MinLength(2, ErrorMessage ="Name must be minimum 2 characters")]
+        public string Name { get; set; }
+        public int Stock { get; set; }
         public decimal Price { get; set; }
+        public ProductType ProductType { get; set; }
+
+        public string Image { get; set; }
+
         public ProductType Type { get; set; }
         public List<Promotion> Promotions { get; set; }
         public bool IsSoldOut { get; set; }
-        private int _stock;
-        public int Stock { get {
-                return _stock;
-            } set {
-                if (value < 0)
-                    throw new Exception("Stock must be bigger than 0");
-                _stock = value;
-            }
-        }
 
         public Product() {
             Promotions = new List<Promotion>();
@@ -66,6 +59,15 @@ namespace FlightAppEliasGryp.Models
         public string GetAmountOfPromotions()
         {
             return $"{Promotions.Count} active";
+        }
+
+        public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
+        {
+            var results = new List<ValidationResult>();
+            System.ComponentModel.DataAnnotations.Validator.TryValidateProperty(this.Name,
+                    new ValidationContext(this, null, null) { MemberName = "Name" },
+                    results);
+            return results;
         }
     }
 

@@ -14,20 +14,24 @@
     SecondaryButtonClick="ContentDialog_SecondaryButtonClick">
 
     <StackPanel>
-        <ComboBox ItemsSource="{x:Bind PromotionTypes}" Header="Type" Name="Type"/>
-        <TextBox Header="Required quantity" Name="Quantity" Margin="0,8,0,0"/>
-        <TextBox Header="Amount" Name="Amount" Margin="0,8,0,0"/>
-        <StackPanel Orientation="Horizontal" Margin="0,8,0,0">
+        <ComboBox ItemsSource="{x:Bind PromotionTypes}" Header="Type" Name="Type" SelectedItem="{x:Bind ViewModel.PromotionType, Mode=TwoWay}"/>
+        <TextBox Header="Required quantity" Name="Quantity" Margin="0,8,0,0" BeforeTextChanging="Quantity_BeforeTextChanging"
+                 Text="{x:Bind ViewModel.RequiredAmount, Mode=TwoWay}"/>
+        <TextBox Header="Amount" Name="Amount" Margin="0,8,0,0" BeforeTextChanging="Amount_BeforeTextChanging"
+                 Text="{x:Bind ViewModel.DiscountAmount, Mode=TwoWay}"/>
+        <TextBox Header="End (in minutes)" Name="End" Margin="0,8,0,0" BeforeTextChanging="Quantity_BeforeTextChanging"
+                 Text="{x:Bind ViewModel.End, Mode=TwoWay}"/>
+        <!--<StackPanel Orientation="Horizontal" Margin="0,8,0,0">
             <CalendarDatePicker Header="Start" Date="{x:Bind Today}" VerticalAlignment="Bottom" Name="DateStart"/>
             <ComboBox ItemsSource="{x:Bind Hours}" VerticalAlignment="Bottom" Margin="8,0,0,0" Name="HoursStart"/>
             <TextBlock Text=":" VerticalAlignment="Bottom" FontSize="24" Margin="8,0,0,0"/>
             <ComboBox ItemsSource="{x:Bind Minutes}" VerticalAlignment="Bottom" Margin="8,0,0,0" Name="MinutesStart"/>
-        </StackPanel>
-        <StackPanel Orientation="Horizontal" Margin="0,8,0,0">
+        </StackPanel>-->
+        <!--<StackPanel Orientation="Horizontal" Margin="0,8,0,0">
             <CalendarDatePicker Header="End" Date="{x:Bind Today}" VerticalAlignment="Bottom" Name="DateEnd"/>
             <ComboBox ItemsSource="{x:Bind Hours}" VerticalAlignment="Bottom" Margin="8,0,0,0" Name="HoursEnd"/>
             <TextBlock Text=":" VerticalAlignment="Bottom" FontSize="24" Margin="8,0,0,0"/>
             <ComboBox ItemsSource="{x:Bind Minutes}" VerticalAlignment="Bottom" Margin="8,0,0,0" Name="MinutesEnd"/>
-        </StackPanel>
+        </StackPanel>-->
     </StackPanel>
 </ContentDialog>
