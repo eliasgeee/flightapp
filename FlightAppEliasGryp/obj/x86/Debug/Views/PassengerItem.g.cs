@@ -196,6 +196,7 @@ namespace FlightAppEliasGryp.Views
             }
             private void Update_Seat(global::FlightAppEliasGryp.Models.Seat obj, int phase)
             {
+                this.bindingsTracking.UpdateChildListeners_Seat(obj);
                 if (obj != null)
                 {
                     if ((phase & (NOT_PHASED | DATA_CHANGED | (1 << 0))) != 0)
@@ -298,9 +299,68 @@ namespace FlightAppEliasGryp.Views
 
                 public void ReleaseAllListeners()
                 {
+                    UpdateChildListeners_Seat(null);
                     UpdateChildListeners_Seat_Passenger(null);
                 }
 
+                public void PropertyChanged_Seat(object sender, global::System.ComponentModel.PropertyChangedEventArgs e)
+                {
+                    PassengerItem_obj1_Bindings bindings = TryGetBindingObject();
+                    if (bindings != null)
+                    {
+                        string propName = e.PropertyName;
+                        global::FlightAppEliasGryp.Models.Seat obj = sender as global::FlightAppEliasGryp.Models.Seat;
+                        if (global::System.String.IsNullOrEmpty(propName))
+                        {
+                            if (obj != null)
+                            {
+                                bindings.Update_Seat_Passenger(obj.Passenger, DATA_CHANGED);
+                            }
+                            else
+                            {
+                                bindings.UpdateFallback_Seat_Passenger(DATA_CHANGED);
+                            }
+                        }
+                        else
+                        {
+                            switch (propName)
+                            {
+                                case "Passenger":
+                                {
+                                    if (obj != null)
+                                    {
+                                        bindings.Update_Seat_Passenger(obj.Passenger, DATA_CHANGED);
+                                    }
+                                    else
+                                    {
+                                        bindings.UpdateFallback_Seat_Passenger(DATA_CHANGED);
+                                    }
+                                    break;
+                                }
+                                default:
+                                    break;
+                            }
+                        }
+                        bindings.CompleteUpdate(DATA_CHANGED);
+                    }
+                }
+                private global::FlightAppEliasGryp.Models.Seat cache_Seat = null;
+                public void UpdateChildListeners_Seat(global::FlightAppEliasGryp.Models.Seat obj)
+                {
+                    if (obj != cache_Seat)
+                    {
+                        if (cache_Seat != null)
+                        {
+                            ((global::System.ComponentModel.INotifyPropertyChanged)cache_Seat).PropertyChanged -= PropertyChanged_Seat;
+                            cache_Seat = null;
+                        }
+                        if (obj != null)
+                        {
+                            cache_Seat = obj;
+                            ((global::System.ComponentModel.INotifyPropertyChanged)obj).PropertyChanged += PropertyChanged_Seat;
+                        }
+                    }
+                }
                 public void PropertyChanged_Seat_Passenger(object sender, global::System.ComponentModel.PropertyChangedEventArgs e)
                 {
                     PassengerItem_obj1_Bindings bindings = TryGetBindingObject();

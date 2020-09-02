@@ -25,7 +25,7 @@
         IsBackEnabled="{x:Bind ViewModel.IsBackEnabled, Mode=OneWay}"
         SelectedItem="{x:Bind ViewModel.Selected, Mode=OneWay}"
         IsPaneVisible="{x:Bind ViewModel.IsNavigationVisible, Mode=OneWay}"
-        IsSettingsVisible="True"
+        IsSettingsVisible="False"
         Background="{ThemeResource SystemControlBackgroundAltHighBrush}">
             <winui:NavigationView.MenuItems>
                 <!--
@@ -42,9 +42,9 @@
                 <winui:NavigationViewItem Name="OrderManagement" x:Uid="Shell_OrderManagement" Icon="Document" helpers:NavHelper.NavigateTo="FlightAppEliasGryp.ViewModels.OrderManagementViewModel" Visibility="{x:Bind ViewModel.CurrentUser.IsCrewMember, Mode=OneWay}"/>
                 <winui:NavigationViewItem x:Uid="Shell_SeatManagement" Icon="Document" helpers:NavHelper.NavigateTo="FlightAppEliasGryp.ViewModels.SeatManagementViewModel" Visibility="{x:Bind ViewModel.CurrentUser.IsCrewMember, Mode=OneWay}"/>
                 <winui:NavigationViewItem x:Uid="Shell_FlightMap" Icon="Map" helpers:NavHelper.NavigateTo="FlightAppEliasGryp.ViewModels.FlightViewModel" Content="Map" Visibility="{x:Bind ViewModel.CurrentUser.IsPassenger, Mode=OneWay}"/>
-                <winui:NavigationViewItem x:Uid="Shell_Convos" Icon="Document" helpers:NavHelper.NavigateTo="FlightAppEliasGryp.ViewModels.ConversationsViewModel" Content="Messages" Visibility="{x:Bind ViewModel.CurrentUser.IsPassenger, Mode=OneWay}"/>
-                <winui:NavigationViewItem x:Uid="Shell_VideoFeed" Icon="Document" helpers:NavHelper.NavigateTo="FlightAppEliasGryp.ViewModels.VideoFeedViewModel" Content="Video" Visibility="{x:Bind ViewModel.CurrentUser.IsPassenger, Mode=OneWay}"/>
-                <winui:NavigationViewItem x:Uid="Shell_AudioFeed" Icon="Document" helpers:NavHelper.NavigateTo="FlightAppEliasGryp.ViewModels.AudioFeedViewModel" Content="Audio" Visibility="{x:Bind ViewModel.CurrentUser.IsPassenger, Mode=OneWay}"/>
+                <winui:NavigationViewItem x:Uid="Shell_Convos" Icon="Message" helpers:NavHelper.NavigateTo="FlightAppEliasGryp.ViewModels.ConversationsViewModel" Content="Messages" Visibility="{x:Bind ViewModel.CurrentUser.IsPassenger, Mode=OneWay}"/>
+                <winui:NavigationViewItem x:Uid="Shell_VideoFeed" Icon="Video" helpers:NavHelper.NavigateTo="FlightAppEliasGryp.ViewModels.VideoFeedViewModel" Content="Video" Visibility="{x:Bind ViewModel.CurrentUser.IsPassenger, Mode=OneWay}"/>
+                <winui:NavigationViewItem x:Uid="Shell_AudioFeed" Icon="MusicInfo" helpers:NavHelper.NavigateTo="FlightAppEliasGryp.ViewModels.AudioFeedViewModel" Content="Audio" Visibility="{x:Bind ViewModel.CurrentUser.IsPassenger, Mode=OneWay}"/>
                 <winui:NavigationViewItem Content="Logout" x:Uid="LogOut"/>
             </winui:NavigationView.MenuItems>
             <i:Interaction.Behaviors>

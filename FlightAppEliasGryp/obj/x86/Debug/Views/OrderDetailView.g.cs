@@ -823,6 +823,7 @@ namespace FlightAppEliasGryp.Views
             }
             private void Update_ViewModel_SelectedOrder(global::FlightAppEliasGryp.Models.Order obj, int phase)
             {
+                this.bindingsTracking.UpdateChildListeners_ViewModel_SelectedOrder(obj);
                 if (obj != null)
                 {
                     if ((phase & (NOT_PHASED | DATA_CHANGED | (1 << 0))) != 0)
@@ -838,8 +839,9 @@ namespace FlightAppEliasGryp.Views
                     }
                 }
             }
-            private void Update_ViewModel_SelectedOrder_OrderItems(global::System.Collections.Generic.List<global::FlightAppEliasGryp.Models.OrderProduct> obj, int phase)
+            private void Update_ViewModel_SelectedOrder_OrderItems(global::System.Collections.ObjectModel.ObservableCollection<global::FlightAppEliasGryp.Models.OrderProduct> obj, int phase)
             {
+                this.bindingsTracking.UpdateChildListeners_ViewModel_SelectedOrder_OrderItems(obj);
                 if ((phase & ((1 << 0) | NOT_PHASED | DATA_CHANGED)) != 0)
                 {
                     // Views\OrderDetailView.xaml line 125
@@ -962,6 +964,8 @@ namespace FlightAppEliasGryp.Views
                 public void ReleaseAllListeners()
                 {
                     UpdateChildListeners_ViewModel(null);
+                    UpdateChildListeners_ViewModel_SelectedOrder(null);
+                    UpdateChildListeners_ViewModel_SelectedOrder_OrderItems(null);
                     UpdateChildListeners_ViewModel_SelectedOrder_Passenger(null);
                 }
 
@@ -1012,6 +1016,168 @@ namespace FlightAppEliasGryp.Views
                         {
                             cache_ViewModel = obj;
                             ((global::System.ComponentModel.INotifyPropertyChanged)obj).PropertyChanged += PropertyChanged_ViewModel;
+                        }
+                    }
+                }
+                public void PropertyChanged_ViewModel_SelectedOrder(object sender, global::System.ComponentModel.PropertyChangedEventArgs e)
+                {
+                    OrderDetailView_obj1_Bindings bindings = TryGetBindingObject();
+                    if (bindings != null)
+                    {
+                        string propName = e.PropertyName;
+                        global::FlightAppEliasGryp.Models.Order obj = sender as global::FlightAppEliasGryp.Models.Order;
+                        if (global::System.String.IsNullOrEmpty(propName))
+                        {
+                            if (obj != null)
+                            {
+                                bindings.Update_ViewModel_SelectedOrder_OrderItems(obj.OrderItems, DATA_CHANGED);
+                                bindings.Update_ViewModel_SelectedOrder_Passenger(obj.Passenger, DATA_CHANGED);
+                                bindings.Update_ViewModel_SelectedOrder_M_GetDateAndTimeOrderCreated_757602046(DATA_CHANGED);
+                                bindings.Update_ViewModel_SelectedOrder_OrderTotal(obj.OrderTotal, DATA_CHANGED);
+                                bindings.Update_ViewModel_SelectedOrder_M_GetOrderQuantity_757602046(DATA_CHANGED);
+                                bindings.Update_ViewModel_SelectedOrder_PaymentType(obj.PaymentType, DATA_CHANGED);
+                                bindings.Update_ViewModel_SelectedOrder_M_TotalAmountPaid_757602046(DATA_CHANGED);
+                                bindings.Update_ViewModel_SelectedOrder_M_GetOrderId_757602046(DATA_CHANGED);
+                            }
+                        }
+                        else
+                        {
+                            switch (propName)
+                            {
+                                case "OrderItems":
+                                {
+                                    if (obj != null)
+                                    {
+                                        bindings.Update_ViewModel_SelectedOrder_OrderItems(obj.OrderItems, DATA_CHANGED);
+                                    }
+                                    break;
+                                }
+                                case "Passenger":
+                                {
+                                    if (obj != null)
+                                    {
+                                        bindings.Update_ViewModel_SelectedOrder_Passenger(obj.Passenger, DATA_CHANGED);
+                                    }
+                                    break;
+                                }
+                                case "OrderTotal":
+                                {
+                                    if (obj != null)
+                                    {
+                                        bindings.Update_ViewModel_SelectedOrder_OrderTotal(obj.OrderTotal, DATA_CHANGED);
+                                    }
+                                    break;
+                                }
+                                case "PaymentType":
+                                {
+                                    if (obj != null)
+                                    {
+                                        bindings.Update_ViewModel_SelectedOrder_PaymentType(obj.PaymentType, DATA_CHANGED);
+                                    }
+                                    break;
+                                }
+                                case "GetDateAndTimeOrderCreated":
+                                {
+                                    if (obj != null)
+                                    {
+                                        bindings.Update_ViewModel_SelectedOrder_M_GetDateAndTimeOrderCreated_757602046(DATA_CHANGED);
+                                    }
+                                    break;
+                                }
+                                case "GetOrderQuantity":
+                                {
+                                    if (obj != null)
+                                    {
+                                        bindings.Update_ViewModel_SelectedOrder_M_GetOrderQuantity_757602046(DATA_CHANGED);
+                                    }
+                                    break;
+                                }
+                                case "TotalAmountPaid":
+                                {
+                                    if (obj != null)
+                                    {
+                                        bindings.Update_ViewModel_SelectedOrder_M_TotalAmountPaid_757602046(DATA_CHANGED);
+                                    }
+                                    break;
+                                }
+                                case "GetOrderId":
+                                {
+                                    if (obj != null)
+                                    {
+                                        bindings.Update_ViewModel_SelectedOrder_M_GetOrderId_757602046(DATA_CHANGED);
+                                    }
+                                    break;
+                                }
+                                default:
+                                    break;
+                            }
+                        }
+                        bindings.CompleteUpdate(DATA_CHANGED);
+                    }
+                }
+                private global::FlightAppEliasGryp.Models.Order cache_ViewModel_SelectedOrder = null;
+                public void UpdateChildListeners_ViewModel_SelectedOrder(global::FlightAppEliasGryp.Models.Order obj)
+                {
+                    if (obj != cache_ViewModel_SelectedOrder)
+                    {
+                        if (cache_ViewModel_SelectedOrder != null)
+                        {
+                            ((global::System.ComponentModel.INotifyPropertyChanged)cache_ViewModel_SelectedOrder).PropertyChanged -= PropertyChanged_ViewModel_SelectedOrder;
+                            cache_ViewModel_SelectedOrder = null;
+                        }
+                        if (obj != null)
+                        {
+                            cache_ViewModel_SelectedOrder = obj;
+                            ((global::System.ComponentModel.INotifyPropertyChanged)obj).PropertyChanged += PropertyChanged_ViewModel_SelectedOrder;
+                        }
+                    }
+                }
+                public void PropertyChanged_ViewModel_SelectedOrder_OrderItems(object sender, global::System.ComponentModel.PropertyChangedEventArgs e)
+                {
+                    OrderDetailView_obj1_Bindings bindings = TryGetBindingObject();
+                    if (bindings != null)
+                    {
+                        string propName = e.PropertyName;
+                        global::System.Collections.ObjectModel.ObservableCollection<global::FlightAppEliasGryp.Models.OrderProduct> obj = sender as global::System.Collections.ObjectModel.ObservableCollection<global::FlightAppEliasGryp.Models.OrderProduct>;
+                        if (global::System.String.IsNullOrEmpty(propName))
+                        {
+                        }
+                        else
+                        {
+                            switch (propName)
+                            {
+                                default:
+                                    break;
+                            }
+                        }
+                        bindings.CompleteUpdate(DATA_CHANGED);
+                    }
+                }
+                public void CollectionChanged_ViewModel_SelectedOrder_OrderItems(object sender, global::System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+                {
+                    OrderDetailView_obj1_Bindings bindings = TryGetBindingObject();
+                    if (bindings != null)
+                    {
+                        global::System.Collections.ObjectModel.ObservableCollection<global::FlightAppEliasGryp.Models.OrderProduct> obj = sender as global::System.Collections.ObjectModel.ObservableCollection<global::FlightAppEliasGryp.Models.OrderProduct>;
+                        bindings.CompleteUpdate(DATA_CHANGED);
+                    }
+                }
+                private global::System.Collections.ObjectModel.ObservableCollection<global::FlightAppEliasGryp.Models.OrderProduct> cache_ViewModel_SelectedOrder_OrderItems = null;
+                public void UpdateChildListeners_ViewModel_SelectedOrder_OrderItems(global::System.Collections.ObjectModel.ObservableCollection<global::FlightAppEliasGryp.Models.OrderProduct> obj)
+                {
+                    if (obj != cache_ViewModel_SelectedOrder_OrderItems)
+                    {
+                        if (cache_ViewModel_SelectedOrder_OrderItems != null)
+                        {
+                            ((global::System.ComponentModel.INotifyPropertyChanged)cache_ViewModel_SelectedOrder_OrderItems).PropertyChanged -= PropertyChanged_ViewModel_SelectedOrder_OrderItems;
+                            ((global::System.Collections.Specialized.INotifyCollectionChanged)cache_ViewModel_SelectedOrder_OrderItems).CollectionChanged -= CollectionChanged_ViewModel_SelectedOrder_OrderItems;
+                            cache_ViewModel_SelectedOrder_OrderItems = null;
+                        }
+                        if (obj != null)
+                        {
+                            cache_ViewModel_SelectedOrder_OrderItems = obj;
+                            ((global::System.ComponentModel.INotifyPropertyChanged)obj).PropertyChanged += PropertyChanged_ViewModel_SelectedOrder_OrderItems;
+                            ((global::System.Collections.Specialized.INotifyCollectionChanged)obj).CollectionChanged += CollectionChanged_ViewModel_SelectedOrder_OrderItems;
                         }
                     }
                 }

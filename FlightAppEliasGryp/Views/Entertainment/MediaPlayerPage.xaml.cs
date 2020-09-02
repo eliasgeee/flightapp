@@ -1,4 +1,5 @@
 ﻿using FlightAppEliasGryp.Models.Entertainment;
+using FlightAppEliasGryp.Models.Entertainment.Audio;
 using FlightAppEliasGryp.ViewModels;
 using FlightAppEliasGryp.ViewModels.Base;
 using System;
@@ -44,8 +45,11 @@ namespace FlightAppEliasGryp.Views
             base.OnNavigatedTo(e);
             var media = e.Parameter as MultiMedia;
             mpe.MediaPlayer.PlaybackSession.PlaybackStateChanged += PlaybackSession_PlaybackStateChanged;
+            var path = "";
+            if (media is Track) path = "Audio";
+            else path = "Video";
             ViewModel.Source = MediaSource.CreateFromUri(new Uri(
-                Models.Environment.GetBaseUri() + "Entertainment/Video/" + media.Id));
+                Models.Environment.GetBaseUri() + $"Entertainment/{path}/" + media.Id));
             ViewModel.PosterSource = media.Thumbnail;
         }
 

@@ -54,12 +54,12 @@ namespace FlightAppEliasGryp.Services
          //  _connection.InvokeAsync("SendMessage", "heeeeeey");
         }
 
-        public async Task<Conversation> AddNewConversation(List<Passenger> users, string message)
+        public async Task<Conversation> AddNewConversation(List<Passenger> users)
         {
             var request = await _dataService.MakeRequest(new ApiRequest(ApiRequestType.POST)
             {
                 Uri = baseUri + "Add",
-                Body = new AddConversationDTO() { Users = users, Message = message }
+                Body = new AddConversationDTO() { Users = users}
             });
             return request.AsSingle();
         }

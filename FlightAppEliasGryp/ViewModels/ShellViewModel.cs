@@ -11,7 +11,7 @@ using FlightAppEliasGryp.Services;
 
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
-
+using Microsoft.Toolkit.Uwp.UI.Controls;
 using Windows.System;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -29,6 +29,8 @@ namespace FlightAppEliasGryp.ViewModels
         private readonly KeyboardAccelerator _altLeftKeyboardAccelerator = BuildKeyboardAccelerator(VirtualKey.Left, VirtualKeyModifiers.Menu);
         private readonly KeyboardAccelerator _backKeyboardAccelerator = BuildKeyboardAccelerator(VirtualKey.GoBack);
         private readonly IAuthenticationService _authenticationService;
+
+        public InAppNotification Grid { get; set; }
 
         private bool _isBackEnabled;
         private bool _isNavigationVisible;
@@ -100,7 +102,7 @@ namespace FlightAppEliasGryp.ViewModels
                 if (user.IsPassenger)
                 {
                     await _authenticationService.PassengerLogIn(user.Row, user.Chair);
-                    NavigationService.NavigateAndClearBackstack(typeof(DetailsViewModel).FullName);
+                    NavigationService.NavigateAndClearBackstack(typeof(FlightViewModel).FullName);
                 }
                 if (user.IsCrewMember)
                 {

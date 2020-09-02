@@ -37,6 +37,7 @@ namespace FlightAppEliasGryp.Views
             ViewModel.Initialize(shellFrame, navigationView, KeyboardAccelerators);
             LoadChatSignalRAsync();
             LoadSignalRNotifications();
+            ViewModel.Grid = Notification;
         }
 
         private async void LoadSignalRNotifications()

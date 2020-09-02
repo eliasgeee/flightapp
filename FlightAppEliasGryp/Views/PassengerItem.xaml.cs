@@ -27,7 +27,8 @@ namespace FlightAppEliasGryp.Views
             this.InitializeComponent();
         }
 
-        public Seat Seat { get; set; }
+        private Seat _seat;
+        public Seat Seat { get { return _seat;  } set { _seat = value; Seat.RaisePropertyChanged(); } } 
 
         public StackPanel PassengerBlock {get { return PassengerNameContainer;  } }
     }

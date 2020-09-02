@@ -8,11 +8,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Microsoft.AspNetCore.SignalR.Client;
 
 namespace FlightAppEliasGryp.ViewModels
 {
     public class CrewMemberLoginViewModel : ViewModelBase
     {
+        private ShellViewModel ShellViewModel
+        {
+            get { return ViewModelLocator.Current.ShellViewModel; }
+        }
+
         private CrewMember _crewMember;
         public CrewMember CrewMember { get { return _crewMember; } set { Set(ref _crewMember, value); } }
 
@@ -27,10 +33,16 @@ namespace FlightAppEliasGryp.ViewModels
 
         private ICommand _loginClickedCommand;
 
-        public CrewMemberLoginViewModel(IAuthenticationService accountService)
+        public IConversationService ConversationService;
+        public INotificationService NotificationService;
+
+        public CrewMemberLoginViewModel(IAuthenticationService accountService, INotificationService notificationService, IConversationService conversationService)
         {
             _accountService = accountService;
             CrewMember = new CrewMember();
+            ConversationService = conversationService;
+            NotificationService = notificationService;
+            ConversationService = conversationService;
         }
 
         public ICommand LoginClickedCommand => _loginClickedCommand ??
@@ -43,6 +55,8 @@ namespace FlightAppEliasGryp.ViewModels
                 CrewMember.UserName = _username;
                 CrewMember.Password = _password;
                 var user = await _accountService.CrewMemberLogIn(CrewMember.UserName, CrewMember.Password);
+                await LoadChatSignalRAsync();
+                await LoadSignalRNotifications();
                 if(user != null)
                     NavigationService.NavigateAndClearBackstack(typeof(CrewDashboardViewModel).FullName);
             }
@@ -57,6 +71,40 @@ namespace FlightAppEliasGryp.ViewModels
         {
             _password = password;
             _username = username;
+        }
+
+        private async Task LoadSignalRNotifications()
+        {
+            try
+            {
+                if (NotificationService.Connection() == null) await NotificationService.InitConnection();
+                ConversationService.Connection().On<string>("NewPromotionNotification", async (msg) => {
+                    ShellViewModel.Grid.Content = msg;
+                    ShellViewModel.Grid.Show();
+                });
+
+            }
+            catch (Exception e) { }
+        }
+
+        private async Task LoadChatSignalRAsync()
+        {
+            try
+            {
+                if (ConversationService.Connection() == null) await ConversationService.InitConnection();
+                ConversationService.Connection().On<ChatMessage>("ReceiveMessage", async (chat) =>
+                {
+                    ShellViewModel.Grid.Content = chat.ToString();
+                    ShellViewModel.Grid.Show();
+                });
+                if (NotificationService.Connection() == null) await NotificationService.InitConnection();
+                NotificationService.Connection().On<string>("NewOrder", async (chat) =>
+                {
+                    ShellViewModel.Grid.Content = chat;
+                    ShellViewModel.Grid.Show();
+                });
+            }
+            catch (Exception e) { }
         }
     }
 }

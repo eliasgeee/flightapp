@@ -1,4 +1,6 @@
-﻿using FlightAppEliasGryp.ViewModels;
+﻿using FlightAppEliasGryp.Models.Entertainment.Audio;
+using FlightAppEliasGryp.Services;
+using FlightAppEliasGryp.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -41,12 +43,12 @@ namespace FlightAppEliasGryp.Views.Entertainment.Audio
 
         private void TracksGrid_ItemClick(object sender, ItemClickEventArgs e)
         {
-
+            ViewModel.PlayTrack(e.ClickedItem as Track);
         }
 
         private void ArtistsGrid_ItemClick(object sender, ItemClickEventArgs e)
         {
-
+            
         }
     }
 }

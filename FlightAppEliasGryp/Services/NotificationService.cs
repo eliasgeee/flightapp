@@ -50,7 +50,7 @@ namespace FlightAppEliasGryp.Services
         {
             await _connection.InvokeAsync("SendPromotionNotification", new AddPromotionNotificationDTO()
             {
-                Product = product,
+                ProductDTO = product,
                 Promotion = promotion
             });
         }

@@ -30,5 +30,10 @@ namespace FlightAppEliasGryp.ViewModels
             var data = await _entertainmentService.GetAudioFeed();
             AudioFeed = data;
         }
+
+        public void PlayTrack(Track track)
+        {
+            NavigationService.Navigate(typeof(MediaPlayerViewModel).FullName, track);
+        }
     }
 }

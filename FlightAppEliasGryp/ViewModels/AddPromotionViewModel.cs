@@ -64,9 +64,11 @@ namespace FlightAppEliasGryp.ViewModels
             false);
             if (isValid)
             {
+                var en = double.Parse(End.ToString());
+                var dateend = DateTime.Now.AddMinutes(en);
                 Promotion = new Promotion
                 {
-                    End = DateTime.Now.AddMinutes(double.Parse(End.ToString())),
+                    End = dateend,
                     Start = DateTime.Now,
                     Amount = decimal.Parse(DiscountAmount),
                     RequiredAmount = RequiredAmount,
@@ -76,7 +78,11 @@ namespace FlightAppEliasGryp.ViewModels
                 if(promotion != null)
                 {
                     ProductDetailsViewModel.Promotions.Add(new PromotionModel(promotion));
-                    await _notificationService.SendPromotionNotification(Product, promotion);
+                    try
+                    {
+                        await _notificationService.SendPromotionNotification(Product, promotion);
+                    }
+                    catch(Exception e) { }
                 }
             }
         }

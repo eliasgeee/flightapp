@@ -11,7 +11,7 @@ namespace FlightAppEliasGryp.Services
     public interface IConversationService
     {
         Task<ICollection<Passenger>> GetConversationPartnersForPassenger();
-        Task<Conversation> AddNewConversation(List<Passenger> users, string message);
+        Task<Conversation> AddNewConversation(List<Passenger> users);
         Task<ICollection<Conversation>> GetAllConversationsForUser();
        // Task<Conversation> SendMessage(Conversation conversation, Message message);
         Task SendMessage(Conversation conversation, string message);

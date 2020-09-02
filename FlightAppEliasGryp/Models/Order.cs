@@ -1,5 +1,7 @@
-﻿using System;
+﻿using GalaSoft.MvvmLight;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -7,20 +9,34 @@ using Windows.Globalization.DateTimeFormatting;
 
 namespace FlightAppEliasGryp.Models
 {
-    public class Order
+    public class Order : ObservableObject
     {
-        public int Id { get; set; }
-        public List<OrderProduct> OrderItems { get; set; }
-        public DateTime Time { get; set; }
-        public decimal OrderTotal { get; set; }
-        public OrderStatus OrderStatus { get; set; }
-        public PaymentType PaymentType { get; set; }
-        public Passenger Passenger { get; set; }
-        public bool IsPaid { get; set; }
+        private int _id;
+        public int Id { get { return _id; } set { Set("Id", ref _id, value); } }
+
+        public ObservableCollection<OrderProduct> OrderItems { get; set; }
+
+        private DateTime _time;
+        public DateTime Time { get { return _time; } set { Set("Time", ref _time, value); } }
+
+        private decimal _orderTotal;
+        public decimal OrderTotal { get { return _orderTotal; } set { Set("OrderTotal", ref _orderTotal, value); } }
+
+        private OrderStatus _orderStatus;
+        public OrderStatus OrderStatus { get { return _orderStatus; } set { Set("OrderStatus", ref _orderStatus, value); } }
+
+        private PaymentType _paymentType;
+        public PaymentType PaymentType { get { return _paymentType; } set { Set("PaymentType", ref _paymentType, value); } }
+
+        private Passenger _passenger;
+        public Passenger Passenger { get { return _passenger; } set { Set("Passenger", ref _passenger, value); } }
+
+        private bool _isPaid;
+        public bool IsPaid { get { return _isPaid; } set { Set("IsPaid", ref _isPaid, value); } }
 
         public Order()
         {
-            OrderItems = new List<OrderProduct>();
+            OrderItems = new ObservableCollection<OrderProduct>();
             Time = DateTime.Now;
             OrderStatus = OrderStatus.NEW;
         }

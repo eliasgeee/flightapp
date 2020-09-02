@@ -9,11 +9,11 @@
     d:DesignHeight="300"
     d:DesignWidth="400">
 
-    <StackPanel Padding="0, 50, 50, 50">
+    <StackPanel Padding="0, 50, 50, 50" x:Name="Root">
         <StackPanel Spacing="10" Margin="0, 8, 0, 0">
             <TextBlock Text="Seatnumber *" FontWeight="Bold" />
             <ComboBox x:Name="Seatnumber" Width="200" HorizontalAlignment="Left" ItemsSource="{x:Bind ViewModel.Seats}"/>
         </StackPanel>
-        <Button Content="Login" Margin="0, 24, 0, 0" HorizontalAlignment="Left" Command="{x:Bind LoginViewModel.LoginClickedCommand}" CommandParameter="{x:Bind Seatnumber.SelectedItem, Mode=OneWay}"/>
+        <Button Content="Login" Margin="0, 24, 0, 0" HorizontalAlignment="Left" Click="Button_Click" Tag="{x:Bind Seatnumber.SelectedItem}"/>
     </StackPanel>
 </UserControl>

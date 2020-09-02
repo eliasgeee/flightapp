@@ -25,7 +25,7 @@
                                                                      
                                                                
                                                                            
-        IsSettingsVisible="True"
+        IsSettingsVisible="False"
         Background="{ThemeResource SystemControlBackgroundAltHighBrush}">
             <winui:NavigationView.MenuItems>
                 <!--
@@ -42,9 +42,9 @@
                 <winui:NavigationViewItem x:ConnectionId='11' Name="OrderManagement" x:Uid="Shell_OrderManagement" Icon="Document" helpers:NavHelper.NavigateTo="FlightAppEliasGryp.ViewModels.OrderManagementViewModel"                                                                      />
                 <winui:NavigationViewItem x:ConnectionId='12' x:Uid="Shell_SeatManagement" Icon="Document" helpers:NavHelper.NavigateTo="FlightAppEliasGryp.ViewModels.SeatManagementViewModel"                                                                      />
                 <winui:NavigationViewItem x:ConnectionId='13' x:Uid="Shell_FlightMap" Icon="Map" helpers:NavHelper.NavigateTo="FlightAppEliasGryp.ViewModels.FlightViewModel" Content="Map"                                                                     />
-                <winui:NavigationViewItem x:ConnectionId='14' x:Uid="Shell_Convos" Icon="Document" helpers:NavHelper.NavigateTo="FlightAppEliasGryp.ViewModels.ConversationsViewModel" Content="Messages"                                                                     />
-                <winui:NavigationViewItem x:ConnectionId='15' x:Uid="Shell_VideoFeed" Icon="Document" helpers:NavHelper.NavigateTo="FlightAppEliasGryp.ViewModels.VideoFeedViewModel" Content="Video"                                                                     />
-                <winui:NavigationViewItem x:ConnectionId='16' x:Uid="Shell_AudioFeed" Icon="Document" helpers:NavHelper.NavigateTo="FlightAppEliasGryp.ViewModels.AudioFeedViewModel" Content="Audio"                                                                     />
+                <winui:NavigationViewItem x:ConnectionId='14' x:Uid="Shell_Convos" Icon="Message" helpers:NavHelper.NavigateTo="FlightAppEliasGryp.ViewModels.ConversationsViewModel" Content="Messages"                                                                     />
+                <winui:NavigationViewItem x:ConnectionId='15' x:Uid="Shell_VideoFeed" Icon="Video" helpers:NavHelper.NavigateTo="FlightAppEliasGryp.ViewModels.VideoFeedViewModel" Content="Video"                                                                     />
+                <winui:NavigationViewItem x:ConnectionId='16' x:Uid="Shell_AudioFeed" Icon="MusicInfo" helpers:NavHelper.NavigateTo="FlightAppEliasGryp.ViewModels.AudioFeedViewModel" Content="Audio"                                                                     />
                 <winui:NavigationViewItem Content="Logout" x:Uid="LogOut"/>
             </winui:NavigationView.MenuItems>
             <i:Interaction.Behaviors>

@@ -14,14 +14,16 @@ namespace FlightAppEliasGryp.Services
     public class AuthenticationService : IAuthenticationService
     {
         private const string userFilename = "user.json";
-        private LocalStorageService<CurrentUser> _storageService;
+   //     private LocalStorageService<CurrentUser> _storageService;
         private HttpClientService _clientService;
         private DataService<CurrentUser> _dataService;
         private readonly string baseUri = "Account/";
 
+        private CurrentUser User;
+
         public AuthenticationService(HttpClientService client)
         {
-            _storageService = new LocalStorageService<CurrentUser>();
+  //          _storageService = new LocalStorageService<CurrentUser>();
             _clientService = client;
             _dataService = new DataService<CurrentUser>(_clientService);
         }
@@ -58,29 +60,31 @@ namespace FlightAppEliasGryp.Services
 
         private async Task<CurrentUser> Authenticate(CurrentUser currentUser)
         {
-            await SaveToken(currentUser);
-            var result = await GetTokenCurrentUser();
-            _clientService.Authenticate(result.Token);
-            return result;
+              await SaveToken(currentUser);
+            //     var result = await GetTokenCurrentUser();
+            _clientService.Authenticate(User.Token);
+            return User;
         }
 
         private async Task SaveToken(CurrentUser user)
         {
-            await _storageService.SaveFileInStorage(userFilename, user, CreationCollisionOption.ReplaceExisting);
+            //  await _storageService.SaveFileInStorage(userFilename, user, CreationCollisionOption.ReplaceExisting);
+            User = user;
         }
 
         public async Task<CurrentUser> GetTokenCurrentUser()
         {
-            var currentUser = await _storageService.GetFileFromStorage(userFilename);
-            return currentUser;
+         //   var currentUser = await _storageService.GetFileFromStorage(userFilename);
+            return User;
         }
 
         public async Task LogOut()
         {
-            var folder = ApplicationData.Current.LocalFolder;
-            var newFile = await folder.CreateFileAsync(userFilename, CreationCollisionOption.ReplaceExisting);
-            var text = "";
-            await FileIO.WriteTextAsync(newFile, text);
+            User = null;
+            //var folder = ApplicationData.Current.LocalFolder;
+            //var newFile = await folder.CreateFileAsync(userFilename, CreationCollisionOption.ReplaceExisting);
+            //var text = "";
+            //await FileIO.WriteTextAsync(newFile, text);
         }
     }
 }

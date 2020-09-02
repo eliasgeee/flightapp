@@ -1,4 +1,5 @@
 ﻿using FlightAppEliasGryp.Models;
+using FlightAppEliasGryp.Services;
 using FlightAppEliasGryp.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -28,6 +29,7 @@ namespace FlightAppEliasGryp.Views
     {
         private Grid grid;
         private SeatManagementViewModel ViewModel { get { return ViewModelLocator.Current.SeatManagementViewModel; } }
+        public NavigationServiceEx NavigationService { get { return ViewModelLocator.Current.NavigationService; } }
 
         public SeatManagementPage()
         {

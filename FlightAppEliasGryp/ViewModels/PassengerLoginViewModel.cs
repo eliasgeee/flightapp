@@ -15,21 +15,30 @@ namespace FlightAppEliasGryp.ViewModels
         private IAuthenticationService _accountService;
         private NavigationServiceEx NavigationService => ViewModelLocator.Current.NavigationService;
 
-        private ICommand _loginClickedCommand;
+        public IConversationService ConversationService;
+        public INotificationService NotificationService;
 
-        public ICommand LoginClickedCommand => _loginClickedCommand ??
-            (_loginClickedCommand = new RelayCommand<Seat>(OnLoginClicked));
+        //private ICommand _loginClickedCommand;
 
-        public PassengerLoginViewModel(IAuthenticationService accountService)
+        //public ICommand LoginClickedCommand => _loginClickedCommand ??
+        //    (_loginClickedCommand = new RelayCommand<Seat>(OnLoginClicked));
+
+        public PassengerLoginViewModel(IAuthenticationService accountService, IConversationService conversationService, INotificationService notificationService)
         {
             _accountService = accountService;
+            ConversationService = conversationService;
+            NotificationService = notificationService;
         }
 
-        public async void OnLoginClicked(Seat seat)
+        public async Task<CurrentUser> OnLoginClicked(Seat seat)
         {
             var user = await _accountService.PassengerLogIn(seat.Row, seat.Chair);
-            if (user != null)
-                NavigationService.NavigateAndClearBackstack("FlightAppEliasGryp.ViewModels.DetailsViewModel");
-        } 
+            return user;
+        }
+
+        public void NavigateToDashboard()
+        {
+            NavigationService.NavigateAndClearBackstack(typeof(FlightViewModel).FullName);
+        }
     }
 }

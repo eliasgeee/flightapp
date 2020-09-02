@@ -14,7 +14,10 @@ namespace FlightAppEliasGryp.Models
 
         public override string ToString()
         {
-            return $"{Sender} : {Text}";
+            if (Sender != null)
+                return $"{Sender} : {Text}";
+            else
+                return Text;
         }
     }
 }

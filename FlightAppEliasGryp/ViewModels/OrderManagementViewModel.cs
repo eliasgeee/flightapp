@@ -13,7 +13,9 @@ namespace FlightAppEliasGryp.ViewModels
     public class OrderManagementViewModel : ViewModelBase
     {
         public ObservableCollection<Order> UncompletedOrders { get; set; }
-        public Order SelectedItem { get; set; }
+
+        private Order _order;
+        public Order SelectedItem { get { return _order; } set { Set("SelectedItem", ref _order, value); } }
 
         private IOrderDataService _orderDataService { get; set; }
         public NavigationServiceEx NavigationService => ViewModelLocator.Current.NavigationService;
@@ -22,8 +24,6 @@ namespace FlightAppEliasGryp.ViewModels
         {
             _orderDataService = orderDataService;
             UncompletedOrders = new ObservableCollection<Order>();
-
-            LoadDataAsync();
         }
 
         public async void LoadDataAsync()
@@ -49,7 +49,10 @@ namespace FlightAppEliasGryp.ViewModels
         public void ChangeOrderStatus(Order order, OrderStatus newStatus)
         {
             if(newStatus != SelectedItem.OrderStatus)
-            _orderDataService.ChangeOrderStatus(order, newStatus);
+            {
+                _orderDataService.ChangeOrderStatus(order, newStatus);
+                LoadDataAsync();
+            }
         }
     }
 }

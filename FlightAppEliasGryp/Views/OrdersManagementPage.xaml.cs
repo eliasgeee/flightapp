@@ -42,6 +42,7 @@ namespace FlightAppEliasGryp.Views
         {
             this.InitializeComponent();
             OrderDetailsPanel.Visibility = Visibility.Collapsed;
+            ViewModel.LoadDataAsync();
         }
 
         private void OrderItems_ItemClick(object sender, ItemClickEventArgs e)

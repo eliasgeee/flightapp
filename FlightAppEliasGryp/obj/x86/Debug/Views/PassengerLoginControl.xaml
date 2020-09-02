@@ -9,12 +9,12 @@
     d:DesignHeight="300"
     d:DesignWidth="400">
 
-    <StackPanel Padding="0, 50, 50, 50">
+    <StackPanel x:ConnectionId='2' Padding="0, 50, 50, 50" x:Name="Root">
         <StackPanel Spacing="10" Margin="0, 8, 0, 0">
             <TextBlock Text="Seatnumber *" FontWeight="Bold" />
-            <ComboBox x:ConnectionId='3' x:Name="Seatnumber" Width="200" HorizontalAlignment="Left"                                       />
+            <ComboBox x:ConnectionId='4' x:Name="Seatnumber" Width="200" HorizontalAlignment="Left"                                       />
         </StackPanel>
-        <Button x:ConnectionId='2' Content="Login" Margin="0, 24, 0, 0" HorizontalAlignment="Left"                                                                                                                       />
+        <Button x:ConnectionId='3' Content="Login" Margin="0, 24, 0, 0" HorizontalAlignment="Left"                                                            />
     </StackPanel>
 </UserControl>
 

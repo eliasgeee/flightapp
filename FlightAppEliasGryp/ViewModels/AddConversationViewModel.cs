@@ -37,8 +37,9 @@ namespace FlightAppEliasGryp.ViewModels
 
         public async Task AddNewConversation()
         {
-            await _conversationService.
-                AddNewConversation(ConversationPartners.Where(e => e.IsSelected).Select(e => e.Passenger).ToList(), Message);
+            var convo = await _conversationService.
+                AddNewConversation(ConversationPartners.Where(e => e.IsSelected).Select(e => e.Passenger).ToList());
+            await _conversationService.SendMessage(convo, Message);
         }
     }
 }
