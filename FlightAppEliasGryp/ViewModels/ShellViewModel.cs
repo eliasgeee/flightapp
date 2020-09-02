@@ -30,8 +30,6 @@ namespace FlightAppEliasGryp.ViewModels
         private readonly KeyboardAccelerator _backKeyboardAccelerator = BuildKeyboardAccelerator(VirtualKey.GoBack);
         private readonly IAuthenticationService _authenticationService;
 
-        public InAppNotification Grid { get; set; }
-
         private bool _isBackEnabled;
         private bool _isNavigationVisible;
         private IList<KeyboardAccelerator> _keyboardAccelerators;
@@ -212,5 +210,8 @@ namespace FlightAppEliasGryp.ViewModels
             var result = NavigationService.GoBack();
             args.Handled = result;
         }
+
+        //Dit ui-element in een ViewModel was enkel voor de demo om het inloggen met meerdere instanties aan te passen
+        public InAppNotification Grid { get; set; }
     }
 }
